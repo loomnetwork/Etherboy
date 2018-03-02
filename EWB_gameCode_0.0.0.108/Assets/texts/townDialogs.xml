@@ -1,0 +1,53 @@
+ <dialogs>    
+	 <dialog>
+	 	 <name></name>
+		 <speaker>Mentor</speaker>
+     <text>The great godz of old have decided to abandon us, and without them our world will simply disintegrate into nothing. The only thing to do is find the LOOM token, at the temple of NODE, which is located at the end of the forbidden forest, but taking it will change everything.</text>
+		 <eventTriggered>learn_about_loom</eventTriggered>
+    </dialog>
+
+
+   <dialog>
+     <name>learn_about_loom</name>
+     <speaker>Mentor</speaker>
+     <text>It is the only way to save all the poor souls living in this town. And the only one brave enough to do it, is Hiro, he’s usually at the inn drinking and telling stories of his glory days.</text>
+     <eventTriggered>speak_to_hiro</eventTriggered>
+   </dialog>
+   
+   <dialog>
+     <name>talked_to_warrior</name>
+     <speaker>Mentor</speaker>
+     <text>There is no one brave enough, and we are all doomed!!!</text>
+     <eventTriggered>go_on_quest</eventTriggered>
+   </dialog>
+
+   <dialog>
+     <name>got_loom_token</name>
+     <speaker>Mentor</speaker>
+     <text>YOU DID IT!  Put it on the alter.</text>
+     <eventTriggered>place_token</eventTriggered>
+   </dialog>
+
+
+   <dialog>
+     <name>go_on_quest</name>
+     <speaker>Player</speaker>
+     <text>I am brave enough! I will bring the LOOM token from the Temple of NODE!!</text>
+     <eventTriggered>get_amulet</eventTriggered>
+   </dialog>
+
+   <dialog>
+     <name></name>
+     <speaker>ShopKeeper</speaker>
+     <text>We aren't open yet, please come back later!</text>
+     <eventTriggered></eventTriggered>
+   </dialog>
+
+   <dialog>
+     <name></name>
+     <speaker>randomGuy</speaker>
+     <text>Ahhh what's happening!</text>
+     <eventTriggered></eventTriggered>
+   </dialog>
+
+ </dialogs>
