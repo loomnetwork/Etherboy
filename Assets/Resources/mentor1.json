@@ -1,0 +1,43 @@
+{
+    "hasAutomaticDialogue":true,
+    "hasTriggeredDialogue":true,
+    "automaticDialogue":{
+        "dialogues":[
+            "...prophesy, what about the prophesy...",
+            "...our world is collapsing, we are all doomed...",
+            "...what are we to do?!..."
+        ],
+        "timeInBetween":[
+            5,
+            5,
+            5
+        ],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+        ]
+    },
+    "triggeredDialogue":{
+        "dialogues":[
+            "Wh.. Whats goin...",
+            "The end is upon us, the only one who can save us won't stop lugging ale into his pie hole...",
+            "I'll find him... I can do anythin...",
+			"He wouldn't budge, but go ahead and try, he's in the INN you can't miss him... Hiro..."
+        ],
+        "timeInBetween":[
+            1,
+            3,
+            1,
+			3
+        ],
+		"forOther":[
+			"etherBoy",
+			"",
+			"etherBoy",
+			""
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+            "mentor1Talked"
+        ]
+    }
+}

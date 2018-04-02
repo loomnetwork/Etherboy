@@ -1,0 +1,33 @@
+{
+    "hasAutomaticDialogue":true,
+    "hasTriggeredDialogue":true,
+    "automaticDialogue":{
+        "dialogues":[
+            "...then I punched that DRAGON in the sniffer! HARHAR..."
+        ],
+        "timeInBetween":[
+            5
+        ],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+        ]
+    },
+    "triggeredDialogue":{
+        "dialogues":[
+            "ahem...",
+            "Let me STOP you right there friend, I'm busy with my friends go away..."
+        ],
+        "timeInBetween":[
+            1,
+            3
+        ],
+		"forOther":[
+			"etherBoy",
+			""
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+            "hiro2Talked"
+        ]
+    }
+}

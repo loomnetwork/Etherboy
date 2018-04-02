@@ -1,0 +1,16 @@
+## BEGIN UNITY IAP
+#
+# When building with Gradle, analysis of Unity IAP's Java purchasing support libraries can
+# result in fatal build warnings and errors. These can be safely ignored. 
+# 
+# To ignore:
+# 1. Paste the contents of this file into your project's "Assets/Plugins/UnityPurchasing/Android/proguard-user.txt" 
+#    file.
+# 2. Confirm that "User Proguard File" is enabled (Player Settings > Android > Publishing Settings > 
+#    User Proguard File).
+# 3. Build.
+#
+# Note this ProGuard flag suppresses often helpful warnings seen when incorporating Java into projects.
+-ignorewarnings
+#
+## END UNITY IAP
