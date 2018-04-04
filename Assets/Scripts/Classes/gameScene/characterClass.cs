@@ -26,7 +26,7 @@ public class characterClass : MonoBehaviour {
 
 	private Transform baseParent;
 
-	private float jumpStrength = 12;
+	private float jumpStrength = 9;
 	private float movSpeedX;
 	private float movSpeedY;
 

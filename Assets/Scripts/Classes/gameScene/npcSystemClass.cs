@@ -11,6 +11,7 @@ public class automaticDialogueClass {
 	public int currentDialogue;
 	public string[] flagsAfterDialogue;
 	public float timer;
+	public string[] forOther;
 }
 
 [System.Serializable]
@@ -81,6 +82,11 @@ public class npcSystemClass : MonoBehaviour {
 					bubbleOther = other.transform.Find ("bubble");
 					bubbleOther.gameObject.SetActive (true);
 					bubbleOther.GetChild (0).GetComponent<TextMeshPro> ().text = currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue];
+
+					npcSystemClass otherNPC = other.GetComponent<npcSystemClass> ();
+					if (otherNPC != null) {
+						otherNPC.enabled = false;
+					}
 				}
 			}
 
@@ -93,6 +99,11 @@ public class npcSystemClass : MonoBehaviour {
 				currentDialogue.triggeredDialogue.currentDialogue++;
 				if (other != null) {
 					bubbleOther.gameObject.SetActive (false);
+
+					npcSystemClass otherNPC = other.GetComponent<npcSystemClass> ();
+					if (otherNPC != null) {
+						otherNPC.enabled = true;
+					}
 				}
 				if (currentDialogue.triggeredDialogue.currentDialogue >= currentDialogue.triggeredDialogue.dialogues.Length) {
 					startTriggered = false;
@@ -111,26 +122,7 @@ public class npcSystemClass : MonoBehaviour {
 				}
 			}
 		} else if (startAutomatic) {
-			if (bubble.activeSelf == false) {
-				bubble.SetActive (true);
-			}
-
-			if (currentDialogue.automaticDialogue.dialogues [currentDialogue.automaticDialogue.currentDialogue] == "") {
-				if (bubble.activeSelf == true) {
-					bubble.SetActive (false);
-				}
-			}
-
-			text.text = currentDialogue.automaticDialogue.dialogues [currentDialogue.automaticDialogue.currentDialogue];
-			currentDialogue.automaticDialogue.timer += Time.deltaTime;
-
-			if (currentDialogue.automaticDialogue.timer >= currentDialogue.automaticDialogue.timeInBetween [currentDialogue.automaticDialogue.currentDialogue]) {
-				currentDialogue.automaticDialogue.timer = 0;
-				currentDialogue.automaticDialogue.currentDialogue++;
-				if (currentDialogue.automaticDialogue.currentDialogue >= currentDialogue.automaticDialogue.dialogues.Length) {
-					currentDialogue.automaticDialogue.currentDialogue = 0;
-				}
-			}
+			automaticDialogueStep ();
 		} else {
 			if (bubble.activeSelf == true) {
 				bubble.SetActive (false);
@@ -144,6 +136,10 @@ public class npcSystemClass : MonoBehaviour {
 				if (!startTriggered) {
 					if (character != null) {
 						if (character.GetComponent<characterClass> () != null) {
+							if (startAutomatic) {
+								currentDialogue.automaticDialogue.timer = 999;
+								automaticDialogueStep ();
+							}
 							character.GetComponent<characterClass> ().state = "talking";
 							startTriggered = true;
 							currentDialogue.triggeredDialogue.timer = 0;
@@ -157,9 +153,71 @@ public class npcSystemClass : MonoBehaviour {
 		}
 	}
 
+	void automaticDialogueStep () {
+		if (bubble.activeSelf == false) {
+			bubble.SetActive (true);
+		}
+
+		if (currentDialogue.automaticDialogue.dialogues [currentDialogue.automaticDialogue.currentDialogue] == "") {
+			if (bubble.activeSelf == true) {
+				bubble.SetActive (false);
+			}
+		}
+
+		text.text = currentDialogue.automaticDialogue.dialogues [currentDialogue.automaticDialogue.currentDialogue];
+		currentDialogue.automaticDialogue.timer += Time.deltaTime;
+
+		GameObject other = null;
+		Transform bubbleOther = null;
+		if (currentDialogue.automaticDialogue.forOther.Length >= currentDialogue.automaticDialogue.currentDialogue && currentDialogue.automaticDialogue.forOther [currentDialogue.automaticDialogue.currentDialogue] != "") {
+			text.text = "";
+			other = GameObject.Find (currentDialogue.automaticDialogue.forOther [currentDialogue.automaticDialogue.currentDialogue]);
+
+			if (other != null) {
+				bubbleOther = other.transform.Find ("bubble");
+				bubbleOther.gameObject.SetActive (true);
+				bubbleOther.GetChild (0).GetComponent<TextMeshPro> ().text = currentDialogue.automaticDialogue.dialogues [currentDialogue.automaticDialogue.currentDialogue];
+
+				npcSystemClass otherNPC = other.GetComponent<npcSystemClass> ();
+				if (otherNPC != null) {
+					otherNPC.enabled = false;
+				}
+			}
+		}
+
+		if (text.text == "") {
+			bubble.SetActive (false);
+		}
+
+		if (currentDialogue.automaticDialogue.timer >= currentDialogue.automaticDialogue.timeInBetween [currentDialogue.automaticDialogue.currentDialogue]) {
+			currentDialogue.automaticDialogue.timer = 0;
+			currentDialogue.automaticDialogue.currentDialogue++;
+
+			if (other != null) {
+				bubbleOther.gameObject.SetActive (false);
+
+				npcSystemClass otherNPC = other.GetComponent<npcSystemClass> ();
+				if (otherNPC != null) {
+					otherNPC.enabled = true;
+				}
+			}
+
+			if (currentDialogue.automaticDialogue.currentDialogue >= currentDialogue.automaticDialogue.dialogues.Length) {
+				currentDialogue.automaticDialogue.currentDialogue = 0;
+			}
+		}
+	}
+
 	void loadDialogueData () {
-		if (questSet < dialogueFiles.Length) {
-			TextAsset targetFile = Resources.Load<TextAsset>(dialogueFiles[questSet]);
+		int value = questSet;
+
+		if (value >= dialogueFiles.Length) {
+			value = dialogueFiles.Length - 1;
+		}
+
+		print (dialogueFiles.Length);
+		if (dialogueFiles.Length > 0) {
+			TextAsset targetFile = Resources.Load<TextAsset> (dialogueFiles [value]);
 
 			currentDialogue = JsonUtility.FromJson<dialogueSystemClass> (targetFile.text);
 
@@ -174,11 +232,17 @@ public class npcSystemClass : MonoBehaviour {
 					readyForTriggered = false;
 				}
 			}
+		} else {
+			currentDialogue = new dialogueSystemClass ();
+			currentDialogue.hasAutomaticDialogue = false;
+			currentDialogue.hasTriggeredDialogue = false;
+
+			print ("DONE");
 		}
 	}
 
 	void OnTriggerEnter2D (Collider2D collider) {
-		if (collider.gameObject.layer == LayerMask.NameToLayer ("Character")) {
+		if (collider.gameObject.layer == LayerMask.NameToLayer ("Character") && collider.gameObject.name == "etherBoy") {
 			if (currentDialogue.hasAutomaticDialogue) {
 				startAutomatic = true;
 			}
@@ -191,8 +255,12 @@ public class npcSystemClass : MonoBehaviour {
 	}
 
 	void OnTriggerExit2D (Collider2D collider) {
-		if (collider.gameObject.layer == LayerMask.NameToLayer ("Character")) {
+		if (collider.gameObject.layer == LayerMask.NameToLayer ("Character") && collider.gameObject.name == "etherBoy") {
 			if (currentDialogue.hasAutomaticDialogue) {
+				if (startAutomatic) {
+					currentDialogue.automaticDialogue.timer = 999;
+					automaticDialogueStep ();
+				}
 				currentDialogue.automaticDialogue.timer = 0;
 				currentDialogue.automaticDialogue.currentDialogue = 0;
 				startAutomatic = false;

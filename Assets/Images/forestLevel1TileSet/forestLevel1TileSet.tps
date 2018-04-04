@@ -186,12 +186,6 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/2ndfloor_corner.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/2ndfloor_edge.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/2ndfloor_grass.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/2ndfloor_midtile_plain.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/2ndfloor_midtile1.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/2ndfloor_midtile2.png</filename>
             <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/bounce_mushroom.png</filename>
             <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/bush_end1.png</filename>
             <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/bush_end2.png</filename>
@@ -258,6 +252,13 @@
             <filename>../../../../../../../../../Downloads/Merkle Tree/leaves_mid_2.png</filename>
             <filename>../../../../../../../../../Downloads/Tiles/wall_recolor.png</filename>
             <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/z1.png</filename>
+            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP 2/2ndfloor_corner.png</filename>
+            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP 2/2ndfloor_edge.png</filename>
+            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP 2/2ndfloor_grass.png</filename>
+            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP 2/2ndfloor_midtile_plain.png</filename>
+            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP 2/2ndfloor_midtile1.png</filename>
+            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP 2/2ndfloor_midtile2.png</filename>
+            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP 2/z2.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

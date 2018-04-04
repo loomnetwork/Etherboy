@@ -3,16 +3,25 @@
     "hasTriggeredDialogue":false,
     "automaticDialogue":{
         "dialogues":[
+			"",
             "...he would never agree...",
             "...or would he?",
             "...never in a million years...",
 			"...or would he?!"
         ],
         "timeInBetween":[
+			0.5,
             5,
             5,
             5
         ],
+		"forOther":[
+			"",
+			"",
+			"",
+			"",
+			""
+		],
         "currentDialogue":0,
         "flagsAfterDialogue":[
         ]

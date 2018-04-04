@@ -3,25 +3,40 @@
     "hasTriggeredDialogue":true,
     "automaticDialogue":{
         "dialogues":[
-            "...then I punched that DRAGON in the sniffer! HARHAR..."
+			"...oh he's so dreamy...",
+            "...then I punched that DRAGON in the sniffer! HARHAR...",
+			"...one day he'll be all mine..."
         ],
         "timeInBetween":[
-            5
+            2,
+			3,
+			2
         ],
+		"forOther":[
+			"randomGirl2",
+			"",
+			"randomGirl1"
+		],
         "currentDialogue":0,
         "flagsAfterDialogue":[
         ]
     },
     "triggeredDialogue":{
         "dialogues":[
+			"...oh he's so dreamy...",
+			"...one day he'll be all mine...",
             "ahem...",
             "Let me STOP you right there friend, I'm busy with my friends go away..."
         ],
         "timeInBetween":[
             1,
-            3
+            1,
+			0.5,
+			3
         ],
 		"forOther":[
+			"randomGirl2",
+			"randomGirl1",
 			"etherBoy",
 			""
 		],

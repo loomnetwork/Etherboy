@@ -28,6 +28,7 @@ public class basicEnemyClass : MonoBehaviour {
 	private float attackDuration;
 
 	private float multiTaskTimer;
+	private float attackDelayTime;
 
 	// Use this for initialization
 	void Start () {
@@ -40,12 +41,20 @@ public class basicEnemyClass : MonoBehaviour {
 
 		if (transform.name == "snail") {
 			attackDuration = 1.6f;
+			life = 1;
+			attackDelayTime = 1;
 		} else if (transform.name == "slime") {
 			attackDuration = 1;
+			life = 2;
+			attackDelayTime = 0;
 		} else if (transform.name == "leaf") {
 			attackDuration = 1;
+			life = 1;
+			attackDelayTime = 0;
 		} else if (transform.name == "spike") {
 			attackDuration = 2.55f;
+			life = 1;
+			attackDelayTime = 0;
 		}
 
 		if (movSpeedX > 0) {
@@ -132,36 +141,45 @@ public class basicEnemyClass : MonoBehaviour {
 		} else if (state == "attack") {
 			attackTime += Time.deltaTime;
 			if (attackTime > attackDuration) {
-				state = "normal";
+				state = "attackDelay";
 				attackTime = 0;
 				if (transform.name == "leaf") {
 					multiTaskTimer = 0;
 				}
 			} else if (attackTime > 0.7f) {
 				if (transform.name == "snail") {
-					thisBody.velocity = new Vector2 (0, 0);
+					thisBody.velocity = new Vector2 (0, thisBody.velocity.y);
 				}
 			} else if (attackTime > 0.5f) {
 				if (transform.name == "leaf") {
 					if (thisPuppetControl.flip) {
-						thisBody.velocity = new Vector2 (0, 0);
+						thisBody.velocity = new Vector2 (0, thisBody.velocity.y);
 					} else {
-						thisBody.velocity = new Vector2 (0, 0);
+						thisBody.velocity = new Vector2 (0, thisBody.velocity.y);
 					}
 				}
 			} else if (attackTime > 0.3f) {
 				if (transform.name == "snail") {
 					if (thisPuppetControl.flip) {
-						thisBody.velocity = new Vector2 (10, 0);
+						thisBody.velocity = new Vector2 (6, thisBody.velocity.y);
 					} else {
-						thisBody.velocity = new Vector2 (-10, 0);
+						thisBody.velocity = new Vector2 (-6, thisBody.velocity.y);
 					}
 				} else if (transform.name == "leaf") {
 					if (thisPuppetControl.flip) {
-						thisBody.velocity = new Vector2 (2, 0);
+						thisBody.velocity = new Vector2 (2, thisBody.velocity.y);
 					} else {
-						thisBody.velocity = new Vector2 (-2, 0);
+						thisBody.velocity = new Vector2 (-2, thisBody.velocity.y);
 					}
+				}
+			}
+		} else if (state == "attackDelay") {
+			attackTime += Time.deltaTime;
+			if (attackTime > attackDelayTime) {
+				state = "normal";
+				attackTime = 0;
+				if (transform.name == "leaf") {
+					multiTaskTimer = 0;
 				}
 			}
 		}
@@ -187,6 +205,16 @@ public class basicEnemyClass : MonoBehaviour {
 					thisAnimator.Play ("Death", -1, 0f);
 					gameObject.layer = LayerMask.NameToLayer("Default");
 
+					LeanTween.alpha (gameObject, 0, 0.15f).setDelay (5);
+					if (transform.name == "leaf") {
+						LeanTween.scaleX (gameObject, 0, 0.15f).setDelay (5).setOnStart (() => {
+							GetComponent<Collider2D> ().isTrigger = true;
+						});
+					} else {
+						LeanTween.scaleY (gameObject, 0, 0.15f).setDelay (5).setOnStart (() => {
+							GetComponent<Collider2D> ().isTrigger = true;
+						});
+					}
 					if (transform.name == "leaf") {
 						if (thisPuppetControl.flip == true) {
 							LeanTween.rotateZ (gameObject, 90, 0.25f);
