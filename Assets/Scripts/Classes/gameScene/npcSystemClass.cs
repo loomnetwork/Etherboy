@@ -22,6 +22,9 @@ public class triggeredDialogueClass {
 	public string[] flagsAfterDialogue;
 	public float timer;
 	public string[] forOther;
+	public string[] newPosition;
+	public string[] playAnimation;
+	public bool[] skippable;
 }
 
 [System.Serializable]
@@ -35,6 +38,7 @@ public class dialogueSystemClass {
 
 public class npcSystemClass : MonoBehaviour {
 	public string[] dialogueFiles;
+	public bool skipLast;
 
 	private int questSet;
 	private dialogueSystemClass currentDialogue;
@@ -44,13 +48,18 @@ public class npcSystemClass : MonoBehaviour {
 
 	private bool startAutomatic;
 	private bool readyForTriggered;
+	[HideInInspector]
+	public bool activateTriggeredManually;
 	private bool startTriggered;
 
 	private GameObject character;
+	private GameObject activePopup;
+
+	private bool firstIterationDialog;
 
 	// Use this for initialization
 	void Start () {
-		bubble = transform.GetChild (0).gameObject;
+		bubble = transform.Find ("bubble").gameObject;
 		text = bubble.transform.GetChild (0).GetComponent<TextMeshPro> ();
 		text.text = "";
 		questSet = globalScript.currentQuest;
@@ -64,13 +73,23 @@ public class npcSystemClass : MonoBehaviour {
 			loadDialogueData ();
 		}
 
-		if (startTriggered) {
+		if (startTriggered && (activePopup == null || activePopup.activeSelf == false)) {
 			if (bubble.activeSelf == false) {
 				bubble.SetActive (true);
 			}
-
+				
 			text.text = currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue];
 			currentDialogue.triggeredDialogue.timer += Time.deltaTime;
+
+			if (text.text == "<bowSwordSelect>") {
+				text.text = "";
+				GameObject popup = GameObject.Find ("bowSwordSelect");
+				popup = popup.transform.GetChild (0).gameObject;
+				popup.SetActive (true);
+				activePopup = popup;
+
+				currentDialogue.triggeredDialogue.timer = currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue];
+			}
 
 			GameObject other = null;
 			Transform bubbleOther = null;
@@ -79,26 +98,94 @@ public class npcSystemClass : MonoBehaviour {
 				other = GameObject.Find (currentDialogue.triggeredDialogue.forOther [currentDialogue.triggeredDialogue.currentDialogue]);
 
 				if (other != null) {
-					bubbleOther = other.transform.Find ("bubble");
-					bubbleOther.gameObject.SetActive (true);
-					bubbleOther.GetChild (0).GetComponent<TextMeshPro> ().text = currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue];
+					if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] != "") {
+						bubbleOther = other.transform.Find ("bubble");
+						bubbleOther.gameObject.SetActive (true);
+						bubbleOther.GetChild (0).GetComponent<TextMeshPro> ().text = currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue];
+					}
+
+					if (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue] != "") {
+						GameObject glblCtrl = other.transform.Find ("Global_CTRL").gameObject;
+						Animator otherAnim = glblCtrl.GetComponent<Animator> ();
+						if (!otherAnim.GetCurrentAnimatorStateInfo (0).IsName (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue])) {
+							otherAnim.Play (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue], -1, 0f);
+						}
+					}
+						
+					if (firstIterationDialog && currentDialogue.triggeredDialogue.newPosition [currentDialogue.triggeredDialogue.currentDialogue] != "") {
+						firstIterationDialog = false;
+
+						string[] splitter = currentDialogue.triggeredDialogue.newPosition [currentDialogue.triggeredDialogue.currentDialogue].Split (new string[] { "/separate/" }, StringSplitOptions.None);
+
+						Vector2 movePos = other.transform.parent.InverseTransformPoint (transform.position);
+
+						bool moveX = false;
+						bool moveY = false;
+						if (splitter.Length > 1) {
+							float valueX = float.Parse (splitter [0]);
+							float valueY = float.Parse (splitter [1]);
+
+							if (splitter [0] == "0") {
+								movePos.x = other.transform.localPosition.x;
+							} else {
+								movePos.x = movePos.x + valueX;
+								moveX = true;
+							}
+
+							if (splitter [1] == "0") {
+								movePos.y = other.transform.localPosition.y;
+							} else {
+								movePos.y = movePos.y + valueY;
+								moveY = moveX;
+							}
+						} else {
+							movePos = other.transform.localPosition;
+						}
+
+						if (moveX) {
+							LeanTween.moveLocalX (other, movePos.x, currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue]);
+						}
+
+						if (moveY) {
+							LeanTween.moveLocalX (other, movePos.y, currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue]);
+						}
+					}
 
 					npcSystemClass otherNPC = other.GetComponent<npcSystemClass> ();
 					if (otherNPC != null) {
 						otherNPC.enabled = false;
 					}
 				}
+			} else {
+				if (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue] != "") {
+					GameObject glblCtrl = transform.Find ("Global_CTRL").gameObject;
+					Animator thisAnim = glblCtrl.GetComponent<Animator> ();
+					if (!thisAnim.GetCurrentAnimatorStateInfo (0).IsName (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue])) {
+						thisAnim.Play (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue], -1, 0f);
+					}
+				}
 			}
 
 			if (text.text == "") {
 				bubble.SetActive (false);
+			} else {
+				if (text.text.Contains ("<otherWeapon>")) {
+					string otherWeapon = "sword";
+					if (globalScript.currentWeapon == "sword") {
+						otherWeapon = "bow";
+					}
+					text.text = text.text.Replace ("<otherWeapon>", otherWeapon);
+				}
 			}
 
 			if (currentDialogue.triggeredDialogue.timer >= currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue]) {
 				currentDialogue.triggeredDialogue.timer = 0;
 				currentDialogue.triggeredDialogue.currentDialogue++;
+				firstIterationDialog = true;
 				if (other != null) {
-					bubbleOther.gameObject.SetActive (false);
+					if (bubbleOther != null) {
+						bubbleOther.gameObject.SetActive (false);
+					}
 
 					npcSystemClass otherNPC = other.GetComponent<npcSystemClass> ();
 					if (otherNPC != null) {
@@ -106,7 +193,9 @@ public class npcSystemClass : MonoBehaviour {
 					}
 				}
 				if (currentDialogue.triggeredDialogue.currentDialogue >= currentDialogue.triggeredDialogue.dialogues.Length) {
+					firstIterationDialog = false;
 					startTriggered = false;
+					globalScript.gameState = "Normal";
 					character.GetComponent<characterClass> ().state = "normal";
 					if (startAutomatic == false && bubble.activeSelf == true) {
 						bubble.SetActive (false);
@@ -115,13 +204,32 @@ public class npcSystemClass : MonoBehaviour {
 					if (currentDialogue.triggeredDialogue.flagsAfterDialogue.Length >= 1) {
 						if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "mentor1Talked") {
 							globalScript.currentQuest = 1;
+							globalScript.currentGold += 100;
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "hiro2Talked") {
 							globalScript.currentQuest = 2;
+							globalScript.currentGold += 100;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "steveTalkedWithMentor1") {
+							globalScript.currentQuest = 3;
+							globalScript.currentGold += 100;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "shop1Talked") {
+							globalScript.currentQuest = 4;
+							globalScript.currentGold += 100;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "doneBeforeForest1") {
+							GetComponent<npcSystemClass> ().enabled = false;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "reachedForest1") {
+							globalScript.currentQuest = 5;
+							globalScript.currentGold += 100;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "gotEarthOrb1") {
+							globalScript.currentQuest = 6;
+							globalScript.currentGold += 200;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "steveTalkedWithMentor2") {
+							globalScript.currentQuest = 7;
+							globalScript.currentGold += 200;
 						}
 					}
 				}
 			}
-		} else if (startAutomatic) {
+		} else if (startAutomatic && (activePopup == null || activePopup.activeSelf == false)) {
 			automaticDialogueStep ();
 		} else {
 			if (bubble.activeSelf == true) {
@@ -129,10 +237,14 @@ public class npcSystemClass : MonoBehaviour {
 			}
 		}
 
-		if (readyForTriggered) {
+		if (readyForTriggered || activateTriggeredManually || startTriggered) {
 			bool pressedTalk = Input.GetButtonDown ("Fire2");
 
-			if (pressedTalk) {
+			if (pressedTalk || activateTriggeredManually) {
+				if (activateTriggeredManually) {
+					character = GameObject.Find ("etherBoy");
+					activateTriggeredManually = false;
+				}
 				if (!startTriggered) {
 					if (character != null) {
 						if (character.GetComponent<characterClass> () != null) {
@@ -140,14 +252,18 @@ public class npcSystemClass : MonoBehaviour {
 								currentDialogue.automaticDialogue.timer = 999;
 								automaticDialogueStep ();
 							}
+							globalScript.gameState = "isTalking";
 							character.GetComponent<characterClass> ().state = "talking";
 							startTriggered = true;
+							firstIterationDialog = true;
 							currentDialogue.triggeredDialogue.timer = 0;
 							currentDialogue.triggeredDialogue.currentDialogue = 0;
 						}
 					}
 				} else {
-					currentDialogue.triggeredDialogue.timer = currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue];
+					if (currentDialogue.triggeredDialogue.skippable [currentDialogue.triggeredDialogue.currentDialogue]) {
+						currentDialogue.triggeredDialogue.timer = currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue];
+					}
 				}
 			}
 		}
@@ -211,12 +327,15 @@ public class npcSystemClass : MonoBehaviour {
 	void loadDialogueData () {
 		int value = questSet;
 
-		if (value >= dialogueFiles.Length) {
-			value = dialogueFiles.Length - 1;
+		if (!skipLast) {
+			if (value >= dialogueFiles.Length) {
+				value = dialogueFiles.Length - 1;
+			}
 		}
 
-		print (dialogueFiles.Length);
-		if (dialogueFiles.Length > 0) {
+		print (transform.name);
+
+		if (dialogueFiles.Length > 0 && dialogueFiles [value] != "") {
 			TextAsset targetFile = Resources.Load<TextAsset> (dialogueFiles [value]);
 
 			currentDialogue = JsonUtility.FromJson<dialogueSystemClass> (targetFile.text);
@@ -232,16 +351,17 @@ public class npcSystemClass : MonoBehaviour {
 					readyForTriggered = false;
 				}
 			}
-		} else {
+		} else {  
 			currentDialogue = new dialogueSystemClass ();
 			currentDialogue.hasAutomaticDialogue = false;
 			currentDialogue.hasTriggeredDialogue = false;
-
-			print ("DONE");
 		}
 	}
 
 	void OnTriggerEnter2D (Collider2D collider) {
+		if (globalScript.gameState == "isTalking") {
+			return;
+		}
 		if (collider.gameObject.layer == LayerMask.NameToLayer ("Character") && collider.gameObject.name == "etherBoy") {
 			if (currentDialogue.hasAutomaticDialogue) {
 				startAutomatic = true;
@@ -250,11 +370,19 @@ public class npcSystemClass : MonoBehaviour {
 			if (currentDialogue.hasTriggeredDialogue) {
 				readyForTriggered = true;
 				character = collider.gameObject;
+
+				if (transform.name == "earth_sphere") {
+					GetComponent<Collider2D> ().enabled = false;
+					activateTriggeredManually = true;
+				}
 			}
 		}
 	}
 
 	void OnTriggerExit2D (Collider2D collider) {
+		if (globalScript.gameState == "isTalking") {
+			return;
+		}
 		if (collider.gameObject.layer == LayerMask.NameToLayer ("Character") && collider.gameObject.name == "etherBoy") {
 			if (currentDialogue.hasAutomaticDialogue) {
 				if (startAutomatic) {

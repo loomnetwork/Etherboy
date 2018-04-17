@@ -43,13 +43,34 @@ public class markerClass : MonoBehaviour {
 
 				unalteredPoint = door.transform.position;
 			} else if (globalScript.currentQuest == 2) {
+				GameObject NPC = neededObjectives [0];
+				if (globalScript.gameState != "isTalking") {
+					GameObject Steve = neededObjectives [3];
+					Steve.SetActive (true);
+					Steve.transform.localPosition = new Vector2 (NPC.transform.localPosition.x - 1, NPC.transform.localPosition.y - 0.2f);
+					globalScript.gameState = "isTalking";
+					LeanTween.value (0, 1, 0.5f).setOnComplete (() => {
+						NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+					});
+				}
+				found = false;
+			} else if (globalScript.currentQuest == 3) {
+				if (neededObjectives [3].activeSelf) {
+					neededObjectives [3].SetActive (false);
+				}
+				GameObject NPC = neededObjectives [4];
+				objectivePoint = NPC.transform.position;
+				objectivePoint.y += 1.95f;
+				objectivePoint.x += 0.15f;
+
+				unalteredPoint = NPC.transform.position;
+			} else if (globalScript.currentQuest == 4 || globalScript.currentQuest == 5 || globalScript.currentQuest == 6) {
 				GameObject door = neededObjectives [2];
 				objectivePoint = door.transform.position;
-				objectivePoint.y += 2f;
-				objectivePoint.x += 0.7f;
+				objectivePoint.y += 3f;
+				//objectivePoint.x += 0.15f;
 
 				unalteredPoint = door.transform.position;
-				unalteredPoint.x += 10;
 			} else {
 				found = false;
 			}
@@ -75,10 +96,67 @@ public class markerClass : MonoBehaviour {
 				objectivePoint.x += 0.75f;
 
 				unalteredPoint = door.transform.position;
+			} else if (globalScript.currentQuest == 3) {
+				GameObject door = neededObjectives [0];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.75f;
+
+				unalteredPoint = door.transform.position;
+			} else if (globalScript.currentQuest == 4 || globalScript.currentQuest == 5 || globalScript.currentQuest == 6) {
+				GameObject door = neededObjectives [0];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.75f;
+
+				unalteredPoint = door.transform.position;
+			} else {
+				found = false;
+			}
+		} else if (SceneManager.GetActiveScene ().name == "privateRoom1Scene") {
+			if (globalScript.currentQuest == 0) {
+				GameObject door = neededObjectives [0];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.75f;
+
+				unalteredPoint = door.transform.position;
+			} else if (globalScript.currentQuest == 1) {
+				GameObject door = neededObjectives [0];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.75f;
+
+				unalteredPoint = door.transform.position;
+			} else if (globalScript.currentQuest == 2) {
+				GameObject door = neededObjectives [0];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.75f;
+
+				unalteredPoint = door.transform.position;
+			} else if (globalScript.currentQuest == 3) {
+				GameObject door = neededObjectives [0];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.75f;
+
+				unalteredPoint = door.transform.position;
+			} else if (globalScript.currentQuest == 4 || globalScript.currentQuest == 5 || globalScript.currentQuest == 6) {
+				GameObject door = neededObjectives [0];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.75f;
+
+				unalteredPoint = door.transform.position;
 			} else {
 				found = false;
 			}
 		} else if (SceneManager.GetActiveScene ().name == "forestLevel1Scene") {
+			if (globalScript.currentQuest != 5) {
+				neededObjectives [1].SetActive (false);
+				neededObjectives [1].transform.parent.gameObject.SetActive (false);
+			}
 			if (globalScript.currentQuest == 0) {
 				GameObject door = neededObjectives [0];
 				objectivePoint = door.transform.position;
@@ -88,16 +166,94 @@ public class markerClass : MonoBehaviour {
 				unalteredPoint = door.transform.position;
 				unalteredPoint.x -= 10;
 			} else if (globalScript.currentQuest == 1) {
-				GameObject NPC = neededObjectives [0];
-				objectivePoint = NPC.transform.position;
-				objectivePoint.y += 2.15f;
-				objectivePoint.x += 0f;
+				GameObject door = neededObjectives [0];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.75f;
 
-				unalteredPoint = NPC.transform.position;
+				unalteredPoint = door.transform.position;
 				unalteredPoint.x -= 10;
+			} else if (globalScript.currentQuest == 2) {
+				GameObject door = neededObjectives [0];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.75f;
+
+				unalteredPoint = door.transform.position;
+				unalteredPoint.x -= 10;
+			} else if (globalScript.currentQuest == 3) {
+				GameObject door = neededObjectives [0];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.75f;
+
+				unalteredPoint = door.transform.position;
+				unalteredPoint.x -= 10;
+			} else if (globalScript.currentQuest == 4) {
+				GameObject NPC = neededObjectives [0];
+				if (globalScript.gameState != "isTalking") {
+					globalScript.gameState = "isTalking";
+					NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+				}
+				found = false;
+			} else if (globalScript.currentQuest == 5) {
+				GameObject sphere = neededObjectives [1];
+				sphere.transform.parent.gameObject.SetActive (true);
+				sphere.SetActive (true);
+				objectivePoint = sphere.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0;
+
+				unalteredPoint = sphere.transform.position;
+			} else if (globalScript.currentQuest == 6) {
+				GameObject path = neededObjectives [2];
+				path.SetActive (true);
+				objectivePoint = path.transform.position;
+				objectivePoint.y += 3f;
+				objectivePoint.x += 0;
+
+				unalteredPoint = path.transform.position;
 			} else {
 				found = false;
 			}
+		} else if (SceneManager.GetActiveScene ().name == "townLevel2Scene") {
+			if (globalScript.currentQuest < 6) {
+				GameObject door = neededObjectives [2];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 3f;
+				objectivePoint.x += 0.75f;
+
+				unalteredPoint = door.transform.position;
+			} else if (globalScript.currentQuest == 6) {
+				GameObject NPC = neededObjectives [0];
+				if (globalScript.gameState != "isTalking") {
+					GameObject Steve = neededObjectives [3];
+					Steve.SetActive (true);
+					Steve.transform.localPosition = new Vector2 (NPC.transform.localPosition.x - 1, NPC.transform.localPosition.y - 0.2f);
+					globalScript.gameState = "isTalking";
+					LeanTween.value (0, 1, 0.5f).setOnComplete (() => {
+						NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+					});
+				}
+				found = false;
+			} else if (globalScript.currentQuest == 7) {
+				if (neededObjectives [3].activeSelf) {
+					neededObjectives [3].SetActive (false);
+				}
+				GameObject door = neededObjectives [1];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 3f;
+				unalteredPoint = door.transform.position;
+				found = false;
+			} else {
+				found = false;
+			}
+		} else if (SceneManager.GetActiveScene ().name == "forestLevel2Scene") {
+			found = false;
+		}
+
+		if (globalScript.gameState == "isTalking") {
+			found = false;
 		}
 
 		if (found) {
@@ -121,7 +277,7 @@ public class markerClass : MonoBehaviour {
 			}
 
 			if (objectivePoint.y < rightBottomSide.y + 1f) {
-				currPos.y = leftTopSide.y + 1f;
+				currPos.y = rightBottomSide.y + 1f;
 				arrow.SetActive (true);
 			}
 

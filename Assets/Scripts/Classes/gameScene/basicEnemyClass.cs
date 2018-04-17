@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Puppet2D;
 
-public class basicEnemyClass : MonoBehaviour {
+public class basicEnemyClass : MonoBehaviour, IEnemy {
 	public Collider2D assignedPlatform;
 
 	public float movLimitLeft;
@@ -22,13 +22,22 @@ public class basicEnemyClass : MonoBehaviour {
 
 	private GameObject character;
 
-	private int life = 4;
+	private float life = 4;
+	private int attackPoints;
 
 	private Vector2 basePosition;
 	private float attackDuration;
 
 	private float multiTaskTimer;
 	private float attackDelayTime;
+
+	public int AttackPoints {
+		get {
+			return attackPoints;
+		}
+		set {
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -43,18 +52,42 @@ public class basicEnemyClass : MonoBehaviour {
 			attackDuration = 1.6f;
 			life = 1;
 			attackDelayTime = 1;
+			attackPoints = 10;
 		} else if (transform.name == "slime") {
 			attackDuration = 1;
 			life = 2;
 			attackDelayTime = 0;
+			attackPoints = 12;
 		} else if (transform.name == "leaf") {
 			attackDuration = 1;
 			life = 1;
 			attackDelayTime = 0;
+			attackPoints = 18;
 		} else if (transform.name == "spike") {
 			attackDuration = 2.55f;
 			life = 1;
 			attackDelayTime = 0;
+			attackPoints = 15;
+		} else if (transform.name == "armadillo") {
+			attackDuration = 1.5f;
+			life = 2;
+			attackDelayTime = 1;
+			attackPoints = 20;
+		} else if (transform.name == "caterpillar") {
+			attackDuration = 1.5f;
+			life = 2;
+			attackDelayTime = 0.2f;
+			attackPoints = 20;
+		} else if (transform.name == "cactus") {
+			attackDuration = 1.5f;
+			life = 2;
+			attackDelayTime = 0.2f;
+			attackPoints = 20;
+		} else if (transform.name == "spider") {
+			attackDuration = 1.5f;
+			life = 2;
+			attackDelayTime = 0.2f;
+			attackPoints = 20;
 		}
 
 		if (movSpeedX > 0) {
@@ -186,7 +219,7 @@ public class basicEnemyClass : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D (Collision2D collision) {
-		if (collision.collider.name == "sword1") {
+		if (collision.collider.name == "sword1" || collision.collider.name == "characterArrow") {
 			if (state != "hit") {
 				state = "hit";
 				hitTime = 0;
@@ -197,7 +230,11 @@ public class basicEnemyClass : MonoBehaviour {
 					thisPuppetControl.flip = false;
 				}
 
-				life -= 1;
+				if (collision.collider.name == "characterArrow") {
+					life -= 0.5f;
+				} else {
+					life -= 1;
+				}
 
 				if (life <= 0) {
 					Physics2D.IgnoreCollision (collision.collider, collision.otherCollider);
@@ -222,7 +259,12 @@ public class basicEnemyClass : MonoBehaviour {
 							LeanTween.rotateZ (gameObject, -90, 0.25f);
 						}
 					}
+
+					thisBody.velocity = new Vector2 (0, thisBody.velocity.y);
 				}
+			}
+			if (collision.collider.name == "characterArrow") {
+				Destroy(collision.collider.gameObject);
 			}
 		}
 	}

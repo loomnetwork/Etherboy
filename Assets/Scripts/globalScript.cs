@@ -29,6 +29,10 @@ public class globalScript : MonoBehaviour {
 	public static string selectionHandle;
 
 	public static int currentQuest;
+	public static string currentWeapon = "sword";
+	public static string gameState;
+
+	public static int currentGold;
 
 	private static GameObject fader;
 
@@ -82,10 +86,11 @@ public class globalScript : MonoBehaviour {
 	}
 
 	void Awake() {
-		print ("DONE");
 		if (hasAlreadyLoaded == true)
 			return;
 
+		currentGold = 0;
+		gameState = "";
 		hasAlreadyLoaded = true;
 		Application.targetFrameRate = 60;
 
@@ -93,10 +98,21 @@ public class globalScript : MonoBehaviour {
 
 		fader = GameObject.Find ("fader");
 
-		print (fader);
 		if (fader != null) {
 			Object.DontDestroyOnLoad (fader);
 			fader.SetActive (false);
+		}
+
+		GameObject userInterface = GameObject.Find ("UserInterface");
+
+		if (userInterface != null) {
+			Object.DontDestroyOnLoad (userInterface);
+		}
+
+		GameObject talkGroup = GameObject.Find ("talkGroup");
+
+		if (talkGroup != null) {
+			Object.DontDestroyOnLoad (talkGroup);
 		}
 
 		unlockAlliAP = unlockAllIapAndroid;

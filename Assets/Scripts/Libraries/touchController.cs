@@ -76,7 +76,19 @@ public class touchController : MonoBehaviour {
 			
 		if (touchCount > 0 && touchPhase == TouchPhase.Began) {
 			Vector2 touchRay = Camera.main.ScreenToWorldPoint (touchPosition);
-			RaycastHit2D[] hit = Physics2D.RaycastAll (touchRay, Vector2.zero).OrderBy (h => h.collider.GetComponent<Renderer>().sortingOrder).ToArray ();
+			RaycastHit2D[] hit = Physics2D.RaycastAll (touchRay, Vector2.zero).OrderBy ((h) => { 
+				Renderer colliderRend = h.collider.GetComponent<Renderer>();
+				if (colliderRend != null) {
+					if (colliderRend.sortingLayerName == "UI") {
+						return colliderRend.sortingOrder;
+					} else {
+						return -1;
+					}
+				} else {
+					return -1;
+				}
+			}).ToArray ();
+	
 			if (hit != null) {
 				for (int i = hit.Length-1; i >= 0; i--) {
 					Collider2D obj = hit [i].collider;
@@ -94,7 +106,18 @@ public class touchController : MonoBehaviour {
 			}
 		} else if (touchCount >= 0 && touchPhase == TouchPhase.Moved) {
 			Vector2 touchRay = Camera.main.ScreenToWorldPoint (touchPosition);
-			RaycastHit2D[] hit = Physics2D.RaycastAll (touchRay, Vector2.zero).OrderBy (h => h.collider.GetComponent<Renderer>().sortingOrder).ToArray ();
+			RaycastHit2D[] hit = Physics2D.RaycastAll (touchRay, Vector2.zero).OrderBy ((h) => { 
+				Renderer colliderRend = h.collider.GetComponent<Renderer>();
+				if (colliderRend != null) {
+					if (colliderRend.sortingLayerName == "UI") {
+						return colliderRend.sortingOrder;
+					} else {
+						return -1;
+					}
+				} else {
+					return -1;
+				}
+			}).ToArray ();
 			if (focusObject != null) {
 				bool found = false;
 				for (int i = hit.Length-1; i >= 0; i--) {

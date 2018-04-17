@@ -104,6 +104,8 @@
      <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Skinning.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_SortingLayerEditor.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Editor\Puppet2D_Spline.cs" />
+     <Compile Include="Assets\SpriteMask\Scripts\Editor\ClearStencilBufferComponentEditor.cs" />
+     <Compile Include="Assets\SpriteMask\Scripts\Editor\SpriteMaskEditor.cs" />
      <None Include="Assets\Plugins\UnityPurchasing\Android\proguard-user.txt.OPTIONAL.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
@@ -118,7 +120,9 @@
      <None Include="Assets\Puppet2D\Shaders\unlitTransparentDouble.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+     <None Include="Assets\SpriteMask\Resources\ClearStencil.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\SpriteMask\Resources\SpriteMask.shader" />
      <None Include="Assets\CreativeSpore\SuperTilemapEditor\Extra\Tileset - Samples\Tiled - Tmx Import\license.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
@@ -127,6 +131,8 @@
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\Plugins\UnityPurchasing\script\link.xml" />
      <None Include="Assets\CreativeSpore\SuperTilemapEditor\Extra\Importers\Pyxel Edit\Documentation\PyxelEditManual.txt" />
+     <None Include="Assets\SpriteMask\Resources\SpriteDefault.shader" />
+     <None Include="Assets\SpriteMask\Resources\SpriteDiffuse.shader" />
  <Reference Include="UnityEditor.Advertisements">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Advertisements/Editor/UnityEditor.Advertisements.dll</HintPath>
  </Reference>

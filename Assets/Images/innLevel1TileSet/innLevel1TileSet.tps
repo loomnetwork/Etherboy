@@ -72,7 +72,7 @@
             </struct>
         </struct>
         <key>shapePadding</key>
-        <uint>8</uint>
+        <uint>0</uint>
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
@@ -84,7 +84,7 @@
         <key>textureFormat</key>
         <enum type="SettingsBase::TextureFormat">png</enum>
         <key>borderPadding</key>
-        <uint>8</uint>
+        <uint>0</uint>
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
@@ -95,7 +95,7 @@
         <key>fixedTextureSize</key>
         <QSize>
             <key>width</key>
-            <int>-1</int>
+            <int>1024</int>
             <key>height</key>
             <int>-1</int>
         </QSize>
@@ -110,7 +110,7 @@
             <key>sizeConstraints</key>
             <enum type="AlgorithmSettings::SizeConstraints">AnySize</enum>
             <key>forceSquared</key>
-            <true/>
+            <false/>
             <key>forceWordAligned</key>
             <false/>
             <key>maxRects</key>
@@ -121,7 +121,7 @@
             <key>basic</key>
             <struct type="AlgorithmBasicSettings">
                 <key>sortBy</key>
-                <enum type="AlgorithmBasicSettings::SortBy">Best</enum>
+                <enum type="AlgorithmBasicSettings::SortBy">Name</enum>
                 <key>order</key>
                 <enum type="AlgorithmBasicSettings::Order">Ascending</enum>
             </struct>
@@ -162,7 +162,7 @@
         <key>prependSmartFolderName</key>
         <false/>
         <key>cleanTransparentPixels</key>
-        <true/>
+        <false/>
         <key>globalSpriteSettings</key>
         <struct type="SpriteSettings">
             <key>scale</key>
@@ -186,68 +186,89 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>../../../../../../../../../Downloads/Tiles/doorframe_exit_left.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/doorframe_exit_right.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/doorframe_exit_upper_left.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/doorframe_exit_upper_mid.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/doorframe_exit_upper_right.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/doorframe_innroom1.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/doorframe_innroom2.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/doorframe_left.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/doorframe_right.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/doorframe_upper_left.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/doorframe_upper_mid.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/doorframe_upper_right.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/exit.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_ale.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_beam_1.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_beam_2.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_beam_diag1.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_beam_diag2.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_beam_end.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_board_lower_left.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_board_lower_mid.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_board_lower_right.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_board_upper_left.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_board_upper_mid.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_board_upper_right.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_bottle1.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_bottle2.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_bottle3.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_bottle4.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_bottle5.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_chair_bottom_left.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_chair_bottom_right.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_chair_top.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_chandelier_bottom.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_chandelier_mid.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_chandelier_top.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_counter_end.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_counter_mid.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_floor_bottom_left.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_floor_bottom_right.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_floor_mid_left.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_floor_mid_right.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_floor_top_left.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_floor_top_right.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_pan_big_bottom.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_pan_big_top.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_pan_small_bottom.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_pan_small_top.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_plates.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_shelf_end.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_shelf_mid.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_table.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_wallaccent_bottom.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_wallaccent_top.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/inn_wallaccent_vertical.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/wall_recolor.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/town1_floor_bottom1.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/town1_floor_bottom2.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/town1_floor_mid1.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/town1_floor_mid2.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/town1_floor_top1.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/town1_floor_top2.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0001.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0002.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0003.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0004.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0005.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0006.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0007.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0008.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0009.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0010.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0011.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0012.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0013.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0014.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0015.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0016.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0017.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0018.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0019.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0020.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0021.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0022.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0023.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0024.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0025.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0026.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0027.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0028.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0029.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0030.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0031.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0032.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0033.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0034.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0035.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0036.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0037.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0038.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0039.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0040.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0041.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0042.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0043.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0045.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0046.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0047.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0048.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0049.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0050.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0051.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0052.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0053.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0054.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0055.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0056.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0063.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0064.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0065.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0066.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0067.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0068.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0069.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0070.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0071.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0072.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0073.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0074.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0075.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0076.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0077.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0078.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0079.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0080.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0081.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0082.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0083.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0084.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0085.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0086.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0087.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0088.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0089.png</filename>
+            <filename>../../../Additional/innLevel1TileSet/0090.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

@@ -8,6 +8,9 @@ using Puppet2D;
 public class characterClass : MonoBehaviour {
 	public SpriteRenderer keepRendInBounds;
 
+	[HideInInspector]
+	public int life;
+
 	private GameObject thisParent;
 	private Vector2 leftBottomScreen;
 	private Vector2 rightTopScreen;
@@ -23,6 +26,7 @@ public class characterClass : MonoBehaviour {
 	private Collider2D triggerOccured;
 
 	private Collider2D lastPlatform;
+	private List<Collider2D> lastColliders;
 
 	private Transform baseParent;
 
@@ -33,6 +37,7 @@ public class characterClass : MonoBehaviour {
 	private Puppet2D_GlobalControl characterAnimScript;
 	private Animator characterAnimator;
 	private float attackTime; 
+	private float magicTime;
 	private float hitTime; 
 	private bool playJumpOnce;
 
@@ -40,10 +45,15 @@ public class characterClass : MonoBehaviour {
 
 	private float prevScreenWidth;
 
+	[HideInInspector]
 	public string state;
+
+	private GameObject arrow;
+	private GameObject rock;
 
 	// Use this for initialization
 	void Start () {
+		lastColliders = new List<Collider2D> ();
 		thisParent = transform.parent.gameObject;
 		leftBottomScreen = Camera.main.ScreenToWorldPoint (new Vector2 (0, 0));
 		rightTopScreen = Camera.main.ScreenToWorldPoint (new Vector2 (Screen.width, Screen.height));
@@ -61,6 +71,9 @@ public class characterClass : MonoBehaviour {
 		movSpeedY = 0;
 
 		state = "normal";
+
+		arrow = transform.GetChild (1).GetChild(10).gameObject;
+		rock = transform.GetChild (1).GetChild (3).gameObject;
 
 		characterAnimScript = transform.GetChild (1).GetComponent<Puppet2D_GlobalControl> ();
 		characterAnimator = transform.GetChild (1).GetComponent<Animator> ();
@@ -150,10 +163,26 @@ public class characterClass : MonoBehaviour {
 
 			bool pressedAttack = Input.GetButton ("Fire3");
 
+			if (globalScript.currentQuest <= 3) {
+				pressedAttack = false;
+			}
+				
 			if (pressedAttack) {
 				state = "attack";
-				animationToPlay = "Attack";
+				animationToPlay = globalScript.currentWeapon;
 				attackTime = 0;
+			}
+
+			bool pressedMagic = Input.GetButton ("Magic");
+
+			if (globalScript.currentQuest <= 6 || canJump <= 0) {
+				pressedMagic = false;
+			}
+
+			if (pressedMagic) {
+				state = "magic";
+				animationToPlay = "hadukenEarth";
+				magicTime = 0;
 			}
 				
 			currPos.x += movSpeedX; 
@@ -174,8 +203,37 @@ public class characterClass : MonoBehaviour {
 			if (movementY > 0f || movementY < 0f) {
 				checkOverlapWithItem ();
 			}
+		} else if (state == "magic") {
+			if (characterAnimator.GetCurrentAnimatorStateInfo (0).IsName ("hadukenEarth")) {
+				movSpeedX = 0;
+
+				magicTime += Time.deltaTime;
+
+				if (magicTime > 3.21f) {
+					magicTime = 0;
+					state = "normal";
+					characterAnimator.Play ("Idle", -1, 0f);
+				} else if (magicTime > 0.45f && magicTime < 1.45f) {
+					magicTime = 1.45f;
+					GameObject bullet = Instantiate (rock);
+					bullet.name = "characterStone";
+					bullet.layer = LayerMask.NameToLayer("Character");
+					bullet.transform.parent = transform.parent;
+					bullet.transform.position = rock.transform.position;
+					bullet.transform.localScale = new Vector2 (rock.transform.parent.localScale.x * 1.5f, rock.transform.parent.localScale.y * 1.5f);
+					bullet.AddComponent<PolygonCollider2D> ();
+					LeanTween.alpha (bullet, 1, 0);
+					bullet.AddComponent<Rigidbody2D> ();
+					bullet.AddComponent<rockBoulderClass> ();
+					if (characterAnimScript.flip) {
+						bullet.GetComponent<Rigidbody2D> ().velocity = new Vector2 (-20, 3);
+					} else {
+						bullet.GetComponent<Rigidbody2D> ().velocity = new Vector2 (20, 3);
+					}
+				}
+			}
 		} else if (state == "attack") {
-			if (characterAnimator.GetCurrentAnimatorStateInfo (0).IsName ("Attack")) {
+			if (characterAnimator.GetCurrentAnimatorStateInfo (0).IsName (globalScript.currentWeapon)) {
 				if (canJump <= 0) {
 					Vector2 currPos = transform.localPosition;
 					currPos.x += movSpeedX; 
@@ -185,13 +243,39 @@ public class characterClass : MonoBehaviour {
 				}
 
 				attackTime += Time.deltaTime;
-				if (attackTime > 0.3f) {
-					attackTime = 0;
-					state = "normal";
-					if (canJump <= 0) {
-						characterAnimator.Play ("Jump");
-					} else {
-						characterAnimator.Play ("Idle", -1, 0f);
+
+				if (globalScript.currentWeapon == "sword") {
+					if (attackTime > 0.25f) {
+						attackTime = 0;
+						state = "normal";
+						if (canJump <= 0) {
+							characterAnimator.Play ("Jump");
+						} else {
+							characterAnimator.Play ("Idle", -1, 0f);
+						}
+					}
+				} else if (globalScript.currentWeapon == "bow") {
+					if (attackTime > 0.7f) {
+						attackTime = 0;
+						state = "normal";
+						if (canJump <= 0) {
+							characterAnimator.Play ("Jump");
+						} else {
+							characterAnimator.Play ("Idle", -1, 0f);
+						}
+					} else if (attackTime > 0.3f && attackTime < 0.4f) {
+						attackTime = 0.4f;
+						GameObject bullet = Instantiate (arrow);
+						bullet.name = "characterArrow";
+						bullet.layer = LayerMask.NameToLayer("Character");
+						bullet.transform.parent = transform.parent;
+						bullet.transform.position = arrow.transform.position;
+						bullet.transform.localScale = arrow.transform.parent.localScale;
+						if (characterAnimScript.flip) {
+							bullet.GetComponent<Rigidbody2D> ().velocity = new Vector2 (-10, 0);
+						} else {
+							bullet.GetComponent<Rigidbody2D> ().velocity = new Vector2 (10, 0);
+						}
 					}
 				}
 			}
@@ -200,13 +284,13 @@ public class characterClass : MonoBehaviour {
 			if (!characterAnimator.GetCurrentAnimatorStateInfo (0).IsName ("Hit")) {
 				characterAnimator.Play ("Hit", -1, 0f);
 				if (characterAnimScript.flip) {
-					thisBody.velocity = new Vector2 (5, 5);
+					thisBody.velocity = new Vector2 (2.5f, 5);
 				} else {
-					thisBody.velocity = new Vector2 (-5, 5);
+					thisBody.velocity = new Vector2 (-2.5f, 5);
 				}
 			} else {
 				hitTime += Time.deltaTime;
-				if (hitTime > 0.7f && canJump > 0) {
+				if (hitTime > 0.5f && canJump > 0) {
 					thisBody.velocity = new Vector2 (0, thisBody.velocity.y);
 					hitTime = 0;
 					state = "normal";
@@ -254,6 +338,11 @@ public class characterClass : MonoBehaviour {
 
 	void resetState () {
 		if (state == "normal") {
+			for (int i = lastColliders.Count - 1; i >= 0; i--) {
+				Physics2D.IgnoreCollision (lastColliders [i], thisCollider, false);
+				lastColliders.Remove (lastColliders [i]);
+			}
+			thisCollider.isTrigger = false;
 			playJumpOnce = false;
 			thisBody.gravityScale = 1;
 			movSpeedY = 0;
@@ -262,6 +351,13 @@ public class characterClass : MonoBehaviour {
 			ropeAnimator.enabled = true;
 			characterAnimator.gameObject.SetActive (true);
 		} else if (state == "rope") {
+			for (int i = lastColliders.Count - 1; i >= 0; i--) {
+				if (lastColliders [i] != lastPlatform) {
+					Physics2D.IgnoreCollision (lastColliders [i], thisCollider, false);
+					lastColliders.Remove (lastColliders [i]);
+				}
+			}
+			thisCollider.isTrigger = true;
 			ropeAnimator.gameObject.SetActive (true);
 			characterAnimator.gameObject.SetActive (false);
 			movSpeedY = 0;
@@ -315,6 +411,7 @@ public class characterClass : MonoBehaviour {
 						state = "rope";
 						resetState ();
 						if (lastPlatform != null) {
+							lastColliders.Add (lastPlatform);
 							Physics2D.IgnoreCollision (lastPlatform, thisCollider);
 						}
 					}
@@ -331,6 +428,7 @@ public class characterClass : MonoBehaviour {
 				state = "normal";
 				resetState ();
 				if (lastPlatform != null) {
+					lastColliders.Remove (lastPlatform);
 					Physics2D.IgnoreCollision (lastPlatform, thisCollider, false);
 				}
 			}
@@ -398,7 +496,7 @@ public class characterClass : MonoBehaviour {
 				transform.parent = collision.collider.transform;
 			} else if (collision.collider.name == "death") {
 				LeanTween.cancelAll ();
-				SceneManager.LoadScene ("gameScene");
+				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
 			} else if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy")) {
 				if (collision.contacts [0].point.x > transform.position.x) {
 					characterAnimScript.flip = false;
@@ -406,6 +504,25 @@ public class characterClass : MonoBehaviour {
 					characterAnimScript.flip = true;
 				}
 				if (state != "hit") {
+					GameObject baseEnemy = collision.collider.gameObject;
+					if (collision.collider.transform.childCount > 0) {
+						if (collision.collider.transform.GetChild (0).name == "Global_CTRL") {
+							baseEnemy = collision.collider.gameObject;
+						} else {
+							while (baseEnemy.name != "Global_CTRL") {
+								baseEnemy = baseEnemy.transform.parent.gameObject;
+							}
+
+							baseEnemy = baseEnemy.transform.parent.gameObject;
+						}
+					} else {
+						while (baseEnemy.name != "Global_CTRL") {
+							baseEnemy = baseEnemy.transform.parent.gameObject;
+						}
+
+						baseEnemy = baseEnemy.transform.parent.gameObject;
+					}
+					life -= baseEnemy.GetComponent<IEnemy> ().AttackPoints;
 					state = "normal";
 					resetState ();
 					state = "hit";
@@ -461,11 +578,26 @@ public class characterClass : MonoBehaviour {
 			}
 
 			if (willMiss) {
+				lastColliders.Add (collider);
 				Physics2D.IgnoreCollision (collider, thisCollider);
 			} else {
+				lastColliders.Remove (collider);
 				Physics2D.IgnoreCollision (collider, thisCollider, false);
 			}
 		} else if (collider.name == "path") {
+			if (globalScript.currentQuest <= 3) {
+				if (collider.transform.GetChild (0).name == "forestLevel1Scene") {
+					collider.transform.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+					return;
+				}
+			} else if (globalScript.currentQuest == 4) {
+				if (collider.transform.GetChild (0).name == "forestLevel1Scene") {
+					if (collider.transform.GetComponent<npcSystemClass> ().enabled) {
+						collider.transform.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+						return;
+					}
+				}
+			}
 			GetComponent<characterClass> ().enabled = false;
 			globalScript.changeScene (collider.transform.GetChild (0).name);
 		}

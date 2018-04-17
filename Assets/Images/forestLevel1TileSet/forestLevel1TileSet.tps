@@ -38,7 +38,7 @@
         <key>dataFormat</key>
         <string>spritesheet-only</string>
         <key>textureFileName</key>
-        <filename>forestLevel1TileSet.png</filename>
+        <filename></filename>
         <key>flipPVR</key>
         <false/>
         <key>pvrCompressionQuality</key>
@@ -72,7 +72,7 @@
             </struct>
         </struct>
         <key>shapePadding</key>
-        <uint>8</uint>
+        <uint>0</uint>
         <key>jpgQuality</key>
         <uint>80</uint>
         <key>pngOptimizationLevel</key>
@@ -84,7 +84,7 @@
         <key>textureFormat</key>
         <enum type="SettingsBase::TextureFormat">png</enum>
         <key>borderPadding</key>
-        <uint>8</uint>
+        <uint>0</uint>
         <key>maxTextureSize</key>
         <QSize>
             <key>width</key>
@@ -121,7 +121,7 @@
             <key>basic</key>
             <struct type="AlgorithmBasicSettings">
                 <key>sortBy</key>
-                <enum type="AlgorithmBasicSettings::SortBy">Best</enum>
+                <enum type="AlgorithmBasicSettings::SortBy">Name</enum>
                 <key>order</key>
                 <enum type="AlgorithmBasicSettings::Order">Ascending</enum>
             </struct>
@@ -186,79 +186,81 @@
         </struct>
         <key>fileList</key>
         <array>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/bounce_mushroom.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/bush_end1.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/bush_end2.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/bush_end3.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/bush_mid_tileable.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/floor_floating_corner.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/floor_floating_midtile_1.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/floor_floating_midtile_2.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/floor_grass_corner.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/floor_grass_edge.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/floor_grass.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/floor_midtile_1.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/floor_midtile_2.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/floor_midtile_plain.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/Rock_a_1.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/Rock_a_2.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/Rock_b_1.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/Rock_b_2.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/rope_bottom.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/rope_mid_tileable.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/rope_top.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree_trunk_1.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree_trunk_2.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree1_bottom.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree1_bottomcorner.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree1_side_1.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree1_side_2.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree1_top.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree1_topcorner.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree2_bottom_left.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree2_bottom_right.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree2_bottomcorner_left.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree2_bottomcorner_right.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree2_middle_left_1.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree2_middle_left_2.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree2_middle_left_3.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree2_middle_right_1.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree2_middle_right_2.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree2_middle_right_3.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree2_top_left_1.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree2_top_left_2.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree2_top_right_1.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/tree2_top_right_2.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/branches_a_1.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/branches_a_2.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/branches_b_1.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/branches_b_2.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/branches_dome_a_1.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/branches_dome_a_2.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/branches_dome_b_1.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/branches_dome_b_2.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/branches_dome_b_3.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/branches_dome_c_1.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/branches_dome_c_2.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/branches_dome_c_3.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/leaves_a_1.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/leaves_a_2.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/leaves_a_3.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/leaves_b_1.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/leaves_b_2.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/leaves_c_1.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/leaves_d_1.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/leaves_mid_1.png</filename>
-            <filename>../../../../../../../../../Downloads/Merkle Tree/leaves_mid_2.png</filename>
-            <filename>../../../../../../../../../Downloads/Tiles/wall_recolor.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP/z1.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP 2/2ndfloor_corner.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP 2/2ndfloor_edge.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP 2/2ndfloor_grass.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP 2/2ndfloor_midtile_plain.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP 2/2ndfloor_midtile1.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP 2/2ndfloor_midtile2.png</filename>
-            <filename>../../../../../../../../../Downloads/EBW_2D_level1_F1_EXP 2/z2.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0001.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0002.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0003.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0004.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0005.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0006.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0007.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0008.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0009.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0010.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0011.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0012.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0013.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0014.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0015.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0016.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0017.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0018.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0019.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0020.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0021.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0022.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0023.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0024.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0025.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0026.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0027.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0028.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0029.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0030.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0031.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0032.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0033.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0034.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0035.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0036.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0037.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0038.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0039.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0040.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0041.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0042.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0043.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0044.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0045.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0046.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0047.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0048.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0049.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0050.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0051.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0052.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0053.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0054.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0055.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0056.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0057.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0058.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0059.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0060.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0061.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0062.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0063.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0064.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0065.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0066.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0067.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0068.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0069.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0070.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0071.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0072.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0073.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0074.png</filename>
+            <filename>../../../Additional/forestLevel1TileSet/0075.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

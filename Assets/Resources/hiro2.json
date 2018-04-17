@@ -23,22 +23,52 @@
     },
     "triggeredDialogue":{
         "dialogues":[
-			"...oh he's so dreamy...",
-			"...one day he'll be all mine...",
+			"",
+			"",
             "ahem...",
-            "Let me STOP you right there friend, I'm busy with my friends go away..."
+            "Let me STOP you right there friend!",
+			"I'm busy with my pretty fans",
+			"GO AWAY!"
         ],
         "timeInBetween":[
-            1,
-            1,
-			0.5,
-			3
+            0.5,
+            0.1,
+			1,
+			2,
+			2,
+			2
         ],
 		"forOther":[
-			"randomGirl2",
-			"randomGirl1",
 			"etherBoy",
+			"etherBoy",
+			"etherBoy",
+			"",
+			"",
 			""
+		],
+		"newPosition":[
+			"-1/separate/0",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"playAnimation":[
+			"Running",
+			"Idle",
+			"",
+			"",
+			"",
+			""
+		],
+		"skippable":[
+			false,
+			false,
+			true,
+			true,
+			true,
+			true
 		],
         "currentDialogue":0,
         "flagsAfterDialogue":[

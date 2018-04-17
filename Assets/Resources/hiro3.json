@@ -23,13 +23,46 @@
     },
     "triggeredDialogue":{
         "dialogues":[
-            "away with you..."
+			"",
+			"",
+            "away with you...",
+			"YOU don't want me to get up...",
+			"ARRR..."
         ],
         "timeInBetween":[
-            3
+			0.5,
+			0.1,
+            2, 
+			2, 
+			2
         ],
 		"forOther":[
+			"etherBoy",
+			"etherBoy",
+			"",
+			"",
 			""
+		],
+		"newPosition":[
+			"-1/separate/0",
+			"",
+			"",
+			"",
+			""
+		],
+		"playAnimation":[
+			"Running",
+			"Idle",
+			"",
+			"",
+			""
+		],
+		"skippable":[
+			false,
+			false,
+			true,
+			true,
+			true
 		],
         "currentDialogue":0,
         "flagsAfterDialogue":[

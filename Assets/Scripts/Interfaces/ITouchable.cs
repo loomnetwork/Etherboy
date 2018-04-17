@@ -14,3 +14,10 @@ public interface ITouchable {
 		
 	bool TouchEnded (Vector2 touchPosition);
 }
+
+public interface IEnemy {
+	int AttackPoints {
+		get;
+		set;
+	}
+}

@@ -135,14 +135,22 @@
      <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2D.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2DList.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Rect2D.cs" />
+     <Compile Include="Assets\Scripts\Classes\gameScene\backgroundMovementClass.cs" />
      <Compile Include="Assets\Scripts\Classes\gameScene\basicEnemyClass.cs" />
      <Compile Include="Assets\Scripts\Classes\gameScene\characterClass.cs" />
+     <Compile Include="Assets\Scripts\Classes\gameScene\fanClass.cs" />
+     <Compile Include="Assets\Scripts\Classes\gameScene\goldCounterClass.cs" />
+     <Compile Include="Assets\Scripts\Classes\gameScene\hpBarClass.cs" />
      <Compile Include="Assets\Scripts\Classes\gameScene\markerClass.cs" />
      <Compile Include="Assets\Scripts\Classes\gameScene\npcSystemClass.cs" />
+     <Compile Include="Assets\Scripts\Classes\gameScene\parallaxClass.cs" />
      <Compile Include="Assets\Scripts\Classes\gameScene\platformMovementClass.cs" />
+     <Compile Include="Assets\Scripts\Classes\gameScene\rockBoulderClass.cs" />
+     <Compile Include="Assets\Scripts\Classes\gameScene\selectWeaponClass.cs" />
      <Compile Include="Assets\Scripts\Classes\general\backButtonClass.cs" />
      <Compile Include="Assets\Scripts\Classes\general\backPopupClass.cs" />
      <Compile Include="Assets\Scripts\Classes\general\blockTouchClass.cs" />
+     <Compile Include="Assets\Scripts\Classes\general\talkGroupClass.cs" />
      <Compile Include="Assets\Scripts\Interfaces\ITouchable.cs" />
      <Compile Include="Assets\Scripts\Libraries\alignScript.cs" />
      <Compile Include="Assets\Scripts\Libraries\cameraZoomLibrary.cs" />
@@ -151,6 +159,11 @@
      <Compile Include="Assets\Scripts\Libraries\sortingLayer.cs" />
      <Compile Include="Assets\Scripts\Libraries\touchController.cs" />
      <Compile Include="Assets\Scripts\globalScript.cs" />
+     <Compile Include="Assets\SpriteMask\Scripts\ClearStencilBufferComponent.cs" />
+     <Compile Include="Assets\SpriteMask\Scripts\SkipMasking.cs" />
+     <Compile Include="Assets\SpriteMask\Scripts\SpriteMask.cs" />
+     <Compile Include="Assets\SpriteMask\Scripts\SpriteMaskingComponent.cs" />
+     <Compile Include="Assets\SpriteMask\Scripts\SpriteMaskingPart.cs" />
      <None Include="Assets\Plugins\UnityPurchasing\Android\proguard-user.txt.OPTIONAL.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
@@ -165,7 +178,9 @@
      <None Include="Assets\Puppet2D\Shaders\unlitTransparentDouble.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro.cginc" />
+     <None Include="Assets\SpriteMask\Resources\ClearStencil.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
+     <None Include="Assets\SpriteMask\Resources\SpriteMask.shader" />
      <None Include="Assets\CreativeSpore\SuperTilemapEditor\Extra\Tileset - Samples\Tiled - Tmx Import\license.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Sprite.shader" />
@@ -174,6 +189,8 @@
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
      <None Include="Assets\Plugins\UnityPurchasing\script\link.xml" />
      <None Include="Assets\CreativeSpore\SuperTilemapEditor\Extra\Importers\Pyxel Edit\Documentation\PyxelEditManual.txt" />
+     <None Include="Assets\SpriteMask\Resources\SpriteDefault.shader" />
+     <None Include="Assets\SpriteMask\Resources\SpriteDiffuse.shader" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

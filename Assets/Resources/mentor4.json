@@ -1,0 +1,59 @@
+{
+    "hasAutomaticDialogue":true,
+    "hasTriggeredDialogue":true,
+    "automaticDialogue":{
+        "dialogues":[
+            "Ha.. he's the one from the prophesy...",
+            "How could I've been so blind...",
+            "Hope he gets back here in time..."
+        ],
+        "timeInBetween":[
+            3,
+            3,
+            3
+        ],
+		"forOther":[
+			"",
+			"",
+			""
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+        ]
+    },
+    "triggeredDialogue":{
+        "dialogues":[
+			"",
+			"",
+			"yes yes.. you are the ONE ... now GET!"
+        ],
+        "timeInBetween":[
+			0.5,
+			0.1,
+           	2
+        ],
+		"forOther":[
+			"etherBoy",
+			"etherBoy",
+			""
+		],
+		"newPosition":[
+			"-1/separate/0",
+			"",
+			""
+		],
+		"playAnimation":[
+			"Running",
+			"Idle",
+			""
+		],
+		"skippable":[
+			false,
+			false,
+			true
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+        ]
+    }
+}
