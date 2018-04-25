@@ -29,10 +29,18 @@ public class globalScript : MonoBehaviour {
 	public static string selectionHandle;
 
 	public static int currentQuest;
+	public static int questStep;
 	public static string currentWeapon = "sword";
 	public static string gameState;
 
 	public static int currentGold;
+
+	public static int startingOrderEnemies;
+
+	public static float shakeScreenTime;
+	public static GameObject groupToShake;
+	public static Vector2 basePositionGroupToShake;
+
 
 	private static GameObject fader;
 
@@ -71,6 +79,7 @@ public class globalScript : MonoBehaviour {
 
 	public static void changeScene(string sceneName) {
 		globalScript.previousScene = SceneManager.GetActiveScene ().name;
+		startingOrderEnemies = 0;
 
 		if (fader != null) {
 			fader.SetActive (true);
@@ -85,16 +94,30 @@ public class globalScript : MonoBehaviour {
 		}
 	}
 
+	void Update () {
+		if (shakeScreenTime > 0) {
+			print (shakeScreenTime);
+			shakeScreenTime -= Time.deltaTime;
+			groupToShake.transform.position = new Vector2 (Random.Range (basePositionGroupToShake.x-0.5f, basePositionGroupToShake.x+0.5f), Random.Range (basePositionGroupToShake.y-0.5f, basePositionGroupToShake.y+0.5f));
+			if (shakeScreenTime <= 0) {
+				groupToShake.transform.position = basePositionGroupToShake;
+				shakeScreenTime = 0;
+			}
+		}
+	}
+
 	void Awake() {
 		if (hasAlreadyLoaded == true)
 			return;
 
+		shakeScreenTime = 0;
 		currentGold = 0;
 		gameState = "";
 		hasAlreadyLoaded = true;
 		Application.targetFrameRate = 60;
 
-		currentQuest = 0;
+		currentQuest = 7;
+		questStep = 0;
 
 		fader = GameObject.Find ("fader");
 

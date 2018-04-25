@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using TMPro;
+using Puppet2D;
 
 [System.Serializable]
 public class automaticDialogueClass {
@@ -12,6 +13,7 @@ public class automaticDialogueClass {
 	public string[] flagsAfterDialogue;
 	public float timer;
 	public string[] forOther;
+	public string[] bubbleDirection;
 }
 
 [System.Serializable]
@@ -24,7 +26,9 @@ public class triggeredDialogueClass {
 	public string[] forOther;
 	public string[] newPosition;
 	public string[] playAnimation;
+	public int[] faceDirection;
 	public bool[] skippable;
+	public string[] bubbleDirection;
 }
 
 [System.Serializable]
@@ -59,9 +63,17 @@ public class npcSystemClass : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		bubble = transform.Find ("bubble").gameObject;
-		text = bubble.transform.GetChild (0).GetComponent<TextMeshPro> ();
-		text.text = "";
+		Transform bubbleTrans = transform.Find ("bubbleGroup");
+		if (bubbleTrans != null) {
+			bubble = bubbleTrans.gameObject;
+		}
+
+		if (bubble != null) {
+			text = bubble.transform.GetChild (0).transform.GetChild (0).GetComponent<TextMeshPro> ();
+			text.text = "";
+			text = bubble.transform.GetChild (1).transform.GetChild (0).GetComponent<TextMeshPro> ();
+			text.text = "";
+		}
 		questSet = globalScript.currentQuest;
 		loadDialogueData ();
 	}
@@ -74,34 +86,77 @@ public class npcSystemClass : MonoBehaviour {
 		}
 
 		if (startTriggered && (activePopup == null || activePopup.activeSelf == false)) {
-			if (bubble.activeSelf == false) {
+			GameObject subBubble = null;
+			if (bubble != null && bubble.activeSelf == false) {
 				bubble.SetActive (true);
+
+				if (currentDialogue.triggeredDialogue.bubbleDirection != null && currentDialogue.triggeredDialogue.currentDialogue < currentDialogue.triggeredDialogue.bubbleDirection.Length
+				    && currentDialogue.triggeredDialogue.bubbleDirection [currentDialogue.triggeredDialogue.currentDialogue] == "right") {
+					subBubble = bubble.transform.GetChild (1).gameObject;
+					subBubble.SetActive (true);
+					bubble.transform.GetChild (0).gameObject.SetActive (false);
+				} else {
+					subBubble = bubble.transform.GetChild (0).gameObject;
+					subBubble.SetActive (true);
+					bubble.transform.GetChild (1).gameObject.SetActive (false);
+				}
+			} 
+
+			if (subBubble != null) {
+				text = subBubble.transform.GetChild (0).GetComponent<TextMeshPro> ();;
 			}
-				
-			text.text = currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue];
+
+			if (text != null) {
+				text.text = currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue];
+			}
 			currentDialogue.triggeredDialogue.timer += Time.deltaTime;
 
-			if (text.text == "<bowSwordSelect>") {
-				text.text = "";
+			if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<bowSwordSelect>") {
+				if (text != null) {
+					text.text = "";
+				}
 				GameObject popup = GameObject.Find ("bowSwordSelect");
 				popup = popup.transform.GetChild (0).gameObject;
 				popup.SetActive (true);
 				activePopup = popup;
 
 				currentDialogue.triggeredDialogue.timer = currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue];
+			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<shakeScreen>") {
+				if (text != null) {
+					text.text = "";
+				}
+				if (firstIterationDialog && globalScript.shakeScreenTime <= 0) {
+					firstIterationDialog = false;
+					globalScript.groupToShake = GameObject.Find ("gameGroup");
+					globalScript.basePositionGroupToShake = globalScript.groupToShake.transform.position;
+					globalScript.shakeScreenTime = currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue]-0.1f;
+				}
 			}
-
 			GameObject other = null;
 			Transform bubbleOther = null;
 			if (currentDialogue.triggeredDialogue.forOther.Length >= currentDialogue.triggeredDialogue.currentDialogue && currentDialogue.triggeredDialogue.forOther [currentDialogue.triggeredDialogue.currentDialogue] != "") {
-				text.text = "";
+				if (text != null) {
+					text.text = "";
+				}
 				other = GameObject.Find (currentDialogue.triggeredDialogue.forOther [currentDialogue.triggeredDialogue.currentDialogue]);
 
 				if (other != null) {
 					if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] != "") {
-						bubbleOther = other.transform.Find ("bubble");
+						bubbleOther = other.transform.Find ("bubbleGroup");
 						bubbleOther.gameObject.SetActive (true);
-						bubbleOther.GetChild (0).GetComponent<TextMeshPro> ().text = currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue];
+						GameObject subBubbleOther = null;
+						if (currentDialogue.triggeredDialogue.bubbleDirection != null && currentDialogue.triggeredDialogue.currentDialogue < currentDialogue.triggeredDialogue.bubbleDirection.Length
+						    && currentDialogue.triggeredDialogue.bubbleDirection [currentDialogue.triggeredDialogue.currentDialogue] == "right") { 
+							bubbleOther.GetChild (0).gameObject.SetActive (false);
+							subBubbleOther = bubbleOther.GetChild (1).gameObject;
+							subBubbleOther.SetActive (true);
+						} else {
+							bubbleOther.GetChild (1).gameObject.SetActive (false);
+							subBubbleOther = bubbleOther.GetChild (0).gameObject;
+							subBubbleOther.SetActive (true);
+						}
+
+						subBubbleOther.transform.GetChild (0).GetComponent<TextMeshPro> ().text = currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue];
 					}
 
 					if (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue] != "") {
@@ -109,6 +164,16 @@ public class npcSystemClass : MonoBehaviour {
 						Animator otherAnim = glblCtrl.GetComponent<Animator> ();
 						if (!otherAnim.GetCurrentAnimatorStateInfo (0).IsName (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue])) {
 							otherAnim.Play (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue], -1, 0f);
+						}
+					}
+
+					if (currentDialogue.triggeredDialogue.faceDirection != null && currentDialogue.triggeredDialogue.faceDirection.Length > 0
+					    && currentDialogue.triggeredDialogue.currentDialogue < currentDialogue.triggeredDialogue.faceDirection.Length) {
+						GameObject glblCtrl = other.transform.Find ("Global_CTRL").gameObject;
+						if (currentDialogue.triggeredDialogue.faceDirection [currentDialogue.triggeredDialogue.currentDialogue] > 0) {
+							glblCtrl.GetComponent<Puppet2D_GlobalControl> ().flip = true;
+						} else if (currentDialogue.triggeredDialogue.faceDirection [currentDialogue.triggeredDialogue.currentDialogue] < 0) {
+							glblCtrl.GetComponent<Puppet2D_GlobalControl> ().flip = false;
 						}
 					}
 						
@@ -166,10 +231,10 @@ public class npcSystemClass : MonoBehaviour {
 				}
 			}
 
-			if (text.text == "") {
+			if (text != null && text.text == "") {
 				bubble.SetActive (false);
 			} else {
-				if (text.text.Contains ("<otherWeapon>")) {
+				if (text != null && text.text.Contains ("<otherWeapon>")) {
 					string otherWeapon = "sword";
 					if (globalScript.currentWeapon == "sword") {
 						otherWeapon = "bow";
@@ -197,8 +262,11 @@ public class npcSystemClass : MonoBehaviour {
 					startTriggered = false;
 					globalScript.gameState = "Normal";
 					character.GetComponent<characterClass> ().state = "normal";
-					if (startAutomatic == false && bubble.activeSelf == true) {
+					if (bubble != null && startAutomatic == false && bubble.activeSelf == true) {
 						bubble.SetActive (false);
+						if (subBubble != null) {
+							subBubble.SetActive (false);
+						}
 					}
 
 					if (currentDialogue.triggeredDialogue.flagsAfterDialogue.Length >= 1) {
@@ -225,6 +293,8 @@ public class npcSystemClass : MonoBehaviour {
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "steveTalkedWithMentor2") {
 							globalScript.currentQuest = 7;
 							globalScript.currentGold += 200;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "gotFireOrb1") {
+							globalScript.questStep = 1;
 						}
 					}
 				}
@@ -232,7 +302,7 @@ public class npcSystemClass : MonoBehaviour {
 		} else if (startAutomatic && (activePopup == null || activePopup.activeSelf == false)) {
 			automaticDialogueStep ();
 		} else {
-			if (bubble.activeSelf == true) {
+			if (bubble != null && bubble.activeSelf == true) {
 				bubble.SetActive (false);
 			}
 		}
@@ -270,6 +340,10 @@ public class npcSystemClass : MonoBehaviour {
 	}
 
 	void automaticDialogueStep () {
+		if (bubble == null) {
+			return;
+		}
+
 		if (bubble.activeSelf == false) {
 			bubble.SetActive (true);
 		}
@@ -280,7 +354,27 @@ public class npcSystemClass : MonoBehaviour {
 			}
 		}
 
-		text.text = currentDialogue.automaticDialogue.dialogues [currentDialogue.automaticDialogue.currentDialogue];
+		GameObject subBubble = null;
+		if (bubble != null && bubble.activeSelf) {
+			if (currentDialogue.automaticDialogue.bubbleDirection != null && currentDialogue.automaticDialogue.currentDialogue < currentDialogue.automaticDialogue.bubbleDirection.Length
+				&& currentDialogue.automaticDialogue.bubbleDirection [currentDialogue.automaticDialogue.currentDialogue] == "right") {
+				subBubble = bubble.transform.GetChild (1).gameObject;
+				subBubble.SetActive (true);
+				bubble.transform.GetChild (0).gameObject.SetActive (false);
+			} else {
+				subBubble = bubble.transform.GetChild (0).gameObject;
+				subBubble.SetActive (true);
+				bubble.transform.GetChild (1).gameObject.SetActive (false);
+			}
+		} 
+
+		if (subBubble != null) {
+			text = subBubble.transform.GetChild (0).GetComponent<TextMeshPro> ();;
+		}
+
+		if (text != null) {
+			text.text = currentDialogue.automaticDialogue.dialogues [currentDialogue.automaticDialogue.currentDialogue];
+		}
 		currentDialogue.automaticDialogue.timer += Time.deltaTime;
 
 		GameObject other = null;
@@ -290,9 +384,21 @@ public class npcSystemClass : MonoBehaviour {
 			other = GameObject.Find (currentDialogue.automaticDialogue.forOther [currentDialogue.automaticDialogue.currentDialogue]);
 
 			if (other != null) {
-				bubbleOther = other.transform.Find ("bubble");
+				bubbleOther = other.transform.Find ("bubbleGroup");
 				bubbleOther.gameObject.SetActive (true);
-				bubbleOther.GetChild (0).GetComponent<TextMeshPro> ().text = currentDialogue.automaticDialogue.dialogues [currentDialogue.automaticDialogue.currentDialogue];
+				GameObject subBubbleOther = null;
+				if (currentDialogue.automaticDialogue.bubbleDirection != null && currentDialogue.automaticDialogue.currentDialogue < currentDialogue.automaticDialogue.bubbleDirection.Length
+				    && currentDialogue.automaticDialogue.bubbleDirection [currentDialogue.automaticDialogue.currentDialogue] == "right") { 
+					bubbleOther.GetChild (0).gameObject.SetActive (false);
+					subBubbleOther = bubbleOther.GetChild (1).gameObject;
+					subBubbleOther.SetActive (true);
+				} else {
+					bubbleOther.GetChild (1).gameObject.SetActive (false);
+					subBubbleOther = bubbleOther.GetChild (0).gameObject;
+					subBubbleOther.SetActive (true);
+				}
+
+				subBubbleOther.transform.GetChild (0).GetComponent<TextMeshPro> ().text = currentDialogue.automaticDialogue.dialogues [currentDialogue.automaticDialogue.currentDialogue];
 
 				npcSystemClass otherNPC = other.GetComponent<npcSystemClass> ();
 				if (otherNPC != null) {
@@ -301,7 +407,7 @@ public class npcSystemClass : MonoBehaviour {
 			}
 		}
 
-		if (text.text == "") {
+		if (text != null && text.text == "") {
 			bubble.SetActive (false);
 		}
 
@@ -332,9 +438,7 @@ public class npcSystemClass : MonoBehaviour {
 				value = dialogueFiles.Length - 1;
 			}
 		}
-
-		print (transform.name);
-
+			
 		if (dialogueFiles.Length > 0 && dialogueFiles [value] != "") {
 			TextAsset targetFile = Resources.Load<TextAsset> (dialogueFiles [value]);
 
@@ -372,6 +476,9 @@ public class npcSystemClass : MonoBehaviour {
 				character = collider.gameObject;
 
 				if (transform.name == "earth_sphere") {
+					GetComponent<Collider2D> ().enabled = false;
+					activateTriggeredManually = true;
+				} else if (transform.name == "fire_sphere") {
 					GetComponent<Collider2D> ().enabled = false;
 					activateTriggeredManually = true;
 				}

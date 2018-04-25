@@ -41,6 +41,8 @@ public class characterClass : MonoBehaviour {
 	private float hitTime; 
 	private bool playJumpOnce;
 
+	private float jumpTimeCheck;
+
 	private Animator ropeAnimator;
 
 	private float prevScreenWidth;
@@ -53,6 +55,7 @@ public class characterClass : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		jumpTimeCheck = 0;
 		lastColliders = new List<Collider2D> ();
 		thisParent = transform.parent.gameObject;
 		leftBottomScreen = Camera.main.ScreenToWorldPoint (new Vector2 (0, 0));
@@ -150,6 +153,7 @@ public class characterClass : MonoBehaviour {
 				} else {
 					animationToPlay = "";
 				}
+				jumpTimeCheck = 0;
 			} else if (thisBody.velocity.y < -0.1f) {
 				if (!playJumpOnce) {
 					animationToPlay = "Jump";
@@ -157,8 +161,15 @@ public class characterClass : MonoBehaviour {
 				} else {
 					animationToPlay = "";
 				}
+				jumpTimeCheck = 0;
 			} else if (canJump > 0) {
 				playJumpOnce = false;
+				jumpTimeCheck = 0;
+			} else {
+				jumpTimeCheck += Time.deltaTime;
+				if (jumpTimeCheck > 0.5f) {
+					canJump = 1;
+				}
 			}
 
 			bool pressedAttack = Input.GetButton ("Fire3");
@@ -344,12 +355,14 @@ public class characterClass : MonoBehaviour {
 			}
 			thisCollider.isTrigger = false;
 			playJumpOnce = false;
+			jumpTimeCheck = 0;
 			thisBody.gravityScale = 1;
 			movSpeedY = 0;
 			movSpeedX = 0;
 			ropeAnimator.gameObject.SetActive (false);
 			ropeAnimator.enabled = true;
 			characterAnimator.gameObject.SetActive (true);
+			canJump = 1;
 		} else if (state == "rope") {
 			for (int i = lastColliders.Count - 1; i >= 0; i--) {
 				if (lastColliders [i] != lastPlatform) {
@@ -390,6 +403,7 @@ public class characterClass : MonoBehaviour {
 		if (hit.Length > 0) {
 			if (hit [0].transform.name == "ropeMiddle" || hit [0].transform.name == "ropeTop" || hit [0].transform.name == "ropeDown") {
 				if (state == "normal") {
+					transform.parent = baseParent;
 					Vector2 posNew = transform.parent.InverseTransformPoint (hit [0].transform.position);
 					LeanTween.moveLocalX (gameObject, posNew.x, 0.125f);
 
@@ -496,8 +510,8 @@ public class characterClass : MonoBehaviour {
 				transform.parent = collision.collider.transform;
 			} else if (collision.collider.name == "death") {
 				LeanTween.cancelAll ();
-				SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-			} else if (collision.collider.gameObject.layer == LayerMask.NameToLayer("Enemy")) {
+				SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+			} else if (collision.collider.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
 				if (collision.contacts [0].point.x > transform.position.x) {
 					characterAnimScript.flip = false;
 				} else {
@@ -528,6 +542,11 @@ public class characterClass : MonoBehaviour {
 					state = "hit";
 					hitTime = 0;
 					Update ();
+				}
+			} else if (collision.collider.name == "block") {
+				Collider2D blockCollider = collision.collider;
+				if (blockCollider.bounds.center.y+blockCollider.bounds.extents.y-0.1f < thisCollider.bounds.center.y-thisCollider.bounds.extents.y ) {
+					thisBody.velocity = new Vector2 (thisBody.velocity.x, 6);
 				}
 			}
 		} else {
@@ -585,16 +604,18 @@ public class characterClass : MonoBehaviour {
 				Physics2D.IgnoreCollision (collider, thisCollider, false);
 			}
 		} else if (collider.name == "path") {
-			if (globalScript.currentQuest <= 3) {
-				if (collider.transform.GetChild (0).name == "forestLevel1Scene") {
-					collider.transform.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
-					return;
-				}
-			} else if (globalScript.currentQuest == 4) {
-				if (collider.transform.GetChild (0).name == "forestLevel1Scene") {
-					if (collider.transform.GetComponent<npcSystemClass> ().enabled) {
+			if (SceneManager.GetActiveScene ().name == "townLevel1Scene") {
+				if (globalScript.currentQuest <= 3) {
+					if (collider.transform.GetChild (0).name == "forestLevel1Scene") {
 						collider.transform.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
 						return;
+					}
+				} else if (globalScript.currentQuest == 4) {
+					if (collider.transform.GetChild (0).name == "forestLevel1Scene") {
+						if (collider.transform.GetComponent<npcSystemClass> ().enabled) {
+							collider.transform.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+							return;
+						}
 					}
 				}
 			}

@@ -1,0 +1,80 @@
+{
+    "hasAutomaticDialogue":true,
+    "hasTriggeredDialogue":true,
+    "automaticDialogue":{
+        "dialogues":[
+			"...oh he's so dreamy...",
+            "...then I punched that DRAGON in the sniffer! HARHAR...",
+			"...one day he'll be all mine..."
+        ],
+        "timeInBetween":[
+            2,
+			3,
+			2
+        ],
+		"forOther":[
+			"randomGirl2",
+			"",
+			"randomGirl1"
+		],
+		"bubbleDirection":[
+			"left",
+			"left",
+			"right"
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+        ]
+    },
+    "triggeredDialogue":{
+        "dialogues":[
+			"",
+			"",
+            "away with you...",
+			"YOU don't want me to get up...",
+			"ARRR..."
+        ],
+        "timeInBetween":[
+			0.5,
+			0.1,
+            2, 
+			2, 
+			2
+        ],
+		"forOther":[
+			"etherBoy",
+			"etherBoy",
+			"",
+			"",
+			""
+		],
+		"newPosition":[
+			"-1/separate/0",
+			"",
+			"",
+			"",
+			""
+		],
+		"playAnimation":[
+			"Running",
+			"Idle",
+			"",
+			"",
+			""
+		],
+		"skippable":[
+			false,
+			false,
+			true,
+			true,
+			true
+		],
+		"faceDirection":[
+			0, 
+			-1
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+        ]
+    }
+}

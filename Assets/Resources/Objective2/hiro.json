@@ -1,0 +1,95 @@
+{
+    "hasAutomaticDialogue":true,
+    "hasTriggeredDialogue":true,
+    "automaticDialogue":{
+        "dialogues":[
+			"...oh he's so dreamy...",
+            "...then I punched that DRAGON in the sniffer! HARHAR...",
+			"...one day he'll be all mine..."
+        ],
+        "timeInBetween":[
+            2,
+			3,
+			2
+        ],
+		"forOther":[
+			"randomGirl2",
+			"",
+			"randomGirl1"
+		],
+		"bubbleDirection":[
+			"left",
+			"left",
+			"right"
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+        ]
+    },
+    "triggeredDialogue":{
+        "dialogues":[
+			"",
+			"",
+            "ahem...",
+            "Let me STOP you right there friend!",
+			"I'm busy with my pretty fans",
+			"GO AWAY!"
+        ],
+        "timeInBetween":[
+            0.5,
+            0.1,
+			1,
+			2,
+			2,
+			2
+        ],
+		"forOther":[
+			"etherBoy",
+			"etherBoy",
+			"etherBoy",
+			"",
+			"",
+			""
+		],
+		"newPosition":[
+			"-1/separate/0",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"playAnimation":[
+			"Running",
+			"Idle",
+			"",
+			"",
+			"",
+			""
+		],
+		"skippable":[
+			false,
+			false,
+			true,
+			true,
+			true,
+			true
+		],
+		"bubbleDirection":[
+			"left",
+			"left",
+			"right",
+			"left",
+			"left",
+			"left"
+		],
+		"faceDirection":[
+			0, 
+			-1
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+            "hiro2Talked"
+        ]
+    }
+}

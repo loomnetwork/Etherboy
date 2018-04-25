@@ -1,0 +1,44 @@
+{
+    "hasAutomaticDialogue":false,
+    "hasTriggeredDialogue":true,
+    "triggeredDialogue":{
+        "dialogues":[
+			"",
+			"",
+            "...must reach the temple of node and save these people!"
+        ],
+        "timeInBetween":[
+			1,
+			0.1,
+            1
+        ],
+		"forOther":[
+			"etherBoy",
+			"etherBoy",
+			"etherBoy"
+		],
+		"newPosition":[
+			"-3/separate/0",
+			"",
+			""
+		],
+		"playAnimation":[
+			"Running",
+			"Idle",
+			""
+		],
+		"skippable":[
+			false,
+			false,
+			true
+		],
+		"faceDirection":[
+			0, 
+			-1
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+			"doneBeforeForest1"
+        ]
+    }
+}

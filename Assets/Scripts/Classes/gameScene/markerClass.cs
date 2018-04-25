@@ -68,7 +68,7 @@ public class markerClass : MonoBehaviour {
 				GameObject door = neededObjectives [2];
 				objectivePoint = door.transform.position;
 				objectivePoint.y += 3f;
-				//objectivePoint.x += 0.15f;
+				objectivePoint.x += 1;
 
 				unalteredPoint = door.transform.position;
 			} else {
@@ -249,6 +249,32 @@ public class markerClass : MonoBehaviour {
 				found = false;
 			}
 		} else if (SceneManager.GetActiveScene ().name == "forestLevel2Scene") {
+			if (globalScript.currentQuest != 7) {
+				neededObjectives [0].SetActive (false);
+			}
+
+			if (globalScript.currentQuest == 7) {
+				if (globalScript.questStep == 0) {
+					GameObject sphere = neededObjectives [0];
+					sphere.transform.parent.gameObject.SetActive (true);
+					sphere.SetActive (true);
+					objectivePoint = sphere.transform.position;
+					objectivePoint.y += 2f;
+					objectivePoint.x += 0;
+
+					unalteredPoint = sphere.transform.position;
+				} else if (globalScript.questStep == 1) {
+					GameObject door = neededObjectives [1];
+					objectivePoint = door.transform.position;
+					objectivePoint.y += 3f;
+					objectivePoint.x += 1;
+
+					unalteredPoint = door.transform.position;
+				}
+			} else {
+				found = false;
+			}
+		} else {
 			found = false;
 		}
 

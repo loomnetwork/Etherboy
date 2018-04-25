@@ -1,0 +1,44 @@
+{
+    "hasAutomaticDialogue":false,
+    "hasTriggeredDialogue":true,
+    "triggeredDialogue":{
+        "dialogues":[
+			"",
+			"",
+            "I don't feel ready yet, let's talk with the Elder first."
+        ],
+        "timeInBetween":[
+			1,
+			0.1,
+            1
+        ],
+		"forOther":[
+			"etherBoy",
+			"etherBoy",
+			"etherBoy"
+		],
+		"newPosition":[
+			"-3/separate/0",
+			"",
+			""
+		],
+		"playAnimation":[
+			"Running",
+			"Idle",
+			""
+		],
+		"skippable":[
+			false,
+			false,
+			true
+		],
+		"faceDirection":[
+			0, 
+			1
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+
+        ]
+    }
+}

@@ -270,6 +270,8 @@
             <filename>../../../Additional/forestLevel2TileSet/0083.png</filename>
             <filename>../../../Additional/forestLevel2TileSet/0084.png</filename>
             <filename>../../../Additional/forestLevel2TileSet/0085.png</filename>
+            <filename>../../../Additional/forestLevel2TileSet/0086.png</filename>
+            <filename>../../../Additional/forestLevel2TileSet/0087.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

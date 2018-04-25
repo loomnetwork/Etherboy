@@ -31,6 +31,8 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 	private float multiTaskTimer;
 	private float attackDelayTime;
 
+	private int highestSortingOrder;
+
 	public int AttackPoints {
 		get {
 			return attackPoints;
@@ -39,8 +41,32 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 		}
 	}
 
+	void findSpritesRecursive (Transform obj) {
+		Renderer objRend = obj.GetComponent<Renderer> ();
+		if (objRend != null) {
+			if (objRend.sortingLayerName == "Enemies") {
+				objRend.sortingOrder += globalScript.startingOrderEnemies;
+
+				if (objRend.sortingOrder > highestSortingOrder) {
+					highestSortingOrder = objRend.sortingOrder;
+				}
+			}
+		}
+
+		if (obj.childCount > 0) {
+			for (int i = 0; i < obj.childCount; i++) {
+				findSpritesRecursive (obj.GetChild (i));
+			}
+		}
+	}
+
 	// Use this for initialization
 	void Start () {
+		highestSortingOrder = -9999;
+		findSpritesRecursive (transform);
+		highestSortingOrder++;
+		globalScript.startingOrderEnemies = highestSortingOrder;
+
 		basePosition = transform.localPosition;
 		thisAnimator = transform.GetChild(0).GetComponent<Animator> ();
 		thisBody = GetComponent<Rigidbody2D> ();
@@ -88,10 +114,90 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 			life = 2;
 			attackDelayTime = 0.2f;
 			attackPoints = 20;
+		} else if (transform.name == "fluff") {
+			attackDuration = 1.3f;
+			life = 3;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
+		} else if (transform.name == "octopus") {
+			attackDuration = 1.3f;
+			life = 3;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
+		} else if (transform.name == "bee") {
+			attackDuration = 1.3f;
+			life = 3;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
+		} else if (transform.name == "spikey") {
+			attackDuration = 1.3f;
+			life = 3;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
+		} else if (transform.name == "darkOctopus") {
+			attackDuration = 1.3f;
+			life = 5;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
+		} else if (transform.name == "darkSpikey") {
+			attackDuration = 1.3f;
+			life = 5;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
+		} else if (transform.name == "darkBee") {
+			attackDuration = 1.3f;
+			life = 5;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
+		} else if (transform.name == "darkFluff") {
+			attackDuration = 1.3f;
+			life = 5;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
+		} else if (transform.name == "darkArmadillo") {
+			attackDuration = 1.3f;
+			life = 5;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
+		} else if (transform.name == "darkCaterpillar") {
+			attackDuration = 1.3f;
+			life = 5;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
+		} else if (transform.name == "darkCactus") {
+			attackDuration = 1.3f;
+			life = 5;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
+		} else if (transform.name == "darkSpider") {
+			attackDuration = 1.3f;
+			life = 5;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
+		} else if (transform.name == "darkSpike") {
+			attackDuration = 1.3f;
+			life = 5;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
+		} else if (transform.name == "darkSlime") {
+			attackDuration = 1.3f;
+			life = 5;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
+		} else if (transform.name == "darkLeaf") {
+			attackDuration = 1.3f;
+			life = 5;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
+		} else if (transform.name == "darkSnail") {
+			attackDuration = 1.3f;
+			life = 5;
+			attackDelayTime = 0.2f;
+			attackPoints = 30;
 		}
-
+			
 		if (movSpeedX > 0) {
-			thisPuppetControl.flip = true;
+			changeFaceDirection (true);
 		}
 
 		multiTaskTimer = 0;
@@ -107,8 +213,12 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 			if (character != null) {
 				if (character.transform.localPosition.x + 0.3f < transform.localPosition.x) {
 					movSpeedX = -Mathf.Abs (movSpeedX);
+
+					print ("SDONE");
 				} else if (character.transform.localPosition.x - 0.3f > transform.localPosition.x) {
 					movSpeedX = Mathf.Abs (movSpeedX);
+
+					print ("DONE");
 				}
 			}
 
@@ -137,7 +247,7 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 					movSpeedX = Mathf.Abs (movSpeedX);
 				}
 
-				if ((thisPuppetControl.flip && character.transform.position.x > transform.position.x) || (!thisPuppetControl.flip && character.transform.position.x < transform.position.x)) {
+				if ((getFaceDirection() && character.transform.position.x > transform.position.x) || (!getFaceDirection() && character.transform.position.x < transform.position.x)) {
 					if ((Mathf.Abs (Mathf.Abs (transform.position.x) - Mathf.Abs (character.transform.position.x))) < attackRadius) {
 						state = "attack";
 						thisAnimator.Play ("Attack", -1, 0f);
@@ -147,15 +257,15 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 			}
 
 			if (movSpeedX > 0) {
-				thisPuppetControl.flip = true;
+				changeFaceDirection (true);
 			} else if (movSpeedX < 0) {
-				thisPuppetControl.flip = false;
+				changeFaceDirection (false);
 			}
 
 		} else if (state == "hit") {
 			if (!thisAnimator.GetCurrentAnimatorStateInfo (0).IsName ("Hit")) {
 				thisAnimator.Play ("Hit", -1, 0f);
-				if (thisPuppetControl.flip) {
+				if (getFaceDirection()) {
 					thisBody.velocity = new Vector2 (-2.5f, 5);
 				} else {
 					thisBody.velocity = new Vector2 (2.5f, 5);
@@ -185,7 +295,7 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 				}
 			} else if (attackTime > 0.5f) {
 				if (transform.name == "leaf") {
-					if (thisPuppetControl.flip) {
+					if (getFaceDirection()) {
 						thisBody.velocity = new Vector2 (0, thisBody.velocity.y);
 					} else {
 						thisBody.velocity = new Vector2 (0, thisBody.velocity.y);
@@ -193,13 +303,13 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 				}
 			} else if (attackTime > 0.3f) {
 				if (transform.name == "snail") {
-					if (thisPuppetControl.flip) {
+					if (getFaceDirection()) {
 						thisBody.velocity = new Vector2 (6, thisBody.velocity.y);
 					} else {
 						thisBody.velocity = new Vector2 (-6, thisBody.velocity.y);
 					}
 				} else if (transform.name == "leaf") {
-					if (thisPuppetControl.flip) {
+					if (getFaceDirection()) {
 						thisBody.velocity = new Vector2 (2, thisBody.velocity.y);
 					} else {
 						thisBody.velocity = new Vector2 (-2, thisBody.velocity.y);
@@ -218,6 +328,33 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 		}
 	}
 
+	bool getFaceDirection () {
+		if (thisPuppetControl != null) {
+			return thisPuppetControl.flip;
+		} else {
+			if (transform.GetChild (0).localScale.x > 0) {
+				return false;
+			} else {
+				return true;
+			}
+		}
+	}
+
+	void changeFaceDirection (bool direction) {
+		if (thisPuppetControl != null) {
+			thisPuppetControl.flip = direction;
+		} else {
+			Vector2 scale = transform.GetChild (0).localScale;
+			if (direction == true) {
+				scale.x = -Mathf.Abs (scale.x);
+			} else {
+				scale.x = Mathf.Abs (scale.x);
+			}
+			print (scale.x);
+			transform.GetChild (0).localScale = scale;
+		}
+	}
+
 	void OnCollisionEnter2D (Collision2D collision) {
 		if (collision.collider.name == "sword1" || collision.collider.name == "characterArrow") {
 			if (state != "hit") {
@@ -225,9 +362,9 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 				hitTime = 0;
 
 				if (collision.contacts [0].point.x > transform.position.x) {
-					thisPuppetControl.flip = true;
+					changeFaceDirection (true);
 				} else {
-					thisPuppetControl.flip = false;
+					changeFaceDirection (false);
 				}
 
 				if (collision.collider.name == "characterArrow") {
@@ -253,9 +390,9 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 						});
 					}
 					if (transform.name == "leaf") {
-						if (thisPuppetControl.flip == true) {
+						if (getFaceDirection() == true) {
 							LeanTween.rotateZ (gameObject, 90, 0.25f);
-						} else if (thisPuppetControl.flip == false) {
+						} else if (getFaceDirection() == false) {
 							LeanTween.rotateZ (gameObject, -90, 0.25f);
 						}
 					}
