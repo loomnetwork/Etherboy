@@ -1,0 +1,73 @@
+{
+	"hasAutomaticDialogue": false,
+	"hasTriggeredDialogue": true,
+	"triggeredDialogue": {
+		"dialogues": [
+			"",
+			"Hmm, this door is solid shut",
+			"There's a small hole in the center of the door",
+			"Where have I seen...",
+			"Of course!",
+			"The Talisman!",
+			"<deactivateRenderer>",
+			"Great! Let's get inside!"
+		],
+		"timeInBetween": [
+			3,
+			4,
+			5,
+			3,
+			2,
+			2,
+			0.1,
+			3
+		],
+		"forOther": [
+			"etherBoy",
+			"etherBoy",
+			"etherBoy",
+			"etherBoy",
+			"etherBoy",
+			"etherBoy",
+			"",
+			"etherBoy"
+		],
+		"newPosition": [
+			"-1/separate/0",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"playAnimation": [
+			"Running",
+			"Idle",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"faceDirection": [
+			0, -1
+		],
+		"skippable": [
+			false,
+			true,
+			true,
+			true,
+			true,
+			true,
+			false,
+			true
+		],
+		"currentDialogue": 0,
+		"flagsAfterDialogue": [
+			"openedTempleDoor"
+		]
+	}
+}

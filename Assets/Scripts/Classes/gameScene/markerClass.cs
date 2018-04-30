@@ -237,42 +237,232 @@ public class markerClass : MonoBehaviour {
 				}
 				found = false;
 			} else if (globalScript.currentQuest == 7) {
+				GameObject door = neededObjectives [4];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.7f;
+				unalteredPoint = door.transform.position;
+			} else if (globalScript.currentQuest == 8) {
+				GameObject NPC = neededObjectives [0];
+				objectivePoint = NPC.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.15f;
+
+				unalteredPoint = NPC.transform.position;
+			} else if (globalScript.currentQuest == 9) {
+				GameObject door = neededObjectives [1];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 3f;
+				objectivePoint.x += 1f;
+				unalteredPoint = door.transform.position;
+			} else {
+				found = false;
+			}
+		} else if (SceneManager.GetActiveScene ().name == "innLevel2Scene") {
+			if (globalScript.currentQuest == 7) {
+				GameObject door = neededObjectives [1];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.7f;
+				unalteredPoint = door.transform.position;
+			} else {
+				GameObject door = neededObjectives [0];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.7f;
+				unalteredPoint = door.transform.position;
+			}
+		} else if (SceneManager.GetActiveScene ().name == "privateRoom2Scene") {
+			if (globalScript.currentQuest == 7) {
+				GameObject NPC = neededObjectives [0];
+				if (globalScript.gameState != "isTalking") {
+					globalScript.gameState = "isTalking";
+					NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+				}
+				found = false;
+			} else {
+				GameObject door = neededObjectives [1];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.7f;
+				unalteredPoint = door.transform.position;
+			}
+		} else if (SceneManager.GetActiveScene ().name == "forestLevel2Scene") {
+			if (globalScript.currentQuest != 9) {
+				neededObjectives [0].SetActive (false);
+			}
+
+			if (globalScript.currentQuest == 9) {
+				GameObject sphere = neededObjectives [0];
+				sphere.transform.parent.gameObject.SetActive (true);
+				sphere.SetActive (true);
+				objectivePoint = sphere.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0;
+
+				unalteredPoint = sphere.transform.position;
+			} else if (globalScript.currentQuest == 10) {
+				GameObject door = neededObjectives [1];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 3f;
+				objectivePoint.x += 1;
+
+				unalteredPoint = door.transform.position;
+			} else {
+				found = false;
+			}
+		} else if (SceneManager.GetActiveScene ().name == "townLevel3Scene") {
+			if (globalScript.currentQuest < 10) {
+				GameObject door = neededObjectives [2];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 3f;
+				objectivePoint.x += 0.75f;
+
+				unalteredPoint = door.transform.position;
+			} 
+			if (globalScript.currentQuest == 10) {
+				GameObject NPC = neededObjectives [0];
+				if (globalScript.gameState != "isTalking") {
+					GameObject Steve = neededObjectives [3];
+					Steve.SetActive (true);
+					Steve.transform.localPosition = new Vector2 (NPC.transform.localPosition.x - 1, NPC.transform.localPosition.y - 0.2f);
+					globalScript.gameState = "isTalking";
+					LeanTween.value (0, 1, 0.5f).setOnComplete (() => {
+						NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+					});
+				}
+				found = false;
+			} else if (globalScript.currentQuest == 11) {
+				neededObjectives [3].SetActive (false);
+				GameObject NPC = neededObjectives [0];
+				objectivePoint = NPC.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.15f;
+
+				unalteredPoint = NPC.transform.position;
+			} else if (globalScript.currentQuest == 12) {
 				if (neededObjectives [3].activeSelf) {
 					neededObjectives [3].SetActive (false);
 				}
 				GameObject door = neededObjectives [1];
 				objectivePoint = door.transform.position;
 				objectivePoint.y += 3f;
+				objectivePoint.x += 1;
+
 				unalteredPoint = door.transform.position;
-				found = false;
 			} else {
 				found = false;
+			}
+		} else if (SceneManager.GetActiveScene ().name == "forestLevel3Scene") {
+			if (globalScript.currentQuest != 12) {
+				neededObjectives [0].SetActive (false);
+			} else if (globalScript.currentQuest != 14) {
+				//neededObjectives [1].SetActive (false);
+			}
+
+			if (globalScript.currentQuest == 12) {
+				GameObject sphere = neededObjectives [0];
+				sphere.transform.parent.gameObject.SetActive (true);
+				sphere.SetActive (true);
+				objectivePoint = sphere.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0;
+
+				unalteredPoint = sphere.transform.position;
+			} else if (globalScript.currentQuest == 13) {
+				GameObject door = neededObjectives [1];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.7f;
+
+				unalteredPoint = door.transform.position;
+			} else if (globalScript.currentQuest == 14) {
+				GameObject door = neededObjectives [1];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.7f;
+
+				unalteredPoint = door.transform.position;
+			} else {
+				found = false;
+			}
+		} else if (SceneManager.GetActiveScene ().name == "innerTempleScene") {
+			if (globalScript.currentQuest == 14) {
+				GameObject NPC = neededObjectives [0];
+				if (globalScript.gameState != "isTalking") {
+					globalScript.gameState = "isTalking";
+					NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+				}
+				found = false;
+			} else if (globalScript.currentQuest == 15) {
+				GameObject loomToken = neededObjectives [1];
+				objectivePoint = loomToken.transform.position;
+				objectivePoint.y += 2f;
+
+				unalteredPoint = loomToken.transform.position;
+			} else {
+				found = false;
+			}
+		} else if (SceneManager.GetActiveScene ().name == "darkForestLevel3Scene") {
+			if (globalScript.currentQuest != 16) {
+				neededObjectives [1].SetActive (false);
+			}
+
+			if (globalScript.currentQuest == 16) {
+				GameObject sphere = neededObjectives [1];
+				sphere.transform.parent.gameObject.SetActive (true);
+				sphere.SetActive (true);
+				objectivePoint = sphere.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0;
+
+				unalteredPoint = sphere.transform.position;
+			} else {
+				GameObject door = neededObjectives [0];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 3f;
+				objectivePoint.x += 1f;
+
+				unalteredPoint = door.transform.position;
+			}
+		} else if (SceneManager.GetActiveScene ().name == "darkTownLevel3Scene") {
+			if (globalScript.currentQuest == 17) {
+				GameObject NPC = neededObjectives [1];
+				objectivePoint = NPC.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.15f;
+
+				unalteredPoint = NPC.transform.position;
+			} else {
+				GameObject door = neededObjectives [0];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 3f;
+				objectivePoint.x += 1f;
+
+				unalteredPoint = door.transform.position;
 			}
 		} else if (SceneManager.GetActiveScene ().name == "forestLevel2Scene") {
-			if (globalScript.currentQuest != 7) {
-				neededObjectives [0].SetActive (false);
-			}
+			GameObject door = neededObjectives [1];
+			objectivePoint = door.transform.position;
+			objectivePoint.y += 3f;
+			objectivePoint.x += 1f;
 
-			if (globalScript.currentQuest == 7) {
-				if (globalScript.questStep == 0) {
-					GameObject sphere = neededObjectives [0];
-					sphere.transform.parent.gameObject.SetActive (true);
-					sphere.SetActive (true);
-					objectivePoint = sphere.transform.position;
-					objectivePoint.y += 2f;
-					objectivePoint.x += 0;
+			unalteredPoint = door.transform.position;
+		} else if (SceneManager.GetActiveScene ().name == "darkTownLevel2Scene") {
+			if (globalScript.currentQuest == 18) {
+				GameObject NPC = neededObjectives [0];
+				objectivePoint = NPC.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.15f;
 
-					unalteredPoint = sphere.transform.position;
-				} else if (globalScript.questStep == 1) {
-					GameObject door = neededObjectives [1];
-					objectivePoint = door.transform.position;
-					objectivePoint.y += 3f;
-					objectivePoint.x += 1;
-
-					unalteredPoint = door.transform.position;
-				}
+				unalteredPoint = NPC.transform.position;
 			} else {
-				found = false;
+				GameObject door = neededObjectives [1];
+				objectivePoint = door.transform.position;
+				objectivePoint.y += 3f;
+				objectivePoint.x += 1f;
+
+				unalteredPoint = door.transform.position;
 			}
 		} else {
 			found = false;

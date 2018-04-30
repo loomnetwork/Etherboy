@@ -1,0 +1,91 @@
+{
+    "hasAutomaticDialogue":false,
+    "hasTriggeredDialogue":true,
+    "triggeredDialogue":{
+        "dialogues":[
+			"",
+			"",
+			"Good... seem rested - you should check out the shop",
+			"Maybe a new upgrade will be just what you need!",
+			"",
+			"Go find the other Merkle Tree and bring its orb",
+			"to my brother in Stonetown, he will reward you well!",
+			"you must hurry, its getting worst",
+			"may the GODZ be with you!"
+        ],
+        "timeInBetween":[
+			1,
+			0.1,
+
+			5,
+			5,
+			2,
+			4,
+			5,
+			4,
+			3
+        ],
+		"forOther":[
+			"etherBoy",
+			"etherBoy",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"bubbleDirection":[
+
+		],
+		"newPosition":[
+			"-1/separate/0",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"playAnimation":[
+			"Running",
+			"Idle",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"skippable":[
+			false,
+			false,
+			true,
+			true,
+			true,
+			true,
+			true,
+			true,
+			true
+		],
+		"faceDirection":[
+			-1, 
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+			0
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+            "etherBoyTalkedWithMentorInTown2"
+        ]
+    }
+}

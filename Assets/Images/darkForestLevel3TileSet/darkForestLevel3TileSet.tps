@@ -275,6 +275,12 @@
             <filename>../../../../../../../../../Downloads/Dark Level 3/Tiles/dlvl3_vine_single_end.png</filename>
             <filename>../../../../../../../../../Downloads/Dark Level 3/Tiles/dlvl3_vine_single_tileable.png</filename>
             <filename>../../../../../../../../../Downloads/Dark Level 3/Tiles/0086.png</filename>
+            <filename>../../../../../../../../../Downloads/Dark Level 3/Tiles/z0001.png</filename>
+            <filename>../../../../../../../../../Downloads/Dark Level 3/Tiles/z0002.png</filename>
+            <filename>../../../../../../../../../Downloads/Dark Level 3/Tiles/z0003.png</filename>
+            <filename>../../../../../../../../../Downloads/Dark Level 3/Tiles/z0004.png</filename>
+            <filename>../../../../../../../../../Downloads/Dark Level 3/Tiles/z0005.png</filename>
+            <filename>../../../../../../../../../Downloads/Dark Level 3/Tiles/z0006.png</filename>
         </array>
         <key>ignoreFileList</key>
         <array/>

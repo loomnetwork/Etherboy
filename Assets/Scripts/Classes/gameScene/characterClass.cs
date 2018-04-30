@@ -167,7 +167,7 @@ public class characterClass : MonoBehaviour {
 				jumpTimeCheck = 0;
 			} else {
 				jumpTimeCheck += Time.deltaTime;
-				if (jumpTimeCheck > 0.5f) {
+				if (jumpTimeCheck > 0.1f) {
 					canJump = 1;
 				}
 			}
@@ -228,7 +228,7 @@ public class characterClass : MonoBehaviour {
 					magicTime = 1.45f;
 					GameObject bullet = Instantiate (rock);
 					bullet.name = "characterStone";
-					bullet.layer = LayerMask.NameToLayer("Character");
+					bullet.layer = LayerMask.NameToLayer ("Character");
 					bullet.transform.parent = transform.parent;
 					bullet.transform.position = rock.transform.position;
 					bullet.transform.localScale = new Vector2 (rock.transform.parent.localScale.x * 1.5f, rock.transform.parent.localScale.y * 1.5f);
@@ -278,7 +278,7 @@ public class characterClass : MonoBehaviour {
 						attackTime = 0.4f;
 						GameObject bullet = Instantiate (arrow);
 						bullet.name = "characterArrow";
-						bullet.layer = LayerMask.NameToLayer("Character");
+						bullet.layer = LayerMask.NameToLayer ("Character");
 						bullet.transform.parent = transform.parent;
 						bullet.transform.position = arrow.transform.position;
 						bullet.transform.localScale = arrow.transform.parent.localScale;
@@ -343,6 +343,13 @@ public class characterClass : MonoBehaviour {
 			if (movementX != 0) {
 				state = "normal";
 				resetState ();
+			}
+		} else if (state == "death") {
+			hitTime += Time.deltaTime;
+
+			if (hitTime > 1.5f) {
+				hitTime = -5;
+				globalScript.changeScene ("gameOverScene");
 			}
 		}
 	}
@@ -510,7 +517,13 @@ public class characterClass : MonoBehaviour {
 				transform.parent = collision.collider.transform;
 			} else if (collision.collider.name == "death") {
 				LeanTween.cancelAll ();
-				SceneManager.LoadScene (SceneManager.GetActiveScene ().name);
+				gameObject.layer = LayerMask.NameToLayer("Default");
+				state = "death";
+				characterAnimator.Play ("Death", -1, 0f);
+				hitTime = 0;
+				/*	LeanTween.value (0, 1, 1.5f).setOnComplete (() => {
+							globalScript.changeScene ("gameOverScene");
+						});*/
 			} else if (collision.collider.gameObject.layer == LayerMask.NameToLayer ("Enemy")) {
 				if (collision.contacts [0].point.x > transform.position.x) {
 					characterAnimScript.flip = false;
@@ -541,7 +554,19 @@ public class characterClass : MonoBehaviour {
 					resetState ();
 					state = "hit";
 					hitTime = 0;
-					Update ();
+
+					if (life <= 0) {
+						LeanTween.cancelAll ();
+						gameObject.layer = LayerMask.NameToLayer ("Default");
+						state = "death";
+						characterAnimator.Play ("Death", -1, 0f);
+						hitTime = 0;
+					/*	LeanTween.value (0, 1, 1.5f).setOnComplete (() => {
+							globalScript.changeScene ("gameOverScene");
+						});*/
+					} else {
+						Update ();
+					}
 				}
 			} else if (collision.collider.name == "block") {
 				Collider2D blockCollider = collision.collider;

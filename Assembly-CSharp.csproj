@@ -151,7 +151,10 @@
      <Compile Include="Assets\Scripts\Classes\general\backPopupClass.cs" />
      <Compile Include="Assets\Scripts\Classes\general\blockTouchClass.cs" />
      <Compile Include="Assets\Scripts\Classes\general\talkGroupClass.cs" />
+     <Compile Include="Assets\Scripts\Classes\menuScene\continueButtonClass.cs" />
+     <Compile Include="Assets\Scripts\Classes\menuScene\exitButtonClass.cs" />
      <Compile Include="Assets\Scripts\Classes\menuScene\shopTabButtonClass.cs" />
+     <Compile Include="Assets\Scripts\Classes\menuScene\soundButtonClass.cs" />
      <Compile Include="Assets\Scripts\Interfaces\ITouchable.cs" />
      <Compile Include="Assets\Scripts\Libraries\alignScript.cs" />
      <Compile Include="Assets\Scripts\Libraries\cameraZoomLibrary.cs" />
@@ -165,6 +168,8 @@
      <Compile Include="Assets\SpriteMask\Scripts\SpriteMask.cs" />
      <Compile Include="Assets\SpriteMask\Scripts\SpriteMaskingComponent.cs" />
      <Compile Include="Assets\SpriteMask\Scripts\SpriteMaskingPart.cs" />
+     <Compile Include="Assets\continueAfterGameOverButtonClass.cs" />
+     <Compile Include="Assets\weaponStandClass.cs" />
      <None Include="Assets\Plugins\UnityPurchasing\Android\proguard-user.txt.OPTIONAL.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />

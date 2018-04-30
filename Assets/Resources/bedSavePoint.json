@@ -1,0 +1,53 @@
+{
+    "hasAutomaticDialogue":true,
+    "hasTriggeredDialogue":true,
+    "automaticDialogue":{
+        "dialogues":[
+            "Time for a nap?..."
+        ],
+        "timeInBetween":[
+            10
+        ],
+		"forOther":[
+			"etherBoy"
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+        ]
+    },
+    "triggeredDialogue":{
+        "dialogues":[
+			"<fadeToBlack>",
+			"Now I'm well rested!"
+        ],
+        "timeInBetween":[
+			3,
+			6
+        ],
+		"forOther":[
+			"",
+			"etherBoy"
+		],
+		"newPosition":[
+			"",
+			""
+		],
+		"playAnimation":[
+			"",
+			""
+		],
+		"skippable":[
+			false,
+			true
+		],
+		"faceDirection":[
+			
+		],
+		"bubbleDirection":[
+			"right"
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+        ]
+    }
+}

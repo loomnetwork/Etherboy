@@ -1,0 +1,87 @@
+{
+    "hasAutomaticDialogue":false,
+    "hasTriggeredDialogue":true,
+    "triggeredDialogue":{
+        "dialogues":[
+			"yawn, this was an... experience...",
+            "looks very familiar here......",
+			"I'll take a short nap to recharge",
+			"",
+			"",
+			"<fadeToBlack>",
+			"<shakeScreen>",
+			"What was that?",
+			"Let's go see the elder!"
+        ],
+        "timeInBetween":[
+			5,
+			4,
+			4,
+			2,
+			0.1,
+			3,
+			3,
+			3,
+			4
+        ],
+		"forOther":[
+			"etherBoy",
+			"etherBoy",
+			"etherBoy",
+			"etherBoy",
+			"etherBoy",
+			"",
+			"",
+			"etherBoy",
+			"etherBoy"
+		],
+		"newPosition":[
+			"",
+			"",
+			"",
+			"9.5/separate/0",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"playAnimation":[
+			"Idle",
+			"Idle",
+			"Idle",
+			"Running",
+			"Idle",
+			"",
+			"",
+			"",
+			""
+		],
+		"skippable":[
+			true,
+			true,
+			true,
+			false,
+			false,
+			false,
+			false,
+			true,
+			true
+		],
+		"faceDirection":[
+			-1,
+			0,
+			0,
+			0, 
+			0,
+			0,
+			0,
+			0,
+			1
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+			"wentToBed2"
+        ]
+    }
+}

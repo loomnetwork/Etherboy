@@ -129,9 +129,63 @@ public class npcSystemClass : MonoBehaviour {
 					firstIterationDialog = false;
 					globalScript.groupToShake = GameObject.Find ("gameGroup");
 					globalScript.basePositionGroupToShake = globalScript.groupToShake.transform.position;
-					globalScript.shakeScreenTime = currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue]-0.1f;
+					globalScript.shakeScreenTime = currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue] - 0.1f;
 				}
+			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<fadeToBlack>") {
+				if (text != null) {
+					text.text = "";
+				}
+				if (firstIterationDialog) {
+					firstIterationDialog = false;
+					globalScript.fadeToBlack (currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue]);
+				}
+			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<deactivateRenderer>") {
+				if (text != null) {
+					text.text = "";
+				}
+				if (firstIterationDialog) {
+					firstIterationDialog = false;
+					GetComponent<Renderer> ().enabled = false;
+				}
+			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<deactivateGlobalCtrl>") {
+				if (text != null) {
+					text.text = "";
+				}
+				if (firstIterationDialog) {
+					firstIterationDialog = false;
+					transform.GetChild (1).gameObject.SetActive (false);
+				}
+			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<changeToDarkLevel3>") {
+				if (firstIterationDialog) {
+					firstIterationDialog = false;
+					globalScript.changeScene ("darkForestLevel3Scene");
+				}
+			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<changeToDarkLevel2>") {
+				if (firstIterationDialog) {
+					firstIterationDialog = false;
+					globalScript.changeScene ("darkForestLevel2Scene");
+				}
+			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<changeToDarkLevel1>") {
+				if (firstIterationDialog) {
+					firstIterationDialog = false;
+					globalScript.changeScene ("darkForestLevel1Scene");
+				}
+			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<youAreUploadedScene>") {
+				if (firstIterationDialog) {
+					firstIterationDialog = false;
+					globalScript.changeScene ("uploadedScene");
+					gameObject.SetActive (false);
+					return;
+				}
+			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<swapWeapon>") {
+				if (globalScript.currentWeapon == "bow") {
+					globalScript.currentWeapon = "sword";
+				} else {
+					globalScript.currentWeapon = "bow";
+				}
+				text.text = "";
 			}
+
 			GameObject other = null;
 			Transform bubbleOther = null;
 			if (currentDialogue.triggeredDialogue.forOther.Length >= currentDialogue.triggeredDialogue.currentDialogue && currentDialogue.triggeredDialogue.forOther [currentDialogue.triggeredDialogue.currentDialogue] != "") {
@@ -141,6 +195,33 @@ public class npcSystemClass : MonoBehaviour {
 				other = GameObject.Find (currentDialogue.triggeredDialogue.forOther [currentDialogue.triggeredDialogue.currentDialogue]);
 
 				if (other != null) {
+					if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<activateGlobalCtrl>") {
+						currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] = "";
+						if (text != null) {
+							text.text = "";
+						}
+						if (firstIterationDialog) {
+							
+							other.transform.GetChild (1).gameObject.SetActive (true);
+						}
+					} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<activateRenderer>") {
+						currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] = "";
+						if (text != null) {
+							text.text = "";
+						}
+						if (firstIterationDialog) {
+							other.GetComponent<Renderer> ().enabled = true;
+						}
+					} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<deactivateGravity>") {
+						currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] = "";
+						if (text != null) {
+							text.text = "";
+						}
+						if (firstIterationDialog) {
+							other.GetComponent<Rigidbody2D> ().gravityScale = 0;
+						}
+					}
+
 					if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] != "") {
 						bubbleOther = other.transform.Find ("bubbleGroup");
 						bubbleOther.gameObject.SetActive (true);
@@ -169,16 +250,19 @@ public class npcSystemClass : MonoBehaviour {
 
 					if (currentDialogue.triggeredDialogue.faceDirection != null && currentDialogue.triggeredDialogue.faceDirection.Length > 0
 					    && currentDialogue.triggeredDialogue.currentDialogue < currentDialogue.triggeredDialogue.faceDirection.Length) {
-						GameObject glblCtrl = other.transform.Find ("Global_CTRL").gameObject;
-						if (currentDialogue.triggeredDialogue.faceDirection [currentDialogue.triggeredDialogue.currentDialogue] > 0) {
-							glblCtrl.GetComponent<Puppet2D_GlobalControl> ().flip = true;
-						} else if (currentDialogue.triggeredDialogue.faceDirection [currentDialogue.triggeredDialogue.currentDialogue] < 0) {
-							glblCtrl.GetComponent<Puppet2D_GlobalControl> ().flip = false;
+						Transform globalCtrlTransform = other.transform.Find ("Global_CTRL");
+						if (globalCtrlTransform != null) {
+							GameObject glblCtrl = globalCtrlTransform.gameObject;
+							if (currentDialogue.triggeredDialogue.faceDirection [currentDialogue.triggeredDialogue.currentDialogue] > 0) {
+								glblCtrl.GetComponent<Puppet2D_GlobalControl> ().flip = true;
+							} else if (currentDialogue.triggeredDialogue.faceDirection [currentDialogue.triggeredDialogue.currentDialogue] < 0) {
+								glblCtrl.GetComponent<Puppet2D_GlobalControl> ().flip = false;
+							}
 						}
 					}
 						
 					if (firstIterationDialog && currentDialogue.triggeredDialogue.newPosition [currentDialogue.triggeredDialogue.currentDialogue] != "") {
-						firstIterationDialog = false;
+						
 
 						string[] splitter = currentDialogue.triggeredDialogue.newPosition [currentDialogue.triggeredDialogue.currentDialogue].Split (new string[] { "/separate/" }, StringSplitOptions.None);
 
@@ -201,7 +285,7 @@ public class npcSystemClass : MonoBehaviour {
 								movePos.y = other.transform.localPosition.y;
 							} else {
 								movePos.y = movePos.y + valueY;
-								moveY = moveX;
+								moveY = true;
 							}
 						} else {
 							movePos = other.transform.localPosition;
@@ -212,7 +296,7 @@ public class npcSystemClass : MonoBehaviour {
 						}
 
 						if (moveY) {
-							LeanTween.moveLocalX (other, movePos.y, currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue]);
+							LeanTween.moveLocalY (other, movePos.y, currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue]);
 						}
 					}
 
@@ -220,14 +304,71 @@ public class npcSystemClass : MonoBehaviour {
 					if (otherNPC != null) {
 						otherNPC.enabled = false;
 					}
+
+					firstIterationDialog = false; 
 				}
 			} else {
 				if (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue] != "") {
 					GameObject glblCtrl = transform.Find ("Global_CTRL").gameObject;
 					Animator thisAnim = glblCtrl.GetComponent<Animator> ();
 					if (!thisAnim.GetCurrentAnimatorStateInfo (0).IsName (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue])) {
+						print (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue]);
 						thisAnim.Play (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue], -1, 0f);
 					}
+				}
+
+				if (currentDialogue.triggeredDialogue.faceDirection != null && currentDialogue.triggeredDialogue.faceDirection.Length > 0
+					&& currentDialogue.triggeredDialogue.currentDialogue < currentDialogue.triggeredDialogue.faceDirection.Length) {
+					Transform globalCtrlTransform = transform.Find ("Global_CTRL");
+					if (globalCtrlTransform != null) {
+						GameObject glblCtrl = globalCtrlTransform.gameObject;
+						if (currentDialogue.triggeredDialogue.faceDirection [currentDialogue.triggeredDialogue.currentDialogue] > 0) {
+							glblCtrl.GetComponent<Puppet2D_GlobalControl> ().flip = true;
+						} else if (currentDialogue.triggeredDialogue.faceDirection [currentDialogue.triggeredDialogue.currentDialogue] < 0) {
+							glblCtrl.GetComponent<Puppet2D_GlobalControl> ().flip = false;
+						}
+					}
+				}
+
+				if (firstIterationDialog && currentDialogue.triggeredDialogue.newPosition [currentDialogue.triggeredDialogue.currentDialogue] != "") {
+
+
+					string[] splitter = currentDialogue.triggeredDialogue.newPosition [currentDialogue.triggeredDialogue.currentDialogue].Split (new string[] { "/separate/" }, StringSplitOptions.None);
+
+					Vector2 movePos = transform.parent.InverseTransformPoint (transform.position);
+
+					bool moveX = false;
+					bool moveY = false;
+					if (splitter.Length > 1) {
+						float valueX = float.Parse (splitter [0]);
+						float valueY = float.Parse (splitter [1]);
+
+						if (splitter [0] == "0") {
+							movePos.x = transform.localPosition.x;
+						} else {
+							movePos.x = movePos.x + valueX;
+							moveX = true;
+						}
+
+						if (splitter [1] == "0") {
+							movePos.y = transform.localPosition.y;
+						} else {
+							movePos.y = movePos.y + valueY;
+							moveY = true;
+						}
+					} else {
+						movePos = other.transform.localPosition;
+					}
+
+					if (moveX) {
+						LeanTween.moveLocalX (gameObject, movePos.x, currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue]);
+					}
+
+					if (moveY) {
+						LeanTween.moveLocalY (gameObject, movePos.y, currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue]);
+					}
+
+					firstIterationDialog = false;
 				}
 			}
 
@@ -293,8 +434,46 @@ public class npcSystemClass : MonoBehaviour {
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "steveTalkedWithMentor2") {
 							globalScript.currentQuest = 7;
 							globalScript.currentGold += 200;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "wentToBed2") {
+							globalScript.currentQuest = 8;
+							globalScript.currentGold += 200;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "etherBoyTalkedWithMentorInTown2") {
+							globalScript.currentQuest = 9;
+							globalScript.currentGold += 200;
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "gotFireOrb1") {
-							globalScript.questStep = 1;
+							globalScript.currentQuest = 10;
+							globalScript.currentGold += 200;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "steveTalkedWithMentor3") {
+							globalScript.currentQuest = 11;
+							globalScript.currentGold += 1000;
+							readyForTriggered = true;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "etherBoyTalkedWithMentorInTown3") {
+							globalScript.currentQuest = 12;
+							globalScript.currentGold += 1000;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "gotIceOrb1") {
+							globalScript.currentQuest = 13;
+							globalScript.currentGold += 1000;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "openedTempleDoor") {
+							globalScript.currentQuest = 14;
+							globalScript.currentGold += 1000;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "etherBoyTalkedWithMentorInTemple") {
+							globalScript.currentQuest = 15;
+							globalScript.currentGold += 1000;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "steveTurnedIntoChaos") {
+							globalScript.currentQuest = 16;
+							globalScript.currentGold += 5000;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "gotAirOrb1") {
+							globalScript.currentQuest = 17;
+							globalScript.currentGold += 2000;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "elderFightsChaos") {
+							globalScript.currentQuest = 18;
+							globalScript.currentGold += 1000;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "hiroFightsChaos") {
+							globalScript.currentQuest = 19;
+							globalScript.currentGold += 5000;
+						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "gameCompleted") {
+							globalScript.currentQuest = 20;
+							globalScript.currentGold += 1000000;
 						}
 					}
 				}
@@ -439,7 +618,7 @@ public class npcSystemClass : MonoBehaviour {
 			}
 		}
 			
-		if (dialogueFiles.Length > 0 && dialogueFiles [value] != "") {
+		if (dialogueFiles.Length > 0 && value < dialogueFiles.Length && dialogueFiles [value] != "") {
 			TextAsset targetFile = Resources.Load<TextAsset> (dialogueFiles [value]);
 
 			currentDialogue = JsonUtility.FromJson<dialogueSystemClass> (targetFile.text);
@@ -481,6 +660,23 @@ public class npcSystemClass : MonoBehaviour {
 				} else if (transform.name == "fire_sphere") {
 					GetComponent<Collider2D> ().enabled = false;
 					activateTriggeredManually = true;
+				} else if (transform.name == "ice_sphere") {
+					GetComponent<Collider2D> ().enabled = false;
+					activateTriggeredManually = true;
+				} else if (transform.name == "air_sphere") {
+					GetComponent<Collider2D> ().enabled = false;
+					activateTriggeredManually = true;
+				} else if (transform.name == "lastElder") {
+					GetComponent<Collider2D> ().enabled = false;
+					activateTriggeredManually = true;
+				} else if (transform.name == "templeDoor") {
+					GetComponent<Collider2D> ().enabled = false;
+					activateTriggeredManually = true;
+				} else if (transform.name == "Steve") {
+					if (globalScript.currentQuest == 15) {
+						GetComponent<Collider2D> ().enabled = false;
+						activateTriggeredManually = true;
+					}
 				}
 			}
 		}

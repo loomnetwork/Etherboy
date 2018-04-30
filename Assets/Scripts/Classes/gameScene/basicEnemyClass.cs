@@ -350,7 +350,6 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 			} else {
 				scale.x = Mathf.Abs (scale.x);
 			}
-			print (scale.x);
 			transform.GetChild (0).localScale = scale;
 		}
 	}

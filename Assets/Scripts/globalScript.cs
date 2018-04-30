@@ -3,6 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
+[System.Serializable]
+public class saveGameClass {
+	public int currentQuest;
+	public string currentWeapon;
+	public int questStep;
+	public int currentGold;
+	public string lastScene;
+}
+
 public class globalScript : MonoBehaviour {
 
 	public string androidMoreGamesURL;
@@ -41,6 +50,9 @@ public class globalScript : MonoBehaviour {
 	public static GameObject groupToShake;
 	public static Vector2 basePositionGroupToShake;
 
+	public static string lastPlayedScene;
+	public static string sceneBeforeDeath;
+
 
 	private static GameObject fader;
 
@@ -78,7 +90,16 @@ public class globalScript : MonoBehaviour {
 	}
 
 	public static void changeScene(string sceneName) {
-		globalScript.previousScene = SceneManager.GetActiveScene ().name;
+		if (sceneName == "gameOverScene") {
+			globalScript.sceneBeforeDeath = globalScript.previousScene;
+		}
+
+		if (SceneManager.GetActiveScene ().name != "gameOverScene") {
+			globalScript.previousScene = SceneManager.GetActiveScene ().name;
+		} else {
+			globalScript.previousScene = globalScript.sceneBeforeDeath;
+		}
+
 		startingOrderEnemies = 0;
 
 		if (fader != null) {
@@ -91,6 +112,44 @@ public class globalScript : MonoBehaviour {
 			});
 		} else {
 			SceneManager.LoadScene (sceneName);
+		}
+	}
+
+	public static void loadGame () {
+		saveGameClass saveData = JsonUtility.FromJson<saveGameClass>(PlayerPrefs.GetString ("savedData"));
+		if (saveData != null) {
+			globalScript.currentGold = saveData.currentGold;
+			globalScript.currentQuest = saveData.currentQuest;
+			globalScript.currentWeapon = saveData.currentWeapon;
+			globalScript.questStep = saveData.questStep;
+			globalScript.lastPlayedScene = saveData.lastScene;
+		}
+	}
+
+	public static void saveGame () {
+		saveGameClass saveData = new saveGameClass ();
+		saveData.currentGold = globalScript.currentGold;
+		saveData.currentQuest = globalScript.currentQuest;
+		saveData.currentWeapon = globalScript.currentWeapon;
+		saveData.questStep = globalScript.questStep;
+		saveData.lastScene = SceneManager.GetActiveScene ().name;
+
+		string jsonData = JsonUtility.ToJson (saveData);
+		if (jsonData != null) {
+			PlayerPrefs.SetString ("savedData", jsonData);
+		}
+	}
+
+	public static void fadeToBlack (float seconds) {
+		print ("FADING TO BLACK");
+		if (fader != null) {
+			fader.SetActive (true);
+			LeanTween.alpha (fader, 1, 0.25f).setOnComplete (() => {
+				globalScript.saveGame();
+				LeanTween.alpha (fader, 0, 0.25f).setOnComplete (() => {
+					fader.SetActive (false);
+				}).setDelay(seconds-0.5f);
+			});
 		}
 	}
 
@@ -107,7 +166,7 @@ public class globalScript : MonoBehaviour {
 	}
 
 	void Awake() {
-		if (hasAlreadyLoaded == true)
+		if (hasAlreadyLoaded == true )
 			return;
 
 		shakeScreenTime = 0;
@@ -116,7 +175,7 @@ public class globalScript : MonoBehaviour {
 		hasAlreadyLoaded = true;
 		Application.targetFrameRate = 60;
 
-		currentQuest = 7;
+		currentQuest = 0;
 		questStep = 0;
 
 		fader = GameObject.Find ("fader");
