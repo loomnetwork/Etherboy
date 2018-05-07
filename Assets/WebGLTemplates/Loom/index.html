@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player | %UNITY_WEB_NAME%</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="%UNITY_WEBGL_LOADER_URL%"></script>
+    <script src="https://cdn.auth0.com/js/auth0/9.5.0/auth0.min.js"></script>
+    <script src="auth.js"></script>
+    <script src="loom.umd.js"></script>
+  </head>
+  
+  <body>
+    <script>
+      var gameInstance;
+      window.addEventListener('load', function() {
+        // There are a couple of ways to deal with the auth flow...
+        /*
+          1. Start the auth-flow from the host page when the user presses a button, and launch
+             the game once the user signs in. When the host page initiates the auth flow the
+             user will be redirected to the Auth0 login page, then once they sign in they'll
+             be redirected back to the host page - at which point the game will load.
+        */
+        /*
+        const loginBtn = document.getElementById('btn-login');
+        authenticateFromPage(loginBtn).then(function () {
+          gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%");
+        });
+        */
+
+        /*
+          2. Start the auth-flow from in-game. When the game initiates the auth flow the user
+             will be redirected to the Auth0 login page, then once they sign in they'll be
+             redirected back to the host page - at which point the game will load once again.
+        */
+        authenticateFromPage();
+        gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%");
+      });
+    </script>
+    <!-- Button to pass into authenticateFromPage()
+    <button id="btn-login">Log In</button>
+    -->
+    <div class="webgl-content">
+      <div id="gameContainer" style="width: %UNITY_WIDTH%px; height: %UNITY_HEIGHT%px"></div>
+      <div class="footer">
+        <div class="webgl-logo"></div>
+        <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+        <div class="title">%UNITY_WEB_NAME%</div>
+      </div>
+    </div>
+  </body>
+  
+</html>

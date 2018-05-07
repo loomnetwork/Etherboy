@@ -40,19 +40,21 @@ public class continueButtonClass : MonoBehaviour, ITouchable {
 		GetComponent<Renderer>().material.color = new Color(1, 1, 1);
 		touchController.FocusObject = null;
 		transform.localScale = baseScale;
+		GameObject.Find ("backend").GetComponent<etherboySample> ().QuerySaveData ();
+		/*
 		globalScript.loadGame ();
 		if (globalScript.lastPlayedScene != "") {
 			globalScript.changeScene (globalScript.lastPlayedScene);
-		}
+		}*/
 		return false;
 	}
 
 	void Start () {
 		baseScale = transform.localScale;
 
-		if (PlayerPrefs.GetString ("savedData") == "") {
+		/*if (PlayerPrefs.GetString ("savedData") == "") {
 			GetComponent<BoxCollider2D> ().enabled = false;
 			GetComponent<Renderer>().material.color = new Color(0.7f, 0.7f, 0.7f);
-		} 
+		} */
 	}
 }

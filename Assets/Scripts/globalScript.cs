@@ -4,9 +4,12 @@ using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 
 [System.Serializable]
-public class saveGameClass {
+public class SampleState {
 	public int currentQuest;
 	public string currentWeapon;
+	public string equippedSword;
+	public string equippedBow;
+	public string equippedHelm;
 	public int questStep;
 	public int currentGold;
 	public string lastScene;
@@ -40,6 +43,9 @@ public class globalScript : MonoBehaviour {
 	public static int currentQuest;
 	public static int questStep;
 	public static string currentWeapon = "sword";
+	public static string equippedSword = "sword1";
+	public static string equippedBow = "bow1";
+	public static string equippedHelm = "helm1";
 	public static string gameState;
 
 	public static int currentGold;
@@ -115,29 +121,35 @@ public class globalScript : MonoBehaviour {
 		}
 	}
 
-	public static void loadGame () {
-		saveGameClass saveData = JsonUtility.FromJson<saveGameClass>(PlayerPrefs.GetString ("savedData"));
+	public static void loadGame (SampleState saveData) {
+		//saveGameClass saveData = JsonUtility.FromJson<saveGameClass>(PlayerPrefs.GetString ("savedData"));
 		if (saveData != null) {
 			globalScript.currentGold = saveData.currentGold;
 			globalScript.currentQuest = saveData.currentQuest;
 			globalScript.currentWeapon = saveData.currentWeapon;
 			globalScript.questStep = saveData.questStep;
 			globalScript.lastPlayedScene = saveData.lastScene;
+
+			if (globalScript.lastPlayedScene != "") {
+				globalScript.changeScene (globalScript.lastPlayedScene);
+			}
 		}
 	}
 
 	public static void saveGame () {
-		saveGameClass saveData = new saveGameClass ();
+		SampleState saveData = new SampleState ();
 		saveData.currentGold = globalScript.currentGold;
 		saveData.currentQuest = globalScript.currentQuest;
 		saveData.currentWeapon = globalScript.currentWeapon;
 		saveData.questStep = globalScript.questStep;
 		saveData.lastScene = SceneManager.GetActiveScene ().name;
 
-		string jsonData = JsonUtility.ToJson (saveData);
+		GameObject.Find ("backend").GetComponent<etherboySample> ().SaveState (saveData);
+	/*	string jsonData = JsonUtility.ToJson (saveData);
 		if (jsonData != null) {
 			PlayerPrefs.SetString ("savedData", jsonData);
 		}
+	*/
 	}
 
 	public static void fadeToBlack (float seconds) {
@@ -163,9 +175,39 @@ public class globalScript : MonoBehaviour {
 				shakeScreenTime = 0;
 			}
 		}
+
+		if (SceneManager.GetActiveScene ().name == "menuScene") {
+			if (PlayerPrefs.GetString ("identityString") != "") {
+				GameObject loginGroup = GameObject.Find ("loginGroup");
+				if (loginGroup != null && loginGroup.activeSelf) {
+					loginGroup.SetActive (false);
+					GameObject.Find ("backend").GetComponent<etherboySample> ().SignIn ();
+				}
+			} else {
+				GameObject menuGroup = GameObject.Find ("menuGroup");
+				if (menuGroup != null && menuGroup.activeSelf) {
+					GameObject.Find ("menuGroup").SetActive (false);
+				}
+			}
+		}
 	}
 
 	void Awake() {
+		if (SceneManager.GetActiveScene ().name == "menuScene") {
+			if (PlayerPrefs.GetString ("identityString") != "") {
+				GameObject loginGroup = GameObject.Find ("loginGroup");
+				if (loginGroup != null && loginGroup.activeSelf) {
+					loginGroup.SetActive (false);
+					GameObject.Find ("backend").GetComponent<etherboySample> ().SignIn ();
+				}
+			} else {
+				GameObject menuGroup = GameObject.Find ("menuGroup");
+				if (menuGroup != null && menuGroup.activeSelf) {
+					GameObject.Find ("menuGroup").SetActive (false);
+				}
+			}
+		}
+
 		if (hasAlreadyLoaded == true )
 			return;
 
@@ -174,6 +216,9 @@ public class globalScript : MonoBehaviour {
 		gameState = "";
 		hasAlreadyLoaded = true;
 		Application.targetFrameRate = 60;
+
+		PlayerPrefs.SetString ("sword1", "purchased");
+		PlayerPrefs.SetString ("bow1", "purchased");
 
 		currentQuest = 0;
 		questStep = 0;

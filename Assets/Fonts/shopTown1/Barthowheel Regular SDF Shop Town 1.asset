@@ -1077,6 +1077,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
+  m_ForcedFallbackFormat: 4
+  m_DownscaleFallback: 0
   serializedVersion: 2
   m_Width: 512
   m_Height: 512
@@ -1088,10 +1090,13 @@ Texture2D:
   m_ImageCount: 1
   m_TextureDimension: 2
   m_TextureSettings:
+    serializedVersion: 2
     m_FilterMode: 1
     m_Aniso: 1
     m_MipBias: 0
-    m_WrapMode: 0
+    m_WrapU: 0
+    m_WrapV: 0
+    m_WrapW: 0
   m_LightmapFormat: 0
   m_ColorSpace: 0
   image data: 262144

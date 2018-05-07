@@ -787,7 +787,7 @@ namespace Puppet2D
 
 			switch (e.type)
 			{
-				case EventType.keyDown:
+				case EventType.KeyDown:
 					{
 						if (Event.current.keyCode == (KeyCode.Return))
 						{
@@ -856,7 +856,7 @@ namespace Puppet2D
 						}
 						break;
 					}
-				case EventType.mouseMove:
+				case EventType.MouseMove:
 					{
 						if (Event.current.button == 0)
 						{
@@ -967,7 +967,7 @@ namespace Puppet2D
 						break;
 
 					}
-				case EventType.keyUp:
+				case EventType.KeyUp:
 					{
 						if (Event.current.keyCode == (KeyCode.B) || Event.current.keyCode == (KeyCode.N))
 						{
@@ -979,7 +979,7 @@ namespace Puppet2D
 						}
 						break;
 					}
-				case EventType.mouseDrag:
+				case EventType.MouseDrag:
 					{
 						paintControlColor = new Color(.8f, 1f, .8f, .5f);
 

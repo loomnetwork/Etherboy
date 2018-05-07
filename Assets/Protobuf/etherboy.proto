@@ -1,0 +1,26 @@
+syntax = "proto3";
+
+message EtherboyCreateAccountTx {
+	int32 version = 1;
+	string owner = 2;
+	bytes data = 3;
+}
+
+message EtherboyStateTx {
+	int32 version = 1;
+	string owner = 2;
+	bytes data = 3;
+}
+
+message EtherboyAppState {
+	bytes address = 1;
+	bytes blob = 2;
+}
+
+message StateQueryParams {
+	string owner = 1;
+}
+
+message StateQueryResult {
+	bytes state = 1;
+}

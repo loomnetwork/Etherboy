@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
+    <LangVersion>6</LangVersion>
+  </PropertyGroup>
+  <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
@@ -10,7 +13,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
-    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <BaseDirectory>Assets</BaseDirectory>
   </PropertyGroup>
@@ -19,10 +22,11 @@
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>Temp\bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_5_6_4;UNITY_5_6;UNITY_5;UNITY_PURCHASING;UNITY_ANALYTICS;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_RUNTIME_NAVMESH_BUILDING;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_TERRAIN;ENABLE_UNET;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;INCLUDE_DYNAMIC_GI;INCLUDE_GI;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_SCRIPTING_NEW_CSHARP_COMPILER;ENABLE_VIDEO;UNITY_WEBGL;UNITY_WEBGL_API;UNITY_DISABLE_WEB_VERIFICATION;UNITY_GFX_USE_PLATFORM_VSYNC;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_VR;ENABLE_IL2CPP;NET_2_0_SUBSET;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;SUPER_TILEMAP_EDITOR</DefineConstants>
+    <DefineConstants>DEBUG;TRACE;UNITY_5_3_OR_NEWER;UNITY_5_4_OR_NEWER;UNITY_5_5_OR_NEWER;UNITY_5_6_OR_NEWER;UNITY_2017_1_OR_NEWER;UNITY_2017_2_OR_NEWER;UNITY_2017_3_OR_NEWER;UNITY_2017_3_1;UNITY_2017_3;UNITY_2017;UNITY_ANALYTICS;UNITY_PURCHASING;ENABLE_AUDIO;ENABLE_CACHING;ENABLE_CLOTH;ENABLE_DUCK_TYPING;ENABLE_GENERICS;ENABLE_PVR_GI;ENABLE_MICROPHONE;ENABLE_MULTIPLE_DISPLAYS;ENABLE_PHYSICS;ENABLE_SPRITERENDERER_FLIPPING;ENABLE_SPRITES;ENABLE_GRID;ENABLE_TILEMAP;ENABLE_TERRAIN;ENABLE_RAKNET;ENABLE_DIRECTOR;ENABLE_UNET;ENABLE_LZMA;ENABLE_UNITYEVENTS;ENABLE_WEBCAM;ENABLE_WWW;ENABLE_CLOUD_SERVICES_COLLAB;ENABLE_CLOUD_SERVICES_COLLAB_SOFTLOCKS;ENABLE_CLOUD_SERVICES_ADS;ENABLE_CLOUD_HUB;ENABLE_CLOUD_PROJECT_ID;ENABLE_CLOUD_SERVICES_USE_WEBREQUEST;ENABLE_CLOUD_SERVICES_UNET;ENABLE_CLOUD_SERVICES_BUILD;ENABLE_CLOUD_LICENSE;ENABLE_EDITOR_HUB;ENABLE_EDITOR_HUB_LICENSE;ENABLE_WEBSOCKET_CLIENT;ENABLE_DIRECTOR_AUDIO;ENABLE_DIRECTOR_TEXTURE;ENABLE_TIMELINE;ENABLE_EDITOR_METRICS;ENABLE_EDITOR_METRICS_CACHING;ENABLE_NATIVE_ARRAY;ENABLE_SPRITE_MASKING;INCLUDE_DYNAMIC_GI;INCLUDE_GI;ENABLE_MONO_BDWGC;PLATFORM_SUPPORTS_MONO;RENDER_SOFTWARE_CURSOR;INCLUDE_PUBNUB;ENABLE_PLAYMODE_TESTS_RUNNER;ENABLE_VIDEO;ENABLE_RMGUI;ENABLE_PACKMAN;ENABLE_CUSTOM_RENDER_TEXTURE;ENABLE_STYLE_SHEETS;ENABLE_LOCALIZATION;PLATFORM_STANDALONE_WIN;PLATFORM_STANDALONE;UNITY_STANDALONE_WIN;UNITY_STANDALONE;ENABLE_SUBSTANCE;ENABLE_RUNTIME_GI;ENABLE_MOVIES;ENABLE_NETWORK;ENABLE_CRUNCH_TEXTURE_COMPRESSION;ENABLE_UNITYWEBREQUEST;ENABLE_CLOUD_SERVICES;ENABLE_CLOUD_SERVICES_ANALYTICS;ENABLE_CLOUD_SERVICES_PURCHASING;ENABLE_CLOUD_SERVICES_CRASH_REPORTING;ENABLE_EVENT_QUEUE;ENABLE_CLUSTERINPUT;ENABLE_VR;ENABLE_AR;ENABLE_WEBSOCKET_HOST;ENABLE_MONO;NET_4_6;ENABLE_PROFILER;UNITY_ASSERTIONS;UNITY_EDITOR;UNITY_EDITOR_64;UNITY_EDITOR_OSX;ENABLE_NATIVE_ARRAY_CHECKS;UNITY_TEAM_LICENSE;UNITY_PRO_LICENSE;bullet;SUPER_TILEMAP_EDITOR</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,6 +35,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <NoWarn>0169</NoWarn>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -39,10 +44,10 @@
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>/Applications/Unity564/Unity.app/Contents/Managed/UnityEngine.dll</HintPath>
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
-      <HintPath>/Applications/Unity564/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -65,16 +70,16 @@
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\RoadBrush.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Brush\TilesetBrush.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\EditorGlobalSettings.cs" />
-     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\STETilemap.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\SortingLayerAttribute.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\STETilemap.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TileDataAttribute.cs" />
-     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TileObjMesh.cs" />
-     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TileObjectBehaviour.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TilemapChunk.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TilemapChunk_Collider.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TilemapChunk_Renderer.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TilemapChunk_TileObjFactory.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TilemapGroup.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TileObjectBehaviour.cs" />
+     <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\TileObjMesh.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Tilemap\Tileset.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\EditorCompatibilityUtils.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\EditorUtils.cs" />
@@ -83,7 +88,29 @@
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\TilemapDrawingUtils.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\TilemapUtils.cs" />
      <Compile Include="Assets\CreativeSpore\SuperTilemapEditor\Scripts\Utils\TilemapVertexPaintUtils.cs" />
+     <Compile Include="Assets\etherboySample.cs" />
+     <Compile Include="Assets\LoomSDK\Android\AuthClient.cs" />
+     <Compile Include="Assets\LoomSDK\Android\LoginCallback.cs" />
+     <Compile Include="Assets\LoomSDK\AuthClientFactory.cs" />
+     <Compile Include="Assets\LoomSDK\CertValidationBypass.cs" />
+     <Compile Include="Assets\LoomSDK\CryptoUtils.cs" />
+     <Compile Include="Assets\LoomSDK\DAppChainClient.cs" />
+     <Compile Include="Assets\LoomSDK\Desktop\AuthClient.cs" />
+     <Compile Include="Assets\LoomSDK\IAuthClient.cs" />
+     <Compile Include="Assets\LoomSDK\IKeyStore.cs" />
+     <Compile Include="Assets\LoomSDK\Internal\VaultClient.cs" />
+     <Compile Include="Assets\LoomSDK\Internal\VaultStore.cs" />
+     <Compile Include="Assets\LoomSDK\KeyStoreFactory.cs" />
+     <Compile Include="Assets\LoomSDK\Middleware\NonceTxMiddleware.cs" />
+     <Compile Include="Assets\LoomSDK\Middleware\SignedTxMiddleware.cs" />
+     <Compile Include="Assets\LoomSDK\NullLogger.cs" />
+     <Compile Include="Assets\LoomSDK\TxMiddleware.cs" />
+     <Compile Include="Assets\LoomSDK\WebGL\AuthClient.cs" />
+     <Compile Include="Assets\Protobuf\Etherboy.cs" />
+     <Compile Include="Assets\Protobuf\Loom.cs" />
+     <Compile Include="Assets\Protobuf\Sample.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_AngleLimitNode.cs" />
+     <Compile Include="Assets\Puppet2D\Scripts\Puppet2d_AnimatorController.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_BakeAnimation.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_Bakedmesh.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_EditSkinWeights.cs" />
@@ -98,7 +125,6 @@
      <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_SortingLayer.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_SplineControl.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Puppet2D_VertHandler.cs" />
-     <Compile Include="Assets\Puppet2D\Scripts\Puppet2d_AnimatorController.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\DelaunayTriangle.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\AdvancingFront.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Delaunay\Sweep\AdvancingFrontNode.cs" />
@@ -135,6 +161,7 @@
      <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2D.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Point2DList.cs" />
      <Compile Include="Assets\Puppet2D\Scripts\Triangulation\Utility\Rect2D.cs" />
+     <Compile Include="Assets\Scripts\Classes\gameOverScene\continueAfterGameOverButtonClass.cs" />
      <Compile Include="Assets\Scripts\Classes\gameScene\backgroundMovementClass.cs" />
      <Compile Include="Assets\Scripts\Classes\gameScene\basicEnemyClass.cs" />
      <Compile Include="Assets\Scripts\Classes\gameScene\characterClass.cs" />
@@ -147,6 +174,7 @@
      <Compile Include="Assets\Scripts\Classes\gameScene\platformMovementClass.cs" />
      <Compile Include="Assets\Scripts\Classes\gameScene\rockBoulderClass.cs" />
      <Compile Include="Assets\Scripts\Classes\gameScene\selectWeaponClass.cs" />
+     <Compile Include="Assets\Scripts\Classes\gameScene\weaponStandClass.cs" />
      <Compile Include="Assets\Scripts\Classes\general\backButtonClass.cs" />
      <Compile Include="Assets\Scripts\Classes\general\backPopupClass.cs" />
      <Compile Include="Assets\Scripts\Classes\general\blockTouchClass.cs" />
@@ -154,7 +182,11 @@
      <Compile Include="Assets\Scripts\Classes\menuScene\continueButtonClass.cs" />
      <Compile Include="Assets\Scripts\Classes\menuScene\exitButtonClass.cs" />
      <Compile Include="Assets\Scripts\Classes\menuScene\shopTabButtonClass.cs" />
+     <Compile Include="Assets\Scripts\Classes\menuScene\signInButtonClass.cs" />
      <Compile Include="Assets\Scripts\Classes\menuScene\soundButtonClass.cs" />
+     <Compile Include="Assets\Scripts\Classes\shopPopup\arrowShopClass.cs" />
+     <Compile Include="Assets\Scripts\Classes\shopPopup\purchaseBoxClass.cs" />
+     <Compile Include="Assets\Scripts\globalScript.cs" />
      <Compile Include="Assets\Scripts\Interfaces\ITouchable.cs" />
      <Compile Include="Assets\Scripts\Libraries\alignScript.cs" />
      <Compile Include="Assets\Scripts\Libraries\cameraZoomLibrary.cs" />
@@ -162,15 +194,11 @@
      <Compile Include="Assets\Scripts\Libraries\multiTouchController.cs" />
      <Compile Include="Assets\Scripts\Libraries\sortingLayer.cs" />
      <Compile Include="Assets\Scripts\Libraries\touchController.cs" />
-     <Compile Include="Assets\Scripts\globalScript.cs" />
      <Compile Include="Assets\SpriteMask\Scripts\ClearStencilBufferComponent.cs" />
      <Compile Include="Assets\SpriteMask\Scripts\SkipMasking.cs" />
      <Compile Include="Assets\SpriteMask\Scripts\SpriteMask.cs" />
      <Compile Include="Assets\SpriteMask\Scripts\SpriteMaskingComponent.cs" />
      <Compile Include="Assets\SpriteMask\Scripts\SpriteMaskingPart.cs" />
-     <Compile Include="Assets\continueAfterGameOverButtonClass.cs" />
-     <Compile Include="Assets\weaponStandClass.cs" />
-     <None Include="Assets\Plugins\UnityPurchasing\Android\proguard-user.txt.OPTIONAL.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_Bitmap-Mobile.shader" />
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMPro_Surface.cginc" />
@@ -193,33 +221,111 @@
      <None Include="Assets\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile.shader" />
      <None Include="Assets\CreativeSpore\SuperTilemapEditor\changelog.txt" />
      <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
-     <None Include="Assets\Plugins\UnityPurchasing\script\link.xml" />
      <None Include="Assets\CreativeSpore\SuperTilemapEditor\Extra\Importers\Pyxel Edit\Documentation\PyxelEditManual.txt" />
      <None Include="Assets\SpriteMask\Resources\SpriteDefault.shader" />
      <None Include="Assets\SpriteMask\Resources\SpriteDiffuse.shader" />
+     <None Include="Assets\link.xml" />
  <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity564/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UI">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/Editor/UnityEditor.UI.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.Networking">
- <HintPath>/Applications/Unity564/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Networking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/Editor/UnityEditor.Networking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.TestRunner">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TestRunner/Editor/UnityEditor.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.TestRunner">
- <HintPath>/Applications/Unity564/Unity.app/Contents/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
  </Reference>
  <Reference Include="nunit.framework">
- <HintPath>/Applications/Unity564/Unity.app/Contents/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>/Applications/Unity564/Unity.app/Contents/UnityExtensions/Unity/UnityAnalytics/UnityEngine.Analytics.dll</HintPath>
+ <Reference Include="UnityEngine.Timeline">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Timeline">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Timeline/Editor/UnityEditor.Timeline.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.TreeEditor">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TreeEditor/Editor/UnityEditor.TreeEditor.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.UIAutomation">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.UIAutomation">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/Editor/UnityEditor.UIAutomation.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.GoogleAudioSpatializer">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityGoogleAudioSpatializer/Editor/UnityEditor.GoogleAudioSpatializer.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.GoogleAudioSpatializer">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.HoloLens">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/Editor/UnityEditor.HoloLens.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.HoloLens">
- <HintPath>/Applications/Unity564/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.Purchasing">
- <HintPath>/Applications/Unity564/Unity.app/Contents/UnityExtensions/Unity/UnityPurchasing/UnityEngine.Purchasing.dll</HintPath>
+ <Reference Include="UnityEditor.SpatialTracking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/Editor/UnityEditor.SpatialTracking.dll</HintPath>
  </Reference>
- <Reference Include="UnityEngine.VR">
- <HintPath>/Applications/Unity564/Unity.app/Contents/UnityExtensions/Unity/UnityVR/RuntimeEditor/UnityEngine.VR.dll</HintPath>
+ <Reference Include="UnityEngine.SpatialTracking">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.VR">
+ <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityVR/Editor/UnityEditor.VR.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Graphs">
+ <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.Graphs.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Android.Extensions">
+ <HintPath>/Applications/Unity/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.iOS.Extensions">
+ <HintPath>/Applications/Unity/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WebGL.Extensions">
+ <HintPath>/Applications/Unity/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.WindowsStandalone.Extensions">
+ <HintPath>/Applications/Unity/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.OSXStandalone.Extensions">
+ <HintPath>/Applications/Unity/Unity.app/Contents/PlaybackEngines/MacStandaloneSupport/UnityEditor.OSXStandalone.Extensions.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.IOSResolver_v1.2.62.0">
+ <HintPath>/Users/cristianesposito/Lavoro/Cristian/RagdogStudiosSRL/Lavori Clienti/RoyShapira/EtherBoy/Assets/PlayServicesResolver/Editor/Google.IOSResolver_v1.2.62.0.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.JarResolver_v1.2.62.0">
+ <HintPath>/Users/cristianesposito/Lavoro/Cristian/RagdogStudiosSRL/Lavori Clienti/RoyShapira/EtherBoy/Assets/PlayServicesResolver/Editor/Google.JarResolver_v1.2.62.0.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.VersionHandler">
+ <HintPath>/Users/cristianesposito/Lavoro/Cristian/RagdogStudiosSRL/Lavori Clienti/RoyShapira/EtherBoy/Assets/PlayServicesResolver/Editor/Google.VersionHandler.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.VersionHandlerImpl_v1.2.62.0">
+ <HintPath>/Users/cristianesposito/Lavoro/Cristian/RagdogStudiosSRL/Lavori Clienti/RoyShapira/EtherBoy/Assets/PlayServicesResolver/Editor/Google.VersionHandlerImpl_v1.2.62.0.dll</HintPath>
+ </Reference>
+ <Reference Include="Auth0.AuthenticationApi">
+ <HintPath>/Users/cristianesposito/Lavoro/Cristian/RagdogStudiosSRL/Lavori Clienti/RoyShapira/EtherBoy/Assets/Plugins/Auth0.AuthenticationApi.dll</HintPath>
+ </Reference>
+ <Reference Include="Auth0.Core">
+ <HintPath>/Users/cristianesposito/Lavoro/Cristian/RagdogStudiosSRL/Lavori Clienti/RoyShapira/EtherBoy/Assets/Plugins/Auth0.Core.dll</HintPath>
+ </Reference>
+ <Reference Include="Chaos.NaCl">
+ <HintPath>/Users/cristianesposito/Lavoro/Cristian/RagdogStudiosSRL/Lavori Clienti/RoyShapira/EtherBoy/Assets/Plugins/Chaos.NaCl.dll</HintPath>
+ </Reference>
+ <Reference Include="Google.Protobuf">
+ <HintPath>/Users/cristianesposito/Lavoro/Cristian/RagdogStudiosSRL/Lavori Clienti/RoyShapira/EtherBoy/Assets/Plugins/Google.Protobuf.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>/Users/cristianesposito/Lavoro/Cristian/RagdogStudiosSRL/Lavori Clienti/RoyShapira/EtherBoy/Assets/Plugins/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="ChannelPurchase">
  <HintPath>/Users/cristianesposito/Lavoro/Cristian/RagdogStudiosSRL/Lavori Clienti/RoyShapira/EtherBoy/Assets/Plugins/UnityChannel/ChannelPurchase.dll</HintPath>
@@ -256,6 +362,27 @@
  </Reference>
  <Reference Include="TextMeshPro-5.6-1.0.56-Runtime">
  <HintPath>/Users/cristianesposito/Lavoro/Cristian/RagdogStudiosSRL/Lavori Clienti/RoyShapira/EtherBoy/Assets/TextMesh Pro/Plugins/Editor DLL/TextMeshPro-5.6-1.0.56-Runtime.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Advertisements">
+ <HintPath>/Users/cristianesposito/Library/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/UnityEngine.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Advertisements">
+ <HintPath>/Users/cristianesposito/Library/Unity/cache/packages/packages.unity.com/com.unity.ads@2.0.3/Editor/UnityEditor.Advertisements.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Analytics">
+ <HintPath>/Users/cristianesposito/Library/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/UnityEngine.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Analytics">
+ <HintPath>/Users/cristianesposito/Library/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.13/Editor/UnityEditor.Analytics.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.Purchasing">
+ <HintPath>/Users/cristianesposito/Library/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/UnityEngine.Purchasing.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEditor.Purchasing">
+ <HintPath>/Users/cristianesposito/Library/Unity/cache/packages/packages.unity.com/com.unity.purchasing@0.0.19/Editor/UnityEditor.Purchasing.dll</HintPath>
+ </Reference>
+ <Reference Include="UnityEngine.StandardEvents">
+ <HintPath>/Users/cristianesposito/Library/Unity/cache/packages/packages.unity.com/com.unity.standardevents@1.0.10/UnityEngine.StandardEvents.dll</HintPath>
  </Reference>
   </ItemGroup>
   <ItemGroup>

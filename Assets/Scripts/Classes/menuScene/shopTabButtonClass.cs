@@ -3,9 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class shopTabButtonClass : MonoBehaviour, ITouchable {
+	public Sprite activeButton;
+	public Sprite activeIcon;
+	public Sprite inactiveButton;
+	public Sprite inactiveIcon;
+
 	private GameObject parentBox;
 	private SpriteRenderer tabButtonRend;
+	private SpriteRenderer iconRend;
 	private bool mustFocus = true;
+	private GameObject ownTab;
+	private bool status;
 
 	public bool MustFocus {
 		get {
@@ -38,7 +46,7 @@ public class shopTabButtonClass : MonoBehaviour, ITouchable {
 		touchController.FocusObject = null;
 
 		for (int i = 0; i < parentBox.transform.childCount; i++) {
-			GameObject c = transform.GetChild (i).gameObject;
+			GameObject c = parentBox.transform.GetChild (i).gameObject;
 			if (c.name == gameObject.name) {
 				c.SetActive (true);
 			} else {
@@ -50,11 +58,32 @@ public class shopTabButtonClass : MonoBehaviour, ITouchable {
 	}
 
 	void Start () {
+		status = false;
 		parentBox = transform.parent.GetChild (6).gameObject;
 		tabButtonRend = GetComponent<SpriteRenderer> ();
+		iconRend = transform.GetChild (0).GetComponent<SpriteRenderer> ();
+
+		for (int i = 0; i < parentBox.transform.childCount; i++) {
+			GameObject c = parentBox.transform.GetChild (i).gameObject;
+			if (c.name == gameObject.name) {
+				ownTab = c;
+			}
+		}
 	}
 
 	void Update () {
-		
+		if (ownTab.activeSelf) {
+			if (status == false) {
+				status = true;
+				tabButtonRend.sprite = activeButton;
+				iconRend.sprite = activeIcon;
+			}
+		} else {
+			if (status) {
+				status = false;
+				tabButtonRend.sprite = inactiveButton;
+				iconRend.sprite = inactiveIcon;
+			}
+		}
 	}
 }

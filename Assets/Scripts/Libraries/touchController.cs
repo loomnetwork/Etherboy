@@ -79,7 +79,7 @@ public class touchController : MonoBehaviour {
 			RaycastHit2D[] hit = Physics2D.RaycastAll (touchRay, Vector2.zero).OrderBy ((h) => { 
 				Renderer colliderRend = h.collider.GetComponent<Renderer>();
 				if (colliderRend != null) {
-					if (colliderRend.sortingLayerName == "UI") {
+					if (colliderRend.sortingLayerName == "UI" || colliderRend.sortingLayerName == "SceneChanger") {
 						return colliderRend.sortingOrder;
 					} else {
 						return -1;
@@ -109,7 +109,7 @@ public class touchController : MonoBehaviour {
 			RaycastHit2D[] hit = Physics2D.RaycastAll (touchRay, Vector2.zero).OrderBy ((h) => { 
 				Renderer colliderRend = h.collider.GetComponent<Renderer>();
 				if (colliderRend != null) {
-					if (colliderRend.sortingLayerName == "UI") {
+					if (colliderRend.sortingLayerName == "UI" || colliderRend.sortingLayerName == "SceneChanger") {
 						return colliderRend.sortingOrder;
 					} else {
 						return -1;
