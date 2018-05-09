@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class signInButtonClass : MonoBehaviour, ITouchable {
-
-	public string nextScene;
 	private bool mustFocus = true;
 
 	public bool MustFocus {
@@ -35,7 +33,9 @@ public class signInButtonClass : MonoBehaviour, ITouchable {
 		GetComponent<Renderer>().material.color = new Color(1, 1, 1);
 		touchController.FocusObject = null;
 		transform.localScale = baseScale;
-		GameObject.Find ("backend").GetComponent<etherboySample> ().SignIn ();
+		if (globalScript.useBackend) {
+			GameObject.Find ("backend").GetComponent<backendClass> ().SignIn ();
+		}
 		return false;
 	}
 

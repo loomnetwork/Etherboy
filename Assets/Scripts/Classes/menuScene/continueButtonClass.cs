@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class continueButtonClass : MonoBehaviour, ITouchable {
@@ -40,21 +41,32 @@ public class continueButtonClass : MonoBehaviour, ITouchable {
 		GetComponent<Renderer>().material.color = new Color(1, 1, 1);
 		touchController.FocusObject = null;
 		transform.localScale = baseScale;
-		GameObject.Find ("backend").GetComponent<etherboySample> ().QuerySaveData ();
-		/*
-		globalScript.loadGame ();
-		if (globalScript.lastPlayedScene != "") {
-			globalScript.changeScene (globalScript.lastPlayedScene);
-		}*/
+		if (!globalScript.useBackend) {
+			globalScript.loadGame (new SampleState ());
+			if (globalScript.lastPlayedScene != "") {
+				globalScript.changeScene (globalScript.lastPlayedScene);
+			}
+		} else {
+			try {
+				GameObject.Find ("backend").GetComponent<backendClass> ().QuerySaveData ();
+			} catch (System.Exception ex) {
+				globalScript.loadGame (new SampleState ());
+				if (globalScript.lastPlayedScene != "") {
+					globalScript.changeScene (globalScript.lastPlayedScene);
+				}
+			}
+		}
 		return false;
 	}
 
 	void Start () {
 		baseScale = transform.localScale;
 
-		/*if (PlayerPrefs.GetString ("savedData") == "") {
-			GetComponent<BoxCollider2D> ().enabled = false;
-			GetComponent<Renderer>().material.color = new Color(0.7f, 0.7f, 0.7f);
-		} */
+		if (!globalScript.useBackend) {
+			if (PlayerPrefs.GetString ("savedData") == "") {
+				GetComponent<BoxCollider2D> ().enabled = false;
+				GetComponent<Renderer> ().material.color = new Color (0.7f, 0.7f, 0.7f);
+			}
+		}
 	}
 }

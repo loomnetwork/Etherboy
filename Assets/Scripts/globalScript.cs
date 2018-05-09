@@ -16,6 +16,7 @@ public class SampleState {
 }
 
 public class globalScript : MonoBehaviour {
+	public static bool useBackend = true;
 
 	public string androidMoreGamesURL;
 	public string iosMoreGamesURL;
@@ -122,7 +123,9 @@ public class globalScript : MonoBehaviour {
 	}
 
 	public static void loadGame (SampleState saveData) {
-		//saveGameClass saveData = JsonUtility.FromJson<saveGameClass>(PlayerPrefs.GetString ("savedData"));
+		if (!useBackend) {
+			saveData = JsonUtility.FromJson<SampleState> (PlayerPrefs.GetString ("savedData"));
+		}
 		if (saveData != null) {
 			globalScript.currentGold = saveData.currentGold;
 			globalScript.currentQuest = saveData.currentQuest;
@@ -144,16 +147,17 @@ public class globalScript : MonoBehaviour {
 		saveData.questStep = globalScript.questStep;
 		saveData.lastScene = SceneManager.GetActiveScene ().name;
 
-		GameObject.Find ("backend").GetComponent<etherboySample> ().SaveState (saveData);
-	/*	string jsonData = JsonUtility.ToJson (saveData);
-		if (jsonData != null) {
-			PlayerPrefs.SetString ("savedData", jsonData);
+		if (!useBackend) {
+			string jsonData = JsonUtility.ToJson (saveData);
+			if (jsonData != null) {
+				PlayerPrefs.SetString ("savedData", jsonData);
+			}
+		} else {
+			GameObject.Find ("backend").GetComponent<backendClass> ().SaveState (saveData);
 		}
-	*/
 	}
 
 	public static void fadeToBlack (float seconds) {
-		print ("FADING TO BLACK");
 		if (fader != null) {
 			fader.SetActive (true);
 			LeanTween.alpha (fader, 1, 0.25f).setOnComplete (() => {
@@ -176,36 +180,59 @@ public class globalScript : MonoBehaviour {
 			}
 		}
 
-		if (SceneManager.GetActiveScene ().name == "menuScene") {
-			if (PlayerPrefs.GetString ("identityString") != "") {
-				GameObject loginGroup = GameObject.Find ("loginGroup");
-				if (loginGroup != null && loginGroup.activeSelf) {
+		if (!useBackend) {
+			GameObject loginGroup = GameObject.Find ("loginGroup");
+			if (loginGroup != null) {
+				loginGroup = loginGroup.transform.GetChild (0).gameObject;
+				if (loginGroup.activeSelf) {
 					loginGroup.SetActive (false);
-					GameObject.Find ("backend").GetComponent<etherboySample> ().SignIn ();
 				}
-			} else {
-				GameObject menuGroup = GameObject.Find ("menuGroup");
-				if (menuGroup != null && menuGroup.activeSelf) {
-					GameObject.Find ("menuGroup").SetActive (false);
+			}
+		} else {
+			if (SceneManager.GetActiveScene ().name == "menuScene") {
+				if (PlayerPrefs.GetString ("identityString") != "") {
+					GameObject loginGroup = GameObject.Find ("loginGroup");
+					if (loginGroup != null) {
+						loginGroup = loginGroup.transform.GetChild (0).gameObject;
+						if (loginGroup.activeSelf) {
+							loginGroup.SetActive (false);
+							GameObject.Find ("backend").GetComponent<backendClass> ().SignIn ();
+							GameObject menuGroup = GameObject.Find ("menuGroup");
+							if (menuGroup != null) {
+								menuGroup = menuGroup.transform.GetChild (0).gameObject;
+								if (!menuGroup.activeSelf) {
+									menuGroup.SetActive (true);
+								}
+							}
+						}
+					}
+				} else {
+					GameObject menuGroup = GameObject.Find ("menuGroup");
+					if (menuGroup != null) {
+						menuGroup = menuGroup.transform.GetChild (0).gameObject;
+						if (menuGroup.activeSelf) {
+							menuGroup.SetActive (false);
+							GameObject loginGroup = GameObject.Find ("loginGroup");
+							if (loginGroup != null) {
+								loginGroup = loginGroup.transform.GetChild (0).gameObject;
+								if (!loginGroup.activeSelf) {
+									loginGroup.SetActive (true);
+								}
+							}
+						}
+					}
 				}
 			}
 		}
 	}
 
 	void Awake() {
+		#if UNITY_EDITOR
+			useBackend = false;
+		#endif
+
 		if (SceneManager.GetActiveScene ().name == "menuScene") {
-			if (PlayerPrefs.GetString ("identityString") != "") {
-				GameObject loginGroup = GameObject.Find ("loginGroup");
-				if (loginGroup != null && loginGroup.activeSelf) {
-					loginGroup.SetActive (false);
-					GameObject.Find ("backend").GetComponent<etherboySample> ().SignIn ();
-				}
-			} else {
-				GameObject menuGroup = GameObject.Find ("menuGroup");
-				if (menuGroup != null && menuGroup.activeSelf) {
-					GameObject.Find ("menuGroup").SetActive (false);
-				}
-			}
+			Update ();
 		}
 
 		if (hasAlreadyLoaded == true )
