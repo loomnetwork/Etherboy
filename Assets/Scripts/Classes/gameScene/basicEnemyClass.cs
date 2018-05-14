@@ -31,6 +31,14 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 	private float multiTaskTimer;
 	private float attackDelayTime;
 
+	private int awardedCoins;
+
+	private float frozenTime;
+	[HideInInspector]
+	public GameObject frozenObj;
+	[HideInInspector]
+	public GameObject lightObj;
+
 	private int highestSortingOrder;
 
 	public int AttackPoints {
@@ -79,121 +87,145 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 			life = 1;
 			attackDelayTime = 1;
 			attackPoints = 10;
+			awardedCoins = 5;
 		} else if (transform.name == "slime") {
 			attackDuration = 1;
 			life = 2;
 			attackDelayTime = 0;
 			attackPoints = 12;
+			awardedCoins = 5;
 		} else if (transform.name == "leaf") {
 			attackDuration = 1;
 			life = 1;
 			attackDelayTime = 0;
 			attackPoints = 18;
+			awardedCoins = 5;
 		} else if (transform.name == "spike") {
 			attackDuration = 2.55f;
 			life = 1;
 			attackDelayTime = 0;
 			attackPoints = 15;
+			awardedCoins = 5;
 		} else if (transform.name == "armadillo") {
 			attackDuration = 1.5f;
 			life = 2;
 			attackDelayTime = 1;
 			attackPoints = 20;
+			awardedCoins = 5;
 		} else if (transform.name == "caterpillar") {
 			attackDuration = 1.5f;
 			life = 2;
 			attackDelayTime = 0.2f;
 			attackPoints = 20;
+			awardedCoins = 5;
 		} else if (transform.name == "cactus") {
 			attackDuration = 1.5f;
 			life = 2;
 			attackDelayTime = 0.2f;
 			attackPoints = 20;
+			awardedCoins = 5;
 		} else if (transform.name == "spider") {
 			attackDuration = 1.5f;
 			life = 2;
 			attackDelayTime = 0.2f;
 			attackPoints = 20;
+			awardedCoins = 5;
 		} else if (transform.name == "fluff") {
 			attackDuration = 1.3f;
 			life = 3;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 5;
 		} else if (transform.name == "octopus") {
 			attackDuration = 1.3f;
 			life = 3;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 5;
 		} else if (transform.name == "bee") {
 			attackDuration = 1.3f;
 			life = 3;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 5;
 		} else if (transform.name == "spikey") {
 			attackDuration = 1.3f;
 			life = 3;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 5;
 		} else if (transform.name == "darkOctopus") {
 			attackDuration = 1.3f;
 			life = 5;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 10;
 		} else if (transform.name == "darkSpikey") {
 			attackDuration = 1.3f;
 			life = 5;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 10;
 		} else if (transform.name == "darkBee") {
 			attackDuration = 1.3f;
 			life = 5;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 10;
 		} else if (transform.name == "darkFluff") {
 			attackDuration = 1.3f;
 			life = 5;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 10;
 		} else if (transform.name == "darkArmadillo") {
 			attackDuration = 1.3f;
 			life = 5;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 10;
 		} else if (transform.name == "darkCaterpillar") {
 			attackDuration = 1.3f;
 			life = 5;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 10;
 		} else if (transform.name == "darkCactus") {
 			attackDuration = 1.3f;
 			life = 5;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 10;
 		} else if (transform.name == "darkSpider") {
 			attackDuration = 1.3f;
 			life = 5;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 10;
 		} else if (transform.name == "darkSpike") {
 			attackDuration = 1.3f;
 			life = 5;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 10;
 		} else if (transform.name == "darkSlime") {
 			attackDuration = 1.3f;
 			life = 5;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 10;
 		} else if (transform.name == "darkLeaf") {
 			attackDuration = 1.3f;
 			life = 5;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 10;
 		} else if (transform.name == "darkSnail") {
 			attackDuration = 1.3f;
 			life = 5;
 			attackDelayTime = 0.2f;
 			attackPoints = 30;
+			awardedCoins = 10;
 		}
 			
 		if (movSpeedX > 0) {
@@ -213,12 +245,8 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 			if (character != null) {
 				if (character.transform.localPosition.x + 0.3f < transform.localPosition.x) {
 					movSpeedX = -Mathf.Abs (movSpeedX);
-
-					print ("SDONE");
 				} else if (character.transform.localPosition.x - 0.3f > transform.localPosition.x) {
 					movSpeedX = Mathf.Abs (movSpeedX);
-
-					print ("DONE");
 				}
 			}
 
@@ -247,7 +275,7 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 					movSpeedX = Mathf.Abs (movSpeedX);
 				}
 
-				if ((getFaceDirection() && character.transform.position.x > transform.position.x) || (!getFaceDirection() && character.transform.position.x < transform.position.x)) {
+				if ((getFaceDirection () && character.transform.position.x > transform.position.x) || (!getFaceDirection () && character.transform.position.x < transform.position.x)) {
 					if ((Mathf.Abs (Mathf.Abs (transform.position.x) - Mathf.Abs (character.transform.position.x))) < attackRadius) {
 						state = "attack";
 						thisAnimator.Play ("Attack", -1, 0f);
@@ -265,10 +293,11 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 		} else if (state == "hit") {
 			if (!thisAnimator.GetCurrentAnimatorStateInfo (0).IsName ("Hit")) {
 				thisAnimator.Play ("Hit", -1, 0f);
-				if (getFaceDirection()) {
-					thisBody.velocity = new Vector2 (-2.5f, 5);
+
+				if (getFaceDirection ()) {
+					thisBody.velocity = new Vector2 (0.5f, 0);
 				} else {
-					thisBody.velocity = new Vector2 (2.5f, 5);
+					thisBody.velocity = new Vector2 (-0.5f, 0);
 				}
 			} else {
 				hitTime = hitTime + Time.deltaTime;
@@ -295,7 +324,7 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 				}
 			} else if (attackTime > 0.5f) {
 				if (transform.name == "leaf") {
-					if (getFaceDirection()) {
+					if (getFaceDirection ()) {
 						thisBody.velocity = new Vector2 (0, thisBody.velocity.y);
 					} else {
 						thisBody.velocity = new Vector2 (0, thisBody.velocity.y);
@@ -303,13 +332,13 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 				}
 			} else if (attackTime > 0.3f) {
 				if (transform.name == "snail") {
-					if (getFaceDirection()) {
+					if (getFaceDirection ()) {
 						thisBody.velocity = new Vector2 (6, thisBody.velocity.y);
 					} else {
 						thisBody.velocity = new Vector2 (-6, thisBody.velocity.y);
 					}
 				} else if (transform.name == "leaf") {
-					if (getFaceDirection()) {
+					if (getFaceDirection ()) {
 						thisBody.velocity = new Vector2 (2, thisBody.velocity.y);
 					} else {
 						thisBody.velocity = new Vector2 (-2, thisBody.velocity.y);
@@ -324,6 +353,23 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 				if (transform.name == "leaf") {
 					multiTaskTimer = 0;
 				}
+			}
+		} else if (state == "frozen") {
+			frozenTime += Time.deltaTime;
+			if (frozenTime > 5) {
+				thisAnimator.enabled = true;
+				state = "normal";
+				DestroyImmediate (frozenObj);
+				frozenObj = null;
+			}
+		} else if (state == "light") {
+			frozenTime += Time.deltaTime;
+			if (frozenTime > 3) {
+				thisAnimator.enabled = true;
+				life = 0;
+				whenLifeZero ();
+				DestroyImmediate (lightObj);
+				lightObj = null;
 			}
 		}
 	}
@@ -355,54 +401,104 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 	}
 
 	void OnCollisionEnter2D (Collision2D collision) {
-		if (collision.collider.name == "sword1" || collision.collider.name == "characterArrow") {
+		if (collision.collider.name == "sword1" || collision.collider.name == "characterArrow" || collision.collider.name == "fire_explosion_1" || collision.collider.name == "characterStone") {
 			if (state != "hit") {
-				state = "hit";
-				hitTime = 0;
+				if (state != "frozen" && state != "light") {
+					state = "hit";
+					hitTime = 0;
+				}
 
-				if (collision.contacts [0].point.x > transform.position.x) {
-					changeFaceDirection (true);
-				} else {
-					changeFaceDirection (false);
+				if (collision.contacts != null && collision.contacts.Length > 0) {
+					if (collision.contacts [0].point.x > transform.position.x) {
+						changeFaceDirection (true);
+					} else {
+						changeFaceDirection (false);
+					}
 				}
 
 				if (collision.collider.name == "characterArrow") {
-					life -= 0.5f;
+					life -= 0.5f*1.3f;
+
+					if (globalScript.equippedSword == "bow2") {
+						life -= 0.5f*1.3f;
+					} else if (globalScript.equippedSword == "bow3") {
+						life -= 1*1.3f;
+					} else if (globalScript.equippedSword == "bow4") {
+						life -= 1.5f*1.3f;
+					} else if (globalScript.equippedSword == "bow5") {
+						life -= 2*1.3f;
+					}
+				} else if (collision.collider.name == "fire_explosion_1") {
+					life = 0;
+				} else if (collision.collider.name == "characterStone") {
+					life = 0;
 				} else {
-					life -= 1;
+					life -= 1*1.3f;
+
+					if (globalScript.equippedSword == "sword2") {
+						life -= 1*1.3f;
+					} else if (globalScript.equippedSword == "sword3") {
+						life -= 2*1.3f;
+					} else if (globalScript.equippedSword == "sword4") {
+						life -= 3*1.3f;
+					} else if (globalScript.equippedSword == "sword5") {
+						life -= 4*1.3f;
+					}
 				}
 
 				if (life <= 0) {
 					Physics2D.IgnoreCollision (collision.collider, collision.otherCollider);
-					state = "death";
-					thisAnimator.Play ("Death", -1, 0f);
-					gameObject.layer = LayerMask.NameToLayer("Default");
-
-					LeanTween.alpha (gameObject, 0, 0.15f).setDelay (5);
-					if (transform.name == "leaf") {
-						LeanTween.scaleX (gameObject, 0, 0.15f).setDelay (5).setOnStart (() => {
-							GetComponent<Collider2D> ().isTrigger = true;
-						});
-					} else {
-						LeanTween.scaleY (gameObject, 0, 0.15f).setDelay (5).setOnStart (() => {
-							GetComponent<Collider2D> ().isTrigger = true;
-						});
-					}
-					if (transform.name == "leaf") {
-						if (getFaceDirection() == true) {
-							LeanTween.rotateZ (gameObject, 90, 0.25f);
-						} else if (getFaceDirection() == false) {
-							LeanTween.rotateZ (gameObject, -90, 0.25f);
-						}
-					}
-
-					thisBody.velocity = new Vector2 (0, thisBody.velocity.y);
+					whenLifeZero ();
 				}
 			}
 			if (collision.collider.name == "characterArrow") {
-				Destroy(collision.collider.gameObject);
+				Destroy (collision.collider.gameObject);
 			}
 		}
+	}
+
+	void whenLifeZero () {
+		if (state == "death") {
+			return;
+		}
+		if (frozenObj) {
+			DestroyImmediate (frozenObj);
+			frozenObj = null;
+		}
+		if (state == "frozen") {
+			thisAnimator.enabled = true;
+		}
+		state = "death";
+		thisAnimator.Play ("Death", -1, 0f);
+		gameObject.layer = LayerMask.NameToLayer ("Default");
+
+		GameObject coin = Resources.Load<GameObject> ("coin");
+
+		for (int i = 0; i < awardedCoins; i++) {
+			GameObject c = Instantiate (coin);
+			c.transform.parent = transform.parent.parent;
+			c.transform.position = transform.position;
+		}
+
+		LeanTween.alpha (gameObject, 0, 0.15f).setDelay (5);
+		if (transform.name == "leaf") {
+			LeanTween.scaleX (gameObject, 0, 0.15f).setDelay (5).setOnStart (() => {
+				GetComponent<Collider2D> ().isTrigger = true;
+			});
+		} else {
+			LeanTween.scaleY (gameObject, 0, 0.15f).setDelay (5).setOnStart (() => {
+				GetComponent<Collider2D> ().isTrigger = true;
+			});
+		}
+		if (transform.name == "leaf") {
+			if (getFaceDirection () == true) {
+				LeanTween.rotateZ (gameObject, 90, 0.25f);
+			} else if (getFaceDirection () == false) {
+				LeanTween.rotateZ (gameObject, -90, 0.25f);
+			}
+		}
+
+		thisBody.velocity = new Vector2 (0, thisBody.velocity.y);
 	}
 
 	void OnTriggerEnter2D (Collider2D collider) {
@@ -413,6 +509,34 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 			} else {
 				character = null;
 			}*/
+		} else if (collider.gameObject.name == "fire_explosion_1") {
+			life = 0;
+			whenLifeZero ();
+		} else if (collider.gameObject.name == "beam3" && globalScript.equippedMagic == "ice" && state != "frozen" && state != "death") {
+			state = "frozen";
+			frozenTime = 0;
+
+			thisAnimator.enabled = false;
+
+			GameObject frozen = new GameObject ();
+			frozen.transform.parent = transform;
+
+			SpriteRenderer frozenRend = frozen.AddComponent<SpriteRenderer> ();
+			frozenRend.sprite = Resources.Load<Sprite> ("ice_freeze_block");
+			frozen.layer = LayerMask.NameToLayer ("Character");
+			frozenRend.sortingLayerName = "Character";
+			frozen.transform.localPosition = new Vector2 (0, 0);
+
+			frozenObj = frozen;
+		} else if (collider.gameObject.name == "beam3" && globalScript.equippedMagic == "air" && state != "light" && state != "death") {
+			state = "light";
+			frozenTime = 0;
+
+			thisAnimator.enabled = false;
+
+			lightObj = Instantiate (Resources.Load<GameObject> ("lightAttack"));
+			lightObj.layer = LayerMask.NameToLayer ("Character");
+			lightObj.transform.localPosition = new Vector2 (0, 0.5f);
 		}
 	}
 

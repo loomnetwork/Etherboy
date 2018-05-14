@@ -51,6 +51,7 @@ d3645a9ed91d823d28463702b98e107e Assembly-CSharp.dll:.globalScript
 435069274d6704d20e6c4e4b7e0c500a Assembly-CSharp.dll:CreativeSpore.SuperTilemapEditor.STETilemap
 f25fd3873e43d46640b1fd4aa42dc1ab Assembly-CSharp-firstpass.dll:.IAPDemoProductUI
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.purchaseBoxClass
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.chaosFollowingClass
 3b1d106952485731add194ae7cd8d918 Assembly-CSharp.dll:.SpriteMask
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityAsyncAwaitUtil.AsyncCoroutineRunner
 3f900ade1b3cf26e7a8c8c647d5f185a Assembly-CSharp.dll:CreativeSpore.SuperTilemapEditor.CarpetBrush
@@ -158,7 +159,8 @@ e9bdabf9265d758d56f01bb188916fa8 UnityEngine.Networking.dll:UnityEngine.Networki
 9de3a22eca9aefadba2d10d5987cefe3 UnityEngine.SpatialTracking.dll:UnityEngine.SpatialTracking.TrackedPoseDriver
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:UnityEngine.Purchasing.DemoInventory
 86357d1c226627eda15f4466977a77b5 Assembly-CSharp.dll:.fitTheScreen
-c4ec057398e3783d365bd1e285c2e516 Assembly-CSharp.dll:.basicEnemyClass
+09546c298e00882b853ddcca3741cde9 Assembly-CSharp.dll:.basicEnemyClass
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.closePopupButtonClass
 f4bd1aee67eeef7953cce6c44588b3d7 TextMeshPro-5.6-1.0.56-Runtime.dll:TMPro.TextContainer
 8e879b98cad4aa17a0beef746daecd35 TextMeshPro-5.6-1.0.56-Runtime.dll:TMPro.TextMeshPro
 cdb4459900f4743ae0e8ca5a2c3a821a TextMeshPro-5.6-1.0.56-Runtime.dll:TMPro.TextMeshProUGUI
@@ -185,8 +187,10 @@ bc68edb0af574bf79f9550ead8ebae5c UnityEngine.HoloLens.dll:UnityEngine.Audio.Audi
 c2275a8bfbb9f9942cad75ecdfded41d UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingCollider
 45f3431f0103c41611e8d4eec3d439df UnityEngine.HoloLens.dll:UnityEngine.XR.WSA.SpatialMappingRenderer
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.talkGroupClass
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.coinDropClass
 50667894c33b478dc38ae949114bb1e8 Assembly-CSharp-firstpass.dll:AppStoresSupport.AppStoreSettings
 7f7b50df4234a7f0d4c04b241afe49d1 Assembly-CSharp.dll:CreativeSpore.SuperTilemapEditor.TilemapGroup
+57fed4507395216907b4070de3ecbe14 Assembly-CSharp.dll:.magicBoxClass
 963f81baa3028478a68b2bbeb1e6e426 Assembly-CSharp.dll:.markerClass
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:Puppet2D.Puppet2D_VertHandler
 e2da26f936e7ced672f10123ec270c03 Assembly-CSharp.dll:.selectWeaponClass
@@ -210,6 +214,7 @@ e763036081c708b34f78f5a56f72c23d TextMeshPro-5.6-1.0.56-Runtime.dll:TMPro.TMP_St
 d672cee35261f9935d5ce974c746730f TextMeshPro-5.6-1.0.56-Runtime.dll:TMPro.TMP_Text
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.backPopupClass
 b2c86381a550b377fca33dbe0ab10027 Assembly-CSharp.dll:CubesTeam.PyxelEdit
+8a4aef302a62f88e99b99eb337e72878 Assembly-CSharp.dll:.magicCounterClass
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp-firstpass.dll:.LeanTween
 05524b8f659e7bfe5756d1335fec24ba TextMeshPro-5.6-1.0.56-Editor.dll:TMPro.EditorUtilities.DropdownEditor
 05524b8f659e7bfe5756d1335fec24ba TextMeshPro-5.6-1.0.56-Editor.dll:TMPro.EditorUtilities.TMP_ColorGradientEditor
@@ -260,6 +265,7 @@ fb0f11d6103f8ede2cbe9793d9605db2 Assembly-CSharp.dll:Puppet2D.Puppet2D_GlobalCon
 96d0fbde9fd209878a0a291f82c9bcdd UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.PlaymodeTestsController
 64eb32cc721b1cc68a91ed57461e188c UnityEngine.TestRunner.dll:UnityEngine.TestTools.TestRunner.Callbacks.RemoteTestResultSender
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.fanClass
+05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.fireExplosionClass
 e0f7ffd5d5c2abe4b2e16569a21163da UnityEngine.GoogleAudioSpatializer.dll:UnityEngine.Experimental.Audio.Google.GvrAudioRoom
 05524b8f659e7bfe5756d1335fec24ba UnityStore.dll:UnityEngine.Store.MainThreadDispatcher
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.rockBoulderClass
@@ -286,6 +292,7 @@ a7cb0bc1079930a54d4af5123a9eb809 Assembly-CSharp.dll:CreativeSpore.SuperTilemapE
 e64bb4dc859f1473882ee54874273c15 Assembly-CSharp.dll:.backgroundMovementClass
 9a2474488c2139c1cd9099e01b3f244b Assembly-CSharp.dll:.platformMovementClass
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.signInButtonClass
+9fd77ef7e0b67e1ab6aaa2be5eb35f6b Assembly-CSharp.dll:.objectiveSystemClass
 05524b8f659e7bfe5756d1335fec24ba Assembly-CSharp.dll:.blockTouchClass
 86e614242f404e137b88b84faaac5343 Assembly-CSharp.dll:CreativeSpore.SuperTilemapEditor.RoadBrush
 7cbb2cf94c03db2f7677cf6088369401 Assembly-CSharp.dll:Puppet2D.Puppet2D_Guides
@@ -293,7 +300,7 @@ a28e14e5006cd285687a2bb74189085d Assembly-CSharp.dll:.SpriteMaskingComponent
 79fefca0cd96b8fbf31f3909e8efa470 Assembly-CSharp.dll:Puppet2D.Puppet2D_SortingLayer
 fd5abbb26fc69b56c631fc500c140594 Assembly-CSharp.dll:Puppet2D.Puppet2D_IKHandle
 7282834aca0c66f2519a7fe471a22c18 Assembly-CSharp.dll:.sortingLayer
-6334fe44dfba96226f740a803a3ec554 Assembly-CSharp.dll:.characterClass
+b1deac4f04262f8cc7717523ac4ba1cd Assembly-CSharp.dll:.characterClass
 2b009ed5d45af70a9e9cd9186acb7db5 Assembly-CSharp.dll:.continueButtonClass
 2255a9b593c36498b0acf4d3bacc54b4 Assembly-CSharp.dll:Puppet2D.Puppet2D_FFDStoreData
 8159363767c8f67409b50fbc4e1f1264 Assembly-CSharp-firstpass.dll:.IAPDemo

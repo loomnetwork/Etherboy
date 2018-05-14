@@ -13,6 +13,8 @@ public class markerClass : MonoBehaviour {
 	private Vector2 objectivePoint;
 	private Vector2 unalteredPoint;
 
+	private objectiveSystemClass indicatorScript;
+
 	private GameObject pointer;
 	private GameObject arrow;
 	// Use this for initialization
@@ -22,10 +24,22 @@ public class markerClass : MonoBehaviour {
 
 		pointer = transform.GetChild (0).gameObject;
 		arrow = pointer.transform.GetChild (0).gameObject;
+
+		GameObject indicator = GameObject.Find ("indicatorObjective");
+		if (indicator != null) {
+			indicatorScript = indicator.GetComponent<objectiveSystemClass> ();
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (indicatorScript != null && indicatorScript.activeQuest != globalScript.currentQuest) {
+			if (indicatorScript.status == "idle") {
+				indicatorScript.showNewObjective ();
+			}
+		}
+
 		bool found = true;
 		if (SceneManager.GetActiveScene ().name == "townLevel1Scene") {
 			if (globalScript.currentQuest == 0) {

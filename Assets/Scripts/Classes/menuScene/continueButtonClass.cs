@@ -43,9 +43,6 @@ public class continueButtonClass : MonoBehaviour, ITouchable {
 		transform.localScale = baseScale;
 		if (!globalScript.useBackend) {
 			globalScript.loadGame (new SampleState ());
-			if (globalScript.lastPlayedScene != "") {
-				globalScript.changeScene (globalScript.lastPlayedScene);
-			}
 		} else {
 			try {
 				GameObject.Find ("backend").GetComponent<backendClass> ().QuerySaveData ();

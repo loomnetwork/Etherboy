@@ -14,6 +14,7 @@ public class automaticDialogueClass {
 	public float timer;
 	public string[] forOther;
 	public string[] bubbleDirection;
+	public string[] bubbleType;
 }
 
 [System.Serializable]
@@ -29,6 +30,7 @@ public class triggeredDialogueClass {
 	public int[] faceDirection;
 	public bool[] skippable;
 	public string[] bubbleDirection;
+	public string[] bubbleType;
 }
 
 [System.Serializable]
@@ -59,6 +61,12 @@ public class npcSystemClass : MonoBehaviour {
 	private GameObject character;
 	private GameObject activePopup;
 
+	private Sprite shoutBubble;
+	private Sprite whisperBubble;
+	private Sprite normalBubble;
+
+	private GameObject eSkipObj;
+
 	private bool firstIterationDialog;
 
 	// Use this for initialization
@@ -73,9 +81,18 @@ public class npcSystemClass : MonoBehaviour {
 			text.text = "";
 			text = bubble.transform.GetChild (1).transform.GetChild (0).GetComponent<TextMeshPro> ();
 			text.text = "";
+
+			normalBubble = bubble.transform.GetChild (0).GetComponent<SpriteRenderer> ().sprite;
+			whisperBubble = Resources.Load<Sprite> ("whisperBubble");
+			shoutBubble = Resources.Load<Sprite> ("shoutBubble");
 		}
 		questSet = globalScript.currentQuest;
 		loadDialogueData ();
+
+		eSkipObj = GameObject.Find ("actionTab");
+		if (eSkipObj != null) {
+			eSkipObj = eSkipObj.transform.GetChild (0).gameObject;
+		}
 	}
 	
 	// Update is called once per frame
@@ -100,6 +117,16 @@ public class npcSystemClass : MonoBehaviour {
 					subBubble.SetActive (true);
 					bubble.transform.GetChild (1).gameObject.SetActive (false);
 				}
+
+				if (currentDialogue.triggeredDialogue.bubbleType != null && currentDialogue.triggeredDialogue.bubbleType.Length > currentDialogue.triggeredDialogue.currentDialogue) {
+					if (currentDialogue.triggeredDialogue.bubbleType [currentDialogue.triggeredDialogue.currentDialogue] == "normal") {
+						subBubble.GetComponent<SpriteRenderer> ().sprite = normalBubble;
+					} else if (currentDialogue.triggeredDialogue.bubbleType [currentDialogue.triggeredDialogue.currentDialogue] == "shout") {
+						subBubble.GetComponent<SpriteRenderer> ().sprite = shoutBubble;
+					} else if (currentDialogue.triggeredDialogue.bubbleType [currentDialogue.triggeredDialogue.currentDialogue] == "whisper") {
+						subBubble.GetComponent<SpriteRenderer> ().sprite = whisperBubble;
+					}
+				}
 			} 
 
 			if (subBubble != null) {
@@ -116,6 +143,26 @@ public class npcSystemClass : MonoBehaviour {
 					text.text = "";
 				}
 				GameObject popup = GameObject.Find ("bowSwordSelect");
+				popup = popup.transform.GetChild (0).gameObject;
+				popup.SetActive (true);
+				activePopup = popup;
+
+				currentDialogue.triggeredDialogue.timer = currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue];
+			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<openShop>") {
+				if (text != null) {
+					text.text = "";
+				}
+				GameObject popup = GameObject.Find ("shopGroup");
+				popup = popup.transform.GetChild (0).gameObject;
+				popup.SetActive (true);
+				activePopup = popup;
+
+				currentDialogue.triggeredDialogue.timer = currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue];
+			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<magicBook>") {
+				if (text != null) {
+					text.text = "";
+				}
+				GameObject popup = GameObject.Find ("magicGroup");
 				popup = popup.transform.GetChild (0).gameObject;
 				popup.SetActive (true);
 				activePopup = popup;
@@ -170,6 +217,11 @@ public class npcSystemClass : MonoBehaviour {
 					firstIterationDialog = false;
 					globalScript.changeScene ("darkForestLevel1Scene");
 				}
+			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<changeToLevel1>") {
+				if (firstIterationDialog) {
+					firstIterationDialog = false;
+					globalScript.changeScene ("forestLevel1Scene");
+				}
 			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<youAreUploadedScene>") {
 				if (firstIterationDialog) {
 					firstIterationDialog = false;
@@ -192,6 +244,7 @@ public class npcSystemClass : MonoBehaviour {
 				if (text != null) {
 					text.text = "";
 				}
+
 				other = GameObject.Find (currentDialogue.triggeredDialogue.forOther [currentDialogue.triggeredDialogue.currentDialogue]);
 
 				if (other != null) {
@@ -201,8 +254,7 @@ public class npcSystemClass : MonoBehaviour {
 							text.text = "";
 						}
 						if (firstIterationDialog) {
-							
-							other.transform.GetChild (1).gameObject.SetActive (true);
+							other.transform.GetChild(1).gameObject.SetActive (true);
 						}
 					} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<activateRenderer>") {
 						currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] = "";
@@ -235,6 +287,16 @@ public class npcSystemClass : MonoBehaviour {
 							bubbleOther.GetChild (1).gameObject.SetActive (false);
 							subBubbleOther = bubbleOther.GetChild (0).gameObject;
 							subBubbleOther.SetActive (true);
+						}
+
+						if (currentDialogue.triggeredDialogue.bubbleType != null && currentDialogue.triggeredDialogue.bubbleType.Length > currentDialogue.triggeredDialogue.currentDialogue) {
+							if (currentDialogue.triggeredDialogue.bubbleType [currentDialogue.triggeredDialogue.currentDialogue] == "normal") {
+								subBubbleOther.GetComponent<SpriteRenderer> ().sprite = normalBubble;
+							} else if (currentDialogue.triggeredDialogue.bubbleType [currentDialogue.triggeredDialogue.currentDialogue] == "shout") {
+								subBubbleOther.GetComponent<SpriteRenderer> ().sprite = shoutBubble;
+							} else if (currentDialogue.triggeredDialogue.bubbleType [currentDialogue.triggeredDialogue.currentDialogue] == "whisper") {
+								subBubbleOther.GetComponent<SpriteRenderer> ().sprite = whisperBubble;
+							}
 						}
 
 						subBubbleOther.transform.GetChild (0).GetComponent<TextMeshPro> ().text = currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue];
@@ -312,7 +374,6 @@ public class npcSystemClass : MonoBehaviour {
 					GameObject glblCtrl = transform.Find ("Global_CTRL").gameObject;
 					Animator thisAnim = glblCtrl.GetComponent<Animator> ();
 					if (!thisAnim.GetCurrentAnimatorStateInfo (0).IsName (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue])) {
-						print (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue]);
 						thisAnim.Play (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue], -1, 0f);
 					}
 				}
@@ -384,7 +445,18 @@ public class npcSystemClass : MonoBehaviour {
 				}
 			}
 
+			if (eSkipObj != null) {
+				if (currentDialogue.triggeredDialogue.skippable [currentDialogue.triggeredDialogue.currentDialogue]) {
+					eSkipObj.SetActive (true);
+				} else {
+					eSkipObj.SetActive (false);
+				}
+			}
+
 			if (currentDialogue.triggeredDialogue.timer >= currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue]) {
+				if (eSkipObj != null) {
+					eSkipObj.SetActive (false);
+				}
 				currentDialogue.triggeredDialogue.timer = 0;
 				currentDialogue.triggeredDialogue.currentDialogue++;
 				firstIterationDialog = true;
@@ -411,69 +483,134 @@ public class npcSystemClass : MonoBehaviour {
 					}
 
 					if (currentDialogue.triggeredDialogue.flagsAfterDialogue.Length >= 1) {
+						GameObject indicator = GameObject.Find ("indicatorObjective");
+						objectiveSystemClass indicatorScript = null;
+						if (indicator != null) {
+							indicatorScript = indicator.GetComponent<objectiveSystemClass> ();
+						}
 						if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "mentor1Talked") {
 							globalScript.currentQuest = 1;
 							globalScript.currentGold += 100;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "hiro2Talked") {
 							globalScript.currentQuest = 2;
 							globalScript.currentGold += 100;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "steveTalkedWithMentor1") {
 							globalScript.currentQuest = 3;
 							globalScript.currentGold += 100;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "shop1Talked") {
 							globalScript.currentQuest = 4;
 							globalScript.currentGold += 100;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "doneBeforeForest1") {
 							GetComponent<npcSystemClass> ().enabled = false;
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "reachedForest1") {
 							globalScript.currentQuest = 5;
 							globalScript.currentGold += 100;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "gotEarthOrb1") {
 							globalScript.currentQuest = 6;
 							globalScript.currentGold += 200;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "steveTalkedWithMentor2") {
 							globalScript.currentQuest = 7;
 							globalScript.currentGold += 200;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "wentToBed2") {
 							globalScript.currentQuest = 8;
 							globalScript.currentGold += 200;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "etherBoyTalkedWithMentorInTown2") {
 							globalScript.currentQuest = 9;
 							globalScript.currentGold += 200;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "gotFireOrb1") {
 							globalScript.currentQuest = 10;
 							globalScript.currentGold += 200;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "steveTalkedWithMentor3") {
 							globalScript.currentQuest = 11;
 							globalScript.currentGold += 1000;
 							readyForTriggered = true;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "etherBoyTalkedWithMentorInTown3") {
 							globalScript.currentQuest = 12;
 							globalScript.currentGold += 1000;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "gotIceOrb1") {
 							globalScript.currentQuest = 13;
 							globalScript.currentGold += 1000;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "openedTempleDoor") {
 							globalScript.currentQuest = 14;
 							globalScript.currentGold += 1000;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "etherBoyTalkedWithMentorInTemple") {
 							globalScript.currentQuest = 15;
 							globalScript.currentGold += 1000;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "steveTurnedIntoChaos") {
 							globalScript.currentQuest = 16;
 							globalScript.currentGold += 5000;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "gotAirOrb1") {
 							globalScript.currentQuest = 17;
 							globalScript.currentGold += 2000;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "elderFightsChaos") {
 							globalScript.currentQuest = 18;
 							globalScript.currentGold += 1000;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "hiroFightsChaos") {
 							globalScript.currentQuest = 19;
 							globalScript.currentGold += 5000;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "gameCompleted") {
 							globalScript.currentQuest = 20;
 							globalScript.currentGold += 1000000;
+							if (indicatorScript != null) {
+								indicatorScript.showRewardScreen ();
+							}
 						}
 					}
 				}
@@ -545,6 +682,16 @@ public class npcSystemClass : MonoBehaviour {
 				subBubble.SetActive (true);
 				bubble.transform.GetChild (1).gameObject.SetActive (false);
 			}
+
+			if (currentDialogue.triggeredDialogue.bubbleType != null && currentDialogue.triggeredDialogue.bubbleType.Length > currentDialogue.triggeredDialogue.currentDialogue) {
+				if (currentDialogue.triggeredDialogue.bubbleType [currentDialogue.triggeredDialogue.currentDialogue] == "normal") {
+					subBubble.GetComponent<SpriteRenderer> ().sprite = normalBubble;
+				} else if (currentDialogue.triggeredDialogue.bubbleType [currentDialogue.triggeredDialogue.currentDialogue] == "shout") {
+					subBubble.GetComponent<SpriteRenderer> ().sprite = shoutBubble;
+				} else if (currentDialogue.triggeredDialogue.bubbleType [currentDialogue.triggeredDialogue.currentDialogue] == "whisper") {
+					subBubble.GetComponent<SpriteRenderer> ().sprite = whisperBubble;
+				}
+			}
 		} 
 
 		if (subBubble != null) {
@@ -575,6 +722,16 @@ public class npcSystemClass : MonoBehaviour {
 					bubbleOther.GetChild (1).gameObject.SetActive (false);
 					subBubbleOther = bubbleOther.GetChild (0).gameObject;
 					subBubbleOther.SetActive (true);
+				}
+
+				if (currentDialogue.triggeredDialogue.bubbleType != null && currentDialogue.triggeredDialogue.bubbleType.Length > currentDialogue.triggeredDialogue.currentDialogue) {
+					if (currentDialogue.triggeredDialogue.bubbleType [currentDialogue.triggeredDialogue.currentDialogue] == "normal") {
+						subBubbleOther.GetComponent<SpriteRenderer> ().sprite = normalBubble;
+					} else if (currentDialogue.triggeredDialogue.bubbleType [currentDialogue.triggeredDialogue.currentDialogue] == "shout") {
+						subBubbleOther.GetComponent<SpriteRenderer> ().sprite = shoutBubble;
+					} else if (currentDialogue.triggeredDialogue.bubbleType [currentDialogue.triggeredDialogue.currentDialogue] == "whisper") {
+						subBubbleOther.GetComponent<SpriteRenderer> ().sprite = whisperBubble;
+					}
 				}
 
 				subBubbleOther.transform.GetChild (0).GetComponent<TextMeshPro> ().text = currentDialogue.automaticDialogue.dialogues [currentDialogue.automaticDialogue.currentDialogue];

@@ -16,6 +16,16 @@ public class weaponStandClass : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (gameObject.name == "sword") {
+			if (thisRend.sprite.name != globalScript.equippedSword) {
+				thisRend.sprite = Resources.Load<Sprite> (globalScript.equippedSword);
+			}
+		} else if (gameObject.name == "bow") {
+			if (thisRend.sprite.name != globalScript.equippedBow) {
+				thisRend.sprite = Resources.Load<Sprite> (globalScript.equippedBow);
+			}
+		}
+
 		if (globalScript.currentWeapon == transform.name) {
 			if (thisRend.enabled) {
 				thisRend.enabled = false;

@@ -40,6 +40,18 @@ public class backButtonClass : MonoBehaviour, ITouchable {
 		GetComponent<Renderer>().material.color = new Color(1, 1, 1);
 		touchController.FocusObject = null;
 		transform.localScale = baseScale;
+		if (transform.name == "newGameButton") {
+			globalScript.currentGold = 0;
+			globalScript.currentQuest = 0;
+			globalScript.currentWeapon = "sword";
+			globalScript.questStep = 0;
+			globalScript.lastPlayedScene = "";
+			globalScript.equippedBow = "bow1";
+			globalScript.equippedHelm = "";
+			globalScript.equippedSword = "sword1";
+			globalScript.equippedMagic = "earth";
+			globalScript.previousScene = "";
+		}
 		if (backScene == "usePreviousScene") {
 			globalScript.changeScene (globalScript.previousScene);
 		} else {

@@ -40,9 +40,9 @@ public class continueAfterGameOverButtonClass : MonoBehaviour, ITouchable {
 		GetComponent<Renderer>().material.color = new Color(1, 1, 1);
 		touchController.FocusObject = null;
 		transform.localScale = baseScale;
-		if (globalScript.lastPlayedScene != "") {
+		//if (globalScript.lastPlayedScene != "") {
 			globalScript.changeScene (globalScript.previousScene);
-		}
+		//}
 		return false;
 	}
 

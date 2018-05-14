@@ -5,32 +5,38 @@
         "dialogues":[
 			"",
 			"",
-            "...must reach the temple of node and save these people!"
+            "...must reach the temple of node and save these people!",
+			"<changeToLevel1>"
         ],
         "timeInBetween":[
-			1,
+			0.2,
 			0.1,
-            5
+            5,
+			0
         ],
 		"forOther":[
 			"etherBoy",
 			"etherBoy",
-			"etherBoy"
+			"etherBoy",
+			""
 		],
 		"newPosition":[
-			"-3/separate/0",
+			"-0.2/separate/0",
+			"",
 			"",
 			""
 		],
 		"playAnimation":[
 			"Running",
 			"Idle",
+			"",
 			""
 		],
 		"skippable":[
 			false,
 			false,
-			true
+			true,
+			false
 		],
 		"faceDirection":[
 			0, 

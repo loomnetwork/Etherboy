@@ -47,14 +47,16 @@ public class purchaseBoxClass : MonoBehaviour, ITouchable {
 		} else {
 			if (transform.parent.name == "tabSword") {
 				globalScript.equippedSword = objectName;
+				globalScript.currentWeapon = "sword";
 			} else if (transform.parent.name == "tabBow") {
 				globalScript.equippedBow = objectName;
+				globalScript.currentWeapon = "bow";
 			} else if (transform.parent.name == "tabHelm") {
 				globalScript.equippedHelm = objectName;
 			}
 
-			for (int i = 0; i < transform.parent.childCount; i++) {
-				GameObject c = transform.GetChild (i).gameObject;
+			for (int i = 0; i < transform.parent.childCount-1; i++) {
+				GameObject c = transform.parent.GetChild (i).gameObject;
 				c.GetComponent<purchaseBoxClass> ().updateMetaData ();
 			}
 		}
@@ -83,7 +85,7 @@ public class purchaseBoxClass : MonoBehaviour, ITouchable {
 					selectText.transform.parent.gameObject.SetActive (false);
 				} else {
 					selectText.transform.parent.gameObject.SetActive (true);
-					ownedText.text = "owned";
+					ownedText.text = "OWNED";
 					selectText.text = "Select";
 				}
 			} else if (transform.parent.name == "tabBow") {
@@ -92,7 +94,7 @@ public class purchaseBoxClass : MonoBehaviour, ITouchable {
 					selectText.transform.parent.gameObject.SetActive (false);
 				} else {
 					selectText.transform.parent.gameObject.SetActive (true);
-					ownedText.text = "owned";
+					ownedText.text = "OWNED";
 					selectText.text = "Select";
 				}
 			} else if (transform.parent.name == "tabHelm") {
@@ -101,7 +103,7 @@ public class purchaseBoxClass : MonoBehaviour, ITouchable {
 					selectText.transform.parent.gameObject.SetActive (false);
 				} else {
 					selectText.transform.parent.gameObject.SetActive (true);
-					ownedText.text = "owned";
+					ownedText.text = "OWNED";
 					selectText.text = "Select";
 				}
 			}

@@ -1,24 +1,82 @@
 {
-    "hasAutomaticDialogue":true,
-    "hasTriggeredDialogue":false,
-    "automaticDialogue":{
-        "dialogues":[
-            "I know he'll save us all!",
-            "oooo I just believe in him SO MUCH!!",
-            "Save us! Save us!"
-        ],
-        "timeInBetween":[
-            4,
-            4,
-            4
-        ],
-		"forOther":[
+	"hasAutomaticDialogue": true,
+	"hasTriggeredDialogue": true,
+	"automaticDialogue": {
+		"dialogues": [
+			"I know he'll save us all!",
+			"oooo I just believe in him SO MUCH!!",
+			"Save us! Save us!"
+		],
+		"timeInBetween": [
+			4,
+			4,
+			4
+		],
+		"forOther": [
 			"",
 			"",
 			""
 		],
-        "currentDialogue":0,
-        "flagsAfterDialogue":[
-        ]
-    }
+		"currentDialogue": 0,
+		"flagsAfterDialogue": []
+	},
+	"triggeredDialogue": {
+		"dialogues": [
+			"",
+			"",
+			"Welcome!",
+			"<openShop>",
+			"Thank you, come again!",
+			""
+		],
+		"timeInBetween": [
+			0.5,
+			0.1,
+			3,
+			0.01,
+			3,
+			0
+		],
+		"forOther": [
+			"etherBoy",
+			"etherBoy",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"bubbleDirection": [
+
+		],
+		"newPosition": [
+			"-1/separate/0",
+			"",
+			"",
+			"",
+			"",
+			""
+		],
+		"playAnimation": [
+			"Running",
+			"Idle",
+			"",
+			"",
+			"Smile",
+			"Idle"
+		],
+		"faceDirection": [
+			0, -1
+		],
+		"skippable": [
+			false,
+			false,
+			true,
+			false,
+			true,
+			true
+		],
+		"currentDialogue": 0,
+		"flagsAfterDialogue": []
+	}
 }

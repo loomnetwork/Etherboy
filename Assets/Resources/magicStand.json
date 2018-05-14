@@ -1,0 +1,53 @@
+{
+    "hasAutomaticDialogue":true,
+    "hasTriggeredDialogue":true,
+    "automaticDialogue":{
+        "dialogues":[
+            "Ohh, something changed, better check it!"
+        ],
+        "timeInBetween":[
+            10
+        ],
+		"forOther":[
+			"etherBoy"
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+        ]
+    },
+    "triggeredDialogue":{
+        "dialogues":[
+			"<magicBook>",
+			"Nice! This will definitely help me complete my quest!"
+        ],
+        "timeInBetween":[
+			0,
+			6
+        ],
+		"forOther":[
+			"",
+			"etherBoy"
+		],
+		"newPosition":[
+			"",
+			""
+		],
+		"playAnimation":[
+			"",
+			""
+		],
+		"skippable":[
+			false,
+			true
+		],
+		"faceDirection":[
+			
+		],
+		"bubbleDirection":[
+			"right"
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+        ]
+    }
+}

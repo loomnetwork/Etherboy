@@ -10,13 +10,15 @@ public class SampleState {
 	public string equippedSword;
 	public string equippedBow;
 	public string equippedHelm;
+	public string equippedMagic;
 	public int questStep;
 	public int currentGold;
 	public string lastScene;
+	public string prevScene;
 }
 
 public class globalScript : MonoBehaviour {
-	public static bool useBackend = true;
+	public static bool useBackend = false;
 
 	public string androidMoreGamesURL;
 	public string iosMoreGamesURL;
@@ -46,10 +48,13 @@ public class globalScript : MonoBehaviour {
 	public static string currentWeapon = "sword";
 	public static string equippedSword = "sword1";
 	public static string equippedBow = "bow1";
-	public static string equippedHelm = "helm1";
+	public static string equippedHelm = "";
+	public static string equippedMagic = "earth";
 	public static string gameState;
 
 	public static int currentGold;
+
+	public static float magicTimer;
 
 	public static int startingOrderEnemies;
 
@@ -109,16 +114,29 @@ public class globalScript : MonoBehaviour {
 
 		startingOrderEnemies = 0;
 
+		print ("BOOH");
+
 		if (fader != null) {
 			fader.SetActive (true);
 			LeanTween.alpha (fader, 1, 0.25f).setOnComplete (() => {
 				SceneManager.LoadScene (sceneName);
+				if (sceneName != "gameOverScene" && sceneName != "menuScene") {
+					LeanTween.value(0, 1, 1.5f).setOnComplete(()=>{
+						globalScript.saveGame();
+					});
+				}
 				LeanTween.alpha(fader, 0, 0.25f).setOnComplete (() => {
 					fader.SetActive(false);
 				});
 			});
 		} else {
 			SceneManager.LoadScene (sceneName);
+			print (sceneName);
+			if (sceneName != "gameOverScene" && sceneName != "menuScene") {
+				LeanTween.value(0, 1, 1.5f).setOnComplete(()=>{
+					globalScript.saveGame();
+				});
+			}
 		}
 	}
 
@@ -132,6 +150,11 @@ public class globalScript : MonoBehaviour {
 			globalScript.currentWeapon = saveData.currentWeapon;
 			globalScript.questStep = saveData.questStep;
 			globalScript.lastPlayedScene = saveData.lastScene;
+			globalScript.equippedBow = saveData.equippedBow;
+			globalScript.equippedHelm = saveData.equippedHelm;
+			globalScript.equippedSword = saveData.equippedSword;
+			globalScript.equippedMagic = saveData.equippedMagic;
+			globalScript.previousScene = saveData.prevScene;
 
 			if (globalScript.lastPlayedScene != "") {
 				globalScript.changeScene (globalScript.lastPlayedScene);
@@ -146,6 +169,11 @@ public class globalScript : MonoBehaviour {
 		saveData.currentWeapon = globalScript.currentWeapon;
 		saveData.questStep = globalScript.questStep;
 		saveData.lastScene = SceneManager.GetActiveScene ().name;
+		saveData.equippedBow = globalScript.equippedBow;
+		saveData.equippedHelm = globalScript.equippedHelm;
+		saveData.equippedSword = globalScript.equippedSword;
+		saveData.equippedMagic = globalScript.equippedMagic;
+		saveData.prevScene = globalScript.previousScene;
 
 		if (!useBackend) {
 			string jsonData = JsonUtility.ToJson (saveData);
@@ -171,7 +199,6 @@ public class globalScript : MonoBehaviour {
 
 	void Update () {
 		if (shakeScreenTime > 0) {
-			print (shakeScreenTime);
 			shakeScreenTime -= Time.deltaTime;
 			groupToShake.transform.position = new Vector2 (Random.Range (basePositionGroupToShake.x-0.5f, basePositionGroupToShake.x+0.5f), Random.Range (basePositionGroupToShake.y-0.5f, basePositionGroupToShake.y+0.5f));
 			if (shakeScreenTime <= 0) {
@@ -249,6 +276,8 @@ public class globalScript : MonoBehaviour {
 
 		currentQuest = 0;
 		questStep = 0;
+
+		magicTimer = 0;
 
 		fader = GameObject.Find ("fader");
 
