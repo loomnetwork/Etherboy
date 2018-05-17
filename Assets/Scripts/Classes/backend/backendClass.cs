@@ -95,7 +95,7 @@ public class backendClass : MonoBehaviour
 
 		PlayerPrefs.SetString("identityString", System.Text.Encoding.UTF8.GetString(this.identity.PrivateKey));
 
-        this.chainClient = new DAppChainClient("http://etherboy-write-stage.loomapps.io", "http://etherboy-read-stage.loomapps.io")
+        this.chainClient = new DAppChainClient("http://etherboy-stage.loomapps.io/rpc", "http://etherboy-stage.loomapps.io/query")
         {
             Logger = Debug.unityLogger
         };
@@ -165,7 +165,7 @@ public class backendClass : MonoBehaviour
         {
             CreatedOn = DateTime.Now
         });
-		
+
         var createAcctTx = new EtherboyCreateAccountTx
         {
             Version = 0,
@@ -195,8 +195,8 @@ public class backendClass : MonoBehaviour
 			Owner = this.identity.Username,
             Data = ByteString.CopyFromUtf8(state)
         };
-        
-        var result = await this.chainClient.CallAsync(this.callerAddr, this.contractAddr, "etherboycore.SaveState", saveStateTx); 
+
+        var result = await this.chainClient.CallAsync(this.callerAddr, this.contractAddr, "etherboycore.SaveState", saveStateTx);
     }
 
 	public async void QuerySaveData()
