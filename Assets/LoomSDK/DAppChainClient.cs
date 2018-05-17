@@ -338,11 +338,9 @@ namespace Loom.Unity3d
         /// <returns>The nonce.</returns>
         public async Task<ulong> GetNonceAsync(string key)
         {
-            var uriBuilder = new UriBuilder(this.readUrl)
-            {
-                Path = "nonce",
-                Query = string.Format("key=\"{0}\"", key)
-            };
+            var uriBuilder = new UriBuilder(this.readUrl);
+            uriBuilder.Path += (uriBuilder.Path.EndsWith("/") ? "" : "/") + "nonce";
+            uriBuilder.Query = string.Format("key=\"{0}\"", key);
             using (var r = new UnityWebRequest(uriBuilder.Uri.AbsoluteUri, "GET"))
             {
                 r.downloadHandler = (DownloadHandler)new DownloadHandlerBuffer();
