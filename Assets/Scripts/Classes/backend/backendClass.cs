@@ -174,7 +174,7 @@ public class backendClass : MonoBehaviour
         };
 
 		try {
-        	var result = await this.chainClient.CallAsync(this.callerAddr, this.contractAddr, "etherboycore.CreateAccount", createAcctTx);
+        	var result = await this.chainClient.CallAsync(this.callerAddr, this.contractAddr, "CreateAccount", createAcctTx);
 		} catch (System.Exception ex) {
 			//account already exists for Etherboy
 		}
@@ -196,14 +196,14 @@ public class backendClass : MonoBehaviour
             Data = ByteString.CopyFromUtf8(state)
         };
 
-        var result = await this.chainClient.CallAsync(this.callerAddr, this.contractAddr, "etherboycore.SaveState", saveStateTx);
+        var result = await this.chainClient.CallAsync(this.callerAddr, this.contractAddr, "SaveState", saveStateTx);
     }
 
 	public async void QuerySaveData()
     {
         // NOTE: Query results can be of any type that can be deserialized via Newtonsoft.Json.
         var result = await this.chainClient.QueryAsync<StateQueryResult>(
-			this.contractAddr, "etherboycore.GetState", new StateQueryParams{ Owner = this.identity.Username }
+			this.contractAddr, "GetState", new StateQueryParams{ Owner = this.identity.Username }
         );
 
 		globalScript.loadGame(JsonConvert.DeserializeObject<SampleState>(result.State.ToStringUtf8()));
