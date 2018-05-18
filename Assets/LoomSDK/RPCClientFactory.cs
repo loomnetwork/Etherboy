@@ -37,7 +37,6 @@ namespace Loom.Unity3d
             var logger = this.logger ?? NullLogger.Instance;
             if (this.websocketUrl != null)
             {
-                Debug.Log("Using WebSockets");
 #if UNITY_WEBGL && !UNITY_EDITOR
                 return new WebGL.WSRPCClient(this.websocketUrl) { Logger = logger };
 #else
@@ -46,7 +45,6 @@ namespace Loom.Unity3d
             }
             else if (this.httpUrl != null)
             {
-                Debug.Log("Using HTTP");
                 return new HTTPRPCClient(this.httpUrl) { Logger = logger };
             }
             throw new InvalidOperationException("RPCClientFactory configuration invalid.");
