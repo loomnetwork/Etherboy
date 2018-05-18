@@ -45,3 +45,15 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+# Everything Unity can regenerate itself
+/Library/
+/Temp/
+/.vs/
+
+# Visual Studio / Mono Develop cruft
+/obj/
+*.sln
+*.csproj
+*.userprefs
+
