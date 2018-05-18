@@ -10,10 +10,9 @@ using UnityEngine.SceneManagement;
 
 public class backendClass : MonoBehaviour
 {
-    private Address contractAddr;
-	public Identity identity;
-    private Address callerAddr;
-    private DAppChainClient chainClient;
+    public Identity identity;
+
+    private Contract contract;
 
     // Use this for initialization
     void Start()
@@ -95,28 +94,37 @@ public class backendClass : MonoBehaviour
 
 		PlayerPrefs.SetString("identityString", System.Text.Encoding.UTF8.GetString(this.identity.PrivateKey));
 
-        this.chainClient = new DAppChainClient("http://etherboy-stage.loomapps.io/rpc", "http://etherboy-stage.loomapps.io/query")
+        var writer = RPCClientFactory.Configure()
+            .WithLogger(Debug.unityLogger)
+            .WithHTTP("http://etherboy-stage.loomapps.io/rpc")
+            //.WithWebSocket("ws://etherboy-stage.loomapps.io/websocket")
+            .Create();
+
+        var reader = RPCClientFactory.Configure()
+            .WithLogger(Debug.unityLogger)
+            .WithHTTP("http://etherboy-stage.loomapps.io/query")
+            //.WithWebSocket("ws://etherboy-stage.loomapps.io/queryws")
+            .Create();
+
+        var client = new DAppChainClient(writer, reader)
         {
             Logger = Debug.unityLogger
         };
-        this.chainClient.TxMiddleware = new TxMiddleware(new ITxMiddlewareHandler[]{
+        client.TxMiddleware = new TxMiddleware(new ITxMiddlewareHandler[]{
             new NonceTxMiddleware{
                 PublicKey = this.identity.PublicKey,
-                Client = this.chainClient
+                Client = client
             },
             new SignedTxMiddleware(this.identity.PrivateKey)
         });
 
         // There is only one contract address at the moment...
-        this.contractAddr = new Address
-        {
-            ChainId = "default",
-            Local = ByteString.CopyFrom(CryptoUtils.HexStringToBytes("0x005B17864f3adbF53b1384F2E6f2120c6652F779"))
-        };
-        this.callerAddr = this.identity.ToAddress("default");
+        var contractAddr = Address.FromHexString("0x005B17864f3adbF53b1384F2E6f2120c6652F779");
+        var callerAddr = this.identity.ToAddress("default");
+        this.contract = new Contract(client, contractAddr, callerAddr);
 
-		//call create account, if it's a new user, an account will be created for Etherboy
-		CreateAccount ();
+        //call create account, if it's a new user, an account will be created for Etherboy
+        CreateAccount ();
     }
 
     public async void SignOut()
@@ -160,6 +168,9 @@ public class backendClass : MonoBehaviour
         {
             throw new System.Exception("Not signed in!");
         }
+
+        // TODO: Check account doesn't exist before attempting to create one.
+
         // Create new player account
         var accountInfo = JsonConvert.SerializeObject(new SampleAccountInfo
         {
@@ -174,9 +185,9 @@ public class backendClass : MonoBehaviour
         };
 
 		try {
-        	var result = await this.chainClient.CallAsync(this.callerAddr, this.contractAddr, "CreateAccount", createAcctTx);
-		} catch (System.Exception ex) {
-			//account already exists for Etherboy
+        	await this.contract.CallAsync("CreateAccount", createAcctTx);
+		} catch (System.Exception) {
+			// account probably already exists for Etherboy
 		}
     }
 
@@ -196,14 +207,14 @@ public class backendClass : MonoBehaviour
             Data = ByteString.CopyFromUtf8(state)
         };
 
-        var result = await this.chainClient.CallAsync(this.callerAddr, this.contractAddr, "SaveState", saveStateTx);
+        await this.contract.CallAsync("SaveState", saveStateTx);
     }
 
 	public async void QuerySaveData()
     {
         // NOTE: Query results can be of any type that can be deserialized via Newtonsoft.Json.
-        var result = await this.chainClient.QueryAsync<StateQueryResult>(
-			this.contractAddr, "GetState", new StateQueryParams{ Owner = this.identity.Username }
+        var result = await this.contract.StaticCallAsync<StateQueryResult>(
+			"GetState", new StateQueryParams{ Owner = this.identity.Username }
         );
 
 		globalScript.loadGame(JsonConvert.DeserializeObject<SampleState>(result.State.ToStringUtf8()));
