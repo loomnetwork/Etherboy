@@ -84,6 +84,15 @@ namespace Loom.Unity3d
                 Audience = this.audience,
                 Scope = this.scope
             };
+#elif UNITY_IOS&&!UNITY_EDITOR
+            return new IOS.AuthClient
+            {
+                Logger = this.logger ?? NullLogger.Instance,
+                ClientId = this.clientId,
+                Domain = this.domain,
+                Audience = this.audience,
+                Scope = this.scope
+            };
 #elif UNITY_EDITOR || UNITY_STANDALONE
             return new Desktop.AuthClient
             {
