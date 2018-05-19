@@ -119,7 +119,7 @@ public class backendClass : MonoBehaviour
         });
 
         // There is only one contract address at the moment...
-        var contractAddr = Address.FromHexString("0x005B17864f3adbF53b1384F2E6f2120c6652F779");
+        var contractAddr = Address.FromHexString("0xe288d6eec7150D6a22FDE33F0AA2d81E06591C4d");
         var callerAddr = this.identity.ToAddress("default");
         this.contract = new Contract(client, contractAddr, callerAddr);
 
