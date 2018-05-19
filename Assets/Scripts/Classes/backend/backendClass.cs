@@ -36,7 +36,7 @@ public class backendClass : MonoBehaviour
 	                .WithScheme("io.loomx.unity3d")
 	                .WithAudience("https://keystore.loomx.io/")
 	                .WithScope("openid profile email picture")
-	                .WithRedirectUrl("http://127.0.0.1:9999/auth/auth0/")
+	                .WithRedirectUrl("http://127.0.0.1:9998/auth/auth0/")
 	                .Create();
 	        }
 	        finally
