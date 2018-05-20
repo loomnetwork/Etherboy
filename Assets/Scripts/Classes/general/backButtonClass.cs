@@ -51,6 +51,22 @@ public class backButtonClass : MonoBehaviour, ITouchable {
 			globalScript.equippedSword = "sword1";
 			globalScript.equippedMagic = "earth";
 			globalScript.previousScene = "";
+			globalScript.bow1Purchased = true;
+			globalScript.bow2Purchased = false;
+			globalScript.bow3Purchased = false;
+			globalScript.bow4Purchased = false;
+			globalScript.bow5Purchased = false;
+			globalScript.helm1Purchased = false;
+			globalScript.helm2Purchased = false;
+			globalScript.helm3Purchased = false;
+			globalScript.helm4Purchased = false;
+			globalScript.helm5Purchased = false;
+			globalScript.sword1Purchased = true;
+			globalScript.sword2Purchased = false;
+			globalScript.sword3Purchased = false;
+			globalScript.sword4Purchased = false;
+			globalScript.sword5Purchased = false;
+			globalScript.chaosHitEtherboyOnce = false;
 		}
 		if (backScene == "usePreviousScene") {
 			globalScript.changeScene (globalScript.previousScene);

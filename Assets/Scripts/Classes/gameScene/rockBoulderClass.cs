@@ -4,8 +4,14 @@ using UnityEngine;
 
 public class rockBoulderClass : MonoBehaviour {
 
+	private AudioSource audioSFX;
 	private GameObject[] stones;
 	float timer = 0;
+
+	void Start () {
+		audioSFX = gameObject.AddComponent<AudioSource> ();
+		audioSFX.clip = Resources.Load<AudioClip> ("SFX/Etherboy/EBW_AUD_Etherboy_Haduken_Earth_Impact_F1_EXP");
+	}
 
 	// Update is called once per frame
 	void Update () {
@@ -28,6 +34,7 @@ public class rockBoulderClass : MonoBehaviour {
 		GetComponent<SpriteRenderer> ().enabled = false;
 		Rigidbody2D thisBody = GetComponent<Rigidbody2D> ();
 		stones = new GameObject[6];
+		audioSFX.Play ();
 		for (int i = transform.childCount-1; i >= 0; i--) {
 			GameObject c = transform.GetChild (i).gameObject;
 			stones [i] = c;

@@ -1356,7 +1356,6 @@ GameObject:
   - component: {fileID: 103459447}
   - component: {fileID: 103459449}
   - component: {fileID: 103459448}
-  - component: {fileID: 103459450}
   m_Layer: 12
   m_Name: Fire_FX2
   m_TagString: Untagged
@@ -1410,8 +1409,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1505712169
+  m_SortingLayer: 5
   m_SortingOrder: 30
   m_RenderMode: 0
   m_SortMode: 2
@@ -4792,16 +4791,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!210 &103459450
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 103459446}
-  m_Enabled: 1
-  m_SortingLayerID: -1505712169
-  m_SortingLayer: 5
-  m_SortingOrder: 0
 --- !u!1 &108174195
 GameObject:
   m_ObjectHideFlags: 0
@@ -6401,7 +6390,7 @@ Transform:
   m_Children:
   - {fileID: 1506705591}
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &235781069
 GameObject:
@@ -7174,7 +7163,6 @@ GameObject:
   - component: {fileID: 292301778}
   - component: {fileID: 292301780}
   - component: {fileID: 292301779}
-  - component: {fileID: 292301781}
   m_Layer: 12
   m_Name: Fire_FX_Haduken
   m_TagString: Untagged
@@ -7228,8 +7216,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1505712169
+  m_SortingLayer: 5
   m_SortingOrder: 3
   m_RenderMode: 1
   m_SortMode: 2
@@ -10610,16 +10598,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!210 &292301781
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 292301777}
-  m_Enabled: 1
-  m_SortingLayerID: -1505712169
-  m_SortingLayer: 5
-  m_SortingOrder: 0
 --- !u!1 &297330615
 GameObject:
   m_ObjectHideFlags: 0
@@ -10755,7 +10733,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1505712169
   m_SortingLayer: 5
-  m_SortingOrder: 13
+  m_SortingOrder: 15
   m_Sprite: {fileID: 21300000, guid: 271582550408847c0a29ee8517a82346, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -10898,7 +10876,7 @@ Transform:
   - {fileID: 1130248927}
   - {fileID: 718096261}
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 11
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &326544924
 SpriteRenderer:
@@ -11236,7 +11214,7 @@ SpriteRenderer:
   m_Size: {x: 1.57, y: 2.31}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &347743119
 GameObject:
@@ -11697,7 +11675,7 @@ Transform:
   m_Children:
   - {fileID: 471315627}
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 23
+  m_RootOrder: 24
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &383576900
 GameObject:
@@ -12122,7 +12100,7 @@ SpriteRenderer:
   m_Size: {x: 1.83, y: 1.03}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &410488047
 GameObject:
@@ -12239,7 +12217,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 414161305}
-  m_LocalRotation: {x: -0.00000007174228, y: 0.00000000894654, z: 0.2709638, w: 0.96258956}
+  m_LocalRotation: {x: -0.000000046447642, y: 0.000000042659128, z: 0.2709641, w: 0.9625895}
   m_LocalPosition: {x: 0.0000000032475693, y: 1, z: 0}
   m_LocalScale: {x: 0.84816545, y: 0.84816545, z: 0.8481651}
   m_Children:
@@ -12306,7 +12284,6 @@ GameObject:
   - component: {fileID: 415308599}
   - component: {fileID: 415308601}
   - component: {fileID: 415308600}
-  - component: {fileID: 415308602}
   m_Layer: 12
   m_Name: Fire_FX_Haduken_HitMonster
   m_TagString: Untagged
@@ -12360,8 +12337,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1505712169
+  m_SortingLayer: 5
   m_SortingOrder: 30
   m_RenderMode: 3
   m_SortMode: 2
@@ -15742,16 +15719,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!210 &415308602
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 415308598}
-  m_Enabled: 1
-  m_SortingLayerID: -1505712169
-  m_SortingLayer: 5
-  m_SortingOrder: 0
 --- !u!1 &429265123
 GameObject:
   m_ObjectHideFlags: 0
@@ -16099,7 +16066,7 @@ SpriteRenderer:
   m_Size: {x: 1.18, y: 2.03}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &436258993
 GameObject:
@@ -16239,7 +16206,7 @@ Transform:
   m_LocalScale: {x: 0.89599955, y: 0.89599955, z: 1}
   m_Children: []
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &448250316
 SpriteRenderer:
@@ -17692,7 +17659,7 @@ Transform:
   - {fileID: 1584228565}
   - {fileID: 634066360}
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 10
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &509400524
 SpriteRenderer:
@@ -17760,7 +17727,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 511219504}
-  m_LocalRotation: {x: 0, y: 0, z: 0.20438436, w: 0.9788907}
+  m_LocalRotation: {x: 0, y: 0, z: 0.202567, w: 0.97926843}
   m_LocalPosition: {x: 0.01999972, y: 1.4900005, z: 5.811529e-15}
   m_LocalScale: {x: 1.6928455, y: 1.6928455, z: 1.6928455}
   m_Children:
@@ -19436,7 +19403,7 @@ SpriteRenderer:
   m_Size: {x: 1.89, y: 1.87}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &634066359
 GameObject:
@@ -19500,7 +19467,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1505712169
   m_SortingLayer: 5
-  m_SortingOrder: 13
+  m_SortingOrder: 14
   m_Sprite: {fileID: 21300000, guid: 106271a0a41ca4028b7aedf6c5bf123b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -19634,7 +19601,7 @@ Transform:
   - {fileID: 1321888916}
   - {fileID: 95913666}
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 12
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &638508758
 SpriteRenderer:
@@ -19765,7 +19732,7 @@ Transform:
   m_Children:
   - {fileID: 436258995}
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &667519402
 GameObject:
@@ -19896,7 +19863,7 @@ Transform:
   m_LocalScale: {x: 1.6693447, y: 1.6693436, z: 1.6693436}
   m_Children: []
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &669857751
 SpriteRenderer:
@@ -20853,7 +20820,6 @@ GameObject:
   - component: {fileID: 736269169}
   - component: {fileID: 736269171}
   - component: {fileID: 736269170}
-  - component: {fileID: 736269172}
   m_Layer: 12
   m_Name: Ice_FX
   m_TagString: Untagged
@@ -20907,8 +20873,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1505712169
+  m_SortingLayer: 5
   m_SortingOrder: 30
   m_RenderMode: 0
   m_SortMode: 2
@@ -24289,16 +24255,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!210 &736269172
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 736269168}
-  m_Enabled: 1
-  m_SortingLayerID: -1505712169
-  m_SortingLayer: 5
-  m_SortingOrder: 0
 --- !u!1 &737700492
 GameObject:
   m_ObjectHideFlags: 0
@@ -24321,7 +24277,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 737700492}
-  m_LocalRotation: {x: 0.00000004214685, y: -0.000000021073435, z: 0.6073398, w: 0.79444224}
+  m_LocalRotation: {x: -1.7763566e-15, y: -0.000000021073422, z: 0.6073397, w: 0.7944423}
   m_LocalPosition: {x: 0.000000005105245, y: 1.0000001, z: -0.00000008425269}
   m_LocalScale: {x: 0.17130354, y: 0.17130354, z: 0.17130359}
   m_Children: []
@@ -24543,7 +24499,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 776349383}
-  m_LocalRotation: {x: 0, y: 0, z: 0.9957594, w: -0.09199568}
+  m_LocalRotation: {x: 0, y: 0, z: 0.99576306, w: -0.091956265}
   m_LocalPosition: {x: 0.45997354, y: 0.66888285, z: 0}
   m_LocalScale: {x: 0.5373161, y: 0.5373161, z: 0.53731596}
   m_Children:
@@ -24563,7 +24519,6 @@ GameObject:
   - component: {fileID: 780834341}
   - component: {fileID: 780834343}
   - component: {fileID: 780834342}
-  - component: {fileID: 780834344}
   m_Layer: 12
   m_Name: Fire_FX_Haduken
   m_TagString: Untagged
@@ -24617,8 +24572,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1505712169
+  m_SortingLayer: 5
   m_SortingOrder: 30
   m_RenderMode: 0
   m_SortMode: 2
@@ -27999,16 +27954,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!210 &780834344
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 780834340}
-  m_Enabled: 1
-  m_SortingLayerID: -1505712169
-  m_SortingLayer: 5
-  m_SortingOrder: 0
 --- !u!1 &784935261
 GameObject:
   m_ObjectHideFlags: 0
@@ -28687,7 +28632,7 @@ Transform:
   m_Children:
   - {fileID: 282954078}
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 15
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &834412074
 GameObject:
@@ -28699,7 +28644,6 @@ GameObject:
   - component: {fileID: 834412075}
   - component: {fileID: 834412077}
   - component: {fileID: 834412076}
-  - component: {fileID: 834412078}
   m_Layer: 12
   m_Name: Ice_FX_Haduken
   m_TagString: Untagged
@@ -28753,8 +28697,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1505712169
+  m_SortingLayer: 5
   m_SortingOrder: 30
   m_RenderMode: 0
   m_SortMode: 2
@@ -32135,16 +32079,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!210 &834412078
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 834412074}
-  m_Enabled: 1
-  m_SortingLayerID: -1505712169
-  m_SortingLayer: 5
-  m_SortingOrder: 0
 --- !u!1 &835018786
 GameObject:
   m_ObjectHideFlags: 0
@@ -33358,7 +33292,7 @@ Transform:
   m_Children:
   - {fileID: 475455255}
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 14
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &885435173
 GameObject:
@@ -33769,7 +33703,7 @@ Transform:
   m_Children:
   - {fileID: 562174165}
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &896588896
 SpriteRenderer:
@@ -34866,7 +34800,7 @@ Transform:
   m_LocalScale: {x: 1.5422599, y: 1.5422599, z: 1.5422599}
   m_Children: []
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &995890360
 SpriteRenderer:
@@ -35374,7 +35308,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1033247621}
-  m_LocalRotation: {x: 0, y: 0, z: 0.021426758, w: 0.9997704}
+  m_LocalRotation: {x: 0, y: 0, z: 0.02138871, w: 0.99977124}
   m_LocalPosition: {x: -0.12, y: 0.91, z: 2.2469296e-14}
   m_LocalScale: {x: 2.2457926, y: 2.2457926, z: 2.245791}
   m_Children:
@@ -35456,7 +35390,7 @@ Transform:
   m_LocalScale: {x: 1.5422614, y: 1.5422612, z: 1.5422612}
   m_Children: []
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1040943888
 SpriteRenderer:
@@ -35857,7 +35791,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -46.502003}
 --- !u!212 &1066425021
 SpriteRenderer:
@@ -35936,7 +35870,7 @@ Transform:
   - {fileID: 13729766}
   - {fileID: 172419969}
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1071130910
 SpriteRenderer:
@@ -36433,7 +36367,7 @@ SpriteRenderer:
   m_Size: {x: 1.28, y: 1.52}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &1118987446
 GameObject:
@@ -36535,7 +36469,7 @@ Transform:
   m_Children:
   - {fileID: 1054162690}
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 21
+  m_RootOrder: 22
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1130248926
 GameObject:
@@ -36742,7 +36676,6 @@ GameObject:
   - component: {fileID: 1133282638}
   - component: {fileID: 1133282640}
   - component: {fileID: 1133282639}
-  - component: {fileID: 1133282641}
   m_Layer: 12
   m_Name: Ice_FX2
   m_TagString: Untagged
@@ -36796,8 +36729,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1505712169
+  m_SortingLayer: 5
   m_SortingOrder: 30
   m_RenderMode: 0
   m_SortMode: 2
@@ -40178,16 +40111,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!210 &1133282641
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1133282637}
-  m_Enabled: 1
-  m_SortingLayerID: -1505712169
-  m_SortingLayer: 5
-  m_SortingOrder: 0
 --- !u!1 &1137056979
 GameObject:
   m_ObjectHideFlags: 0
@@ -40510,6 +40433,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 835018787}
+  - {fileID: 1862148700}
   - {fileID: 1066425020}
   - {fileID: 1244632576}
   - {fileID: 448250315}
@@ -42230,7 +42154,7 @@ Transform:
   m_LocalScale: {x: 0.89599955, y: 0.89599955, z: 1}
   m_Children: []
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1244632577
 SpriteRenderer:
@@ -42306,7 +42230,7 @@ Transform:
   - {fileID: 1106759163}
   - {fileID: 2083688339}
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 20
+  m_RootOrder: 21
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1249767201
 SpriteRenderer:
@@ -43777,7 +43701,7 @@ SpriteRenderer:
   m_Size: {x: 0.76, y: 1.87}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &1363124604
 GameObject:
@@ -44343,7 +44267,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 19
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1394841002
 GameObject:
@@ -44367,7 +44291,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1394841002}
-  m_LocalRotation: {x: 0, y: 0, z: 0.42456767, w: -0.9053962}
+  m_LocalRotation: {x: 0, y: 0, z: 0.4226557, w: -0.90629035}
   m_LocalPosition: {x: -0.000000070419475, y: 1.0000006, z: 5.804144e-12}
   m_LocalScale: {x: 2.4438734, y: 2.4438734, z: 2.4438734}
   m_Children:
@@ -44531,7 +44455,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1436219372}
-  m_LocalRotation: {x: -1.509698e-15, y: -4.004952e-15, z: 0.9734176, w: -0.22903754}
+  m_LocalRotation: {x: -1.5114085e-15, y: -4.004307e-15, z: 0.97351533, w: -0.22862174}
   m_LocalPosition: {x: -0.0000000094270165, y: 1.0000001, z: 3.334144e-10}
   m_LocalScale: {x: 0.63264024, y: 0.63264024, z: 0.63263655}
   m_Children: []
@@ -45215,7 +45139,7 @@ Transform:
   m_LocalScale: {x: 0.89599955, y: 0.89599955, z: 1}
   m_Children: []
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &1499632440
 SpriteRenderer:
@@ -45780,7 +45704,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1505712169
   m_SortingLayer: 5
-  m_SortingOrder: 15
+  m_SortingOrder: 17
   m_Sprite: {fileID: 21300000, guid: 2bc0ce1c8a6c14e2da3053252dc175e1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -46689,7 +46613,6 @@ GameObject:
   - component: {fileID: 1607633413}
   - component: {fileID: 1607633415}
   - component: {fileID: 1607633414}
-  - component: {fileID: 1607633416}
   m_Layer: 12
   m_Name: Air_FX_Haduken
   m_TagString: Untagged
@@ -46743,8 +46666,8 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1505712169
+  m_SortingLayer: 5
   m_SortingOrder: 30
   m_RenderMode: 1
   m_SortMode: 2
@@ -50125,16 +50048,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!210 &1607633416
-SortingGroup:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1607633412}
-  m_Enabled: 1
-  m_SortingLayerID: -1505712169
-  m_SortingLayer: 5
-  m_SortingOrder: 0
 --- !u!1 &1611565731
 GameObject:
   m_ObjectHideFlags: 0
@@ -50635,7 +50548,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 22
+  m_RootOrder: 23
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1648427104
 GameObject:
@@ -51502,7 +51415,7 @@ SpriteRenderer:
   m_Size: {x: 7.23, y: 7.23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &1696496160
 GameObject:
@@ -52013,8 +51926,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1505712169
-  m_SortingLayer: 5
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 20
   m_Sprite: {fileID: 21300000, guid: 705afc9edbcf44197b1d786a77ed3dd9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.914846}
@@ -53036,7 +52949,7 @@ SpriteRenderer:
   m_Size: {x: 7.23, y: 7.23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &1844050186
 GameObject:
@@ -53167,7 +53080,7 @@ Transform:
   m_Children:
   - {fileID: 1496198232}
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 24
+  m_RootOrder: 25
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1858600821
 GameObject:
@@ -53262,6 +53175,79 @@ MonoBehaviour:
   bones: []
   weight: []
   delta: []
+--- !u!1 &1862148699
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1862148700}
+  - component: {fileID: 1862148701}
+  m_Layer: 12
+  m_Name: chaos_glow
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1862148700
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1862148699}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -39.049706, y: 19.87876, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1137056981}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &1862148701
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1862148699}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: -1505712169
+  m_SortingLayer: 5
+  m_SortingOrder: 13
+  m_Sprite: {fileID: 21300000, guid: b7b9bb1b338654728852dacaf40650f8, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 7.23, y: 7.23}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
 --- !u!1 &1865852336
 GameObject:
   m_ObjectHideFlags: 0
@@ -53328,8 +53314,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1505712169
-  m_SortingLayer: 5
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
   m_SortingOrder: 22
   m_Sprite: {fileID: 21300000, guid: 22f09e5dd66364b3ea706d796b372060, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -53339,7 +53325,7 @@ SpriteRenderer:
   m_Size: {x: 6.1, y: 6.1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &1866127266
 GameObject:
@@ -53500,7 +53486,7 @@ SpriteRenderer:
   m_Size: {x: 1.6, y: 0.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
 --- !u!1 &1878859329
 GameObject:
@@ -54012,7 +53998,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1902379167}
-  m_LocalRotation: {x: 0, y: 0, z: 0.9999988, w: -0.0015607311}
+  m_LocalRotation: {x: 0, y: 0, z: 0.9999985, w: -0.0017333459}
   m_LocalPosition: {x: -0.53165776, y: 0.6801833, z: 0}
   m_LocalScale: {x: 0.38207653, y: 0.38207653, z: 0.38207605}
   m_Children:
@@ -54254,7 +54240,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1928236304}
-  m_LocalRotation: {x: 0, y: 0, z: 0.13344283, w: 0.9910565}
+  m_LocalRotation: {x: 0, y: 0, z: 0.1335166, w: 0.9910466}
   m_LocalPosition: {x: 0.06, y: 1.05, z: -0.00000008382288}
   m_LocalScale: {x: 1.2649128, y: 1.2649128, z: 1.2649132}
   m_Children:
@@ -54960,7 +54946,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1505712169
   m_SortingLayer: 5
-  m_SortingOrder: 14
+  m_SortingOrder: 16
   m_Sprite: {fileID: 21300000, guid: ef7e38d108fb94700a3efb82554e263a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -55338,7 +55324,7 @@ Transform:
   m_Children:
   - {fileID: 1224256610}
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 13
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2018043232
 GameObject:
@@ -56097,7 +56083,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2049243515}
-  m_LocalRotation: {x: 0.000000005281248, y: -0.000000041814655, z: -0.79988396, w: 0.60015464}
+  m_LocalRotation: {x: 0.000000005281253, y: -0.000000041814655, z: -0.7998841, w: 0.6001546}
   m_LocalPosition: {x: 1.4110804, y: 9.027946, z: 3.219719e-14}
   m_LocalScale: {x: 6.8826075, y: 6.8826075, z: 6.8826094}
   m_Children:
@@ -56105,7 +56091,7 @@ Transform:
   - {fileID: 414161306}
   - {fileID: 1594998686}
   m_Father: {fileID: 1137056981}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2049243517
 SpriteRenderer:
@@ -56742,7 +56728,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2143018768}
-  m_LocalRotation: {x: -1.0852743e-15, y: -3.390171e-15, z: -0.96955335, w: -0.24488051}
+  m_LocalRotation: {x: -1.0852633e-15, y: -3.3901742e-15, z: -0.9695541, w: -0.24487737}
   m_LocalPosition: {x: -0.000000009762482, y: 1.0000001, z: -6.694213e-15}
   m_LocalScale: {x: 0.6551521, y: 0.6551521, z: 0.6551491}
   m_Children: []

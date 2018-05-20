@@ -42,16 +42,11 @@ public class continueButtonClass : MonoBehaviour, ITouchable {
 		touchController.FocusObject = null;
 		transform.localScale = baseScale;
 		if (!globalScript.useBackend) {
+			globalScript.chaosHitEtherboyOnce = false;
 			globalScript.loadGame (new SampleState ());
 		} else {
-			try {
-				GameObject.Find ("backend").GetComponent<backendClass> ().QuerySaveData ();
-			} catch (System.Exception ex) {
-				globalScript.loadGame (new SampleState ());
-				if (globalScript.lastPlayedScene != "") {
-					globalScript.changeScene (globalScript.lastPlayedScene);
-				}
-			}
+			globalScript.chaosHitEtherboyOnce = false;
+			GameObject.Find ("backend").GetComponent<backendClass> ().QuerySaveData ();
 		}
 		return false;
 	}

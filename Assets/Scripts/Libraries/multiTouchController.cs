@@ -8,7 +8,7 @@ public class multiTouchController : MonoBehaviour {
 	//Ragdog Studios SRL SEMPLIFICATA 2016
 	//Touch Controller for Unity
 	//This controller allows an easy implementation of buttons and touchable objects
-	//The ITouchable interface is included, and required for each class wishing to leverage this class capabilities.
+	//The ITouchableMultiTouch interface is included, and required for each class wishing to leverage this class capabilities.
 	//Currently it supports only single touches, multi-touch support coming soon.
 	//It also works on both mobile and desktop platform, as well as editor.
 
@@ -82,12 +82,23 @@ public class multiTouchController : MonoBehaviour {
 
 			if (touchCount > 0 && touchPhase == TouchPhase.Began) {
 				Vector2 touchRay = Camera.main.ScreenToWorldPoint (touchPosition);
-				RaycastHit2D[] hit = Physics2D.RaycastAll (touchRay, Vector2.zero).OrderBy (h => h.collider.GetComponent<Renderer>().sortingOrder).ToArray ();
+				RaycastHit2D[] hit = Physics2D.RaycastAll (touchRay, Vector2.zero).OrderBy (h => {
+					Renderer colliderRend = h.collider.GetComponent<Renderer>();
+					if (colliderRend != null) {
+						if (colliderRend.sortingLayerName == "Controls") {
+							return colliderRend.sortingOrder;
+						} else {
+							return -1;
+						}
+					} else {
+						return -1;
+					}
+				}).ToArray ();
 				if (hit != null) {
 					for (int i = hit.Length-1; i >= 0; i--) {
 						Collider2D obj = hit [i].collider;
 						if (obj != null) {
-							ITouchable touchable = (ITouchable)obj.GetComponent (typeof(ITouchable));
+							ITouchableMultiTouch touchable = (ITouchableMultiTouch)obj.GetComponent (typeof(ITouchableMultiTouch));
 							if (touchable != null) {
 								bool found = false;
 								for (int y = 0; y < focusObject.Length; y++) {
@@ -109,7 +120,18 @@ public class multiTouchController : MonoBehaviour {
 				}
 			} else if (touchCount >= 0 && touchPhase == TouchPhase.Moved) {
 				Vector2 touchRay = Camera.main.ScreenToWorldPoint (touchPosition);
-				RaycastHit2D[] hit = Physics2D.RaycastAll (touchRay, Vector2.zero).OrderBy (h => h.collider.GetComponent<Renderer>().sortingOrder).ToArray ();
+				RaycastHit2D[] hit = Physics2D.RaycastAll (touchRay, Vector2.zero).OrderBy (h => { 
+					Renderer colliderRend = h.collider.GetComponent<Renderer>();
+					if (colliderRend != null) {
+						if (colliderRend.sortingLayerName == "Controls") {
+							return colliderRend.sortingOrder;
+						} else {
+							return -1;
+						}
+					} else {
+						return -1;
+					} 
+				}).ToArray ();
 				if (focusObject != null) {
 					bool found = false;
 					for (int i = hit.Length-1; i >= 0; i--) {
@@ -119,7 +141,7 @@ public class multiTouchController : MonoBehaviour {
 						}
 					}
 					if (focusObject [z] != null) {
-						ITouchable touchable = (ITouchable)focusObject [z].GetComponent (typeof(ITouchable));
+						ITouchableMultiTouch touchable = (ITouchableMultiTouch)focusObject [z].GetComponent (typeof(ITouchableMultiTouch));
 						if (touchable != null) {
 							touchable.TouchMoved (touchPosition, found);
 						}
@@ -129,7 +151,7 @@ public class multiTouchController : MonoBehaviour {
 				if (focusObject != null) {
 					Collider2D obj = focusObject[z];
 					if (obj != null) {
-						ITouchable touchable = (ITouchable)obj.GetComponent (typeof(ITouchable));
+						ITouchableMultiTouch touchable = (ITouchableMultiTouch)obj.GetComponent (typeof(ITouchableMultiTouch));
 						if (touchable != null) {
 							touchable.TouchEnded (touchPosition);
 						}

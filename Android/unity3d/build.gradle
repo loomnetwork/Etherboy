@@ -27,7 +27,7 @@ android {
 
 // TODO: Linux & IL2CPP
 def getUnityClassesJar(boolean debugBuild) {
-    String installDir = System.getenv('UNITY3D_INSTALL_DIR');
+    String installDir = '/Applications/Unity';
     if (installDir == null) {
         throw new GradleException('UNITY3D_INSTALL_DIR env var must be set to location of Unity installation dir.')
     }

@@ -31,6 +31,7 @@ public class triggeredDialogueClass {
 	public bool[] skippable;
 	public string[] bubbleDirection;
 	public string[] bubbleType;
+	public string[] playSounds;
 }
 
 [System.Serializable]
@@ -138,6 +139,13 @@ public class npcSystemClass : MonoBehaviour {
 			}
 			currentDialogue.triggeredDialogue.timer += Time.deltaTime;
 
+			if (currentDialogue.triggeredDialogue.playSounds != null && currentDialogue.triggeredDialogue.playSounds.Length >= currentDialogue.triggeredDialogue.currentDialogue) {
+				AudioSource audioSFX = gameObject.AddComponent<AudioSource> ();
+				audioSFX.clip = Resources.Load<AudioClip> (currentDialogue.triggeredDialogue.playSounds[currentDialogue.triggeredDialogue.currentDialogue]);
+				currentDialogue.triggeredDialogue.playSounds [currentDialogue.triggeredDialogue.currentDialogue] = "";
+				audioSFX.Play ();
+			}
+
 			if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<bowSwordSelect>") {
 				if (text != null) {
 					text.text = "";
@@ -235,6 +243,12 @@ public class npcSystemClass : MonoBehaviour {
 				} else {
 					globalScript.currentWeapon = "bow";
 				}
+				text.text = "";
+			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<startThumbWar>") {
+				print ("DONE ANIM THUMB WAR");
+				transform.GetChild (1).gameObject.SetActive (false);
+				GameObject.Find ("Chaos").transform.GetChild (1).gameObject.SetActive (false);
+				GameObject.Find ("ChaosHiro").transform.GetChild (1).gameObject.SetActive (true);
 				text.text = "";
 			}
 
@@ -624,7 +638,7 @@ public class npcSystemClass : MonoBehaviour {
 		}
 
 		if (readyForTriggered || activateTriggeredManually || startTriggered) {
-			bool pressedTalk = Input.GetButtonDown ("Fire2");
+			bool pressedTalk = inputBroker.GetButtonDown ("Fire2");
 
 			if (pressedTalk || activateTriggeredManually) {
 				if (activateTriggeredManually) {

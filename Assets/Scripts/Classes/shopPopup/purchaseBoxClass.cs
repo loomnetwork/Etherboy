@@ -41,8 +41,10 @@ public class purchaseBoxClass : MonoBehaviour, ITouchable {
 		if (isPurchasable) {
 			if (globalScript.currentGold >= cost) {
 				globalScript.currentGold -= cost;
-				PlayerPrefs.SetString (objectName, "purchased");
+				setAsPurchased ();
 				updateMetaData ();
+
+				TouchEnded (touchPosition);
 			}
 		} else {
 			if (transform.parent.name == "tabSword") {
@@ -74,7 +76,71 @@ public class purchaseBoxClass : MonoBehaviour, ITouchable {
 	}
 
 	public void updateMetaData () {
-		if (PlayerPrefs.GetString (objectName) != "") {
+		bool bought = false;
+
+		if (objectName == "bow1") {
+			if (globalScript.bow1Purchased) {
+				bought = true;
+			}
+		} else if (objectName == "bow2") {
+			if (globalScript.bow2Purchased) {
+				bought = true;
+			}
+		} else if (objectName == "bow3") {
+			if (globalScript.bow3Purchased) {
+				bought = true;
+			}
+		} else if (objectName == "bow4") {
+			if (globalScript.bow4Purchased) {
+				bought = true;
+			}
+		} else if (objectName == "bow5") {
+			if (globalScript.bow5Purchased) {
+				bought = true;
+			}
+		} else if (objectName == "sword1") {
+			if (globalScript.sword1Purchased) {
+				bought = true;
+			}
+		} else if (objectName == "sword2") {
+			if (globalScript.sword2Purchased) {
+				bought = true;
+			}
+		} else if (objectName == "sword3") {
+			if (globalScript.sword3Purchased) {
+				bought = true;
+			}
+		} else if (objectName == "sword4") {
+			if (globalScript.sword4Purchased) {
+				bought = true;
+			}
+		} else if (objectName == "sword5") {
+			if (globalScript.sword5Purchased) {
+				bought = true;
+			}
+		} else if (objectName == "helm1") {
+			if (globalScript.helm1Purchased) {
+				bought = true;
+			}
+		} else if (objectName == "helm2") {
+			if (globalScript.helm2Purchased) {
+				bought = true;
+			}
+		} else if (objectName == "helm3") {
+			if (globalScript.helm3Purchased) {
+				bought = true;
+			}
+		} else if (objectName == "helm4") {
+			if (globalScript.helm4Purchased) {
+				bought = true;
+			}
+		} else if (objectName == "helm5") {
+			if (globalScript.helm5Purchased) {
+				bought = true;
+			}
+		}
+
+		if (bought) {
 			ownedText.gameObject.SetActive (true);
 			costGroup.SetActive (false);
 			isPurchasable = false;
@@ -114,5 +180,41 @@ public class purchaseBoxClass : MonoBehaviour, ITouchable {
 			selectText.text = "Purchase";
 			isPurchasable = true;
 		}
+	}
+
+	void setAsPurchased () {
+		if (objectName == "bow1") {
+			globalScript.bow1Purchased = true;
+		} else if (objectName == "bow2") {
+			globalScript.bow2Purchased = true;
+		} else if (objectName == "bow3") {
+			globalScript.bow3Purchased = true;
+		} else if (objectName == "bow4") {
+			globalScript.bow4Purchased = true;
+		} else if (objectName == "bow5") {
+			globalScript.bow5Purchased = true;
+		} else if (objectName == "sword1") {
+			globalScript.sword1Purchased = true;
+		} else if (objectName == "sword2") {
+			globalScript.sword2Purchased = true;
+		} else if (objectName == "sword3") {
+			globalScript.sword3Purchased = true;
+		} else if (objectName == "sword4") {
+			globalScript.sword4Purchased = true;
+		} else if (objectName == "sword5") {
+			globalScript.sword5Purchased = true;
+		} else if (objectName == "helm1") {
+			globalScript.helm1Purchased = true;
+		} else if (objectName == "helm2") {
+			globalScript.helm2Purchased = true;
+		} else if (objectName == "helm3") {
+			globalScript.helm3Purchased = true;
+		} else if (objectName == "helm4") {
+			globalScript.helm4Purchased = true;
+		} else if (objectName == "helm5") {
+			globalScript.helm5Purchased = true;
+		}
+
+		globalScript.saveGame ();
 	}
 }

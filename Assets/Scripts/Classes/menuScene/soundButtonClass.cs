@@ -42,10 +42,12 @@ public class soundButtonClass : MonoBehaviour, ITouchable {
 			AudioListener.pause = true;
 			AudioListener.volume = 0;
 			thisRend.sprite = offSprite;
+			PlayerPrefs.SetInt ("volumeSounds", 1);
 		} else {
 			AudioListener.pause = false;
 			AudioListener.volume = 1;
 			thisRend.sprite = onSprite;
+			PlayerPrefs.SetInt ("volumeSounds", 0);
 		}
 		return false;
 	}
@@ -55,9 +57,13 @@ public class soundButtonClass : MonoBehaviour, ITouchable {
 		onSprite = thisRend.sprite;
 		baseScale = transform.localScale;
 
-		if (AudioListener.volume > 0) {
+		if (PlayerPrefs.GetInt("volumeSounds") == 0) {
+			AudioListener.pause = false;
+			AudioListener.volume = 1;
 			thisRend.sprite = onSprite;
 		} else {
+			AudioListener.pause = true;
+			AudioListener.volume = 0;
 			thisRend.sprite = offSprite;
 		}
 	}

@@ -40,7 +40,7 @@
              redirected back to the host page - at which point the game will load once again.
         */
         authenticateFromPage();
-        gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%");
+        gameInstance = UnityLoader.instantiate("gameContainer", "%UNITY_WEBGL_BUILD_URL%", {onProgress: UnityProgress});
       });
     </script>
     <!-- Button to pass into authenticateFromPage()

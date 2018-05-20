@@ -15,6 +15,21 @@ public class SampleState {
 	public int currentGold;
 	public string lastScene;
 	public string prevScene;
+	public bool bow1Purchased;
+	public bool bow2Purchased;
+	public bool bow3Purchased;
+	public bool bow4Purchased;
+	public bool bow5Purchased;
+	public bool sword1Purchased;
+	public bool sword2Purchased;
+	public bool sword3Purchased;
+	public bool sword4Purchased;
+	public bool sword5Purchased;
+	public bool helm1Purchased;
+	public bool helm2Purchased;
+	public bool helm3Purchased;
+	public bool helm4Purchased;
+	public bool helm5Purchased;
 }
 
 public class globalScript : MonoBehaviour {
@@ -50,6 +65,23 @@ public class globalScript : MonoBehaviour {
 	public static string equippedBow = "bow1";
 	public static string equippedHelm = "";
 	public static string equippedMagic = "earth";
+	public static bool bow1Purchased;
+	public static bool bow2Purchased;
+	public static bool bow3Purchased;
+	public static bool bow4Purchased;
+	public static bool bow5Purchased;
+	public static bool sword1Purchased;
+	public static bool sword2Purchased;
+	public static bool sword3Purchased;
+	public static bool sword4Purchased;
+	public static bool sword5Purchased;
+	public static bool helm1Purchased;
+	public static bool helm2Purchased;
+	public static bool helm3Purchased;
+	public static bool helm4Purchased;
+	public static bool helm5Purchased;
+	public static bool chaosHitEtherboyOnce;
+
 	public static string gameState;
 
 	public static int currentGold;
@@ -76,7 +108,6 @@ public class globalScript : MonoBehaviour {
 	}
 
 	public static void showFullScreenAd () {
-		print ("SHOWING AD");
 		bool noAds = false;
 		if (PlayerPrefs.GetInt ("isAdsRemoved") == 1) {
 			noAds = true;
@@ -113,8 +144,6 @@ public class globalScript : MonoBehaviour {
 		}
 
 		startingOrderEnemies = 0;
-
-		print ("BOOH");
 
 		if (fader != null) {
 			fader.SetActive (true);
@@ -155,6 +184,21 @@ public class globalScript : MonoBehaviour {
 			globalScript.equippedSword = saveData.equippedSword;
 			globalScript.equippedMagic = saveData.equippedMagic;
 			globalScript.previousScene = saveData.prevScene;
+			globalScript.bow1Purchased = saveData.bow1Purchased;
+			globalScript.bow2Purchased = saveData.bow2Purchased;
+			globalScript.bow3Purchased = saveData.bow3Purchased;
+			globalScript.bow4Purchased = saveData.bow4Purchased;
+			globalScript.bow5Purchased = saveData.bow5Purchased;
+			globalScript.sword1Purchased = saveData.sword1Purchased;
+			globalScript.sword2Purchased = saveData.sword2Purchased;
+			globalScript.sword3Purchased = saveData.sword3Purchased;
+			globalScript.sword4Purchased = saveData.sword4Purchased;
+			globalScript.sword5Purchased = saveData.sword5Purchased;
+			globalScript.helm1Purchased = saveData.helm1Purchased;
+			globalScript.helm2Purchased = saveData.helm2Purchased;
+			globalScript.helm3Purchased = saveData.helm3Purchased;
+			globalScript.helm4Purchased = saveData.helm4Purchased;
+			globalScript.helm5Purchased = saveData.helm5Purchased;
 
 			if (globalScript.lastPlayedScene != "") {
 				globalScript.changeScene (globalScript.lastPlayedScene);
@@ -174,6 +218,21 @@ public class globalScript : MonoBehaviour {
 		saveData.equippedSword = globalScript.equippedSword;
 		saveData.equippedMagic = globalScript.equippedMagic;
 		saveData.prevScene = globalScript.previousScene;
+		saveData.bow1Purchased = globalScript.bow1Purchased;
+		saveData.bow2Purchased = globalScript.bow2Purchased;
+		saveData.bow3Purchased = globalScript.bow3Purchased;
+		saveData.bow4Purchased = globalScript.bow4Purchased;
+		saveData.bow5Purchased = globalScript.bow5Purchased;
+		saveData.sword1Purchased = globalScript.sword1Purchased;
+		saveData.sword2Purchased = globalScript.sword2Purchased;
+		saveData.sword3Purchased = globalScript.sword3Purchased;
+		saveData.sword4Purchased = globalScript.sword4Purchased;
+		saveData.sword5Purchased = globalScript.sword5Purchased;
+		saveData.helm1Purchased = globalScript.helm1Purchased;
+		saveData.helm2Purchased = globalScript.helm2Purchased;
+		saveData.helm3Purchased = globalScript.helm3Purchased;
+		saveData.helm4Purchased = globalScript.helm4Purchased;
+		saveData.helm5Purchased = globalScript.helm5Purchased;
 
 		if (!useBackend) {
 			string jsonData = JsonUtility.ToJson (saveData);
@@ -223,7 +282,9 @@ public class globalScript : MonoBehaviour {
 						loginGroup = loginGroup.transform.GetChild (0).gameObject;
 						if (loginGroup.activeSelf) {
 							loginGroup.SetActive (false);
-							GameObject.Find ("backend").GetComponent<backendClass> ().SignIn ();
+							#if !UNITY_ANDROID
+								GameObject.Find ("backend").GetComponent<backendClass> ().SignIn ();
+							#endif
 							GameObject menuGroup = GameObject.Find ("menuGroup");
 							if (menuGroup != null) {
 								menuGroup = menuGroup.transform.GetChild (0).gameObject;
@@ -262,8 +323,19 @@ public class globalScript : MonoBehaviour {
 			Update ();
 		}
 
-		if (hasAlreadyLoaded == true )
+		if (hasAlreadyLoaded == true) {
+			if (SceneManager.GetActiveScene ().name == "menuScene") {
+				GameObject userInterfaceOld = GameObject.Find ("UserInterface");
+				if (userInterfaceOld != null) {
+					Destroy (userInterfaceOld);
+				}
+				GameObject talkGroupOld = GameObject.Find ("talkGroup");
+				if (talkGroupOld != null) {
+					Destroy (talkGroupOld);
+				}
+			}
 			return;
+		}
 
 		shakeScreenTime = 0;
 		currentGold = 0;
@@ -271,8 +343,8 @@ public class globalScript : MonoBehaviour {
 		hasAlreadyLoaded = true;
 		Application.targetFrameRate = 60;
 
-		PlayerPrefs.SetString ("sword1", "purchased");
-		PlayerPrefs.SetString ("bow1", "purchased");
+		bow1Purchased = true;
+		sword1Purchased = true;
 
 		currentQuest = 0;
 		questStep = 0;

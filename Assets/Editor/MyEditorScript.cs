@@ -45,6 +45,7 @@ class WebGLBuilder {
 			"Assets/Scenes/darkLevel2/darkPrivateRoom2Scene.unity",
 			"Assets/Scenes/UI/gameOverScene.unity",
 			"Assets/Scenes/UI/uploadedScene.unity",
+			"Assets/Scenes/UI/creditsScene.unity"
 		};
 
 		string pathToDeploy = "builds/WebGLversion/";       

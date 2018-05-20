@@ -106,7 +106,7 @@ public class objectiveSystemClass : MonoBehaviour {
 	}
 
 	public void showRewardScreen () {
-		print ("DONE");
+		globalScript.gameState = "paused";
 		status = "reward";
 
 		GameObject rewardScreen = transform.parent.GetChild (1).gameObject;
@@ -125,6 +125,7 @@ public class objectiveSystemClass : MonoBehaviour {
 			LeanTween.value(0, 1, 0.25f).setOnComplete(()=>{
 				rewardScreen.SetActive(false);
 				status = "idle";
+				globalScript.gameState = "";
 			});
 		});
 

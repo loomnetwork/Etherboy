@@ -59,6 +59,8 @@ public class characterClass : MonoBehaviour {
 	private GameObject rock;
 	private GameObject explosion;
 
+	private AudioSource[] audioSFX;
+
 	void Awake () {
 		AssetsCheck ();
 	}
@@ -80,6 +82,7 @@ public class characterClass : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		audioSFX = GetComponents<AudioSource> ();
 		jumpTimeCheck = 0;
 		lastColliders = new List<Collider2D> ();
 		thisParent = transform.parent.gameObject;
@@ -137,9 +140,13 @@ public class characterClass : MonoBehaviour {
 		leftBottomScreen = Camera.main.ScreenToWorldPoint (new Vector2 (0, 0));
 		rightTopScreen = Camera.main.ScreenToWorldPoint (new Vector2 (Screen.width, Screen.height));
 
+		if (globalScript.gameState == "paused") {
+			return;
+		}
+
 		if (state == "normal") {
 			Vector2 currPos = transform.localPosition;
-			float movementX = Input.GetAxis ("Horizontal");
+			float movementX = inputBroker.GetAxis ("Horizontal");
 
 			string animationToPlay = "";
 
@@ -199,8 +206,7 @@ public class characterClass : MonoBehaviour {
 				}
 			}
 
-			bool pressedAttack = Input.GetButton ("Fire3");
-
+			bool pressedAttack = inputBroker.GetButton ("Fire3");
 			if (globalScript.currentQuest <= 3) {
 				pressedAttack = false;
 			}
@@ -209,9 +215,14 @@ public class characterClass : MonoBehaviour {
 				state = "attack";
 				animationToPlay = globalScript.currentWeapon;
 				attackTime = 0;
+				if (globalScript.currentWeapon == "sword") {
+					audioSFX [5].Play ();
+				} else if (globalScript.currentWeapon == "bow") {
+					audioSFX [6].Play ();
+				}
 			}
 
-			bool pressedMagic = Input.GetButton ("Magic");
+			bool pressedMagic = inputBroker.GetButton ("Magic");
 
 			if (globalScript.currentQuest <= 6 || canJump <= 0) {
 				pressedMagic = false;
@@ -221,12 +232,16 @@ public class characterClass : MonoBehaviour {
 				state = "magic";
 				if (globalScript.equippedMagic == "earth") {
 					animationToPlay = "hadukenEarth";
+					audioSFX [3].Play ();
 				} else if (globalScript.equippedMagic == "fire") {
 					animationToPlay = "hadukenFire";
+					audioSFX [0].Play ();
 				} else if (globalScript.equippedMagic == "ice") {
 					animationToPlay = "hadukenIce";
+					audioSFX [4].Play ();
 				} else if (globalScript.equippedMagic == "air") {
 					animationToPlay = "hadukenAir";
+					audioSFX [2].Play ();
 				}
 				magicTime = 0;
 				globalScript.magicTimer = 10;
@@ -245,7 +260,7 @@ public class characterClass : MonoBehaviour {
 				characterAnimator.Play (animationToPlay, -1, 0f);
 			}
 
-			float movementY = Input.GetAxis ("Vertical");
+			float movementY = inputBroker.GetAxis ("Vertical");
 
 			if (movementY > 0f || movementY < 0f) {
 				checkOverlapWithItem ();
@@ -289,6 +304,7 @@ public class characterClass : MonoBehaviour {
 					state = "normal";
 					characterAnimator.Play ("Idle", -1, 0f);
 				} else if (magicTime > 0.6f && magicTime < 1.35f) {
+					audioSFX [1].Play ();
 					magicTime = 1.35f;
 					GameObject bullet = Instantiate (explosion);
 					GameObject boxObj = new GameObject ();
@@ -399,7 +415,7 @@ public class characterClass : MonoBehaviour {
 
 			Vector2 currPos = transform.localPosition;
 
-			float movementY = Input.GetAxis ("Vertical");
+			float movementY = inputBroker.GetAxis ("Vertical");
 
 			if (movementY > 0.1f) {
 				ropeAnimator.enabled = true;
@@ -425,7 +441,7 @@ public class characterClass : MonoBehaviour {
 
 			checkOverlapWithItem ();
 
-			float movementX = Input.GetAxis ("Horizontal");
+			float movementX = inputBroker.GetAxis ("Horizontal");
 
 			if (movementX != 0) {
 				state = "normal";
@@ -438,10 +454,11 @@ public class characterClass : MonoBehaviour {
 				hitTime = -5;
 				globalScript.changeScene ("gameOverScene");
 			}
+		} else if (state == "flying") {
 		}
 	}
 
-	void resetState () {
+	public void resetState () {
 		if (state == "normal") {
 			for (int i = lastColliders.Count - 1; i >= 0; i--) {
 				Physics2D.IgnoreCollision (lastColliders [i], thisCollider, false);
@@ -477,9 +494,10 @@ public class characterClass : MonoBehaviour {
 	void FixedUpdate () {
 		if (state == "normal") {
 			if (canJump > 0) {
-				bool pressedJump = Input.GetButton ("Fire1");
+				bool pressedJump = inputBroker.GetButton ("Fire1");
 
 				if (pressedJump) {
+					audioSFX [7].Play ();
 					canJump = 0;
 					thisBody.velocity = new Vector2 (0, jumpStrength);
 				}
@@ -501,7 +519,7 @@ public class characterClass : MonoBehaviour {
 					Vector2 posNew = transform.parent.InverseTransformPoint (hit [0].transform.position);
 					LeanTween.moveLocalX (gameObject, posNew.x, 0.125f);
 
-					float movementY = Input.GetAxis ("Vertical");
+					float movementY = inputBroker.GetAxis ("Vertical");
 
 					bool confirmRope = false;
 
@@ -607,6 +625,7 @@ public class characterClass : MonoBehaviour {
 					LeanTween.cancelAll ();
 					gameObject.layer = LayerMask.NameToLayer ("Default");
 					state = "death";
+					audioSFX [8].Play ();
 					characterAnimator.Play ("Death", -1, 0f);
 					hitTime = 0;
 					thisBody.gravityScale = 0;
@@ -647,6 +666,7 @@ public class characterClass : MonoBehaviour {
 						hitTime = 0;
 
 						if (life <= 0) {
+							audioSFX [8].Play ();
 							LeanTween.cancelAll ();
 							gameObject.layer = LayerMask.NameToLayer ("Default");
 							state = "death";
@@ -657,6 +677,7 @@ public class characterClass : MonoBehaviour {
 								globalScript.changeScene ("gameOverScene");
 							});*/
 						} else {
+							audioSFX [9].Play ();
 							Update ();
 						}
 					}

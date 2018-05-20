@@ -36,6 +36,18 @@ public class touchController : MonoBehaviour {
 		Update ();
 	}
 
+	void Awake () {
+		AudioSource music = GetComponent<AudioSource> ();
+		if (music != null) {
+			music.ignoreListenerVolume = true;
+			if (PlayerPrefs.GetInt ("volumeMusic") == 0) {
+				music.volume = 1;
+			} else {
+				music.volume = 0;
+			}
+		}
+	}
+
 	// Update is called once per frame
 	void Update () {
 		if (Application.isMobilePlatform) {

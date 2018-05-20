@@ -13,10 +13,19 @@ public class backendClass : MonoBehaviour
     public Identity identity;
 
     private Contract contract;
+    
+    [System.Serializable]
+	private class envConfig {
+		public string read_host;
+		public string write_host;
+	}
+
+	private envConfig dAppChainData;
 
     // Use this for initialization
     void Start()
     {
+        dAppChainData = JsonUtility.FromJson<envConfig> (Resources.Load<TextAsset>("env_config").text);
         // By default the editor won't respond to network IO or anything if it doesn't have input focus,
         // which is super annoying when input focus is given to the web browser for the Auth0 sign-in.
 		DontDestroyOnLoad(gameObject);
@@ -96,13 +105,13 @@ public class backendClass : MonoBehaviour
 
         var writer = RPCClientFactory.Configure()
             .WithLogger(Debug.unityLogger)
-            .WithHTTP("http://etherboy-stage.loomapps.io/rpc")
+            .WithHTTP(dAppChainData.write_host)
             //.WithWebSocket("ws://etherboy-stage.loomapps.io/websocket")
             .Create();
 
         var reader = RPCClientFactory.Configure()
             .WithLogger(Debug.unityLogger)
-            .WithHTTP("http://etherboy-stage.loomapps.io/query")
+            .WithHTTP(dAppChainData.read_host)
             //.WithWebSocket("ws://etherboy-stage.loomapps.io/queryws")
             .Create();
 
