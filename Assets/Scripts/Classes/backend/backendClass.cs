@@ -7,9 +7,16 @@ using System;
 using System.Threading.Tasks;
 using System.Linq;
 using UnityEngine.SceneManagement;
+using System.Runtime.InteropServices;
 
 public class backendClass : MonoBehaviour
 {
+#if UNITY_WEBGL && !UNITY_EDITOR
+    // Implemented in Assets/WebGL/settings.jslib
+    [DllImport("__Internal")]
+    private static extern string GetDAppChainConfigFromHostPage();
+#endif
+
     public Identity identity;
 
     private Contract contract;
@@ -20,14 +27,24 @@ public class backendClass : MonoBehaviour
 		public string write_host;
 	}
 
-	private envConfig dAppChainData;
+	private envConfig dAppChainCfg;
+
+    private static envConfig LoadDAppChainConfig()
+    {
+#if UNITY_WEBGL && !UNITY_EDITOR
+        string cfgStr = GetDAppChainConfigFromHostPage();
+#else
+        string cfgStr = Resources.Load<TextAsset>("env_config").text;
+#endif
+        return JsonUtility.FromJson<envConfig>(cfgStr);
+    }
 
     // Use this for initialization
     void Start()
     {
-		if (dAppChainData == null) {
+		if (dAppChainCfg == null) {
 			DontDestroyOnLoad (gameObject);
-			dAppChainData = JsonUtility.FromJson<envConfig> (Resources.Load<TextAsset> ("env_config").text);
+            dAppChainCfg = LoadDAppChainConfig();
 
 			// By default the editor won't respond to network IO or anything if it doesn't have input focus,
 			// which is super annoying when input focus is given to the web browser for the Auth0 sign-in.
@@ -37,7 +54,7 @@ public class backendClass : MonoBehaviour
 
     private IAuthClient CreateAuthClient()
     {
-		#if !UNITY_WEBGL
+#if !UNITY_WEBGL
 	        try
 	        {
 	            CertValidationBypass.Enable();
@@ -55,7 +72,7 @@ public class backendClass : MonoBehaviour
 	        {
 	            CertValidationBypass.Disable();
 	        }
-		#else
+#else
 	        return AuthClientFactory.Configure()
 	            .WithLogger(Debug.unityLogger)
 	            .WithHostPageHandlers(new Loom.Unity3d.WebGL.HostPageHandlers
@@ -65,10 +82,10 @@ public class backendClass : MonoBehaviour
 	                SignOut = "clearUserInfo"
 	            })
 	            .Create();
-		#endif
+#endif
     }
 
-	#if !UNITY_WEBGL // In WebGL all interactions with the key store should be done in the host page.
+#if !UNITY_WEBGL // In WebGL all interactions with the key store should be done in the host page.
 	    private async Task<IKeyStore> CreateKeyStore(string accessToken)
 	    {
 	        return await KeyStoreFactory.CreateVaultStore(new VaultStoreConfig
@@ -78,7 +95,7 @@ public class backendClass : MonoBehaviour
 	            AccessToken = accessToken
 	        });
 	    }
-	#endif
+#endif
 
 	public void createIdentity () {
 		//System.Text.Encoding.UTF8.GetString(this.identity.PrivateKey)
@@ -86,10 +103,10 @@ public class backendClass : MonoBehaviour
 
 	public async void SignIn()
     {
-		if (dAppChainData == null) {
+		if (dAppChainCfg == null) {
 			Start ();
 		}
-		#if !UNITY_WEBGL
+#if !UNITY_WEBGL
 	        try
 	        {
 	            CertValidationBypass.Enable();
@@ -102,22 +119,22 @@ public class backendClass : MonoBehaviour
 	        {
 	            CertValidationBypass.Disable();
 	        }
-		#else
+#else
 	        var authClient = this.CreateAuthClient();
 	        this.identity = await authClient.GetIdentityAsync("", null);
-		#endif
+#endif
 
 		PlayerPrefs.SetString("identityString", System.Text.Encoding.UTF8.GetString(this.identity.PrivateKey));
-
+                
         var writer = RPCClientFactory.Configure()
             .WithLogger(Debug.unityLogger)
-            .WithHTTP(dAppChainData.write_host)
+            .WithHTTP(dAppChainCfg.write_host)
             //.WithWebSocket("ws://etherboy-stage.loomapps.io/websocket")
             .Create();
 
         var reader = RPCClientFactory.Configure()
             .WithLogger(Debug.unityLogger)
-            .WithHTTP(dAppChainData.read_host)
+            .WithHTTP(dAppChainCfg.read_host)
             //.WithWebSocket("ws://etherboy-stage.loomapps.io/queryws")
             .Create();
 
@@ -150,7 +167,7 @@ public class backendClass : MonoBehaviour
 
     public async void ResetPrivateKey()
     {
-		#if !UNITY_WEBGL
+#if !UNITY_WEBGL
 	        try
 	        {
 	            CertValidationBypass.Enable();
@@ -163,10 +180,10 @@ public class backendClass : MonoBehaviour
 	        {
 	            CertValidationBypass.Disable();
 	        }
-		#else
+#else
 	        // TODO
 	        throw new NotImplementedException();
-		#endif
+#endif
     }
 
     // The backend doesn't care what the account info structure looks like,
