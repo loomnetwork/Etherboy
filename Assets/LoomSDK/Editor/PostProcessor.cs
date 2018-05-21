@@ -34,20 +34,31 @@ namespace UnitySwift {
 				//frameworks
 				DirectoryInfo projectParent = Directory.GetParent(Application.dataPath);
 				char divider = Path.DirectorySeparatorChar;
+				var frameworksPath = "Frameworks/LoomSDK/Frameworks";
+				if (PlayerSettings.iOS.sdkVersion == iOSSdkVersion.SimulatorSDK) {
+					FileUtil.DeleteFileOrDirectory (buildPath + divider + frameworksPath + divider + "Auth0.framework");
+					FileUtil.DeleteFileOrDirectory (buildPath + divider + frameworksPath + divider + "SimpleKeychain.framework");
+					var assetsPath=Path.Combine(Application.dataPath, "LoomSDK/Frameworks");
+					UnityEngine.Debug.Log (assetsPath);
+					UnityEngine.Debug.Log (Application.dataPath);
+					FileUtil.ReplaceFile (assetsPath + divider + "Auth0.framework.simulator", buildPath + divider + frameworksPath + divider + "Auth0.framework");
+					FileUtil.ReplaceFile (assetsPath + divider + "SimpleKeychain.framework.simulator", buildPath + divider + frameworksPath + divider + "SimpleKeychain.framework");
+				} else {
+				//	FileUtil.DeleteFileOrDirectory (buildPath + divider + frameworksPath + divider + "Auth0.simulator");
+				//	FileUtil.DeleteFileOrDirectory (buildPath + divider + frameworksPath + divider + "SimpleKeychain.simulator");
+				}
 				DirectoryInfo destinationFolder =
-					new DirectoryInfo(buildPath + divider + "Frameworks/LoomSDK/Frameworks");
-
+					new DirectoryInfo(buildPath + divider + frameworksPath);
+				
 				foreach(DirectoryInfo file in destinationFolder.GetDirectories()) {
 					string filePath = "Frameworks/LoomSDK/Frameworks/"+ file.Name;
 					//proj.AddFile(filePath, filePath, PBXSourceTree.Source);
 					string fileGuid =proj.AddFile(filePath, filePath, PBXSourceTree.Source);
 					proj.AddFrameworkToProject (targetGuid, file.Name, false);
-
 					PBXProjectExtensions.AddFileToEmbedFrameworks(proj, targetGuid, fileGuid);
 
 				}
                 proj.WriteToFile(projPath);
-
 				//info.plist
 				var plistPath = buildPath+ "/Info.plist";
 				var plist = new PlistDocument();
