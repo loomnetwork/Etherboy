@@ -25,14 +25,14 @@ public class backendClass : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-		DontDestroyOnLoad(gameObject);
-        dAppChainData = JsonUtility.FromJson<envConfig> (Resources.Load<TextAsset>("env_config").text);
+		if (dAppChainData == null) {
+			DontDestroyOnLoad (gameObject);
+			dAppChainData = JsonUtility.FromJson<envConfig> (Resources.Load<TextAsset> ("env_config").text);
 
-		print (dAppChainData.write_host);
-		print (dAppChainData.read_host);
-        // By default the editor won't respond to network IO or anything if it doesn't have input focus,
-        // which is super annoying when input focus is given to the web browser for the Auth0 sign-in.
-        Application.runInBackground = true;
+			// By default the editor won't respond to network IO or anything if it doesn't have input focus,
+			// which is super annoying when input focus is given to the web browser for the Auth0 sign-in.
+			Application.runInBackground = true;
+		}
     }
 
     private IAuthClient CreateAuthClient()
@@ -86,6 +86,9 @@ public class backendClass : MonoBehaviour
 
 	public async void SignIn()
     {
+		if (dAppChainData == null) {
+			Start ();
+		}
 		#if !UNITY_WEBGL
 	        try
 	        {
