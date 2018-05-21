@@ -137,7 +137,12 @@ public class npcSystemClass : MonoBehaviour {
 			if (text != null) {
 				text.text = currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue];
 			}
-			currentDialogue.triggeredDialogue.timer += Time.deltaTime;
+
+			#if UNITY_ANDROID
+				currentDialogue.triggeredDialogue.timer += (1f / 60f);
+			#else
+				currentDialogue.triggeredDialogue.timer += Time.deltaTime;
+			#endif
 
 			if (currentDialogue.triggeredDialogue.playSounds != null && currentDialogue.triggeredDialogue.playSounds.Length >= currentDialogue.triggeredDialogue.currentDialogue) {
 				AudioSource audioSFX = gameObject.AddComponent<AudioSource> ();
