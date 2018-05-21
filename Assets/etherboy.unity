@@ -255,7 +255,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 560920890}
-        m_MethodName: Query
+        m_MethodName: QuerySaveData
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -732,13 +732,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 560920889}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18f1594dd485e1a429a649468ad58a91, type: 3}
+  m_Script: {fileID: 11500000, guid: c4b22fc8a22104becba129ccd5915bc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusTextRef: {fileID: 1906453719}
-  ownerInputRef: {fileID: 1933915458}
-  healthInputRef: {fileID: 237800582}
-  coinsInputRef: {fileID: 1966763003}
 --- !u!4 &560920891
 Transform:
   m_ObjectHideFlags: 0
