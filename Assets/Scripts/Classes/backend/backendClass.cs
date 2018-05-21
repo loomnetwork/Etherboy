@@ -27,6 +27,9 @@ public class backendClass : MonoBehaviour
     {
 		DontDestroyOnLoad(gameObject);
         dAppChainData = JsonUtility.FromJson<envConfig> (Resources.Load<TextAsset>("env_config").text);
+
+		print (dAppChainData.write_host);
+		print (dAppChainData.read_host);
         // By default the editor won't respond to network IO or anything if it doesn't have input focus,
         // which is super annoying when input focus is given to the web browser for the Auth0 sign-in.
         Application.runInBackground = true;
