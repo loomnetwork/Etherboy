@@ -20,6 +20,8 @@ A multi-platform 2D game built in Unity, using the [Loom Unity SDK][] to interac
 - iOS (WIP)
 - Windows / Mac / Linux (for development only)
 
+![Animation](https://loomx.io/developers/img/etherboy-clip.gif)
+
 ## Development
 
 This game is being built using **Unity 2017.3**, but if you're just interested in playing around
