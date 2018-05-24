@@ -1,6 +1,6 @@
 # Etherboy
 
-![Header](/etherboy.jpg)
+![Header](https://loomx.io/developers/img/ebw_splash.jpg)
 A multi-platform 2D game built in Unity, using the [Loom Unity SDK][] to interact with a Loom DAppChain.
 
 ## Game Controls
