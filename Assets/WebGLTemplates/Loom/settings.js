@@ -1,7 +1,7 @@
 window.LOOM_SETTINGS = {
   dappchain: {
-    writeUrl: 'http://etherboy-stage.loomapps.io/rpc',
-    readUrl: 'http://etherboy-stage.loomapps.io/query'
+    writeUrl: 'http://localhost:46658/rpc',
+    readUrl: 'http://localhost:46658/query'
   },
   userInfoStorageKey: 'loomUserInfo',
   auth: {
