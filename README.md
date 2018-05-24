@@ -5,13 +5,13 @@ A multi-platform 2D game built in Unity, using the [Loom Unity SDK][] to interac
 
 ## Game Controls
 
-### WebGL
+### WebGL Key Bindings
 
-- UP: enter doors, go up ropes
-- DOWN: go down ropes
-- E: talk to NPCs, sleep in bed, interact with objects
-- SPACE / RIGHT-CLICK: jump
-- LEFT-CLICK: attack (when weapon is equipped)
+- **UP**: enter doors, go up ropes
+- **DOWN**: go down ropes
+- **E**: talk to NPCs, sleep in bed, interact with objects
+- **SPACE** / **RIGHT-CLICK**: jump
+- **LEFT-CLICK**: attack (when weapon is equipped)
 
 ## Supported Unity Platforms
 
