@@ -346,7 +346,7 @@ public class globalScript : MonoBehaviour {
 		bow1Purchased = true;
 		sword1Purchased = true;
 
-		currentQuest = 0;
+		currentQuest = 17;
 		questStep = 0;
 
 		magicTimer = 0;

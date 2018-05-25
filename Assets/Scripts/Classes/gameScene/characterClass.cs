@@ -757,6 +757,34 @@ public class characterClass : MonoBehaviour {
 						}
 					}
 				}
+			} else if (SceneManager.GetActiveScene ().name == "townLevel2Scene") {
+				if (globalScript.currentQuest <= 8) {
+					if (collider.transform.GetChild (0).name == "forestLevel2Scene") {
+						collider.transform.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+						return;
+					}
+				}
+			} else if (SceneManager.GetActiveScene ().name == "townLevel3Scene") {
+				if (globalScript.currentQuest <= 11) {
+					if (collider.transform.GetChild (0).name == "forestLevel3Scene") {
+						collider.transform.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+						return;
+					}
+				}
+			} else if (SceneManager.GetActiveScene ().name == "darkTownLevel2Scene") {
+				if (globalScript.currentQuest <= 19) {
+					if (collider.transform.GetChild (0).name == "darkTownLevel2Scene") {
+						collider.transform.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+						return;
+					}
+				}
+			} else if (SceneManager.GetActiveScene ().name == "darkTownLevel3Scene") {
+				if (globalScript.currentQuest <= 18) {
+					if (collider.transform.GetChild (0).name == "darkTownLevel3Scene") {
+						collider.transform.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+						return;
+					}
+				}
 			}
 			GetComponent<characterClass> ().enabled = false;
 			globalScript.changeScene (collider.transform.GetChild (0).name);
