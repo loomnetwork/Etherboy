@@ -1,0 +1,45 @@
+{
+    "hasAutomaticDialogue":false,
+    "hasTriggeredDialogue":true,
+    "triggeredDialogue":{
+        "dialogues":[
+			"",
+			"",
+            "That won't hold him for too long! I need to hurry and bring the Loom Token to Bob!"
+        ],
+        "timeInBetween":[
+			1,
+			0.1,
+            5
+        ],
+		"forOther":[
+			"etherBoy",
+			"etherBoy",
+			"etherBoy"
+		],
+		"newPosition":[
+			"-3/separate/0",
+			"",
+			""
+		],
+		"playAnimation":[
+			"Running",
+			"Idle",
+			""
+		],
+		"skippable":[
+			false,
+			false,
+			true
+		],
+		"faceDirection":[
+			0, 
+			-1,
+			0
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+
+        ]
+    }
+}

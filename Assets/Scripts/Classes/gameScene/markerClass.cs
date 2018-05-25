@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Puppet2D;
 
 public class markerClass : MonoBehaviour {
 
@@ -454,6 +455,35 @@ public class markerClass : MonoBehaviour {
 				objectivePoint.x += 1f;
 
 				unalteredPoint = door.transform.position;
+
+				if (globalScript.currentQuest == 18) {
+					if (!neededObjectives [2].activeSelf) {
+						neededObjectives [2].SetActive (true);
+					}
+
+					if (neededObjectives [1].name == "Elder") {
+						if (!neededObjectives [3].transform.GetChild (1).gameObject.activeSelf) {
+							neededObjectives [1].name = "ElderDone";
+							Animator elderAnim = neededObjectives [1].transform.GetChild (1).GetComponent<Animator> ();
+							if (!elderAnim.GetCurrentAnimatorStateInfo (0).IsName ("Haduken2")) {
+								elderAnim.Play ("Haduken2", -1, 0f);
+							}
+							neededObjectives [1].transform.GetChild (1).GetComponent<Puppet2D_GlobalControl> ().flip = true;
+							neededObjectives [3].transform.GetChild (1).gameObject.SetActive (true);
+							Vector2 currPos = neededObjectives [3].transform.localPosition;
+							currPos.x -= 14;
+							neededObjectives [3].transform.localPosition = currPos;
+						}
+					}
+
+					if (!neededObjectives [0].activeSelf) {
+						neededObjectives [0].SetActive (true);
+					}
+				} else {
+					if (neededObjectives [2].activeSelf) {
+						neededObjectives [2].SetActive (false);
+					}
+				}
 			}
 		} else if (SceneManager.GetActiveScene ().name == "forestLevel2Scene") {
 			GameObject door = neededObjectives [1];
@@ -477,6 +507,26 @@ public class markerClass : MonoBehaviour {
 				objectivePoint.x += 1f;
 
 				unalteredPoint = door.transform.position;
+
+				if (globalScript.currentQuest == 19) {
+					if (!neededObjectives [2].activeSelf) {
+						neededObjectives [2].SetActive (true);
+					}
+					if (neededObjectives [0].activeSelf) {
+						neededObjectives [0].SetActive (false);
+					}
+					if (!neededObjectives [3].activeSelf) {
+						neededObjectives [3].SetActive (true);
+					}
+
+					if (!neededObjectives [1].activeSelf) {
+						neededObjectives [1].SetActive (true);
+					}
+				} else {
+					if (neededObjectives [2].activeSelf) {
+						neededObjectives [2].SetActive (false);
+					}
+				}
 			}
 		} else {
 			found = false;

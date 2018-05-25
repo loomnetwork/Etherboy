@@ -17,14 +17,14 @@ PlayerSettings:
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
-  m_ShowUnitySplashLogo: 0
+  m_ShowUnitySplashLogo: 1
   m_SplashScreenOverlayOpacity: 0
   m_SplashScreenAnimation: 0
   m_SplashScreenLogoStyle: 0
   m_SplashScreenDrawMode: 0
   m_SplashScreenBackgroundAnimationZoom: 1
   m_SplashScreenLogoAnimationZoom: 1
-  m_SplashScreenBackgroundLandscapeAspect: 1.7444633
+  m_SplashScreenBackgroundLandscapeAspect: 1.7777778
   m_SplashScreenBackgroundPortraitAspect: 1
   m_SplashScreenBackgroundLandscapeUvs:
     serializedVersion: 2
@@ -181,7 +181,7 @@ PlayerSettings:
     serializedVersion: 2
     m_Bits: 238
   iPhoneSdkVersion: 988
-  iOSTargetOSVersionString: 7.0
+  iOSTargetOSVersionString: 9.0
   tvOSSdkVersion: 0
   tvOSRequireExtendedGameController: 0
   tvOSTargetOSVersionString: 9.0
@@ -245,7 +245,7 @@ PlayerSettings:
   clonedFromGUID: 00000000000000000000000000000000
   AndroidTargetDevice: 0
   AndroidSplashScreenScale: 0
-  androidSplashScreen: {fileID: 2800000, guid: a4979826ce29248aa9f9aa1f461e02f6, type: 3}
+  androidSplashScreen: {fileID: 0}
   AndroidKeystoreName: /Users/cristianesposito/jennyTest.keystore
   AndroidKeyaliasName: test
   AndroidTVCompatibility: 1
@@ -263,7 +263,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 22281006f80684148bf5cb5b021b0dc4, type: 3}
+      m_Icon: {fileID: 2800000, guid: 0d7ed1fd42dac40a5809673fa1908bc2, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -549,7 +549,7 @@ PlayerSettings:
   psp2InfoBarColor: 0
   psp2ScriptOptimizationLevel: 0
   psmSplashimage: {fileID: 0}
-  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: 7558590ccf17b034ca26c9a03ee447c2,
+  splashScreenBackgroundSourceLandscape: {fileID: 21300000, guid: 8d55d7e1ad33e4c168595f410dd5823e,
     type: 3}
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   spritePackerPolicy: DefaultPackerPolicy
@@ -567,6 +567,7 @@ PlayerSettings:
   webGLCompressionFormat: 1
   scriptingDefineSymbols:
     1: bullet;SUPER_TILEMAP_EDITOR
+    4: SUPER_TILEMAP_EDITOR
     7: SUPER_TILEMAP_EDITOR
     13: SUPER_TILEMAP_EDITOR
   platformArchitecture: {}

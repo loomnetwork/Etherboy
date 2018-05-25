@@ -46,5 +46,8 @@ public class exitButtonClass : MonoBehaviour, ITouchable {
 
 	void Start () {
 		baseScale = transform.localScale;
+		#if UNITY_WEBGL || UNITY_IOS	
+			gameObject.SetActive(false);
+		#endif
 	}
 }

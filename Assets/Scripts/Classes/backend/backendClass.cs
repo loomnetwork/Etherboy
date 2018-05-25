@@ -43,7 +43,7 @@ public class backendClass : MonoBehaviour
     void Start()
     {
 		if (dAppChainCfg == null) {
-			DontDestroyOnLoad (gameObject);
+			//DontDestroyOnLoad (gameObject);
             dAppChainCfg = LoadDAppChainConfig();
 
 			// By default the editor won't respond to network IO or anything if it doesn't have input focus,
@@ -106,7 +106,12 @@ public class backendClass : MonoBehaviour
 		if (dAppChainCfg == null) {
 			Start ();
 		}
+
+		if (this.identity != null) {
+			return;
+		}
 #if !UNITY_WEBGL
+		if (PlayerPrefs.GetString("identityString") == "" && PlayerPrefs.GetString("usernameString") == "") {
 	        try
 	        {
 	            CertValidationBypass.Enable();
@@ -119,13 +124,20 @@ public class backendClass : MonoBehaviour
 	        {
 	            CertValidationBypass.Disable();
 	        }
+		} else {
+			this.identity = new Identity{
+				Username = PlayerPrefs.GetString("usernameString"),
+				PrivateKey = CryptoUtils.HexStringToBytes(PlayerPrefs.GetString("identityString"))
+			};
+		}
 #else
 	        var authClient = this.CreateAuthClient();
 	        this.identity = await authClient.GetIdentityAsync("", null);
 #endif
 
-		PlayerPrefs.SetString("identityString", System.Text.Encoding.UTF8.GetString(this.identity.PrivateKey));
-                
+		PlayerPrefs.SetString("identityString", CryptoUtils.BytesToHexString(this.identity.PrivateKey));
+		PlayerPrefs.SetString ("usernameString", this.identity.Username);
+         
         var writer = RPCClientFactory.Configure()
             .WithLogger(Debug.unityLogger)
             .WithHTTP(dAppChainCfg.write_host)
@@ -156,7 +168,9 @@ public class backendClass : MonoBehaviour
         this.contract = new Contract(client, contractAddr, callerAddr);
 
         //call create account, if it's a new user, an account will be created for Etherboy
-        CreateAccount ();
+		if (PlayerPrefs.GetInt ("hasAccount") == 0) {
+			CreateAccount ();
+		}
     }
 
     public async void SignOut()
@@ -218,8 +232,11 @@ public class backendClass : MonoBehaviour
 
 		try {
         	await this.contract.CallAsync("CreateAccount", createAcctTx);
-		} catch (System.Exception) {
+		} catch (Exception) {
+			print ("Exception Caught");
 			// account probably already exists for Etherboy
+		} finally {
+			PlayerPrefs.SetInt ("hasAccount", 1);
 		}
     }
 
@@ -244,11 +261,16 @@ public class backendClass : MonoBehaviour
 
 	public async void QuerySaveData()
     {
-        // NOTE: Query results can be of any type that can be deserialized via Newtonsoft.Json.
-        var result = await this.contract.StaticCallAsync<StateQueryResult>(
-			"GetState", new StateQueryParams{ Owner = this.identity.Username }
-        );
-
-		globalScript.loadGame(JsonConvert.DeserializeObject<SampleState>(result.State.ToStringUtf8()));
+		try {
+	        // NOTE: Query results can be of any type that can be deserialized via Newtonsoft.Json.
+	        var result = await this.contract.StaticCallAsync<StateQueryResult>(
+				"GetState", new StateQueryParams{ Owner = this.identity.Username }
+	        );
+				
+			globalScript.loadGame(JsonConvert.DeserializeObject<SampleState>(result.State.ToStringUtf8()));
+		} catch (Exception exception) {
+			print (exception.Message);
+			print ("Caught query exception");
+		}
     }
 }

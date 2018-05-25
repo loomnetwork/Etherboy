@@ -14,16 +14,28 @@ public class magicCounterClass : MonoBehaviour {
 
 	private SpriteRenderer thisRend;
 	private string lastMagic;
+	private Collider2D thisCollider;
 
 	// Use this for initialization
 	void Start () {
 		lastMagic = globalScript.equippedMagic;
 		thisRend = GetComponent<SpriteRenderer> ();
+
+		#if UNITY_ANDROID || UNITY_IOS
+			if (transform.name == "magicTimer") {
+				gameObject.SetActive(false);
+			} else {
+				thisCollider = GetComponent<Collider2D>();
+			}
+		#endif
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (globalScript.currentQuest > 6) {
+			if (!thisCollider.enabled) {
+				thisCollider.enabled = true;
+			}
 			if (globalScript.magicTimer <= 0) {
 				if (globalScript.equippedMagic == "earth") {
 					thisRend.sprite = earthActive;
@@ -48,6 +60,11 @@ public class magicCounterClass : MonoBehaviour {
 			}
 		} else {
 			thisRend.sprite = null;
+			if (thisCollider != null) {
+				if (thisCollider.enabled) {
+					thisCollider.enabled = false;
+				}
+			}
 		}
 	}
 }

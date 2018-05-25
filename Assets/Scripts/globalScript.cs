@@ -282,9 +282,9 @@ public class globalScript : MonoBehaviour {
 						loginGroup = loginGroup.transform.GetChild (0).gameObject;
 						if (loginGroup.activeSelf) {
 							loginGroup.SetActive (false);
-							#if !UNITY_ANDROID
+							//#if !UNITY_ANDROID
 								GameObject.Find ("backend").GetComponent<backendClass> ().SignIn ();
-							#endif
+							//#endif
 							GameObject menuGroup = GameObject.Find ("menuGroup");
 							if (menuGroup != null) {
 								menuGroup = menuGroup.transform.GetChild (0).gameObject;
@@ -346,7 +346,7 @@ public class globalScript : MonoBehaviour {
 		bow1Purchased = true;
 		sword1Purchased = true;
 
-		currentQuest = 0;
+		currentQuest = 17;
 		questStep = 0;
 
 		magicTimer = 0;

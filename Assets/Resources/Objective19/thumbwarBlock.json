@@ -1,0 +1,52 @@
+{
+    "hasAutomaticDialogue":false,
+    "hasTriggeredDialogue":true,
+    "triggeredDialogue":{
+        "dialogues":[
+			"",
+			"",
+            "...",
+			"I can't waste anymore time! I must bring the Loom Token to Bob!"
+        ],
+        "timeInBetween":[
+			1,
+			0.1,
+            4,
+			5
+        ],
+		"forOther":[
+			"etherBoy",
+			"etherBoy",
+			"etherBoy",
+			"etherBoy"
+		],
+		"newPosition":[
+			"-3/separate/0",
+			"",
+			"",
+			""
+		],
+		"playAnimation":[
+			"Running",
+			"Idle",
+			"",
+			""
+		],
+		"skippable":[
+			false,
+			false,
+			true,
+			true
+		],
+		"faceDirection":[
+			0, 
+			-1,
+			0,
+			1
+		],
+        "currentDialogue":0,
+        "flagsAfterDialogue":[
+
+        ]
+    }
+}
