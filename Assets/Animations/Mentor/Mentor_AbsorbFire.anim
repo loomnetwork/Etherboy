@@ -12450,6 +12450,22 @@ AnimationClip:
     path: earth_sphere/Fire_FX2
     classID: 199
     script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: earth_sphere/Fire_FX2
+    classID: 1
+    script: {fileID: 0}
   m_PPtrCurves:
   - curve:
     - time: 0
@@ -13601,6 +13617,13 @@ AnimationClip:
       script: {fileID: 0}
       typeID: 199
       customType: 22
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 2520659109
+      attribute: 2086281974
+      script: {fileID: 0}
+      typeID: 1
+      customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 4024502215
@@ -44451,6 +44474,22 @@ AnimationClip:
     attribute: material._Color.a
     path: earth_sphere/Fire_FX2
     classID: 199
+    script: {fileID: 0}
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 2
+        time: 0
+        value: 0
+        inSlope: Infinity
+        outSlope: Infinity
+        tangentMode: 103
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    attribute: m_IsActive
+    path: earth_sphere/Fire_FX2
+    classID: 1
     script: {fileID: 0}
   m_EulerEditorCurves:
   - curve:

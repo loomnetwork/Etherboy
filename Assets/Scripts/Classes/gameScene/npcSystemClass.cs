@@ -68,6 +68,8 @@ public class npcSystemClass : MonoBehaviour {
 
 	private GameObject eSkipObj;
 
+	private AudioSource[] scriptSFX;
+
 	private bool firstIterationDialog;
 
 	// Use this for initialization
@@ -144,11 +146,17 @@ public class npcSystemClass : MonoBehaviour {
 				currentDialogue.triggeredDialogue.timer += Time.deltaTime;
 			#endif
 
-			if (currentDialogue.triggeredDialogue.playSounds != null && currentDialogue.triggeredDialogue.playSounds.Length >= currentDialogue.triggeredDialogue.currentDialogue) {
-				AudioSource audioSFX = gameObject.AddComponent<AudioSource> ();
-				audioSFX.clip = Resources.Load<AudioClip> (currentDialogue.triggeredDialogue.playSounds[currentDialogue.triggeredDialogue.currentDialogue]);
-				currentDialogue.triggeredDialogue.playSounds [currentDialogue.triggeredDialogue.currentDialogue] = "";
-				audioSFX.Play ();
+			if (currentDialogue.triggeredDialogue.playSounds != null && currentDialogue.triggeredDialogue.currentDialogue < currentDialogue.triggeredDialogue.playSounds.Length) {
+				if (currentDialogue.triggeredDialogue.playSounds [currentDialogue.triggeredDialogue.currentDialogue] != "") {
+					currentDialogue.triggeredDialogue.playSounds [currentDialogue.triggeredDialogue.currentDialogue] = "";
+					if (scriptSFX != null) {
+						if (currentDialogue.triggeredDialogue.currentDialogue < scriptSFX.Length) {
+							if (scriptSFX [currentDialogue.triggeredDialogue.currentDialogue] != null) {
+								scriptSFX [currentDialogue.triggeredDialogue.currentDialogue].Play ();
+							}
+						}
+					}
+				}
 			}
 
 			if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<bowSwordSelect>") {
@@ -250,7 +258,6 @@ public class npcSystemClass : MonoBehaviour {
 				}
 				text.text = "";
 			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<startThumbWar>") {
-				print ("DONE ANIM THUMB WAR");
 				transform.GetChild (1).gameObject.SetActive (false);
 				GameObject.Find ("Chaos").transform.GetChild (1).gameObject.SetActive (false);
 				GameObject.Find ("ChaosHiro").transform.GetChild (1).gameObject.SetActive (true);
@@ -594,6 +601,7 @@ public class npcSystemClass : MonoBehaviour {
 							if (indicatorScript != null) {
 								indicatorScript.showRewardScreen ();
 							}
+							GetComponent<npcSystemClass> ().enabled = false;
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "etherBoyTalkedWithMentorInTemple") {
 							globalScript.currentQuest = 15;
 							globalScript.currentGold += 1000;
@@ -653,16 +661,18 @@ public class npcSystemClass : MonoBehaviour {
 				if (!startTriggered) {
 					if (character != null) {
 						if (character.GetComponent<characterClass> () != null) {
-							if (startAutomatic) {
-								currentDialogue.automaticDialogue.timer = 999;
-								automaticDialogueStep ();
+							if (currentDialogue != null && currentDialogue.triggeredDialogue != null) {
+								if (startAutomatic) {
+									currentDialogue.automaticDialogue.timer = 999;
+									automaticDialogueStep ();
+								}
+								globalScript.gameState = "isTalking";
+								character.GetComponent<characterClass> ().state = "talking";
+								startTriggered = true;
+								firstIterationDialog = true;
+								currentDialogue.triggeredDialogue.timer = 0;
+								currentDialogue.triggeredDialogue.currentDialogue = 0;
 							}
-							globalScript.gameState = "isTalking";
-							character.GetComponent<characterClass> ().state = "talking";
-							startTriggered = true;
-							firstIterationDialog = true;
-							currentDialogue.triggeredDialogue.timer = 0;
-							currentDialogue.triggeredDialogue.currentDialogue = 0;
 						}
 					}
 				} else {
@@ -785,6 +795,31 @@ public class npcSystemClass : MonoBehaviour {
 		}
 	}
 
+	void loadScriptSFX () {
+		if (currentDialogue != null) {
+			if (currentDialogue.hasTriggeredDialogue) {
+				if (currentDialogue.triggeredDialogue.playSounds != null) {
+					if (currentDialogue.triggeredDialogue.playSounds.Length > 0) {
+						scriptSFX = new AudioSource[currentDialogue.triggeredDialogue.playSounds.Length];
+
+						for (int i = 0; i < currentDialogue.triggeredDialogue.playSounds.Length; i++) {
+							if (currentDialogue.triggeredDialogue.playSounds [i] != "") {
+								string audioName = currentDialogue.triggeredDialogue.playSounds [i];
+								AudioSource audioSFX = gameObject.AddComponent<AudioSource> ();
+								audioSFX.playOnAwake = false;
+								scriptSFX [i] = audioSFX;
+								AudioClip clip = Resources.Load<AudioClip> (audioName);
+								audioSFX.clip = clip;
+								print (audioName);
+								print (clip);
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
 	void loadDialogueData () {
 		int value = questSet;
 
@@ -810,6 +845,8 @@ public class npcSystemClass : MonoBehaviour {
 					readyForTriggered = false;
 				}
 			}
+
+			loadScriptSFX ();
 		} else {  
 			currentDialogue = new dialogueSystemClass ();
 			currentDialogue.hasAutomaticDialogue = false;

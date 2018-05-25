@@ -46,20 +46,25 @@ public class multiTouchController : MonoBehaviour {
 					}
 				}
 
-				if (touchCount > 0) {
-					touchPhase = Input.GetTouch (z).phase;
-				} else {
-					touchPhase = TouchPhase.Stationary;
-				}
-				if (touchCount > 0) {
-					touchCount = 1;
-					touchPosition =  Input.GetTouch(z).position;
-				}
-				if (touchPhase == TouchPhase.Ended) {
-					touchCount = 0;
+				if (z < Input.touchCount) {
 					if (touchCount > 0) {
+						touchPhase = Input.GetTouch (z).phase;
+					} else {
+						touchPhase = TouchPhase.Stationary;
+					}
+					if (touchCount > 0) {
+						touchCount = 1;
 						touchPosition = Input.GetTouch (z).position;
 					}
+					if (touchPhase == TouchPhase.Ended) {
+						touchCount = 0;
+						if (touchCount > 0) {
+							touchPosition = Input.GetTouch (z).position;
+						}
+					}
+				} else {
+					touchCount = 0;
+					touchPhase = TouchPhase.Ended;
 				}
 			} else {
 				if (Input.GetMouseButton (0)) {

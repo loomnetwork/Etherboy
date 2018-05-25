@@ -31,6 +31,8 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 	private float multiTaskTimer;
 	private float attackDelayTime;
 
+	private float platformWaitTime;
+
 	private int awardedCoins;
 
 	private float frozenTime;
@@ -70,6 +72,7 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 
 	// Use this for initialization
 	void Start () {
+		platformWaitTime = 0;
 		highestSortingOrder = -9999;
 		findSpritesRecursive (transform);
 		highestSortingOrder++;
@@ -238,8 +241,14 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 	// Update is called once per frame
 	void Update () {
 		if (state == "normal") {
-			if (!thisAnimator.GetCurrentAnimatorStateInfo (0).IsName ("Running")) {
-				thisAnimator.Play ("Running", -1, 0f);
+			if (platformWaitTime > 0) {
+				if (!thisAnimator.GetCurrentAnimatorStateInfo (0).IsName ("Idle")) {
+					thisAnimator.Play ("Idle", -1, 0f);
+				}
+			} else {
+				if (!thisAnimator.GetCurrentAnimatorStateInfo (0).IsName ("Running")) {
+					thisAnimator.Play ("Running", -1, 0f);
+				}
 			}
 
 			if (character != null) {
@@ -253,14 +262,24 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 			Vector2 currPos = transform.localPosition;
 			currPos.x += movSpeedX;
 			if (currPos.x < basePosition.x - movLimitLeft) {
-				movSpeedX = Mathf.Abs (movSpeedX);
+				currPos.x -= movSpeedX;
+				platformWaitTime += Time.deltaTime;
+				if (platformWaitTime > 2.5f) {
+					platformWaitTime = 0;
+					movSpeedX = Mathf.Abs (movSpeedX);
+				}
 			} else if (currPos.x > basePosition.x + movLimitRight) {
-				movSpeedX = -Mathf.Abs (movSpeedX);
+				currPos.x -= movSpeedX;
+				platformWaitTime += Time.deltaTime;
+				if (platformWaitTime > 2.5f) {
+					platformWaitTime = 0;
+					movSpeedX = -Mathf.Abs (movSpeedX);
+				}
 			}
 
 			transform.localPosition = currPos;
 
-			if (transform.name == "leaf") {
+			if (transform.name == "leaf" && platformWaitTime <= 0) {
 				multiTaskTimer += Time.deltaTime;
 				if (multiTaskTimer > 1f) {
 					multiTaskTimer = 0;
@@ -271,12 +290,15 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 			if (character != null) {
 				if (character.transform.localPosition.x + 0.3f < transform.localPosition.x) {
 					movSpeedX = -Mathf.Abs (movSpeedX);
+					platformWaitTime = 0;
 				} else if (character.transform.localPosition.x - 0.3f > transform.localPosition.x) {
 					movSpeedX = Mathf.Abs (movSpeedX);
+					platformWaitTime = 0;
 				}
 
 				if ((getFaceDirection () && character.transform.position.x > transform.position.x) || (!getFaceDirection () && character.transform.position.x < transform.position.x)) {
 					if ((Mathf.Abs (Mathf.Abs (transform.position.x) - Mathf.Abs (character.transform.position.x))) < attackRadius) {
+						platformWaitTime = 0;
 						state = "attack";
 						thisAnimator.Play ("Attack", -1, 0f);
 						attackTime = 0;
@@ -291,6 +313,7 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 			}
 
 		} else if (state == "hit") {
+			platformWaitTime = 0;
 			if (!thisAnimator.GetCurrentAnimatorStateInfo (0).IsName ("Hit")) {
 				thisAnimator.Play ("Hit", -1, 0f);
 
@@ -346,6 +369,7 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 				}
 			}
 		} else if (state == "attackDelay") {
+			platformWaitTime = 0;
 			attackTime += Time.deltaTime;
 			if (attackTime > attackDelayTime) {
 				state = "normal";
@@ -355,6 +379,7 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 				}
 			}
 		} else if (state == "frozen") {
+			platformWaitTime = 0;
 			frozenTime += Time.deltaTime;
 			if (frozenTime > 5) {
 				thisAnimator.enabled = true;
@@ -363,6 +388,7 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 				frozenObj = null;
 			}
 		} else if (state == "light") {
+			platformWaitTime = 0;
 			frozenTime += Time.deltaTime;
 			if (frozenTime > 3) {
 				thisAnimator.enabled = true;

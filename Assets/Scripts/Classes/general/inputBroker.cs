@@ -10,7 +10,7 @@ public class inputBroker : MonoBehaviour {
 		if (myHashtable.Contains (key)) {
 			myHashtable [key] = value;
 		} else {
-			myHashtable.Add (key, 1);
+			myHashtable.Add (key, value);
 		}
 	}
 
