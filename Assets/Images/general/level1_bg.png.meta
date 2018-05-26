@@ -45,11 +45,12 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 0
   alphaUsage: 1
   alphaIsTransparency: 1
-  spriteTessellationDetail: -1
+  spriteTessellationDetail: 0.04
   textureType: 8
   textureShape: 1
   maxTextureSizeSet: 0
@@ -69,17 +70,106 @@ TextureImporter:
   - buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 29
     textureCompression: 2
     compressionQuality: 20
     crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 1
     androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 20
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 20
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 20
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
     sprites: []
-    outline: []
+    outline:
+    - - {x: 721, y: 270}
+      - {x: 693, y: 244}
+      - {x: 588, y: 313}
+      - {x: 431, y: 363}
+      - {x: 316, y: 363}
+      - {x: 279, y: 347}
+      - {x: 166, y: 270}
+      - {x: 109, y: 306}
+      - {x: 45, y: 267}
+      - {x: -43, y: 283}
+      - {x: -182, y: 344}
+      - {x: -238, y: 349}
+      - {x: -285, y: 335}
+      - {x: -353, y: 347}
+      - {x: -370, y: 363}
+      - {x: -379, y: 363}
+      - {x: -442, y: 298}
+      - {x: -464, y: 282}
+      - {x: -614, y: 321}
+      - {x: -658, y: 299}
+      - {x: -832, y: 351}
+      - {x: -867, y: 354}
+      - {x: -926, y: 306}
+      - {x: -960, y: 279}
+      - {x: -960, y: -540}
+      - {x: 960, y: -540}
+      - {x: 960, y: 281}
+      - {x: 826, y: 323}
+    - - {x: 673, y: 283}
+      - {x: 671, y: 280}
+      - {x: 671, y: 277}
+      - {x: 674, y: 275}
+      - {x: 677, y: 276}
+      - {x: 678, y: 280}
+      - {x: 675, y: 283}
+    - - {x: -703, y: 292}
+      - {x: -707, y: 290}
+      - {x: -707, y: 283}
+      - {x: -702, y: 283}
+      - {x: -699, y: 289}
+      - {x: -699, y: 292}
+    - - {x: 737, y: 292}
+      - {x: 733, y: 290}
+      - {x: 733, y: 283}
+      - {x: 738, y: 283}
+      - {x: 741, y: 289}
+      - {x: 741, y: 292}
+    - - {x: -634, y: 330}
+      - {x: -632, y: 328}
+      - {x: -629, y: 329}
+      - {x: -629, y: 332}
+      - {x: -631, y: 334}
+      - {x: -634, y: 333}
+    - - {x: 806, y: 330}
+      - {x: 808, y: 328}
+      - {x: 811, y: 329}
+      - {x: 811, y: 332}
+      - {x: 809, y: 334}
+      - {x: 806, y: 333}
     physicsShape: []
   spritePackingTag: general
   userData: 
