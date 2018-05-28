@@ -46,7 +46,17 @@ SpriteAtlas:
     bindAsDefault: 0
   m_MasterAtlas: {fileID: 4343727234628468602, guid: 9fc0e8c4a68ad5345ae29d0ad4da786a,
     type: 2}
-  m_PackedSprites: []
-  m_PackedSpriteNamesToIndex: []
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 1af0ce38be23b493ab014e83fbbe11c7, type: 3}
+  - {fileID: 21300000, guid: cc9feaebc09c14c59b72645652a4fd71, type: 3}
+  - {fileID: 21300000, guid: d944375d7ac3449e4aedee0a7d572315, type: 3}
+  - {fileID: 21300000, guid: 8b0943c028c464de99913614fa022e2d, type: 3}
+  - {fileID: 21300000, guid: 571e9424476344094b5b09376be9d1b9, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - whiteLights
+  - objectiveCompleted
+  - orangeLights
+  - treasureChest
+  - redFlag
   m_Tag: objectiveAssets_HD
   m_IsVariant: 1
