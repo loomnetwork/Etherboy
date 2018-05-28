@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: darkTownLevel3TileSet_SD
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 0
+      compressionQuality: 100
+      maxTextureSize: 2048
+      textureCompression: 2
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 1
+      sRGB: 0
+    platformSettings:
+    - m_BuildTarget: iPhone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 65
+      m_TextureCompression: 1
+      m_CompressionQuality: 100
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 0.5
+    packables:
+    - {fileID: 2800000, guid: 3640f4841ac7d43348a8a17d0daad4f9, type: 3}
+    - {fileID: 2800000, guid: de7223e697e6b4f38961f85a8f91428e, type: 3}
+    - {fileID: 2800000, guid: deb4eb0346fa642fda61d58e87f266e9, type: 3}
+    - {fileID: 2800000, guid: 72f63ec2ff6204bad8c4bca64364c9d3, type: 3}
+    - {fileID: 2800000, guid: d939de6c313cd462aad341f5e9b7d0cf, type: 3}
+    - {fileID: 2800000, guid: 2fd7cbf33b4d34ec59c715aac0ad58f4, type: 3}
+    bindAsDefault: 0
+  m_MasterAtlas: {fileID: 4343727234628468602, guid: cca18b6363328084a8c3b4f51756164a,
+    type: 2}
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
+  m_Tag: darkTownLevel3TileSet_HD
+  m_IsVariant: 1

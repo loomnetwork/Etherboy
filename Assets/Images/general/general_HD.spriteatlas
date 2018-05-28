@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: general_HD
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 0
+      compressionQuality: 50
+      maxTextureSize: 2048
+      textureCompression: 2
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 1
+      sRGB: 0
+    platformSettings:
+    - m_BuildTarget: iPhone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 65
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: 73c1955de5ee44ea393c1392dbc8816c, type: 3}
+    - {fileID: 2800000, guid: 6d4ea98f8322a422da8d6e4c9a65b253, type: 3}
+    - {fileID: 2800000, guid: 04a7de0d00ff54c7384ce914ca8ccd0a, type: 3}
+    - {fileID: 2800000, guid: 1defd7e80ae824da58e5a0951ffc1c9f, type: 3}
+    - {fileID: 2800000, guid: d823758edc1e34deca19e496ac5081c0, type: 3}
+    - {fileID: 2800000, guid: 57dd18cd3d2174dbca4aef106c43ac34, type: 3}
+    - {fileID: 2800000, guid: aa15050fab70248f9a4a00ddb68d9798, type: 3}
+    - {fileID: 2800000, guid: 4cffd72d8358340a0995d47594348b33, type: 3}
+    - {fileID: 2800000, guid: 223d4a49024a240c488b749fae70e941, type: 3}
+    - {fileID: 2800000, guid: 4984986a349c34ec68449ac61c5f8087, type: 3}
+    - {fileID: 2800000, guid: bbcce92c6b8fe4713ac1ed0153d6b6b3, type: 3}
+    - {fileID: 2800000, guid: 13e46a75f1178420da5606f4eaff21c6, type: 3}
+    - {fileID: 2800000, guid: 0be22ac366e2b4732a503fcdfa93e65b, type: 3}
+    - {fileID: 2800000, guid: 1bc95eca9cac142c8aaf4178b23bfc07, type: 3}
+    - {fileID: 2800000, guid: 72c282dc36b244b8183a87c65022d774, type: 3}
+    - {fileID: 2800000, guid: d9b8658e494074458919c7b4635582fd, type: 3}
+    - {fileID: 2800000, guid: d615070ab2b99493e80b01623024555f, type: 3}
+    - {fileID: 2800000, guid: 90b27f68f44d945b395e6c031495db6d, type: 3}
+    bindAsDefault: 0
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 6d4ea98f8322a422da8d6e4c9a65b253, type: 3}
+  - {fileID: 21300000, guid: 223d4a49024a240c488b749fae70e941, type: 3}
+  - {fileID: 21300000, guid: 1defd7e80ae824da58e5a0951ffc1c9f, type: 3}
+  - {fileID: 21300000, guid: d823758edc1e34deca19e496ac5081c0, type: 3}
+  - {fileID: 21300000, guid: 13e46a75f1178420da5606f4eaff21c6, type: 3}
+  - {fileID: 21300000, guid: 90b27f68f44d945b395e6c031495db6d, type: 3}
+  - {fileID: 21300000, guid: 04a7de0d00ff54c7384ce914ca8ccd0a, type: 3}
+  - {fileID: 21300000, guid: 4cffd72d8358340a0995d47594348b33, type: 3}
+  - {fileID: 21300000, guid: d615070ab2b99493e80b01623024555f, type: 3}
+  - {fileID: 21300000, guid: 4984986a349c34ec68449ac61c5f8087, type: 3}
+  - {fileID: 21300000, guid: bbcce92c6b8fe4713ac1ed0153d6b6b3, type: 3}
+  - {fileID: 21300000, guid: d9b8658e494074458919c7b4635582fd, type: 3}
+  - {fileID: 21300000, guid: 0be22ac366e2b4732a503fcdfa93e65b, type: 3}
+  - {fileID: 21300000, guid: 73c1955de5ee44ea393c1392dbc8816c, type: 3}
+  - {fileID: 21300000, guid: aa15050fab70248f9a4a00ddb68d9798, type: 3}
+  - {fileID: 21300000, guid: 57dd18cd3d2174dbca4aef106c43ac34, type: 3}
+  - {fileID: 21300000, guid: 1bc95eca9cac142c8aaf4178b23bfc07, type: 3}
+  - {fileID: 21300000, guid: 72c282dc36b244b8183a87c65022d774, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - bg2
+  - level1_bg
+  - etherboyHP
+  - goldBar
+  - level1_cloud3
+  - sword_button
+  - buttoncircle
+  - jump_button
+  - objMarker
+  - level1_cloud1
+  - level1_cloud2
+  - objArrow
+  - level1_cloud4
+  - arrow
+  - hpBarBottom
+  - hpBar
+  - level1_sky
+  - level2_sky
+  m_Tag: general_HD
+  m_IsVariant: 0

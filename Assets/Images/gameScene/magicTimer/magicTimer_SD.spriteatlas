@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: magicTimer_SD
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 0
+      compressionQuality: 20
+      maxTextureSize: 2048
+      textureCompression: 2
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 1
+      sRGB: 0
+    platformSettings:
+    - m_BuildTarget: iPhone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 65
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 0.5
+    packables:
+    - {fileID: 2800000, guid: 48805b482b3fa40eb9a0f9cdb5d0ba9f, type: 3}
+    - {fileID: 2800000, guid: a6ba25af394ea45d8b4766fe1ccd1ec5, type: 3}
+    - {fileID: 2800000, guid: 13c0f8398aa344f63a707141563725f5, type: 3}
+    - {fileID: 2800000, guid: b7a9064fe7b4746e6bdff3addf9c636b, type: 3}
+    - {fileID: 2800000, guid: 6cafea4d615ae40948e6b72c693e2fee, type: 3}
+    - {fileID: 2800000, guid: 5a3214b82f907456591fa032a6999cdc, type: 3}
+    - {fileID: 2800000, guid: d43c9f610d71c425a88c5eeea3476f65, type: 3}
+    - {fileID: 2800000, guid: 7726814401a09433cbda93196e888361, type: 3}
+    bindAsDefault: 0
+  m_MasterAtlas: {fileID: 4343727234628468602, guid: d3befc83fbf1b2f47bdd9506943f3823,
+    type: 2}
+  m_PackedSprites: []
+  m_PackedSpriteNamesToIndex: []
+  m_Tag: magicTimer_HD
+  m_IsVariant: 1
