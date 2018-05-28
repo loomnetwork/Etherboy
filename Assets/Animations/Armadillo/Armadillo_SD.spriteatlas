@@ -1,0 +1,74 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Armadillo_SD
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 0
+      compressionQuality: 100
+      maxTextureSize: 2048
+      textureCompression: 2
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 1
+      sRGB: 0
+    platformSettings:
+    - m_BuildTarget: iPhone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 65
+      m_TextureCompression: 1
+      m_CompressionQuality: 100
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 0.5
+    packables:
+    - {fileID: 2800000, guid: 920b692d0245b4adda93f055036e838c, type: 3}
+    - {fileID: 2800000, guid: 46fa812c3d9684d1689cbdd9336dbc1e, type: 3}
+    - {fileID: 2800000, guid: 5504040ca85704c6cae70d7b68e53025, type: 3}
+    - {fileID: 2800000, guid: c6f76e62237f845c3a87a976b6419776, type: 3}
+    - {fileID: 2800000, guid: adbb45412580d41f5ba604294e199ca3, type: 3}
+    - {fileID: 2800000, guid: e1cdece2769394f798a89854a7573f2b, type: 3}
+    - {fileID: 2800000, guid: 17106292775c44a84a5f0e6e2228d138, type: 3}
+    - {fileID: 2800000, guid: 9d4c2397086b44ff6ad7819fb8369679, type: 3}
+    - {fileID: 2800000, guid: 066567ec60b874ec5996a7fd932394b7, type: 3}
+    bindAsDefault: 0
+  m_MasterAtlas: {fileID: 4343727234628468602, guid: aae84c83463720c45b93d9f62b1dc59c,
+    type: 2}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 46fa812c3d9684d1689cbdd9336dbc1e, type: 3}
+  - {fileID: 21300000, guid: 5504040ca85704c6cae70d7b68e53025, type: 3}
+  - {fileID: 21300000, guid: 920b692d0245b4adda93f055036e838c, type: 3}
+  - {fileID: 21300000, guid: 066567ec60b874ec5996a7fd932394b7, type: 3}
+  - {fileID: 21300000, guid: 17106292775c44a84a5f0e6e2228d138, type: 3}
+  - {fileID: 21300000, guid: 9d4c2397086b44ff6ad7819fb8369679, type: 3}
+  - {fileID: 21300000, guid: adbb45412580d41f5ba604294e199ca3, type: 3}
+  - {fileID: 21300000, guid: c6f76e62237f845c3a87a976b6419776, type: 3}
+  - {fileID: 21300000, guid: e1cdece2769394f798a89854a7573f2b, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - bodyAttack
+  - bodyAttack2
+  - body
+  - tail
+  - head
+  - leg
+  - eyeHit
+  - eyeDie
+  - eyeL
+  m_Tag: Armadillo_HD
+  m_IsVariant: 1
