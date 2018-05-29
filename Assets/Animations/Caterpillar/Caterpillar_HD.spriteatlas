@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Caterpillar_HD
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 0
+      compressionQuality: 20
+      maxTextureSize: 2048
+      textureCompression: 2
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 1
+      sRGB: 0
+    platformSettings:
+    - m_BuildTarget: iPhone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 65
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 1
+    packables:
+    - {fileID: 2800000, guid: c6b88f6c535274b179b3071ec3bc01e3, type: 3}
+    - {fileID: 2800000, guid: 005ec203972e74027badcbe09b2d315c, type: 3}
+    - {fileID: 2800000, guid: 2806206a3a57446ad815ce15f52b7bbd, type: 3}
+    - {fileID: 2800000, guid: f174007dfa6e2435b8dd06ad298c519a, type: 3}
+    - {fileID: 2800000, guid: 5353f55463c6c4404abfd6fd1646efe2, type: 3}
+    - {fileID: 2800000, guid: 1be04b6a9da984f5faf94de9414fc7ef, type: 3}
+    - {fileID: 2800000, guid: 30061c0897d6a4cb0a49327e321786e5, type: 3}
+    - {fileID: 2800000, guid: c468692275f684d4d835533ea33853f1, type: 3}
+    - {fileID: 2800000, guid: 9c4c526b5735042e9a9965a2a9021298, type: 3}
+    - {fileID: 2800000, guid: 83003ed411ec64836882155f3b7400d7, type: 3}
+    - {fileID: 2800000, guid: 530aa3f250c404fa09423cd747ed336d, type: 3}
+    - {fileID: 2800000, guid: b7aa7826916cb45f697d9a55fc4d0ad6, type: 3}
+    - {fileID: 2800000, guid: 3e8190a41b31e4e59ad43e23d2536b67, type: 3}
+    - {fileID: 2800000, guid: 680a610d01e60458192f15dde876f1cc, type: 3}
+    - {fileID: 2800000, guid: ef7e7fed4ec274b2c8f698eb330f784b, type: 3}
+    - {fileID: 2800000, guid: 1c02a40c6ce174e6ca66c34e1e60d6ac, type: 3}
+    - {fileID: 2800000, guid: 69307eba8d5da4a94a661bd3598fc922, type: 3}
+    - {fileID: 2800000, guid: 83a03d722bfa94517afd38b7789257c5, type: 3}
+    bindAsDefault: 0
+  m_MasterAtlas: {fileID: 0}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 2806206a3a57446ad815ce15f52b7bbd, type: 3}
+  - {fileID: 21300000, guid: 005ec203972e74027badcbe09b2d315c, type: 3}
+  - {fileID: 21300000, guid: f174007dfa6e2435b8dd06ad298c519a, type: 3}
+  - {fileID: 21300000, guid: 680a610d01e60458192f15dde876f1cc, type: 3}
+  - {fileID: 21300000, guid: 5353f55463c6c4404abfd6fd1646efe2, type: 3}
+  - {fileID: 21300000, guid: 530aa3f250c404fa09423cd747ed336d, type: 3}
+  - {fileID: 21300000, guid: c468692275f684d4d835533ea33853f1, type: 3}
+  - {fileID: 21300000, guid: 69307eba8d5da4a94a661bd3598fc922, type: 3}
+  - {fileID: 21300000, guid: 1c02a40c6ce174e6ca66c34e1e60d6ac, type: 3}
+  - {fileID: 21300000, guid: 83003ed411ec64836882155f3b7400d7, type: 3}
+  - {fileID: 21300000, guid: 1be04b6a9da984f5faf94de9414fc7ef, type: 3}
+  - {fileID: 21300000, guid: 9c4c526b5735042e9a9965a2a9021298, type: 3}
+  - {fileID: 21300000, guid: c6b88f6c535274b179b3071ec3bc01e3, type: 3}
+  - {fileID: 21300000, guid: ef7e7fed4ec274b2c8f698eb330f784b, type: 3}
+  - {fileID: 21300000, guid: b7aa7826916cb45f697d9a55fc4d0ad6, type: 3}
+  - {fileID: 21300000, guid: 30061c0897d6a4cb0a49327e321786e5, type: 3}
+  - {fileID: 21300000, guid: 3e8190a41b31e4e59ad43e23d2536b67, type: 3}
+  - {fileID: 21300000, guid: 83a03d722bfa94517afd38b7789257c5, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - body2
+  - body1
+  - body3
+  - head
+  - body4
+  - eyeR_outer
+  - eyeL_outer
+  - mouthAttack2
+  - mouthAttack
+  - eyeLHit
+  - eye
+  - eyeLDeath
+  - antenna
+  - mouth
+  - eyeRDeath
+  - eyeL
+  - eyeRHit
+  - mouthDeath
+  m_Tag: Caterpillar_HD
+  m_IsVariant: 0

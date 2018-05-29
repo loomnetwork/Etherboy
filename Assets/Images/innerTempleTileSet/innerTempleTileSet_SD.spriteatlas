@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: innerTempleTileSet_SD
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 0
+      compressionQuality: 20
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 1
+      sRGB: 0
+    platformSettings:
+    - m_BuildTarget: iPhone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 33
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 0.5
+    packables:
+    - {fileID: 2800000, guid: b28339cc386db4374bd4c4f10256fa57, type: 3}
+    - {fileID: 2800000, guid: 9b829e7b6e6344ab78e660a364ec84ea, type: 3}
+    - {fileID: 2800000, guid: 0011eea2a736f49ff99fe3efe737d108, type: 3}
+    - {fileID: 2800000, guid: 86732a903a2514f1aae553647ce54188, type: 3}
+    - {fileID: 2800000, guid: 2350f40449f994ebc8930406542e7dc2, type: 3}
+    bindAsDefault: 0
+  m_MasterAtlas: {fileID: 4343727234628468602, guid: a7e4f2b873503f24b81b1738e0bca90d,
+    type: 2}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 9b829e7b6e6344ab78e660a364ec84ea, type: 3}
+  - {fileID: 21300000, guid: b28339cc386db4374bd4c4f10256fa57, type: 3}
+  - {fileID: 21300000, guid: 0011eea2a736f49ff99fe3efe737d108, type: 3}
+  - {fileID: 21300000, guid: 86732a903a2514f1aae553647ce54188, type: 3}
+  - {fileID: 21300000, guid: 2350f40449f994ebc8930406542e7dc2, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - level3_BG
+  - innerTempleTileSet
+  - level3_temple_interior_head
+  - loomToken
+  - whiteTile
+  m_Tag: innerTempleTileSet_HD
+  m_IsVariant: 1

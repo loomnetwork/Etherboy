@@ -3,56 +3,7 @@ guid: b28339cc386db4374bd4c4f10256fa57
 timeCreated: 1524295298
 licenseType: Pro
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: innerTempleTileSet_Tile_0
-    21300002: innerTempleTileSet_Tile_1
-    21300004: innerTempleTileSet_Tile_2
-    21300006: innerTempleTileSet_Tile_3
-    21300008: innerTempleTileSet_Tile_4
-    21300010: innerTempleTileSet_Tile_5
-    21300012: innerTempleTileSet_Tile_6
-    21300014: innerTempleTileSet_Tile_7
-    21300016: innerTempleTileSet_Tile_8
-    21300018: innerTempleTileSet_Tile_9
-    21300020: innerTempleTileSet_Tile_10
-    21300022: innerTempleTileSet_Tile_11
-    21300024: innerTempleTileSet_Tile_12
-    21300026: innerTempleTileSet_Tile_13
-    21300028: innerTempleTileSet_Tile_14
-    21300030: innerTempleTileSet_Tile_15
-    21300032: innerTempleTileSet_Tile_16
-    21300034: innerTempleTileSet_Tile_17
-    21300036: innerTempleTileSet_Tile_18
-    21300038: innerTempleTileSet_Tile_19
-    21300040: innerTempleTileSet_Tile_20
-    21300042: innerTempleTileSet_Tile_21
-    21300044: innerTempleTileSet_Tile_22
-    21300046: innerTempleTileSet_Tile_23
-    21300048: innerTempleTileSet_Tile_24
-    21300050: innerTempleTileSet_Tile_25
-    21300052: innerTempleTileSet_Tile_26
-    21300054: innerTempleTileSet_Tile_27
-    21300056: innerTempleTileSet_Tile_28
-    21300058: innerTempleTileSet_Tile_29
-    21300060: innerTempleTileSet_Tile_30
-    21300062: innerTempleTileSet_Tile_31
-    21300064: innerTempleTileSet_Tile_32
-    21300066: innerTempleTileSet_Tile_33
-    21300068: innerTempleTileSet_Tile_34
-    21300070: innerTempleTileSet_Tile_35
-    21300072: innerTempleTileSet_Tile_36
-    21300074: innerTempleTileSet_Tile_37
-    21300076: innerTempleTileSet_Tile_38
-    21300078: innerTempleTileSet_Tile_39
-    21300080: innerTempleTileSet_Tile_40
-    21300082: innerTempleTileSet_Tile_41
-    21300084: innerTempleTileSet_Tile_42
-    21300086: innerTempleTileSet_Tile_43
-    21300088: innerTempleTileSet_Tile_44
-    21300090: innerTempleTileSet_Tile_45
-    21300092: innerTempleTileSet_Tile_46
-    21300094: innerTempleTileSet_Tile_47
-    21300096: innerTempleTileSet_Tile_48
+  fileIDToRecycleName: {}
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -71,7 +22,7 @@ TextureImporter:
     externalNormalMap: 0
     heightScale: 0.25
     normalMapFilter: 0
-  isReadable: 1
+  isReadable: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -89,7 +40,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -110,9 +61,9 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
+    textureCompression: 0
+    compressionQuality: 20
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -120,9 +71,9 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
+    textureCompression: 0
+    compressionQuality: 20
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -130,9 +81,19 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
+    textureCompression: 0
+    compressionQuality: 20
+    crunchedCompression: 1
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: tvOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 20
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -140,9 +101,9 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
+    textureCompression: 0
+    compressionQuality: 20
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
@@ -150,701 +111,15 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
+    textureCompression: 0
+    compressionQuality: 20
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_0
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 828
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_1
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 828
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_2
-      rect:
-        serializedVersion: 2
-        x: 276
-        y: 828
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_3
-      rect:
-        serializedVersion: 2
-        x: 412
-        y: 828
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_4
-      rect:
-        serializedVersion: 2
-        x: 548
-        y: 828
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_5
-      rect:
-        serializedVersion: 2
-        x: 684
-        y: 828
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_6
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 828
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_7
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 692
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_8
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 692
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_9
-      rect:
-        serializedVersion: 2
-        x: 276
-        y: 692
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_10
-      rect:
-        serializedVersion: 2
-        x: 412
-        y: 692
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_11
-      rect:
-        serializedVersion: 2
-        x: 548
-        y: 692
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_12
-      rect:
-        serializedVersion: 2
-        x: 684
-        y: 692
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_13
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 692
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_14
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 556
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_15
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 556
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_16
-      rect:
-        serializedVersion: 2
-        x: 276
-        y: 556
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_17
-      rect:
-        serializedVersion: 2
-        x: 412
-        y: 556
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_18
-      rect:
-        serializedVersion: 2
-        x: 548
-        y: 556
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_19
-      rect:
-        serializedVersion: 2
-        x: 684
-        y: 556
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_20
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 556
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_21
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 420
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_22
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 420
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_23
-      rect:
-        serializedVersion: 2
-        x: 276
-        y: 420
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_24
-      rect:
-        serializedVersion: 2
-        x: 412
-        y: 420
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_25
-      rect:
-        serializedVersion: 2
-        x: 548
-        y: 420
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_26
-      rect:
-        serializedVersion: 2
-        x: 684
-        y: 420
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_27
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 420
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_28
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 284
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_29
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 284
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_30
-      rect:
-        serializedVersion: 2
-        x: 276
-        y: 284
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_31
-      rect:
-        serializedVersion: 2
-        x: 412
-        y: 284
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_32
-      rect:
-        serializedVersion: 2
-        x: 548
-        y: 284
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_33
-      rect:
-        serializedVersion: 2
-        x: 684
-        y: 284
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_34
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 284
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_35
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 148
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_36
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 148
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_37
-      rect:
-        serializedVersion: 2
-        x: 276
-        y: 148
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_38
-      rect:
-        serializedVersion: 2
-        x: 412
-        y: 148
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_39
-      rect:
-        serializedVersion: 2
-        x: 548
-        y: 148
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_40
-      rect:
-        serializedVersion: 2
-        x: 684
-        y: 148
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_41
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 148
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_42
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 12
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_43
-      rect:
-        serializedVersion: 2
-        x: 140
-        y: 12
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_44
-      rect:
-        serializedVersion: 2
-        x: 276
-        y: 12
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_45
-      rect:
-        serializedVersion: 2
-        x: 412
-        y: 12
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_46
-      rect:
-        serializedVersion: 2
-        x: 548
-        y: 12
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_47
-      rect:
-        serializedVersion: 2
-        x: 684
-        y: 12
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-    - serializedVersion: 2
-      name: innerTempleTileSet_Tile_48
-      rect:
-        serializedVersion: 2
-        x: 820
-        y: 12
-        width: 128
-        height: 128
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
+    sprites: []
     outline: []
     physicsShape: []
   spritePackingTag: 

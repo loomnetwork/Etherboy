@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: Dark_Cactus_SD
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 0
+      compressionQuality: 20
+      maxTextureSize: 2048
+      textureCompression: 2
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 1
+      sRGB: 0
+    platformSettings:
+    - m_BuildTarget: iPhone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 65
+      m_TextureCompression: 1
+      m_CompressionQuality: 50
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 1
+      m_AndroidETC2FallbackOverride: 0
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 0.5
+    packables:
+    - {fileID: 2800000, guid: f341407412fc241cba24480aa372e064, type: 3}
+    - {fileID: 2800000, guid: 4424ecf592a8f493d8485a78614d1279, type: 3}
+    - {fileID: 2800000, guid: 2e87b538fd14a4481875880c22000935, type: 3}
+    - {fileID: 2800000, guid: a450cc42a9c87440ba35f2426b7a7022, type: 3}
+    - {fileID: 2800000, guid: e2a42d8fd79954c9e871ea9d149eddbd, type: 3}
+    - {fileID: 2800000, guid: 1f30052262de244929741ff0d25c0c7f, type: 3}
+    - {fileID: 2800000, guid: 4fd2e4960f6f54ec196adec9933c424d, type: 3}
+    - {fileID: 2800000, guid: 681eabc76608e441abc17d84b2fbed38, type: 3}
+    - {fileID: 2800000, guid: 68f44ec4caecd47089ccbe9f7cad0ce1, type: 3}
+    - {fileID: 2800000, guid: fa0f966e9f6264fbcbc122437903ad39, type: 3}
+    - {fileID: 2800000, guid: e20b7a66e4a6f439892b2b4f63e3f8cd, type: 3}
+    - {fileID: 2800000, guid: ba46ac1d6874f4aae960b5ee563cf9f9, type: 3}
+    - {fileID: 2800000, guid: ca49d4c359aa144b4bd8bc7cdfd8de71, type: 3}
+    - {fileID: 2800000, guid: 8428d3931463348c5a68165ab0bad534, type: 3}
+    - {fileID: 2800000, guid: 3049931fddbc44479b29f2081325bbe8, type: 3}
+    - {fileID: 2800000, guid: f82b4ff348870428083439a01d8f5f0e, type: 3}
+    - {fileID: 2800000, guid: d94841fe91d744c1caec85ec530a5df0, type: 3}
+    - {fileID: 2800000, guid: 9925109c06c0349ba854f5c5a72c7d71, type: 3}
+    bindAsDefault: 0
+  m_MasterAtlas: {fileID: 4343727234628468602, guid: 1f8beb4af02aff849a853ce4ec7b0841,
+    type: 2}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: ba46ac1d6874f4aae960b5ee563cf9f9, type: 3}
+  - {fileID: 21300000, guid: e2a42d8fd79954c9e871ea9d149eddbd, type: 3}
+  - {fileID: 21300000, guid: 68f44ec4caecd47089ccbe9f7cad0ce1, type: 3}
+  - {fileID: 21300000, guid: e20b7a66e4a6f439892b2b4f63e3f8cd, type: 3}
+  - {fileID: 21300000, guid: f341407412fc241cba24480aa372e064, type: 3}
+  - {fileID: 21300000, guid: 4424ecf592a8f493d8485a78614d1279, type: 3}
+  - {fileID: 21300000, guid: fa0f966e9f6264fbcbc122437903ad39, type: 3}
+  - {fileID: 21300000, guid: a450cc42a9c87440ba35f2426b7a7022, type: 3}
+  - {fileID: 21300000, guid: 2e87b538fd14a4481875880c22000935, type: 3}
+  - {fileID: 21300000, guid: 9925109c06c0349ba854f5c5a72c7d71, type: 3}
+  - {fileID: 21300000, guid: d94841fe91d744c1caec85ec530a5df0, type: 3}
+  - {fileID: 21300000, guid: 8428d3931463348c5a68165ab0bad534, type: 3}
+  - {fileID: 21300000, guid: f82b4ff348870428083439a01d8f5f0e, type: 3}
+  - {fileID: 21300000, guid: 3049931fddbc44479b29f2081325bbe8, type: 3}
+  - {fileID: 21300000, guid: ca49d4c359aa144b4bd8bc7cdfd8de71, type: 3}
+  - {fileID: 21300000, guid: 4fd2e4960f6f54ec196adec9933c424d, type: 3}
+  - {fileID: 21300000, guid: 681eabc76608e441abc17d84b2fbed38, type: 3}
+  - {fileID: 21300000, guid: 1f30052262de244929741ff0d25c0c7f, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - dc_mouth
+  - dc_body
+  - dc_head
+  - dc_leg
+  - dc_armL
+  - dc_armL_walk
+  - dc_horns
+  - dc_armR_walk
+  - dc_armR
+  - spike2_armR
+  - spike2_armL
+  - dc_mouthHit
+  - spike1_armR
+  - spike1_armL
+  - dc_mouthDead
+  - dc_eyeDead
+  - dc_eyeHit
+  - dc_eye
+  m_Tag: Dark_Cactus_HD
+  m_IsVariant: 1

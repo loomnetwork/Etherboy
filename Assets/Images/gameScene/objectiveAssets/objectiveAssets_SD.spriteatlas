@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: objectiveAssets_SD
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 0
+      compressionQuality: 71
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 1
+      sRGB: 0
+    platformSettings:
+    - m_BuildTarget: iPhone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 33
+      m_TextureCompression: 1
+      m_CompressionQuality: 100
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 0.5
+    packables:
+    - {fileID: 2800000, guid: cc9feaebc09c14c59b72645652a4fd71, type: 3}
+    - {fileID: 2800000, guid: d944375d7ac3449e4aedee0a7d572315, type: 3}
+    - {fileID: 2800000, guid: 571e9424476344094b5b09376be9d1b9, type: 3}
+    - {fileID: 2800000, guid: 8b0943c028c464de99913614fa022e2d, type: 3}
+    - {fileID: 2800000, guid: 1af0ce38be23b493ab014e83fbbe11c7, type: 3}
+    bindAsDefault: 0
+  m_MasterAtlas: {fileID: 4343727234628468602, guid: 9fc0e8c4a68ad5345ae29d0ad4da786a,
+    type: 2}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: 1af0ce38be23b493ab014e83fbbe11c7, type: 3}
+  - {fileID: 21300000, guid: cc9feaebc09c14c59b72645652a4fd71, type: 3}
+  - {fileID: 21300000, guid: d944375d7ac3449e4aedee0a7d572315, type: 3}
+  - {fileID: 21300000, guid: 8b0943c028c464de99913614fa022e2d, type: 3}
+  - {fileID: 21300000, guid: 571e9424476344094b5b09376be9d1b9, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - whiteLights
+  - objectiveCompleted
+  - orangeLights
+  - treasureChest
+  - redFlag
+  m_Tag: objectiveAssets_HD
+  m_IsVariant: 1

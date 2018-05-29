@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!687078895 &4343727234628468602
+SpriteAtlas:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: HiroSit_SD
+  m_EditorData:
+    textureSettings:
+      serializedVersion: 2
+      anisoLevel: 0
+      compressionQuality: 75
+      maxTextureSize: 2048
+      textureCompression: 0
+      filterMode: 1
+      generateMipMaps: 0
+      readable: 0
+      crunchedCompression: 1
+      sRGB: 0
+    platformSettings:
+    - m_BuildTarget: iPhone
+      m_MaxTextureSize: 2048
+      m_ResizeAlgorithm: 0
+      m_TextureFormat: 33
+      m_TextureCompression: 1
+      m_CompressionQuality: 100
+      m_CrunchedCompression: 1
+      m_AllowsAlphaSplitting: 0
+      m_Overridden: 0
+      m_AndroidETC2FallbackOverride: 0
+    packingParameters:
+      serializedVersion: 2
+      padding: 4
+      blockOffset: 1
+      allowAlphaSplitting: 0
+      enableRotation: 1
+      enableTightPacking: 1
+    variantMultiplier: 0.5
+    packables:
+    - {fileID: 2800000, guid: c43d0364e04714196a61c665529ed75f, type: 3}
+    - {fileID: 2800000, guid: b368fa32aecfc48779b3036628d75966, type: 3}
+    - {fileID: 2800000, guid: 2f9c4234512f144c0a2816ad749ed435, type: 3}
+    - {fileID: 2800000, guid: 2d2495017cc8043de8a90d2104e43e1a, type: 3}
+    - {fileID: 2800000, guid: 98d1bf0e20cbf44dcaf11e9adc4c8945, type: 3}
+    - {fileID: 2800000, guid: ca09a1dd71d76433db595468d33b9d3e, type: 3}
+    - {fileID: 2800000, guid: 1b8b550d89d25462e8ddae8b195e983b, type: 3}
+    - {fileID: 2800000, guid: be30566faf2e044c69033643eeeee5f1, type: 3}
+    - {fileID: 2800000, guid: 833a0c561fb7d42e284d9a0bc72ff186, type: 3}
+    - {fileID: 2800000, guid: 8655dea16eaa742d382d84ac7cb085dd, type: 3}
+    - {fileID: 2800000, guid: 640f4c95213b64b6f807bf5f4d67d5f1, type: 3}
+    - {fileID: 2800000, guid: 1e96bbd2d815d4e92989b3943235d484, type: 3}
+    - {fileID: 2800000, guid: e42bcf229fc384d78abe4ae5cd5b0502, type: 3}
+    - {fileID: 2800000, guid: 0a2eb63e962ee42d48ce98f7b407e22c, type: 3}
+    - {fileID: 2800000, guid: 347f4f06a134f4850baa5c087ed2a2e5, type: 3}
+    - {fileID: 2800000, guid: d7870ee2a3ae14b13b222e3c0b760ae4, type: 3}
+    bindAsDefault: 0
+  m_MasterAtlas: {fileID: 4343727234628468602, guid: d08b26b4955333d408683ce8a5a4f216,
+    type: 2}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: be30566faf2e044c69033643eeeee5f1, type: 3}
+  - {fileID: 21300000, guid: 98d1bf0e20cbf44dcaf11e9adc4c8945, type: 3}
+  - {fileID: 21300000, guid: e42bcf229fc384d78abe4ae5cd5b0502, type: 3}
+  - {fileID: 21300000, guid: 2f9c4234512f144c0a2816ad749ed435, type: 3}
+  - {fileID: 21300000, guid: 833a0c561fb7d42e284d9a0bc72ff186, type: 3}
+  - {fileID: 21300000, guid: 2d2495017cc8043de8a90d2104e43e1a, type: 3}
+  - {fileID: 21300000, guid: b368fa32aecfc48779b3036628d75966, type: 3}
+  - {fileID: 21300000, guid: c43d0364e04714196a61c665529ed75f, type: 3}
+  - {fileID: 21300000, guid: 1e96bbd2d815d4e92989b3943235d484, type: 3}
+  - {fileID: 21300000, guid: 347f4f06a134f4850baa5c087ed2a2e5, type: 3}
+  - {fileID: 21300000, guid: 0a2eb63e962ee42d48ce98f7b407e22c, type: 3}
+  - {fileID: 21300000, guid: 8655dea16eaa742d382d84ac7cb085dd, type: 3}
+  - {fileID: 21300000, guid: ca09a1dd71d76433db595468d33b9d3e, type: 3}
+  - {fileID: 21300000, guid: 1b8b550d89d25462e8ddae8b195e983b, type: 3}
+  - {fileID: 21300000, guid: 640f4c95213b64b6f807bf5f4d67d5f1, type: 3}
+  - {fileID: 21300000, guid: d7870ee2a3ae14b13b222e3c0b760ae4, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - cape
+  - body
+  - legs
+  - armR
+  - chair
+  - armR_up
+  - armL_up
+  - armL
+  - head
+  - neckguard
+  - mouth
+  - eyeL
+  - browL
+  - browR
+  - eyeR
+  - nose
+  m_Tag: HiroSit_HD
+  m_IsVariant: 1
