@@ -33,7 +33,7 @@ public class SampleState {
 }
 
 public class globalScript : MonoBehaviour {
-	public static bool useBackend = true;
+	public static bool useBackend = false;
 
 	public string androidMoreGamesURL;
 	public string iosMoreGamesURL;
@@ -42,7 +42,7 @@ public class globalScript : MonoBehaviour {
 
 	public string unlockAllIapAndroid;
 	public string unlockAllIapIOS;
-       
+
     public bool removeAds;
 	public bool removeIAP;
 	public bool resetsSavedData;
@@ -371,7 +371,7 @@ public class globalScript : MonoBehaviour {
 		}
 
 		unlockAlliAP = unlockAllIapAndroid;
-        
+
         if (removeAds == true) {
 			PlayerPrefs.SetInt ("isAdsRemoved", 1);
 		}

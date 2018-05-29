@@ -9,17 +9,18 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1627686613156348}
+  m_RootGameObject: {fileID: 1644270439254696}
   m_IsPrefabParent: 1
---- !u!1 &1627686613156348
+--- !u!1 &1153095945557222
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4027324632105038}
-  - component: {fileID: 2569400267790316818}
+  - component: {fileID: 4421286132828866}
+  - component: {fileID: 8195094281882076644}
+  - component: {fileID: 3664157343499755972}
   m_Layer: 0
   m_Name: townLevel1TileSet
   m_TagString: Untagged
@@ -27,16 +28,15 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1697512348143558
+--- !u!1 &1644270439254696
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4599814712253718}
-  - component: {fileID: 8195094281026498424}
-  - component: {fileID: 3664157345515393962}
+  - component: {fileID: 4629474226228486}
+  - component: {fileID: 2569400268240621646}
   m_Layer: 0
   m_Name: townLevel1TileSet
   m_TagString: Untagged
@@ -44,62 +44,50 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4027324632105038
+--- !u!4 &4421286132828866
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1627686613156348}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.65, y: 0.65, z: 1}
-  m_Children:
-  - {fileID: 4599814712253718}
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4599814712253718
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1697512348143558}
+  m_GameObject: {fileID: 1153095945557222}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4027324632105038}
+  m_Father: {fileID: 4629474226228486}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114068648388511246
-MonoBehaviour:
-  m_ObjectHideFlags: 0
+--- !u!4 &4629474226228486
+Transform:
+  m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 1
-  m_Script: {fileID: 12395, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: Palette Settings
-  m_EditorClassIdentifier: 
-  cellSizing: 0
---- !u!156049354 &2569400267790316818
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1644270439254696}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.65, y: 0.65, z: 1}
+  m_Children:
+  - {fileID: 4421286132828866}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!156049354 &2569400268240621646
 Grid:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1627686613156348}
+  m_GameObject: {fileID: 1644270439254696}
   m_Enabled: 1
   m_CellSize: {x: 1, y: 1, z: 1}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
---- !u!483693784 &3664157345515393962
+--- !u!483693784 &3664157343499755972
 TilemapRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1697512348143558}
+  m_GameObject: {fileID: 1153095945557222}
   m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -133,12 +121,12 @@ TilemapRenderer:
   m_MaxFrameAge: 16
   m_SortOrder: 0
   m_MaskInteraction: 0
---- !u!1839735485 &8195094281026498424
+--- !u!1839735485 &8195094281882076644
 Tilemap:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1697512348143558}
+  m_GameObject: {fileID: 1153095945557222}
   m_Enabled: 1
   m_Tiles:
   - first: {x: 0, y: -13, z: 0}

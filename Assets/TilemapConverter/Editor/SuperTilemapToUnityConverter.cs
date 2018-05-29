@@ -56,7 +56,7 @@ public class SuperTilemapToUnityConverter : EditorWindow {
 
         EditorGUILayout.BeginVertical(EditorStyles.helpBox);
         {
-            _deactivateSteTileGroup = EditorGUILayout.ToggleLeft("Disable STE TilemapGroups ", _deactivateSteTileGroup);
+            _deactivateSteTileGroup = EditorGUILayout.ToggleLeft("Delete STE TilemapGroups ", _deactivateSteTileGroup);
 
             if (GUILayout.Button("Convert all STETilemap to Unity Tilemap")) {
                 ConvertSteTilemaps();
@@ -84,10 +84,16 @@ public class SuperTilemapToUnityConverter : EditorWindow {
                 }
 
                 convertSteTilemap.transform.parent = tilemapRootGo.transform;
+            }
+
+            foreach (STETilemap steTilemap in steTilemaps) {
+                // in-editor
+                if (steTilemap == null || (steTilemap.hideFlags & HideFlags.HideInHierarchy) != 0)
+                    continue;
 
                 if (_deactivateSteTileGroup) {
                     Undo.RecordObject(steTilemap.ParentTilemapGroup.gameObject, "");
-                    steTilemap.ParentTilemapGroup.gameObject.SetActive(false);
+                    DestroyImmediate(steTilemap.ParentTilemapGroup.gameObject);
                 }
             }
 

@@ -14,7 +14,9 @@ public class magicCounterClass : MonoBehaviour {
 
 	private SpriteRenderer thisRend;
 	private string lastMagic;
+#if UNITY_ANDROID || UNITY_IOS
 	private Collider2D thisCollider;
+#endif
 
 	// Use this for initialization
 	void Start () {
@@ -29,13 +31,15 @@ public class magicCounterClass : MonoBehaviour {
 			}
 		#endif
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (globalScript.currentQuest > 6) {
-			if (!thisCollider.enabled) {
-				thisCollider.enabled = true;
-			}
+#if UNITY_ANDROID || UNITY_IOS
+		    if (!thisCollider.enabled) {
+		        thisCollider.enabled = true;
+		    }
+#endif
 			if (globalScript.magicTimer <= 0) {
 				if (globalScript.equippedMagic == "earth") {
 					thisRend.sprite = earthActive;
@@ -60,11 +64,13 @@ public class magicCounterClass : MonoBehaviour {
 			}
 		} else {
 			thisRend.sprite = null;
-			if (thisCollider != null) {
-				if (thisCollider.enabled) {
-					thisCollider.enabled = false;
-				}
-			}
+#if UNITY_ANDROID || UNITY_IOS
+		    if (thisCollider != null) {
+		        if (thisCollider.enabled) {
+		            thisCollider.enabled = false;
+		        }
+		    }
+#endif
 		}
 	}
 }
