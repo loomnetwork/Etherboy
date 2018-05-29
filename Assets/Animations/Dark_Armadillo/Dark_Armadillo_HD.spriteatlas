@@ -12,7 +12,7 @@ SpriteAtlas:
       anisoLevel: 0
       compressionQuality: 20
       maxTextureSize: 2048
-      textureCompression: 2
+      textureCompression: 0
       filterMode: 1
       generateMipMaps: 0
       readable: 0
@@ -61,6 +61,9 @@ SpriteAtlas:
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 4445b6f23fa784fdfb15df1d0217dcfc, type: 3}
+  - {fileID: 21300000, guid: 4b0d9ac39478242d881ca2469ac22b3f, type: 3}
+  - {fileID: 21300000, guid: 984f768405254470e8beec397d245279, type: 3}
+  - {fileID: 21300000, guid: b65793aaecb2445be936b155f7a51855, type: 3}
   - {fileID: 21300000, guid: 24e5f9ab304244f46bbe4f384f8c73c7, type: 3}
   - {fileID: 21300000, guid: 25b14b621bf524b73be21dbdfe805a2f, type: 3}
   - {fileID: 21300000, guid: bc437ff76c7ff47c583d91f735aa0f9e, type: 3}
@@ -70,17 +73,17 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 539e9702624aa4255b76adeb6e396d20, type: 3}
   - {fileID: 21300000, guid: 475eb2d406e374058a279ae6268e343c, type: 3}
   - {fileID: 21300000, guid: 5d2d3c91825224d499d20990af725195, type: 3}
-  - {fileID: 21300000, guid: d848bc76a4589473f825712160ce7316, type: 3}
-  - {fileID: 21300000, guid: 3897aa0eec1e04488a8c581e94743201, type: 3}
-  - {fileID: 21300000, guid: b65793aaecb2445be936b155f7a51855, type: 3}
-  - {fileID: 21300000, guid: 4b0d9ac39478242d881ca2469ac22b3f, type: 3}
-  - {fileID: 21300000, guid: 984f768405254470e8beec397d245279, type: 3}
   - {fileID: 21300000, guid: 815968cffe7fe448b99aadfa01e1c253, type: 3}
   - {fileID: 21300000, guid: 720e699eeacca406890cc0c9cb2f72da, type: 3}
   - {fileID: 21300000, guid: 3c7d6b2aae77c4038ab420d98b32934f, type: 3}
   - {fileID: 21300000, guid: a474a263fd1234084b36f107d93409b7, type: 3}
+  - {fileID: 21300000, guid: d848bc76a4589473f825712160ce7316, type: 3}
+  - {fileID: 21300000, guid: 3897aa0eec1e04488a8c581e94743201, type: 3}
   m_PackedSpriteNamesToIndex:
   - da_body
+  - da_eyeL_death
+  - da_eyeL_hit
+  - da_eyeL
   - da_body_attack
   - da_tail
   - da_armorL
@@ -90,14 +93,11 @@ SpriteAtlas:
   - da_legL
   - da_head
   - da_legL_Front
-  - da_mouth
-  - da_mouth_2
-  - da_eyeL
-  - da_eyeL_death
-  - da_eyeL_hit
   - da_eyeR
   - da_eyeR_death
   - da_eyeR_hit
   - da_mouth_hit
+  - da_mouth
+  - da_mouth_2
   m_Tag: Dark_Armadillo_HD
   m_IsVariant: 0
