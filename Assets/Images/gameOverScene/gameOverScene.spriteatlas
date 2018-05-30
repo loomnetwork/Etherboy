@@ -5,7 +5,7 @@ SpriteAtlas:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: gameOverScene_SD
+  m_Name: gameOverScene
   m_EditorData:
     textureSettings:
       serializedVersion: 2
@@ -36,20 +36,17 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
-    variantMultiplier: 0.5
+    variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: a37c729c16bd54397b23f02529bd5f52, type: 3}
-    - {fileID: 2800000, guid: a153770914e5841d3bf4447bf62fb4e9, type: 3}
     - {fileID: 2800000, guid: 459398b1aa2e143d7966a91ccf50dffa, type: 3}
-    - {fileID: 2800000, guid: 71eda2a688af04ca2b897c8f0e1e19e0, type: 3}
     bindAsDefault: 1
-  m_MasterAtlas: {fileID: 4343727234628468602, guid: 6e90feb197af49243a8427886a8ad76d,
-    type: 2}
+  m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 459398b1aa2e143d7966a91ccf50dffa, type: 3}
   - {fileID: 21300000, guid: a37c729c16bd54397b23f02529bd5f52, type: 3}
   m_PackedSpriteNamesToIndex:
   - gameOver
   - button
-  m_Tag: gameOverScene_HD
-  m_IsVariant: 1
+  m_Tag: gameOverScene
+  m_IsVariant: 0
