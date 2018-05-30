@@ -5,7 +5,7 @@ SpriteAtlas:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: arrows_SD
+  m_Name: Resources_NoScale
   m_EditorData:
     textureSettings:
       serializedVersion: 2
@@ -36,27 +36,20 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
-    variantMultiplier: 0.5
+    variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: ac8c99a52d42e43229d318bb7121e289, type: 3}
-    - {fileID: 2800000, guid: 591ee235d093c46f780e9f20a82a2d29, type: 3}
-    - {fileID: 2800000, guid: 42ae9c33c867541ee90a7c5ca1cb7055, type: 3}
-    - {fileID: 2800000, guid: 8196592d9390b48bdb0a88880ec5648c, type: 3}
-    - {fileID: 2800000, guid: 30783efee809d4fea980cb81d7307089, type: 3}
+    - {fileID: 2800000, guid: 79ad190a933b74347bd5ba177758ebb1, type: 3}
+    - {fileID: 2800000, guid: bd782c251d1734e458e3f277f5b08390, type: 3}
+    - {fileID: 2800000, guid: 9c3947976514b4f2f818c4a3c1791f3b, type: 3}
     bindAsDefault: 1
-  m_MasterAtlas: {fileID: 4343727234628468602, guid: 595d0ffefd9777242a816781616453ad,
-    type: 2}
+  m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 8196592d9390b48bdb0a88880ec5648c, type: 3}
-  - {fileID: 21300000, guid: 30783efee809d4fea980cb81d7307089, type: 3}
-  - {fileID: 21300000, guid: 42ae9c33c867541ee90a7c5ca1cb7055, type: 3}
-  - {fileID: 21300000, guid: 591ee235d093c46f780e9f20a82a2d29, type: 3}
-  - {fileID: 21300000, guid: ac8c99a52d42e43229d318bb7121e289, type: 3}
+  - {fileID: 21300000, guid: 9c3947976514b4f2f818c4a3c1791f3b, type: 3}
+  - {fileID: 21300000, guid: bd782c251d1734e458e3f277f5b08390, type: 3}
+  - {fileID: 21300000, guid: 79ad190a933b74347bd5ba177758ebb1, type: 3}
   m_PackedSpriteNamesToIndex:
-  - bow4
-  - bow5
-  - bow3
-  - bow2
-  - bow1
-  m_Tag: arrows_HD
-  m_IsVariant: 1
+  - whisperBubble
+  - shoutBubble
+  - dialogBubble
+  m_Tag: Resources_NoScale
+  m_IsVariant: 0

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System;
+using System.Globalization;
 using UnityEngine;
 using TMPro;
 using Puppet2D;
@@ -359,8 +360,8 @@ public class npcSystemClass : MonoBehaviour {
 						bool moveX = false;
 						bool moveY = false;
 						if (splitter.Length > 1) {
-							float valueX = float.Parse (splitter [0]);
-							float valueY = float.Parse (splitter [1]);
+							float valueX = float.Parse (splitter [0], CultureInfo.InvariantCulture);
+							float valueY = float.Parse (splitter [1], CultureInfo.InvariantCulture);
 
 							if (splitter [0] == "0") {
 								movePos.x = other.transform.localPosition.x;
@@ -427,8 +428,8 @@ public class npcSystemClass : MonoBehaviour {
 					bool moveX = false;
 					bool moveY = false;
 					if (splitter.Length > 1) {
-						float valueX = float.Parse (splitter [0]);
-						float valueY = float.Parse (splitter [1]);
+						float valueX = float.Parse (splitter [0], CultureInfo.InvariantCulture);
+						float valueY = float.Parse (splitter [1], CultureInfo.InvariantCulture);
 
 						if (splitter [0] == "0") {
 							movePos.x = transform.localPosition.x;

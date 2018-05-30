@@ -146,7 +146,7 @@ namespace Puppet2D
 				gos[i].transform.localScale = new Vector3(float.Parse(dataSplit[7]), float.Parse(dataSplit[8]), float.Parse(dataSplit[9])); ;
 
 			}
-			//Selection.objects = gos.ToArray(); 
+			//Selection.objects = gos.ToArray();
 			//gos.Clear();
 			//SetSelectionString();
 		}
