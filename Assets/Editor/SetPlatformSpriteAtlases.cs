@@ -8,8 +8,19 @@ using UnityEditor.Build;
 using UnityEngine;
 using UnityEngine.U2D;
 
-public class SetPlatformSpriteAtlases : IPreprocessBuild, IPostprocessBuild {
+public class SetPlatformSpriteAtlases : IPreprocessBuild, IPostprocessBuild, IActiveBuildTargetChanged {
     public void OnPreprocessBuild(BuildTarget target, string path) {
+        SetSpriteAtlasesForPlatform(target);
+    }
+
+    public void OnPostprocessBuild(BuildTarget target, string path) {
+    }
+
+    public void OnActiveBuildTargetChanged(BuildTarget previousTarget, BuildTarget newTarget) {
+        SetSpriteAtlasesForPlatform(newTarget);
+    }
+
+    private void SetSpriteAtlasesForPlatform(BuildTarget target) {
         StringBuilder messageBuilder = new StringBuilder();
         SpriteAtlas[] spriteAtlases = Resources.FindObjectsOfTypeAll<SpriteAtlas>();
         foreach (SpriteAtlas spriteAtlas in spriteAtlases) {
@@ -36,13 +47,10 @@ public class SetPlatformSpriteAtlases : IPreprocessBuild, IPostprocessBuild {
         Debug.Log(messageBuilder.ToString());
     }
 
+    public int callbackOrder { get; }
+
     private static void SetAtlasIncluded(BuildTarget target, StringBuilder messageBuilder, SpriteAtlas spriteAtlas, bool includeInBuild) {
         messageBuilder.AppendFormat("SpriteAtlas: {0}, Platform: {1}, Included: {2}\n", spriteAtlas, target, includeInBuild);
         spriteAtlas.SetIncludeInBuild(includeInBuild);
     }
-
-    public void OnPostprocessBuild(BuildTarget target, string path) {
-    }
-
-    public int callbackOrder { get; }
 }
