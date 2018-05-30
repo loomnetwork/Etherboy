@@ -12,7 +12,7 @@ SpriteAtlas:
       anisoLevel: 0
       compressionQuality: 100
       maxTextureSize: 2048
-      textureCompression: 0
+      textureCompression: 2
       filterMode: 1
       generateMipMaps: 0
       readable: 0
@@ -22,12 +22,12 @@ SpriteAtlas:
     - m_BuildTarget: iPhone
       m_MaxTextureSize: 2048
       m_ResizeAlgorithm: 0
-      m_TextureFormat: 33
+      m_TextureFormat: 65
       m_TextureCompression: 1
       m_CompressionQuality: 100
       m_CrunchedCompression: 1
       m_AllowsAlphaSplitting: 0
-      m_Overridden: 0
+      m_Overridden: 1
       m_AndroidETC2FallbackOverride: 0
     packingParameters:
       serializedVersion: 2
@@ -57,7 +57,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: afe0fffaf100940ada84bf4ffcee3dab, type: 3}
     - {fileID: 2800000, guid: 89d625f35f1964249bca8ed6017bfe24, type: 3}
     - {fileID: 2800000, guid: 9c3947976514b4f2f818c4a3c1791f3b, type: 3}
-    bindAsDefault: 0
+    bindAsDefault: 1
   m_MasterAtlas: {fileID: 4343727234628468602, guid: 5802239d5e64248439a58ab27bb654a7,
     type: 2}
   m_PackedSprites:
@@ -65,9 +65,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: dd366a3a5c10a42c0a19ad23c7abf117, type: 3}
   - {fileID: 21300000, guid: a982e3c52116f4450ac11cd883f62144, type: 3}
   - {fileID: 21300000, guid: ab1bab3eb993b4245a92bb7cea416904, type: 3}
-  - {fileID: 21300000, guid: 9c3947976514b4f2f818c4a3c1791f3b, type: 3}
-  - {fileID: 21300000, guid: bd782c251d1734e458e3f277f5b08390, type: 3}
-  - {fileID: 21300000, guid: 79ad190a933b74347bd5ba177758ebb1, type: 3}
   - {fileID: 21300000, guid: cc2e2afc18892477793d91d745c52e04, type: 3}
   - {fileID: 21300000, guid: 6acf2edf88c0a430fb4e2ebf0486cdba, type: 3}
   - {fileID: 21300000, guid: afe0fffaf100940ada84bf4ffcee3dab, type: 3}
@@ -85,9 +82,6 @@ SpriteAtlas:
   - helm3
   - helm4
   - helm2
-  - whisperBubble
-  - shoutBubble
-  - dialogBubble
   - helm5
   - helm1
   - sword4

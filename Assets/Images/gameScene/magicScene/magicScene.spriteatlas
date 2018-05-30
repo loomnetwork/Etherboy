@@ -5,14 +5,14 @@ SpriteAtlas:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: magicScene_HD
+  m_Name: magicScene
   m_EditorData:
     textureSettings:
       serializedVersion: 2
       anisoLevel: 0
       compressionQuality: 20
       maxTextureSize: 2048
-      textureCompression: 0
+      textureCompression: 2
       filterMode: 1
       generateMipMaps: 0
       readable: 0
@@ -22,12 +22,12 @@ SpriteAtlas:
     - m_BuildTarget: iPhone
       m_MaxTextureSize: 2048
       m_ResizeAlgorithm: 0
-      m_TextureFormat: 4
+      m_TextureFormat: 65
       m_TextureCompression: 1
       m_CompressionQuality: 50
       m_CrunchedCompression: 1
       m_AllowsAlphaSplitting: 0
-      m_Overridden: 0
+      m_Overridden: 1
       m_AndroidETC2FallbackOverride: 0
     packingParameters:
       serializedVersion: 2
@@ -75,5 +75,5 @@ SpriteAtlas:
   - earthActive
   - airActive
   - airInactive
-  m_Tag: magicScene_HD
+  m_Tag: magicScene
   m_IsVariant: 0

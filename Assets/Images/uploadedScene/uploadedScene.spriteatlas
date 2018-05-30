@@ -5,14 +5,14 @@ SpriteAtlas:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: objectiveAssets_HD
+  m_Name: uploadedScene
   m_EditorData:
     textureSettings:
       serializedVersion: 2
       anisoLevel: 0
-      compressionQuality: 71
+      compressionQuality: 65
       maxTextureSize: 2048
-      textureCompression: 0
+      textureCompression: 2
       filterMode: 1
       generateMipMaps: 0
       readable: 0
@@ -22,12 +22,12 @@ SpriteAtlas:
     - m_BuildTarget: iPhone
       m_MaxTextureSize: 2048
       m_ResizeAlgorithm: 0
-      m_TextureFormat: 4
+      m_TextureFormat: 65
       m_TextureCompression: 1
       m_CompressionQuality: 100
       m_CrunchedCompression: 1
       m_AllowsAlphaSplitting: 0
-      m_Overridden: 0
+      m_Overridden: 1
       m_AndroidETC2FallbackOverride: 0
     packingParameters:
       serializedVersion: 2
@@ -38,24 +38,15 @@ SpriteAtlas:
       enableTightPacking: 1
     variantMultiplier: 1
     packables:
-    - {fileID: 2800000, guid: cc9feaebc09c14c59b72645652a4fd71, type: 3}
-    - {fileID: 2800000, guid: d944375d7ac3449e4aedee0a7d572315, type: 3}
-    - {fileID: 2800000, guid: 571e9424476344094b5b09376be9d1b9, type: 3}
-    - {fileID: 2800000, guid: 8b0943c028c464de99913614fa022e2d, type: 3}
-    - {fileID: 2800000, guid: 1af0ce38be23b493ab014e83fbbe11c7, type: 3}
+    - {fileID: 2800000, guid: 71ea9b94127fe4976a54da0c6b65eb0f, type: 3}
+    - {fileID: 2800000, guid: 125afbdacd7314aac99ac41906e8a3df, type: 3}
     bindAsDefault: 1
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
-  - {fileID: 21300000, guid: 1af0ce38be23b493ab014e83fbbe11c7, type: 3}
-  - {fileID: 21300000, guid: cc9feaebc09c14c59b72645652a4fd71, type: 3}
-  - {fileID: 21300000, guid: d944375d7ac3449e4aedee0a7d572315, type: 3}
-  - {fileID: 21300000, guid: 8b0943c028c464de99913614fa022e2d, type: 3}
-  - {fileID: 21300000, guid: 571e9424476344094b5b09376be9d1b9, type: 3}
+  - {fileID: 21300000, guid: 125afbdacd7314aac99ac41906e8a3df, type: 3}
+  - {fileID: 21300000, guid: 71ea9b94127fe4976a54da0c6b65eb0f, type: 3}
   m_PackedSpriteNamesToIndex:
-  - whiteLights
-  - objectiveCompleted
-  - orangeLights
-  - treasureChest
-  - redFlag
-  m_Tag: objectiveAssets_HD
+  - youreUploaded
+  - newGame
+  m_Tag: uploadedScene
   m_IsVariant: 0

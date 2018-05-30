@@ -41890,7 +41890,7 @@ Camera:
   m_GameObject: {fileID: 642070992}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -41911,11 +41911,11 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
+  m_HDR: 0
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &642070997
@@ -42030,7 +42030,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -86350,8 +86350,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1259187860}
-  m_LocalRotation: {x: -0.000000040990592, y: -0.000000009804482, z: -0.62261117,
-    w: 0.7825313}
+  m_LocalRotation: {x: -0.000000040990603, y: -0.000000009804458, z: -0.62261075,
+    w: 0.7825318}
   m_LocalPosition: {x: -0.9242899, y: 1.5019767, z: 0}
   m_LocalScale: {x: 3.8839312, y: 3.8839312, z: 3.8839312}
   m_Children:
@@ -94672,7 +94672,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1436552125}
-  m_LocalRotation: {x: -0.0000009596879, y: -0.0000005566045, z: 0.4978449, w: 0.8672661}
+  m_LocalRotation: {x: -0.00000092670683, y: -0.00000053036274, z: 0.4978428, w: 0.8672673}
   m_LocalPosition: {x: -0.000000030692945, y: 0.9999998, z: 0.00000021554212}
   m_LocalScale: {x: 0.8350411, y: 0.8350411, z: 0.83504057}
   m_Children:
@@ -116424,7 +116424,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1660855207}
-  m_LocalRotation: {x: 0.0000011379649, y: -0.0000001738558, z: 0.15039033, w: 0.9886267}
+  m_LocalRotation: {x: 0.0000010958179, y: -0.00000017385572, z: 0.1503921, w: 0.9886264}
   m_LocalPosition: {x: 0.000000036756234, y: 1.0000002, z: -8.544285e-14}
   m_LocalScale: {x: 0.30833447, y: 0.30833447, z: 0.30833367}
   m_Children: []

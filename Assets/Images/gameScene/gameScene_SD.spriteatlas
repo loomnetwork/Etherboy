@@ -12,7 +12,7 @@ SpriteAtlas:
       anisoLevel: 0
       compressionQuality: 70
       maxTextureSize: 2048
-      textureCompression: 0
+      textureCompression: 2
       filterMode: 1
       generateMipMaps: 0
       readable: 0
@@ -22,12 +22,12 @@ SpriteAtlas:
     - m_BuildTarget: iPhone
       m_MaxTextureSize: 2048
       m_ResizeAlgorithm: 0
-      m_TextureFormat: 33
+      m_TextureFormat: 65
       m_TextureCompression: 1
       m_CompressionQuality: 100
       m_CrunchedCompression: 1
       m_AllowsAlphaSplitting: 0
-      m_Overridden: 0
+      m_Overridden: 1
       m_AndroidETC2FallbackOverride: 0
     packingParameters:
       serializedVersion: 2
@@ -57,7 +57,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 87e4b990ece364286a400644297049b3, type: 3}
     - {fileID: 2800000, guid: 720e21499dc4848628fd1472a22e24a7, type: 3}
     - {fileID: 2800000, guid: a5ac97f2303db400e90c64b5df0c16c1, type: 3}
-    bindAsDefault: 0
+    bindAsDefault: 1
   m_MasterAtlas: {fileID: 4343727234628468602, guid: 5196f23641e286844a01892b3f248936,
     type: 2}
   m_PackedSprites:

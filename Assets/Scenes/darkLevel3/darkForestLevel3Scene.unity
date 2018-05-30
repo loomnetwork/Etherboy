@@ -4442,7 +4442,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.86, y: 7.14}
+    oldSize: {x: 2.86, y: 7.1400003}
     newSize: {x: 2.86, y: 7.14}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -7137,7 +7137,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.86, y: 7.14}
+    oldSize: {x: 2.86, y: 7.1400003}
     newSize: {x: 2.86, y: 7.14}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -32880,7 +32880,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 370512883}
-  m_LocalRotation: {x: -0.000000038294587, y: 0.00000042506775, z: -0.9966041, w: -0.08234282}
+  m_LocalRotation: {x: -0.00000004092876, y: 0.0000005093615, z: -0.996604, w: -0.08234335}
   m_LocalPosition: {x: 0, y: 1.0000002, z: 0.000000084007006}
   m_LocalScale: {x: 0.26894265, y: 0.26894265, z: 0.2689407}
   m_Children: []
@@ -41716,7 +41716,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 486776289}
-  m_LocalRotation: {x: -0.00000041781232, y: -0.00000008881988, z: 0.20217264, w: 0.97935}
+  m_LocalRotation: {x: -0.0000005011699, y: -0.000000101621524, z: 0.20217396, w: 0.9793497}
   m_LocalPosition: {x: 0.00000007572929, y: 1.0000005, z: 0.000000083676156}
   m_LocalScale: {x: 1.1810478, y: 1.1810478, z: 1.181048}
   m_Children:
@@ -51126,7 +51126,7 @@ Camera:
   m_GameObject: {fileID: 642070992}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
+  m_ClearFlags: 4
   m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
   m_NormalizedViewPortRect:
     serializedVersion: 2
@@ -51147,11 +51147,11 @@ Camera:
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
   m_TargetEye: 3
-  m_HDR: 1
-  m_AllowMSAA: 1
+  m_HDR: 0
+  m_AllowMSAA: 0
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &642070997
@@ -51266,7 +51266,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -81123,7 +81123,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1179490902}
-  m_LocalRotation: {x: 5.1877436e-10, y: 5.3176885e-10, z: 0.9926716, w: 0.12084363}
+  m_LocalRotation: {x: 5.187743e-10, y: 5.317688e-10, z: 0.99267143, w: 0.12084444}
   m_LocalPosition: {x: -1.5964174, y: -4.107548, z: -0}
   m_LocalScale: {x: 3.1483006, y: 3.1483006, z: 3.1482983}
   m_Children:
