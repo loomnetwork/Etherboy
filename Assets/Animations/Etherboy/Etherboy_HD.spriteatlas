@@ -220,7 +220,7 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 9f5fd091179eb41d4a9ffe2904798bff, type: 3}
     - {fileID: 2800000, guid: fe0c666ee69f3469db14c29311615ac1, type: 3}
     - {fileID: 2800000, guid: b50a7068151fc4db6a169fd0190f4596, type: 3}
-    bindAsDefault: 1
+    bindAsDefault: 0
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300000, guid: 1daecaa44c3084a55965e2683b92a4f7, type: 3}
@@ -322,10 +322,13 @@ SpriteAtlas:
   - {fileID: 21300000, guid: b7e8c40d19f1e46c9857a335e190427b, type: 3}
   - {fileID: 21300000, guid: 1f4f498c7550749ef8ac0305a9531b8a, type: 3}
   - {fileID: 21300000, guid: 7b4e492373a3d461584ca81d6b81ae73, type: 3}
+  - {fileID: 21300000, guid: 08425fa676dc04438914560be4771d89, type: 3}
   - {fileID: 21300000, guid: 492664b127e0b4c92bb6593aafc71f47, type: 3}
   - {fileID: 21300000, guid: dd3b0516aeaed414681779957fccebc4, type: 3}
   - {fileID: 21300000, guid: 81f548e60733644b28bbf81c71e048b8, type: 3}
   - {fileID: 21300000, guid: 6a18b38cb02e94349b1cd343ca5334eb, type: 3}
+  - {fileID: 21300000, guid: a7ae90f916c2d477da47340623696d06, type: 3}
+  - {fileID: 21300000, guid: 976fb7fb3a5ac446fa4cb0bc5510d668, type: 3}
   - {fileID: 21300000, guid: b50a7068151fc4db6a169fd0190f4596, type: 3}
   - {fileID: 21300000, guid: b88628c0986d04874aec0eacc74f2b07, type: 3}
   - {fileID: 21300000, guid: eb5d92e1d94d54b639c8a46703c94a66, type: 3}
@@ -343,9 +346,9 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 53e93f08bbfba4f24a55b40ef91c30ac, type: 3}
   - {fileID: 21300000, guid: aad260c1a23cb443a8217ab83f270d52, type: 3}
   - {fileID: 21300000, guid: 589db74cd31ad4336925629c42f568d1, type: 3}
-  - {fileID: 21300000, guid: 08425fa676dc04438914560be4771d89, type: 3}
   - {fileID: 21300000, guid: ae5e6a66db30d42258329b73ae11a643, type: 3}
   - {fileID: 21300000, guid: fe0c666ee69f3469db14c29311615ac1, type: 3}
+  - {fileID: 21300000, guid: 725d08b556560483b9d7f2cbc5a35df7, type: 3}
   - {fileID: 21300000, guid: 6d90a89e3a40a421c8bdfac853fe35db, type: 3}
   - {fileID: 21300000, guid: aec728885c6064d31aa1e8b12277cb24, type: 3}
   - {fileID: 21300000, guid: 1a13e1e7f541842c8811589c2c3c84fc, type: 3}
@@ -379,8 +382,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 5ccf8b7f254354cd48c389637bc40b66, type: 3}
   - {fileID: 21300000, guid: 7541ca045edc740439fc87bb55ccc5be, type: 3}
   - {fileID: 21300000, guid: e9ba4fe8e73cb4c1c8463b5b422b6d3c, type: 3}
-  - {fileID: 21300000, guid: a7ae90f916c2d477da47340623696d06, type: 3}
-  - {fileID: 21300000, guid: 976fb7fb3a5ac446fa4cb0bc5510d668, type: 3}
   - {fileID: 21300000, guid: 4a1203d0cd8fb4f5a95e7ee28186a056, type: 3}
   - {fileID: 21300000, guid: 65ddf44a2da964c408c69438eef790f2, type: 3}
   - {fileID: 21300000, guid: 1d506fd7640f443009fea71758544941, type: 3}
@@ -394,7 +395,6 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 73b5077b0a56d452b94b3a8f65e16fae, type: 3}
   - {fileID: 21300000, guid: 3581b57fbd08b487b92a77c30003eb28, type: 3}
   - {fileID: 21300000, guid: f7cc075d7042a4477a405abfc3dcd6b0, type: 3}
-  - {fileID: 21300000, guid: 725d08b556560483b9d7f2cbc5a35df7, type: 3}
   - {fileID: 21300000, guid: ab879b172ec8045a186d75926105f343, type: 3}
   - {fileID: 21300000, guid: cb46a1ddeb77745bdacb11f89574f847, type: 3}
   - {fileID: 21300000, guid: 61faf4d1947ca41aeb1bfa8d1ef905af, type: 3}
@@ -505,10 +505,13 @@ SpriteAtlas:
   - air_haduken_down_2
   - air_haduken_down_3
   - earth_particle5
+  - etherboy_handR
   - beam1_fire
   - beam1_air
   - beam1
   - beam1_ice
+  - etherboy_footR
+  - etherboy_footL
   - talisman_lace
   - earth_particle7
   - air_haduken_up_3
@@ -526,9 +529,9 @@ SpriteAtlas:
   - etherboyhandL
   - etherboy_body_attack
   - etherboy_body
-  - etherboy_handR
   - arm_1
   - talisman2
+  - arrow
   - earth_particle6
   - etherboy_eyeR_receive
   - eb_head_empty
@@ -562,8 +565,6 @@ SpriteAtlas:
   - fire_sphere_glow
   - etherboy_shoulderL
   - etherboy_shoulderR
-  - etherboy_footR
-  - etherboy_footL
   - etherboy_mouth_hit
   - etherboy_kneeR
   - bow_2
@@ -577,7 +578,6 @@ SpriteAtlas:
   - leg_1
   - eb_brow
   - boulder_4
-  - arrow
   - eb_eyeL_shocked
   - eyeL_empty
   - eb_drool1

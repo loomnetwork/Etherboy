@@ -10,7 +10,7 @@ SpriteAtlas:
     textureSettings:
       serializedVersion: 2
       anisoLevel: 0
-      compressionQuality: 20
+      compressionQuality: 100
       maxTextureSize: 2048
       textureCompression: 2
       filterMode: 1
@@ -31,7 +31,7 @@ SpriteAtlas:
       m_AndroidETC2FallbackOverride: 0
     packingParameters:
       serializedVersion: 2
-      padding: 4
+      padding: 8
       blockOffset: 1
       allowAlphaSplitting: 0
       enableRotation: 1
@@ -39,7 +39,7 @@ SpriteAtlas:
     variantMultiplier: 1
     packables:
     - {fileID: 2800000, guid: 4ba61f3ee5dfc4ef79249ea650096097, type: 3}
-    bindAsDefault: 1
+    bindAsDefault: 0
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
   - {fileID: 21300026, guid: 4ba61f3ee5dfc4ef79249ea650096097, type: 3}

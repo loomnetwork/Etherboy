@@ -63,9 +63,13 @@ SpriteAtlas:
     - {fileID: 2800000, guid: bf958e3f86a614cf1a00643af840534a, type: 3}
     - {fileID: 2800000, guid: 5b30e1db0728a46f0809e676534e1f97, type: 3}
     - {fileID: 2800000, guid: 73c4e362444e147898df187b31d855ed, type: 3}
-    bindAsDefault: 1
+    bindAsDefault: 0
   m_MasterAtlas: {fileID: 0}
   m_PackedSprites:
+  - {fileID: 21300000, guid: dd6ce1b77829b4693bed48549dec2100, type: 3}
+  - {fileID: 21300000, guid: 10c148239191d48dd80ecbcaa026a9e4, type: 3}
+  - {fileID: 21300000, guid: 4dc6ad0ee8dd14fe48326091418fa438, type: 3}
+  - {fileID: 21300000, guid: 4512f6cc810804443ba7ad85476a4c4f, type: 3}
   - {fileID: 21300000, guid: 5b30e1db0728a46f0809e676534e1f97, type: 3}
   - {fileID: 21300000, guid: 73c4e362444e147898df187b31d855ed, type: 3}
   - {fileID: 21300000, guid: f71dac3dd15c54d4f843dc10b177b2dc, type: 3}
@@ -77,14 +81,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: 90c21dcf8f917452aa919c7a86a269d9, type: 3}
   - {fileID: 21300000, guid: 18577e980d418485d86ee626f55441b5, type: 3}
   - {fileID: 21300000, guid: e9db5fac4d29d4a49b07732c5ad4a0b9, type: 3}
-  - {fileID: 21300000, guid: 10c148239191d48dd80ecbcaa026a9e4, type: 3}
-  - {fileID: 21300000, guid: 4dc6ad0ee8dd14fe48326091418fa438, type: 3}
   - {fileID: 21300000, guid: 6beed5c7748254fdea4f0c11766df1a2, type: 3}
-  - {fileID: 21300000, guid: 4512f6cc810804443ba7ad85476a4c4f, type: 3}
   - {fileID: 21300000, guid: 46b032ed63a2a48f88f3b693c99fd512, type: 3}
   - {fileID: 21300000, guid: 21560640850514170becbc9e730c31c8, type: 3}
   - {fileID: 21300000, guid: 82dbc6a5850a945a8905b190f4bcddda, type: 3}
-  - {fileID: 21300000, guid: dd6ce1b77829b4693bed48549dec2100, type: 3}
   - {fileID: 21300000, guid: f5bf7e92596fc47b292743113c63430d, type: 3}
   - {fileID: 21300000, guid: f83261b4ac95149eea711bd56db1eeec, type: 3}
   - {fileID: 21300000, guid: b5d2fd7ec50e84ffa9714f728e128950, type: 3}
@@ -92,6 +92,10 @@ SpriteAtlas:
   - {fileID: 21300000, guid: be7c28bc807d64e83967848d6baf8286, type: 3}
   - {fileID: 21300000, guid: 1fb60a2fe75bf42f0b6d18954101705f, type: 3}
   m_PackedSpriteNamesToIndex:
+  - db_legDownL
+  - db_arm_attack
+  - db_arm_attack2
+  - db_armL
   - db_wingR
   - db_wingR_fly
   - db_wing_fly
@@ -103,14 +107,10 @@ SpriteAtlas:
   - db_body_dead
   - db_sting
   - db_honey4
-  - db_arm_attack
-  - db_arm_attack2
   - db_honey2
-  - db_armL
   - db_honey1
   - db_honey3
   - db_eyeL
-  - db_legDownL
   - db_eyeL_hit
   - db_eyeL_dead
   - db_honey_dead1

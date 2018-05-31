@@ -5,7 +5,7 @@ SpriteAtlas:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: IntroCutscene_HD
+  m_Name: IntroCutscene_SD
   m_EditorData:
     textureSettings:
       serializedVersion: 2
@@ -36,7 +36,7 @@ SpriteAtlas:
       allowAlphaSplitting: 0
       enableRotation: 1
       enableTightPacking: 1
-    variantMultiplier: 1
+    variantMultiplier: 0.5
     packables:
     - {fileID: 2800000, guid: 434cfbb5d3315b94ab7422c43ff14a14, type: 3}
     - {fileID: 2800000, guid: 411e8dd2a176a7141bb82e2882a3a08a, type: 3}
@@ -84,8 +84,99 @@ SpriteAtlas:
     - {fileID: 2800000, guid: 8ab71ed02ed9683499ba7271bd48b296, type: 3}
     - {fileID: 2800000, guid: bf0ee480b740389439dec6db155b6a02, type: 3}
     bindAsDefault: 1
-  m_MasterAtlas: {fileID: 0}
-  m_PackedSprites: []
-  m_PackedSpriteNamesToIndex: []
+  m_MasterAtlas: {fileID: 4343727234628468602, guid: eae0a94ee9bbe2a48bdaa563599c9b0c,
+    type: 2}
+  m_PackedSprites:
+  - {fileID: 21300000, guid: e6a767b0e5e8d2f4fb562b27da6e0628, type: 3}
+  - {fileID: 21300000, guid: bf0ee480b740389439dec6db155b6a02, type: 3}
+  - {fileID: 21300000, guid: 8ab71ed02ed9683499ba7271bd48b296, type: 3}
+  - {fileID: 21300000, guid: d60a7865781b578498396bc5ef835b63, type: 3}
+  - {fileID: 21300000, guid: 168fdb8784c365743a9ca429bfc7a8e2, type: 3}
+  - {fileID: 21300000, guid: 614ae9574852a294f9e54c1d7bfd9810, type: 3}
+  - {fileID: 21300000, guid: e6342e79cdf502e4eb62c490a8b47926, type: 3}
+  - {fileID: 21300000, guid: a467cddbe50686e4caadf2728554af29, type: 3}
+  - {fileID: 21300000, guid: d87855428dd7fd9458e8cd31964ff0b8, type: 3}
+  - {fileID: 21300000, guid: e4e2978f6f16d9d408f3c113d49cd338, type: 3}
+  - {fileID: 21300000, guid: c6dda450a7c475f45b1f30710ceb2fa6, type: 3}
+  - {fileID: 21300000, guid: 54d3f3f57edac33478cca44d1c3049d5, type: 3}
+  - {fileID: 21300000, guid: 1d7f5fe406bd4e2489c36a3ee26491fd, type: 3}
+  - {fileID: 21300000, guid: c7e479dff0eb2cd43a9d7688066e3160, type: 3}
+  - {fileID: 21300000, guid: 411e8dd2a176a7141bb82e2882a3a08a, type: 3}
+  - {fileID: 21300000, guid: 4b880016762270d4195cc1e3612c6a44, type: 3}
+  - {fileID: 21300000, guid: d16395e2ce36be1488bacd7cdc34b3c0, type: 3}
+  - {fileID: 21300000, guid: cb4f7b7c683768246960a6770d2253db, type: 3}
+  - {fileID: 21300000, guid: fd909aed6edee74459b5a62d52410773, type: 3}
+  - {fileID: 21300000, guid: 4027fccc7668bb34e8bf81bb68db104f, type: 3}
+  - {fileID: 21300000, guid: 434cfbb5d3315b94ab7422c43ff14a14, type: 3}
+  - {fileID: 21300000, guid: c8da7ad446b357e47ad77520bf7b9e8b, type: 3}
+  - {fileID: 21300000, guid: dab3914f025e8b54da3db5d64e8a47d4, type: 3}
+  - {fileID: 21300000, guid: 90bacb05b3cb4e64294e13ab2e9a5904, type: 3}
+  - {fileID: 21300000, guid: ff6b70916edce5c47a1722a8cf5fe1a1, type: 3}
+  - {fileID: 21300000, guid: bae5667626cfd374989648c391a88774, type: 3}
+  - {fileID: 21300000, guid: 64c7e9db91589104eb6d1cf1e75e138a, type: 3}
+  - {fileID: 21300000, guid: 72b439c3fb25b514a9e9beda7aa12d2b, type: 3}
+  - {fileID: 21300000, guid: d8f64034014fcf14f843ecaf6b4731b8, type: 3}
+  - {fileID: 21300000, guid: fe6e0a959407a5f4098cbc944547cc00, type: 3}
+  - {fileID: 21300000, guid: 4b277b1cb4baef946a9390840a666037, type: 3}
+  - {fileID: 21300000, guid: c765050f50aceaa478ddd2d4197f8017, type: 3}
+  - {fileID: 21300000, guid: 107b187f684237348acb6018a6ede8a7, type: 3}
+  - {fileID: 21300000, guid: 60518390740441a4981da039b4ecad8e, type: 3}
+  - {fileID: 21300000, guid: 6af0245e637545f48961a4194cf8b6c0, type: 3}
+  - {fileID: 21300000, guid: bc1fe0b0fd6529d4881383e0119f441e, type: 3}
+  - {fileID: 21300000, guid: 63330b920cf177c45bea2f8082117b0d, type: 3}
+  - {fileID: 21300000, guid: daa7d04cec4646346853c1a32dcecca8, type: 3}
+  - {fileID: 21300000, guid: 33b3c929603d31e448e98256a177772a, type: 3}
+  - {fileID: 21300000, guid: db37684fbcdea7345b6de54d4b31a008, type: 3}
+  - {fileID: 21300000, guid: bdb077e455b46c14c85504ca5aae238b, type: 3}
+  - {fileID: 21300000, guid: 9a3f4fbb28e76664c8d2da7cdbe86215, type: 3}
+  - {fileID: 21300000, guid: d8737529eda88f4449d7b294415b2222, type: 3}
+  - {fileID: 21300000, guid: b60d8000eb744194dbcde82954c55149, type: 3}
+  - {fileID: 21300000, guid: 0ebb0bd6a009d0a40801da2aaf6dde61, type: 3}
+  m_PackedSpriteNamesToIndex:
+  - closeup_bed
+  - town_1_bg
+  - town_1_bg
+  - etherboy_room
+  - room_dressing
+  - mask
+  - earth_sphere_glow
+  - curtain
+  - rays
+  - door
+  - door_outside
+  - door_closed
+  - bedtable
+  - cloud_2
+  - bedsheet
+  - cloud_4
+  - cloud_3
+  - door_town
+  - cloud_1
+  - etherboy_body_pajama
+  - bed_feet
+  - shirt_blue
+  - shirt_pajama
+  - eyeR_sleep2
+  - pants_blue
+  - pants_pajama
+  - eyeL_sleep2
+  - etherboy_handL_pajama
+  - etherboy_handR_pajama
+  - etherboy_footL_pajama
+  - etherboy_footR_pajama
+  - leg_1_pajama
+  - debris5
+  - leg_2R_pajama
+  - eyeR__sleep
+  - leg_2_pajama
+  - etherboy_shoulder_pajama
+  - debris2
+  - etherboy_kneeR_pajama
+  - eyeL_sleep
+  - debris1
+  - eb_hand_bedsheet
+  - debris4
+  - debris3
+  - sky_bg
   m_Tag: IntroCutscene_HD
-  m_IsVariant: 0
+  m_IsVariant: 1
