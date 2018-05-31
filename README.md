@@ -24,7 +24,7 @@ A multi-platform 2D game built in Unity, using the [Loom Unity SDK][] to interac
 
 ## Development
 
-This game is being built using **Unity 2017.3**, but if you're just interested in playing around
+This game is being built using **Unity 2017.4**, but if you're just interested in playing around
 with the code you can use newer versions of Unity.
 
 ### WebGL build
