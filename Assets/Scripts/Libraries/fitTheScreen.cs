@@ -9,6 +9,8 @@ public class fitTheScreen : MonoBehaviour {
 	public bool keepRatio;
 	public bool fitOnlyIfLower;
 
+	public bool skipUpdate;
+
 	// Use this for initialization
 	void Start () {
 		SpriteRenderer sr = GetComponent<SpriteRenderer>();
@@ -54,6 +56,8 @@ public class fitTheScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Start ();
+		if (!skipUpdate) {
+			Start ();
+		}
 	}
 }

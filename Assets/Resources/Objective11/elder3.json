@@ -12,10 +12,24 @@
 			"Next time you see me..",
 
 			"..YOU WILL BOW BEFORE ME! as your GOD!!",
+
+			"Steve, will you be our god as well?",
+
 			"CHAOS! only call me CHAOS!",
 			"and I will soon be the GOD of this world!",
+			"Minions...",
+			"Move it!!",
 
 			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+
 			"",
 			"",
 
@@ -28,6 +42,7 @@
 			"",
 
 			"",
+			"<magicBook>",
 			"Waaoooow",
 			"This feels...",
 
@@ -45,7 +60,26 @@
 
 			"Go rest, we'll speak about it when you return."
 		],
-		"playSounds":[
+		"bubbleType": [
+			"normal",
+			"normal",
+			"normal",
+
+			"normal",
+			"normal",
+			"normal",
+
+			"shout",
+
+			"normal",
+
+			"normal",
+			"normal",
+			"normal",
+
+			"shout"
+		],
+		"playSounds": [
 			"",
 			"",
 			"",
@@ -57,7 +91,18 @@
 			"",
 			"",
 			"",
+			"",
+			"",
+			"",
 
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"",
+			"SFX/General/SFX_FOLLOWERS_LOOKING_AT_YOU",
 			"",
 			"",
 			"",
@@ -71,6 +116,7 @@
 			"",
 
 			"SFX/Etherboy/EBW_AUD_Receive_Magic_F1_EXP",
+			"",
 			"",
 			"",
 
@@ -90,7 +136,7 @@
 		],
 		"timeInBetween": [
 			0.01,
-			3,
+			0.5,
 			0.1,
 
 			5,
@@ -98,10 +144,21 @@
 			4,
 
 			6,
+			4,
 			5,
 			6,
+			3,
+			3,
 
 			3,
+			1.5,
+			1.5,
+			1.5,
+			1.8,
+			2,
+			1,
+			2.5,
+			1,
 			1,
 			0.1,
 
@@ -114,6 +171,7 @@
 			0.1,
 
 			4.9,
+			0,
 			2,
 			2,
 
@@ -141,10 +199,22 @@
 			"Steve",
 
 			"Steve",
+			"Villain1",
+			"Steve",
+			"Steve",
 			"Steve",
 			"Steve",
 
 			"Steve",
+			"Villain1",
+			"Villain2",
+			"Villain3",
+			"Villain4",
+			"Villain5",
+			"Villain5",
+			"Villain5",
+			"Villain5",
+
 			"etherBoy",
 			"etherBoy",
 
@@ -157,6 +227,7 @@
 			"",
 
 			"etherBoy",
+			"",
 			"etherBoy",
 			"etherBoy",
 
@@ -184,12 +255,24 @@
 			"right",
 
 			"right",
+			"left",
+			"right",
+			"right",
 			"right",
 			"right",
 
 			"right",
 			"right",
 			"right",
+			"right",
+			"right",
+			"right",
+			"right",
+			"right",
+			"right",
+
+			"right",
+			"right",
 
 			"left",
 			"left",
@@ -199,6 +282,7 @@
 			"left",
 			"right",
 
+			"right",
 			"right",
 			"right",
 			"right",
@@ -229,7 +313,18 @@
 			"",
 			"",
 			"",
+			"",
+			"",
+			"",
 
+			"10/separate/0",
+			"10/separate/0",
+			"10/separate/0",
+			"10/separate/0",
+			"10/separate/0",
+			"10/separate/0",
+			"3/separate/0",
+			"",
 			"10/separate/0",
 			"-1/separate/0",
 			"",
@@ -242,6 +337,7 @@
 			"",
 			"",
 
+			"",
 			"",
 			"",
 			"",
@@ -270,10 +366,21 @@
 			"Idle",
 
 			"Lecturing",
+			"",
 			"Lecturing",
 			"Idle",
+			"",
+			"",
 
 			"AngryRunning",
+			"Villain_1_walk",
+			"Villain_2_walk",
+			"Villain_3_walk",
+			"Villain_4_walk",
+			"Villain_5_walk",
+			"Villain_5_walk",
+			"Villain_5_WatchingYou",
+			"Villain_5_AngryWalk",
 			"Running",
 			"Idle",
 
@@ -286,6 +393,7 @@
 			"Idle",
 
 			"receiveFire",
+			"",
 			"Idle",
 			"",
 
@@ -296,11 +404,11 @@
 			"",
 			"",
 			"",
-			
+
 			"",
 			"",
 			"",
-			
+
 			""
 		],
 		"skippable": [
@@ -315,7 +423,18 @@
 			true,
 			true,
 			true,
+			true,
+			true,
+			true,
 
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
+			false,
 			false,
 			false,
 			false,
@@ -328,6 +447,7 @@
 			false,
 			false,
 
+			false,
 			false,
 			true,
 			true,
@@ -348,8 +468,27 @@
 		],
 		"faceDirection": [
 			0,
-			0, 
-			-1,																								
+			0, -1,
+
+			0,
+			0,
+			0,
+
+			0,
+			0,
+			0,
+			0,
+			0,
+			0,
+
+			0, -1, -1, -1,
+			0,
+			0,
+			1,
+			0, -1,
+
+			0,
+			0,
 
 			0,
 			0,
@@ -368,17 +507,6 @@
 			0,
 
 			0,
-			0,
-			0,
-
-			0,
-			0,
-			0,
-
-			0,
-			0,
-			0,
-
 			0,
 			0,
 			0,

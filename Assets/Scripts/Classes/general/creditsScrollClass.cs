@@ -11,8 +11,8 @@ public class creditsScrollClass : MonoBehaviour {
 		currPos.y += scrollSpeed;
 		transform.position = currPos;
 
-		if (currPos.y >= 24.91f) {
-			currPos.y = 24.91f;
+		if (currPos.y >= 36.15f) {
+			currPos.y = 36.15f;
 			transform.position = currPos;
 			LeanTween.value (0, 1, 2).setOnComplete (() => {
 				globalScript.changeScene("menuScene");

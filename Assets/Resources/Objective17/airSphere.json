@@ -7,7 +7,9 @@
             "Whoa! the orb has a live lightning bolt in it!",
 			"",
 			"",
+			"<getOrb>",
 			"",
+			"<doneOrb>",
 			"I must run!!"
         ],
         "timeInBetween":[
@@ -15,7 +17,9 @@
 			2,
 			1,
 			0.1,
-			1,
+			0,
+			2,
+			0,
 			2
         ],
 		"forOther":[
@@ -23,13 +27,17 @@
 			"etherBoy",
 			"etherBoy",
 			"etherBoy",
+			"etherBoy",
 			"",
+			"etherBoy",
 			"etherBoy"
 		],
 		"newPosition":[
 			"-1/separate/0",
 			"",
 			"0.1/separate/0",
+			"",
+			"",
 			"",
 			"",
 			""
@@ -39,7 +47,9 @@
 			"",
 			"",
 			"",
+			"",
 			"SFX/EBW_AUD_Etherboy_Takes_Orb_F1_EXP",
+			"",
 			""
 		],
 		"playAnimation":[
@@ -47,7 +57,9 @@
 			"Idle",
 			"Running",
 			"Idle",
+			"",
 			"Shrink",
+			"",
 			""
 		],
 		"faceDirection":[
@@ -57,6 +69,8 @@
 		"skippable":[
 			false,
 			true,
+			false,
+			false,
 			false,
 			false,
 			false,

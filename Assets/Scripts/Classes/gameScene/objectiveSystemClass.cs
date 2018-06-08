@@ -7,6 +7,7 @@ public class objectiveSystemClass : MonoBehaviour {
 	public GameObject goldIndicator;
 	public int activeQuest;
 	public string status;
+	public Sprite coin;
 
 	private string[] objectiveNames = {
 		"Talk to the town elder",
@@ -101,7 +102,9 @@ public class objectiveSystemClass : MonoBehaviour {
 		LeanTween.move (thisTextMesh.gameObject, currPos, 1);
 
 		//currPos.x -= (thisTextMesh.bounds.extents.x * 0.7f) + 0.5f;
-		LeanTween.scale (objMarker, new Vector2 (0.6f, 0.6f), 1);
+		LeanTween.scale (objMarker, new Vector2 (0.6f, 0.6f), 1).setOnComplete (() => {
+			redFlag.SetActive(false);
+		});
 		//LeanTween.move (objMarker, currPos, 1);
 	}
 
@@ -129,5 +132,20 @@ public class objectiveSystemClass : MonoBehaviour {
 			});
 		});
 
+		LeanTween.value (0, 1, 0.5f).setOnComplete (() => {
+			for (int i = 0; i < 20; i++) {
+				GameObject coinObj = new GameObject();
+				coinObj.transform.parent = transform.parent;
+				SpriteRenderer coinObjRend = coinObj.AddComponent<SpriteRenderer>();
+				coinObjRend.sprite = coin;
+				coinObjRend.sortingLayerName = "SceneChanger";
+				coinObjRend.sortingOrder = 60;
+				coinObj.transform.localScale = new Vector2(0.01f, 0.01f);
+				coinObj.transform.position = new Vector2(0, -1);
+				LeanTween.move(coinObj, goldIndicator.transform.position, 0.5f).setDelay(i*0.1f);
+				LeanTween.scale(coinObj, new Vector2(0.5f, 0.5f), 0.15f).setDelay(i*0.1f);
+				LeanTween.scale(coinObj, new Vector2(0.01f, 0.01f), 0.1f).setDelay(i*0.1f+0.4f).destroyOnComplete = true;
+			}
+		});
 	}
 }

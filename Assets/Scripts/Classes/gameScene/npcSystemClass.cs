@@ -4,7 +4,7 @@ using System;
 using System.Globalization;
 using UnityEngine;
 using TMPro;
-using Puppet2D;
+using Anim_Sys;
 
 [System.Serializable]
 public class automaticDialogueClass {
@@ -47,9 +47,11 @@ public class dialogueSystemClass {
 public class npcSystemClass : MonoBehaviour {
 	public string[] dialogueFiles;
 	public bool skipLast;
+	public bool skipReorder;
 
 	private int questSet;
-	private dialogueSystemClass currentDialogue;
+	[HideInInspector]
+	public dialogueSystemClass currentDialogue;
 
 	private GameObject bubble;
 	private TextMeshPro text;
@@ -71,10 +73,41 @@ public class npcSystemClass : MonoBehaviour {
 
 	private AudioSource[] scriptSFX;
 
+	private int highestSortingOrder;
+
 	private bool firstIterationDialog;
+
+	void findSpritesRecursive (Transform obj) {
+		Renderer objRend = obj.GetComponent<Renderer> ();
+		if (objRend != null) {
+		//	if (objRend.sortingLayerName == originalLayerName) {
+				objRend.sortingOrder += globalScript.startingOrderNPCs;
+
+				if (objRend.sortingOrder > highestSortingOrder) {
+					highestSortingOrder = objRend.sortingOrder;
+				}
+		//	}
+		}
+
+		if (obj.childCount > 0) {
+			for (int i = 0; i < obj.childCount; i++) {
+				GameObject c = obj.GetChild (i).gameObject;
+				if (c.name != "bubbleGroup") {
+					findSpritesRecursive (c.transform);
+				}
+			}
+		}
+	}
 
 	// Use this for initialization
 	void Start () {
+		if (!skipReorder) {
+			highestSortingOrder = -9999;
+			findSpritesRecursive (transform);
+			highestSortingOrder++;
+			globalScript.startingOrderNPCs = highestSortingOrder;
+		}
+
 		Transform bubbleTrans = transform.Find ("bubbleGroup");
 		if (bubbleTrans != null) {
 			bubble = bubbleTrans.gameObject;
@@ -207,6 +240,30 @@ public class npcSystemClass : MonoBehaviour {
 				if (firstIterationDialog) {
 					firstIterationDialog = false;
 					globalScript.fadeToBlack (currentDialogue.triggeredDialogue.timeInBetween [currentDialogue.triggeredDialogue.currentDialogue]);
+					if (globalScript.currentQuest == 7) {
+						GameObject etherBoy = GameObject.Find ("etherBoy");
+						Vector2 currPos = etherBoy.transform.position;
+						currPos.y += 0.4f;
+						currPos.x += -0.1f;
+						etherBoy.GetComponent<Rigidbody2D> ().gravityScale = 0;
+						LeanTween.move (etherBoy, currPos, 0.1f).setDelay (0.3f).setOnComplete (() => {
+							GameObject glblCtrl = etherBoy.transform.GetChild (1).gameObject;
+							Animator otherAnim = glblCtrl.GetComponent<Animator> ();
+							glblCtrl.GetComponent<Anim_GlobalControl> ().flip = true;
+							if (!otherAnim.GetCurrentAnimatorStateInfo (0).IsName ("Drool")) {
+								otherAnim.Play ("Drool", -1, 0f);
+							}
+							currPos.y -= 0.4f;
+							currPos.x += 0.1f;
+							LeanTween.move(etherBoy, currPos, 0.1f).setDelay(3.5f).setOnStart(()=>{
+								etherBoy.GetComponent<Rigidbody2D> ().gravityScale = 1;
+								glblCtrl.GetComponent<Anim_GlobalControl> ().flip = false;
+								if (!otherAnim.GetCurrentAnimatorStateInfo (0).IsName ("Idle")) {
+									otherAnim.Play ("Idle", -1, 0f);
+								}
+							});
+						});
+					}
 				}
 			} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<deactivateRenderer>") {
 				if (text != null) {
@@ -299,6 +356,41 @@ public class npcSystemClass : MonoBehaviour {
 						if (firstIterationDialog) {
 							other.GetComponent<Rigidbody2D> ().gravityScale = 0;
 						}
+					} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<getOrb>") {
+						currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] = "";
+						if (text != null) {
+							text.text = "";
+						}
+						if (firstIterationDialog) {
+							other.transform.GetChild (1).gameObject.SetActive (false);
+
+							GameObject glblCtrl = other.transform.GetChild (2).gameObject;
+							glblCtrl.SetActive (true);
+							Animator otherAnim = glblCtrl.GetComponent<Animator> ();
+							if (!otherAnim.GetCurrentAnimatorStateInfo (0).IsName ("Etherboy_takes_Orb")) {
+								otherAnim.Play ("Etherboy_takes_Orb", -1, 0f);
+							}
+						}
+					} else if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] == "<doneOrb>") {
+						currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] = "";
+						if (text != null) {
+							text.text = "";
+						}
+						if (firstIterationDialog) {
+							GameObject glblCtrlOld = other.transform.GetChild (1).gameObject;
+							glblCtrlOld.SetActive (true);
+							Animator otherAnimOld = glblCtrlOld.GetComponent<Animator> ();
+							if (!otherAnimOld.GetCurrentAnimatorStateInfo (0).IsName ("Idle")) {
+								otherAnimOld.Play ("Idle", -1, 0f);
+							}
+
+							GameObject glblCtrl = other.transform.GetChild (2).gameObject;
+							Animator otherAnim = glblCtrl.GetComponent<Animator> ();
+							if (!otherAnim.GetCurrentAnimatorStateInfo (0).IsName ("Etherboy_climb")) {
+								otherAnim.Play ("Etherboy_climb", -1, 0f);
+							}
+							glblCtrl.SetActive (false);
+						}
 					}
 
 					if (currentDialogue.triggeredDialogue.dialogues [currentDialogue.triggeredDialogue.currentDialogue] != "") {
@@ -335,6 +427,9 @@ public class npcSystemClass : MonoBehaviour {
 						if (!otherAnim.GetCurrentAnimatorStateInfo (0).IsName (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue])) {
 							otherAnim.Play (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue], -1, 0f);
 						}
+						if (currentDialogue.triggeredDialogue.playAnimation [currentDialogue.triggeredDialogue.currentDialogue] == "Chaos_picks_scythe") {
+							glblCtrl.transform.GetChild (7).gameObject.SetActive (true);
+						}
 					}
 
 					if (currentDialogue.triggeredDialogue.faceDirection != null && currentDialogue.triggeredDialogue.faceDirection.Length > 0
@@ -343,9 +438,9 @@ public class npcSystemClass : MonoBehaviour {
 						if (globalCtrlTransform != null) {
 							GameObject glblCtrl = globalCtrlTransform.gameObject;
 							if (currentDialogue.triggeredDialogue.faceDirection [currentDialogue.triggeredDialogue.currentDialogue] > 0) {
-								glblCtrl.GetComponent<Puppet2D_GlobalControl> ().flip = true;
+								glblCtrl.GetComponent<Anim_GlobalControl> ().flip = true;
 							} else if (currentDialogue.triggeredDialogue.faceDirection [currentDialogue.triggeredDialogue.currentDialogue] < 0) {
-								glblCtrl.GetComponent<Puppet2D_GlobalControl> ().flip = false;
+								glblCtrl.GetComponent<Anim_GlobalControl> ().flip = false;
 							}
 						}
 					}
@@ -411,9 +506,9 @@ public class npcSystemClass : MonoBehaviour {
 					if (globalCtrlTransform != null) {
 						GameObject glblCtrl = globalCtrlTransform.gameObject;
 						if (currentDialogue.triggeredDialogue.faceDirection [currentDialogue.triggeredDialogue.currentDialogue] > 0) {
-							glblCtrl.GetComponent<Puppet2D_GlobalControl> ().flip = true;
+							glblCtrl.GetComponent<Anim_GlobalControl> ().flip = true;
 						} else if (currentDialogue.triggeredDialogue.faceDirection [currentDialogue.triggeredDialogue.currentDialogue] < 0) {
-							glblCtrl.GetComponent<Puppet2D_GlobalControl> ().flip = false;
+							glblCtrl.GetComponent<Anim_GlobalControl> ().flip = false;
 						}
 					}
 				}
@@ -560,6 +655,11 @@ public class npcSystemClass : MonoBehaviour {
 								indicatorScript.showRewardScreen ();
 							}
 						} else if (currentDialogue.triggeredDialogue.flagsAfterDialogue [0] == "wentToBed2") {
+							GameObject bedSave = GameObject.Find ("interactiveItems");
+							if (bedSave != null) {
+								bedSave = bedSave.transform.GetChild (2).gameObject;
+								bedSave.SetActive (false);
+							}
 							globalScript.currentQuest = 8;
 							globalScript.currentGold += 200;
 							if (indicatorScript != null) {

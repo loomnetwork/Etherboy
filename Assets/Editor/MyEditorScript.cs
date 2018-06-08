@@ -45,7 +45,10 @@ class WebGLBuilder {
 			"Assets/Scenes/darkLevel2/darkPrivateRoom2Scene.unity",
 			"Assets/Scenes/UI/gameOverScene.unity",
 			"Assets/Scenes/UI/uploadedScene.unity",
-			"Assets/Scenes/UI/creditsScene.unity"
+			"Assets/Scenes/UI/creditsScene.unity",
+			"Assets/Scenes/Level1/townLevel1CutScene.unity",
+			"Assets/Scenes/Level1/privateRoomCutScene.unity",
+			"Assets/Scenes/Level1/townLevel1CutScene2.unity",
 		};
 
 		string pathToDeploy = "builds/WebGLversion/";       

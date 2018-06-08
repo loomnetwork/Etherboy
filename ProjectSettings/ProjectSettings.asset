@@ -17,7 +17,7 @@ PlayerSettings:
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
   m_ShowUnitySplashScreen: 1
-  m_ShowUnitySplashLogo: 1
+  m_ShowUnitySplashLogo: 0
   m_SplashScreenOverlayOpacity: 0
   m_SplashScreenAnimation: 0
   m_SplashScreenLogoStyle: 0
@@ -246,8 +246,8 @@ PlayerSettings:
   AndroidTargetDevice: 3
   AndroidSplashScreenScale: 0
   androidSplashScreen: {fileID: 0}
-  AndroidKeystoreName: 
-  AndroidKeyaliasName: 
+  AndroidKeystoreName: /Users/cristianesposito/jennyTest.keystore
+  AndroidKeyaliasName: test
   AndroidTVCompatibility: 1
   AndroidIsGame: 1
   AndroidEnableTango: 0
@@ -557,7 +557,7 @@ PlayerSettings:
     type: 3}
   splashScreenBackgroundSourcePortrait: {fileID: 0}
   spritePackerPolicy: TightRotateEnabledSpritePackerPolicy
-  webGLMemorySize: 256
+  webGLMemorySize: 1024
   webGLExceptionSupport: 1
   webGLNameFilesAsHashes: 0
   webGLDataCaching: 1

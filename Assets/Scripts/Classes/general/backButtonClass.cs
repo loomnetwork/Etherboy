@@ -79,4 +79,15 @@ public class backButtonClass : MonoBehaviour, ITouchable {
 	void Start () {
 		baseScale = transform.localScale;
 	}
+
+	void Update () {
+		#if UNITY_WEBGL
+		if (transform.name == "eSkip") {
+			if (inputBroker.GetButtonDown ("Fire2")) {
+				TouchEnded(new Vector2(0, 0));
+				GetComponent<backButtonClass>().enabled = false;
+			}
+		}
+		#endif
+	}
 }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class magicBoxClass : MonoBehaviour, ITouchable {
 	public Sprite iconActive;
@@ -31,7 +32,6 @@ public class magicBoxClass : MonoBehaviour, ITouchable {
 	private float scale = 0.8f;
 	// Use this for initialization
 	public bool TouchBegan (Vector2 touchPosition) {
-		print ("DONE");
 		GetComponent<Renderer>().material.color = new Color(0.7f, 0.7f, 0.7f);
 		GetComponent<AudioSource> ().Play ();
 		return false;
@@ -77,8 +77,12 @@ public class magicBoxClass : MonoBehaviour, ITouchable {
 		iconRend = transform.GetChild (0).GetChild (0).GetComponent<SpriteRenderer> ();
 		panelRend = transform.GetChild (0).GetComponent<SpriteRenderer> ();
 
+		int valueToCheck = globalScript.currentQuest;
+		if (!SceneManager.GetActiveScene ().name.Contains ("private")) {
+			valueToCheck++;
+		}
 		if (transform.name == "box1") {
-			if (globalScript.currentQuest > 6) {
+			if (valueToCheck > 6) {
 				isActive = true;
 
 				if (globalScript.equippedMagic == "earth") {
@@ -86,7 +90,7 @@ public class magicBoxClass : MonoBehaviour, ITouchable {
 				}
 			}
 		} else if (transform.name == "box2") {
-			if (globalScript.currentQuest > 10) {
+			if (valueToCheck > 10) {
 				isActive = true;
 
 				if (globalScript.equippedMagic == "fire") {
@@ -94,7 +98,7 @@ public class magicBoxClass : MonoBehaviour, ITouchable {
 				}
 			}
 		} else if (transform.name == "box3") {
-			if (globalScript.currentQuest > 14) {
+			if (valueToCheck > 14) {
 				isActive = true;
 
 				if (globalScript.equippedMagic == "ice") {
@@ -102,7 +106,7 @@ public class magicBoxClass : MonoBehaviour, ITouchable {
 				}
 			}
 		} else if (transform.name == "box4") {
-			if (globalScript.currentQuest > 17) {
+			if (valueToCheck > 17) {
 				isActive = true;
 
 				if (globalScript.equippedMagic == "air") {
@@ -129,6 +133,7 @@ public class magicBoxClass : MonoBehaviour, ITouchable {
 			buttonText.transform.parent.gameObject.SetActive (false);
 			panelRend.sprite = panelInactive;
 			iconRend.sprite = iconInactive;
+			gameObject.SetActive (false);
 		}
 	}
 }

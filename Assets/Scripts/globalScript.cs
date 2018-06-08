@@ -89,6 +89,7 @@ public class globalScript : MonoBehaviour {
 	public static float magicTimer;
 
 	public static int startingOrderEnemies;
+	public static int startingOrderNPCs;
 
 	public static float shakeScreenTime;
 	public static GameObject groupToShake;
@@ -144,14 +145,37 @@ public class globalScript : MonoBehaviour {
 		}
 
 		startingOrderEnemies = 0;
+		startingOrderNPCs = 0;
 
 		if (fader != null) {
 			fader.SetActive (true);
+			fader.transform.position = new Vector2(Camera.main.transform.position.x, Camera.main.transform.position.y);
+			AudioSource music = Camera.main.GetComponent<AudioSource> ();
+			print (music);
+			if (music != null) {
+				LeanTween.value (1, 0, 0.25f).setOnUpdate ((float value) => {
+					if (PlayerPrefs.GetInt ("volumeMusic") == 0) {
+						if (music != null) {
+							music.volume = value;
+						}
+					}
+				});
+			}
 			LeanTween.alpha (fader, 1, 0.25f).setOnComplete (() => {
 				SceneManager.LoadScene (sceneName);
 				if (sceneName != "gameOverScene" && sceneName != "menuScene") {
 					LeanTween.value(0, 1, 1.5f).setOnComplete(()=>{
 						globalScript.saveGame();
+					});
+				}
+				AudioSource music2 = Camera.main.GetComponent<AudioSource> ();
+				if (music2 != null) {
+					LeanTween.value (0, 1, 0.25f).setOnUpdate ((float value) => {
+						if (PlayerPrefs.GetInt ("volumeMusic") == 0) {
+							if (music2 != null) {
+								music2.volume = value;
+							}
+						}
 					});
 				}
 				LeanTween.alpha(fader, 0, 0.25f).setOnComplete (() => {
@@ -346,14 +370,15 @@ public class globalScript : MonoBehaviour {
 		bow1Purchased = true;
 		sword1Purchased = true;
 
-		currentQuest = 17;
+		currentQuest = 19;
 		questStep = 0;
 
 		magicTimer = 0;
 
-		fader = GameObject.Find ("fader");
+		fader = GameObject.Find ("faderBase");
 
 		if (fader != null) {
+			fader.name = "fader";
 			Object.DontDestroyOnLoad (fader);
 			fader.SetActive (false);
 		}
@@ -361,12 +386,14 @@ public class globalScript : MonoBehaviour {
 		GameObject userInterface = GameObject.Find ("UserInterface");
 
 		if (userInterface != null) {
+			userInterface.name = "UserInterfaceFound";
 			Object.DontDestroyOnLoad (userInterface);
 		}
 
 		GameObject talkGroup = GameObject.Find ("talkGroup");
 
 		if (talkGroup != null) {
+			talkGroup.name = "talkGroupFound";
 			Object.DontDestroyOnLoad (talkGroup);
 		}
 

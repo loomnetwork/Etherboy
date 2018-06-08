@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Linq;
-using Puppet2D;
+using Anim_Sys;
 
 public class characterClass : MonoBehaviour {
 	public SpriteRenderer keepRendInBounds;
@@ -34,7 +34,7 @@ public class characterClass : MonoBehaviour {
 	private float movSpeedX;
 	private float movSpeedY;
 
-	private Puppet2D_GlobalControl characterAnimScript;
+	private Anim_GlobalControl characterAnimScript;
 	private Animator characterAnimator;
 	private float attackTime; 
 	private float magicTime;
@@ -59,7 +59,7 @@ public class characterClass : MonoBehaviour {
 	private GameObject rock;
 	private GameObject explosion;
 
-	private AudioSource[] audioSFX;
+	private AudioSource[] audioSFX; //10 is run
 
 	void Awake () {
 		AssetsCheck ();
@@ -107,7 +107,7 @@ public class characterClass : MonoBehaviour {
 		rock = transform.GetChild(1).Find ("rock").gameObject;
 		explosion = transform.GetChild (1).Find ("fireExplosion").gameObject;
 
-		characterAnimScript = transform.GetChild (1).GetComponent<Puppet2D_GlobalControl> ();
+		characterAnimScript = transform.GetChild (1).GetComponent<Anim_GlobalControl> ();
 		characterAnimator = transform.GetChild (1).GetComponent<Animator> ();
 
 		ropeAnimator = transform.GetChild (2).GetComponent<Animator> ();
@@ -143,6 +143,18 @@ public class characterClass : MonoBehaviour {
 		if (globalScript.gameState == "paused") {
 			return;
 		}
+
+		/*
+		if (characterAnimator.GetCurrentAnimatorStateInfo (0).IsName ("Running")) {
+			if (!audioSFX [10].isPlaying) {
+				audioSFX [10].Play ();
+			}
+		} else {
+			if (audioSFX [10].isPlaying) {
+				audioSFX [10].Stop ();
+			}
+		}
+		*/
 
 		if (state == "normal") {
 			Vector2 currPos = transform.localPosition;

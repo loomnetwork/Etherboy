@@ -7,7 +7,9 @@
             "Ohh, nice! an ice shard floating in this orb",
 			"",
 			"",
+			"<getOrb>",
 			"",
+			"<doneOrb>",
 			"To the temple of NODE!"
         ],
         "timeInBetween":[
@@ -15,7 +17,9 @@
 			2,
 			1,
 			0.1,
+			0,
 			1,
+			0,
 			2
         ],
 		"playSounds":[
@@ -23,7 +27,9 @@
 			"",
 			"",
 			"",
+			"",
 			"SFX/EBW_AUD_Etherboy_Takes_Orb_F1_EXP",
+			"",
 			""
 		],
 		"forOther":[
@@ -31,13 +37,17 @@
 			"etherBoy",
 			"etherBoy",
 			"etherBoy",
+			"etherBoy",
 			"",
+			"etherBoy",
 			"etherBoy"
 		],
 		"newPosition":[
 			"-1/separate/0",
 			"",
 			"0.1/separate/0",
+			"",
+			"",
 			"",
 			"",
 			""
@@ -47,7 +57,9 @@
 			"Idle",
 			"Running",
 			"Idle",
+			"",
 			"Shrink",
+			"",
 			""
 		],
 		"faceDirection":[
@@ -57,6 +69,8 @@
 		"skippable":[
 			false,
 			true,
+			false,
+			false,
 			false,
 			false,
 			false,

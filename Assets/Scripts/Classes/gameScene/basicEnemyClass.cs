@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Puppet2D;
+using Anim_Sys;
 
 public class basicEnemyClass : MonoBehaviour, IEnemy {
 	public Collider2D assignedPlatform;
@@ -16,7 +16,7 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 	private string state;
 	private float hitTime;
 	private float attackTime;
-	private Puppet2D_GlobalControl thisPuppetControl;
+	private Anim_GlobalControl thisPuppetControl;
 	private Rigidbody2D thisBody;
 	private ContactFilter2D thisContact;
 
@@ -81,7 +81,7 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 		basePosition = transform.localPosition;
 		thisAnimator = transform.GetChild(0).GetComponent<Animator> ();
 		thisBody = GetComponent<Rigidbody2D> ();
-		thisPuppetControl = transform.GetChild(0).GetComponent<Puppet2D_GlobalControl> ();
+		thisPuppetControl = transform.GetChild(0).GetComponent<Anim_GlobalControl> ();
 
 		state = "normal";
 
@@ -344,6 +344,8 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 			} else if (attackTime > 0.7f) {
 				if (transform.name == "snail") {
 					thisBody.velocity = new Vector2 (0, thisBody.velocity.y);
+				} else if (transform.name == "cactus") {
+					thisBody.velocity = new Vector2 (0, thisBody.velocity.y);
 				}
 			} else if (attackTime > 0.5f) {
 				if (transform.name == "leaf") {
@@ -365,6 +367,12 @@ public class basicEnemyClass : MonoBehaviour, IEnemy {
 						thisBody.velocity = new Vector2 (2, thisBody.velocity.y);
 					} else {
 						thisBody.velocity = new Vector2 (-2, thisBody.velocity.y);
+					}
+				} else if (transform.name == "cactus") {
+					if (getFaceDirection ()) {
+						thisBody.velocity = new Vector2 (3, thisBody.velocity.y);
+					} else {
+						thisBody.velocity = new Vector2 (-3, thisBody.velocity.y);
 					}
 				}
 			}

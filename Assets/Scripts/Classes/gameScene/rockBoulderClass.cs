@@ -11,10 +11,21 @@ public class rockBoulderClass : MonoBehaviour {
 	void Start () {
 		audioSFX = gameObject.AddComponent<AudioSource> ();
 		audioSFX.clip = Resources.Load<AudioClip> ("SFX/Etherboy/EBW_AUD_Etherboy_Haduken_Earth_Impact_F1_EXP");
+		LeanTween.value (0, 1, 3.5f).setOnComplete (() => {
+			for (int i = 0; i < stones.Length; i++) {
+				if (stones [i] != null) {
+					LeanTween.alpha (stones [i], 0, 0.25f).destroyOnComplete = true;
+				}
+			}
+			stones = null;
+			LeanTween.alpha (gameObject, 0, 0.25f).destroyOnComplete = true;
+			GetComponent<rockBoulderClass> ().enabled = false;
+		});
 	}
 
 	// Update is called once per frame
 	void Update () {
+		/*
 		timer += Time.deltaTime;
 
 		if (timer > 3.5f) {
@@ -27,6 +38,7 @@ public class rockBoulderClass : MonoBehaviour {
 			LeanTween.alpha (gameObject, 0, 0.25f).destroyOnComplete = true;
 			GetComponent<rockBoulderClass> ().enabled = false;
 		}
+		*/
 	}
 
 	void OnCollisionEnter2D (Collision2D collision) {

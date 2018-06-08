@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using Puppet2D;
+using Anim_Sys;
 
 public class markerClass : MonoBehaviour {
 
@@ -61,17 +61,47 @@ public class markerClass : MonoBehaviour {
 				GameObject NPC = neededObjectives [0];
 				if (globalScript.gameState != "isTalking") {
 					GameObject Steve = neededObjectives [3];
-					Steve.SetActive (true);
-					Steve.transform.localPosition = new Vector2 (NPC.transform.localPosition.x - 1, NPC.transform.localPosition.y - 0.2f);
-					globalScript.gameState = "isTalking";
-					LeanTween.value (0, 1, 0.5f).setOnComplete (() => {
-						NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
-					});
+					if (Steve.activeSelf != true) {
+						Steve.SetActive (true);
+						Steve.transform.localPosition = new Vector2 (NPC.transform.localPosition.x - 1, NPC.transform.localPosition.y - 0.2f);
+						GameObject Villain1 = neededObjectives [5];
+						Villain1.SetActive (true);
+						Villain1.transform.localPosition = new Vector2 (NPC.transform.localPosition.x + 1, NPC.transform.localPosition.y - 0.2f);
+						GameObject Villain2 = neededObjectives [6];
+						Villain2.SetActive (true);
+						Villain2.transform.localPosition = new Vector2 (NPC.transform.localPosition.x + 2, NPC.transform.localPosition.y - 0.2f);
+						GameObject Villain3 = neededObjectives [8];
+						Villain3.SetActive (true);
+						Villain3.transform.localPosition = new Vector2 (NPC.transform.localPosition.x + 3, NPC.transform.localPosition.y - 0.2f);
+						GameObject Villain4 = neededObjectives [9];
+						Villain4.SetActive (true);
+						Villain4.transform.localPosition = new Vector2 (NPC.transform.localPosition.x - 2, NPC.transform.localPosition.y - 0.2f);
+						GameObject Villain5 = neededObjectives [10];
+						Villain5.SetActive (true);
+						Villain5.transform.localPosition = new Vector2 (NPC.transform.localPosition.x - 3, NPC.transform.localPosition.y - 0.2f);
+					}
+
+					GameObject Character = neededObjectives [7];
+					if (Character.transform.localPosition.x > -16) {
+						globalScript.gameState = "isTalking";
+						LeanTween.value (0, 1, 0).setOnComplete (() => {
+							NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+						});
+					}
 				}
-				found = false;
+				objectivePoint = NPC.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.15f;
+
+				unalteredPoint = NPC.transform.position;
 			} else if (globalScript.currentQuest == 3) {
 				if (neededObjectives [3].activeSelf) {
 					neededObjectives [3].SetActive (false);
+					neededObjectives [5].SetActive (false);
+					neededObjectives [6].SetActive (false);
+					neededObjectives [8].SetActive (false);
+					neededObjectives [9].SetActive (false);
+					neededObjectives [10].SetActive (false);
 				}
 				GameObject NPC = neededObjectives [4];
 				objectivePoint = NPC.transform.position;
@@ -243,15 +273,48 @@ public class markerClass : MonoBehaviour {
 				GameObject NPC = neededObjectives [0];
 				if (globalScript.gameState != "isTalking") {
 					GameObject Steve = neededObjectives [3];
-					Steve.SetActive (true);
-					Steve.transform.localPosition = new Vector2 (NPC.transform.localPosition.x - 1, NPC.transform.localPosition.y - 0.2f);
-					globalScript.gameState = "isTalking";
-					LeanTween.value (0, 1, 0.5f).setOnComplete (() => {
-						NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
-					});
+					if (Steve.activeSelf != true) {
+						Steve.SetActive (true);
+						Steve.transform.localPosition = new Vector2 (NPC.transform.localPosition.x - 1, NPC.transform.localPosition.y - 0.2f);
+						GameObject Villain1 = neededObjectives [6];
+						Villain1.SetActive (true);
+						Villain1.transform.localPosition = new Vector2 (NPC.transform.localPosition.x + 1, NPC.transform.localPosition.y - 0.2f);
+						GameObject Villain2 = neededObjectives [7];
+						Villain2.SetActive (true);
+						Villain2.transform.localPosition = new Vector2 (NPC.transform.localPosition.x + 2, NPC.transform.localPosition.y - 0.2f);
+						GameObject Villain3 = neededObjectives [8];
+						Villain3.SetActive (true);
+						Villain3.transform.localPosition = new Vector2 (NPC.transform.localPosition.x + 3, NPC.transform.localPosition.y - 0.2f);
+						GameObject Villain4 = neededObjectives [9];
+						Villain4.SetActive (true);
+						Villain4.transform.localPosition = new Vector2 (NPC.transform.localPosition.x - 2, NPC.transform.localPosition.y - 0.2f);
+						GameObject Villain5 = neededObjectives [10];
+						Villain5.SetActive (true);
+						Villain5.transform.localPosition = new Vector2 (NPC.transform.localPosition.x - 3, NPC.transform.localPosition.y - 0.2f);
+					}
+
+					GameObject Character = neededObjectives [5];
+					if (Character.transform.localPosition.x > -19.5f) {
+						globalScript.gameState = "isTalking";
+						LeanTween.value (0, 1, 0).setOnComplete (() => {
+							NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+						});
+					}
 				}
-				found = false;
+				objectivePoint = NPC.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.15f;
+
+				unalteredPoint = NPC.transform.position;
 			} else if (globalScript.currentQuest == 7) {
+				if (neededObjectives [3].activeSelf) {
+					neededObjectives [3].SetActive (false);
+					neededObjectives [6].SetActive (false);
+					neededObjectives [7].SetActive (false);
+					neededObjectives [8].SetActive (false);
+					neededObjectives [9].SetActive (false);
+					neededObjectives [10].SetActive (false);
+				}
 				GameObject door = neededObjectives [4];
 				objectivePoint = door.transform.position;
 				objectivePoint.y += 2f;
@@ -291,11 +354,21 @@ public class markerClass : MonoBehaviour {
 			if (globalScript.currentQuest == 7) {
 				GameObject NPC = neededObjectives [0];
 				if (globalScript.gameState != "isTalking") {
-					globalScript.gameState = "isTalking";
-					NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+					GameObject character = neededObjectives [2];
+					if (character.transform.localPosition.x > 3.56f) {
+						globalScript.gameState = "isTalking";
+						NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+					}
 				}
-				found = false;
+				GameObject bed = neededObjectives [3];
+				bed.SetActive (false);
+				objectivePoint = bed.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0;
+				unalteredPoint = bed.transform.position;
 			} else {
+				GameObject bed = neededObjectives [3];
+				bed.SetActive (true);
 				GameObject door = neededObjectives [1];
 				objectivePoint = door.transform.position;
 				objectivePoint.y += 2f;
@@ -339,16 +412,48 @@ public class markerClass : MonoBehaviour {
 				GameObject NPC = neededObjectives [0];
 				if (globalScript.gameState != "isTalking") {
 					GameObject Steve = neededObjectives [3];
-					Steve.SetActive (true);
-					Steve.transform.localPosition = new Vector2 (NPC.transform.localPosition.x - 1, NPC.transform.localPosition.y - 0.2f);
-					globalScript.gameState = "isTalking";
-					LeanTween.value (0, 1, 0.5f).setOnComplete (() => {
-						NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
-					});
+					if (Steve.activeSelf != true) {
+						Steve.SetActive (true);
+						Steve.transform.localPosition = new Vector2 (NPC.transform.localPosition.x - 1, NPC.transform.localPosition.y - 0.2f);
+						GameObject Villain1 = neededObjectives [4];
+						Villain1.SetActive (true);
+						Villain1.transform.localPosition = new Vector2 (NPC.transform.localPosition.x + 1, NPC.transform.localPosition.y - 0.2f);
+						GameObject Villain2 = neededObjectives [5];
+						Villain2.SetActive (true);
+						Villain2.transform.localPosition = new Vector2 (NPC.transform.localPosition.x + 2, NPC.transform.localPosition.y - 0.2f);
+						GameObject Villain3 = neededObjectives [6];
+						Villain3.SetActive (true);
+						Villain3.transform.localPosition = new Vector2 (NPC.transform.localPosition.x + 3, NPC.transform.localPosition.y - 0.2f);
+						GameObject Villain4 = neededObjectives [7];
+						Villain4.SetActive (true);
+						Villain4.transform.localPosition = new Vector2 (NPC.transform.localPosition.x - 2, NPC.transform.localPosition.y - 0.2f);
+						GameObject Villain5 = neededObjectives [8];
+						Villain5.SetActive (true);
+						Villain5.transform.localPosition = new Vector2 (NPC.transform.localPosition.x - 3, NPC.transform.localPosition.y - 0.2f);
+					}
+
+					GameObject Character = neededObjectives [9];
+					if (Character.transform.localPosition.x > -18) {
+						globalScript.gameState = "isTalking";
+						LeanTween.value (0, 1, 0f).setOnComplete (() => {
+							NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+						});
+					}
 				}
-				found = false;
+				objectivePoint = NPC.transform.position;
+				objectivePoint.y += 2f;
+				objectivePoint.x += 0.15f;
+
+				unalteredPoint = NPC.transform.position;
 			} else if (globalScript.currentQuest == 11) {
-				neededObjectives [3].SetActive (false);
+				if (neededObjectives [3].activeSelf) {
+					neededObjectives [3].SetActive (false);
+					neededObjectives [4].SetActive (false);
+					neededObjectives [5].SetActive (false);
+					neededObjectives [6].SetActive (false);
+					neededObjectives [7].SetActive (false);
+					neededObjectives [8].SetActive (false);
+				}
 				GameObject NPC = neededObjectives [0];
 				objectivePoint = NPC.transform.position;
 				objectivePoint.y += 2f;
@@ -448,6 +553,16 @@ public class markerClass : MonoBehaviour {
 				objectivePoint.x += 0.15f;
 
 				unalteredPoint = NPC.transform.position;
+
+				if (globalScript.gameState != "isTalking") {
+					GameObject Character = neededObjectives [4];
+					if (Character.transform.position.x < NPC.transform.position.x + 5) {
+						globalScript.gameState = "isTalking";
+						LeanTween.value (0, 1, 0).setOnComplete (() => {
+							NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+						});
+					}
+				}
 			} else {
 				GameObject door = neededObjectives [0];
 				objectivePoint = door.transform.position;
@@ -468,7 +583,7 @@ public class markerClass : MonoBehaviour {
 							if (!elderAnim.GetCurrentAnimatorStateInfo (0).IsName ("Haduken2")) {
 								elderAnim.Play ("Haduken2", -1, 0f);
 							}
-							neededObjectives [1].transform.GetChild (1).GetComponent<Puppet2D_GlobalControl> ().flip = true;
+							neededObjectives [1].transform.GetChild (1).GetComponent<Anim_GlobalControl> ().flip = true;
 							neededObjectives [3].transform.GetChild (1).gameObject.SetActive (true);
 							Vector2 currPos = neededObjectives [3].transform.localPosition;
 							currPos.x -= 14;
@@ -492,6 +607,20 @@ public class markerClass : MonoBehaviour {
 			objectivePoint.x += 1f;
 
 			unalteredPoint = door.transform.position;
+		} else if (SceneManager.GetActiveScene ().name == "darkForestLevel2Scene") {
+			GameObject door = neededObjectives [1];
+			objectivePoint = door.transform.position;
+			objectivePoint.y += 3f;
+			objectivePoint.x += 1f;
+
+			unalteredPoint = door.transform.position;
+		} else if (SceneManager.GetActiveScene ().name == "darkForestLevel1Scene") {
+			GameObject door = neededObjectives [0];
+			objectivePoint = door.transform.position;
+			objectivePoint.y += 3f;
+			objectivePoint.x += 1f;
+
+			unalteredPoint = door.transform.position;
 		} else if (SceneManager.GetActiveScene ().name == "darkTownLevel2Scene") {
 			if (globalScript.currentQuest == 18) {
 				GameObject NPC = neededObjectives [0];
@@ -500,6 +629,16 @@ public class markerClass : MonoBehaviour {
 				objectivePoint.x += 0.15f;
 
 				unalteredPoint = NPC.transform.position;
+
+				if (globalScript.gameState != "isTalking") {
+					GameObject Character = neededObjectives [4];
+					if (Character.transform.position.x < NPC.transform.position.x + 5) {
+						globalScript.gameState = "isTalking";
+						LeanTween.value (0, 1, 0).setOnComplete (() => {
+							NPC.GetComponent<npcSystemClass> ().activateTriggeredManually = true;
+						});
+					}
+				}
 			} else {
 				GameObject door = neededObjectives [1];
 				objectivePoint = door.transform.position;
@@ -528,6 +667,13 @@ public class markerClass : MonoBehaviour {
 					}
 				}
 			}
+		} else if (SceneManager.GetActiveScene ().name == "darkTownLevel1Scene") {
+			GameObject NPC = neededObjectives [0];
+			objectivePoint = NPC.transform.position;
+			objectivePoint.y += 2f;
+			objectivePoint.x += 0.15f;
+
+			unalteredPoint = NPC.transform.position;
 		} else {
 			found = false;
 		}

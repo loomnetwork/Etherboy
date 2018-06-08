@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class pressedButtonClass : MonoBehaviour, ITouchableMultiTouch {
 	public string key;
+	public Sprite normalSprite;
+	public Sprite pressedSprite;
+	public bool useSprites;
+
+	private SpriteRenderer thisRend;
+
 	private bool mustFocus = true;
 
 	public bool MustFocus {
@@ -23,6 +29,10 @@ public class pressedButtonClass : MonoBehaviour, ITouchableMultiTouch {
 		transform.localScale = new Vector2 (scale, scale);
 		inputBroker.setKey (key, 1);
 
+		if (useSprites) {
+			thisRend.sprite = pressedSprite;
+		}
+
 		if (transform.name == "attackButton") {
 			inputBroker.setKey ("Fire2", 1);
 		}
@@ -40,6 +50,10 @@ public class pressedButtonClass : MonoBehaviour, ITouchableMultiTouch {
 		transform.localScale = baseScale;
 		inputBroker.setKey (key, 0);
 
+		if (useSprites) {
+			thisRend.sprite = normalSprite;
+		}
+
 		if (transform.name == "attackButton") {
 			inputBroker.setKey ("Fire2", 0);
 		}
@@ -47,6 +61,7 @@ public class pressedButtonClass : MonoBehaviour, ITouchableMultiTouch {
 	}
 
 	void Start () {
+		thisRend = GetComponent<SpriteRenderer> ();
 		baseScale = transform.localScale;
 	}
 }
