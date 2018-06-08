@@ -33,7 +33,7 @@ public class SampleState {
 }
 
 public class globalScript : MonoBehaviour {
-	public static bool useBackend = false;
+	public static bool useBackend = true;
 
 	public string androidMoreGamesURL;
 	public string iosMoreGamesURL;
