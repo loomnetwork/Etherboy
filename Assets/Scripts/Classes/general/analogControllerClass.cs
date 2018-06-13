@@ -6,6 +6,10 @@ public class analogControllerClass : MonoBehaviour, ITouchableMultiTouch {
 	public GameObject middleAnalog;
 	public GameObject innerAnalog;
 
+	public SpriteRenderer activeButton;
+	public Sprite doorSprite;
+	public Sprite doorSprite2;
+
 	private bool mustFocus = true;
 
 	public bool MustFocus {
@@ -69,13 +73,17 @@ public class analogControllerClass : MonoBehaviour, ITouchableMultiTouch {
 
 		if (angleDeg >= 315 || angleDeg < 45) {
 			inputBroker.setAxis ("Horizontal", 0);
-			inputBroker.setAxis ("Vertical", -1);
+			if (!(activeButton.sprite == doorSprite || activeButton.sprite == doorSprite2)) {
+				inputBroker.setAxis ("Vertical", -1);
+			}
 		} else if (angleDeg >= 45 && angleDeg < 135) {
 			inputBroker.setAxis ("Horizontal", -1);
 			inputBroker.setAxis ("Vertical", 0);
 		} else if (angleDeg >= 135 && angleDeg < 225) {
 			inputBroker.setAxis ("Horizontal", 0);
-			inputBroker.setAxis ("Vertical", 1);
+			if (!(activeButton.sprite == doorSprite || activeButton.sprite == doorSprite2)) {
+				inputBroker.setAxis ("Vertical", 1);
+			}
 		} else if (angleDeg >= 225 && angleDeg < 315) {
 			inputBroker.setAxis ("Horizontal", 1);
 			inputBroker.setAxis ("Vertical", 0);
